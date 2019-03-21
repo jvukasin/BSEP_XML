@@ -1,59 +1,39 @@
-package com.xmlbesp.MegaTravelPKI.model;
+package com.xmlbesp.MegaTravelPKI.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.xmlbesp.MegaTravelPKI.model.Certificate;
 
+public class CertificateDTO {
 
-@Entity
-public class Certificate {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column(name="serialNumber",nullable = false)
 	private String serialNumber;
-
-	@Column(name="idIssuer",nullable = false)
 	private Long idIssuer;
-	
-	@Column(name="idSubject",nullable = false)
 	private Long idSubject;
-	
-	@Column(name="startDate",nullable = false)
 	private Date startDate;
-	
-	@Column(name="endDate",nullable = false)
 	private Date endDate;
-	
-	@Column
 	private boolean revoked;
-	
-	@Column
 	private boolean ca;
-	
-	@Column(name="reasonForRevocation",nullable = false)
 	private String reasonForRevocation;
-
-	public Certificate() {
-
+	
+	public CertificateDTO() {
+		
 	}
-
-	public Certificate(String serialNumber, Long idIssuer, Long idSubject, Date startDate, Date endDate, boolean revoked, boolean ca, String reasonForRevocation) {
-		super();
-		this.serialNumber = serialNumber;
+	
+	public CertificateDTO(Certificate c) {
+		this(c.getId(), c.getSerialNumber(), c.getIdIssuer(), c.getIdSubject(), c.getStartDate(), c.getEndDate(), c.isRevoked(), c.isCa(), c.getReasonForRevocation());
+	}
+	
+	public CertificateDTO(Long id, String serNo, Long idIssuer, Long idSubject, Date startDate, Date endDate, boolean revoked, boolean ca, String reason) {
+		this.id = id;
+		this.serialNumber = serNo;
 		this.idIssuer = idIssuer;
 		this.idSubject = idSubject;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.revoked = revoked;
 		this.ca = ca;
-		this.reasonForRevocation = reasonForRevocation;
+		this.reasonForRevocation = reason;
 	}
 
 	public Long getId() {
@@ -112,14 +92,6 @@ public class Certificate {
 		this.revoked = revoked;
 	}
 
-	public String getReasonForRevocation() {
-		return reasonForRevocation;
-	}
-
-	public void setReasonForRevocation(String reasonForRevocation) {
-		this.reasonForRevocation = reasonForRevocation;
-	}
-
 	public boolean isCa() {
 		return ca;
 	}
@@ -127,4 +99,14 @@ public class Certificate {
 	public void setCa(boolean ca) {
 		this.ca = ca;
 	}
+
+	public String getReasonForRevocation() {
+		return reasonForRevocation;
+	}
+
+	public void setReasonForRevocation(String reasonForRevocation) {
+		this.reasonForRevocation = reasonForRevocation;
+	}
+	
+	
 }

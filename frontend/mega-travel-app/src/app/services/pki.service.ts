@@ -10,6 +10,14 @@ export class PkiService {
     }
 
     getCertificates() {
-        return this.http.get("/api/certificate/all");
+        return this.http.get("http://localhost:8080/certificate/all");
+    }
+
+    getSelfSignedCert() {
+        return this.http.get("http://localhost:8080/certificate/selfSigned");
+    }
+
+    generateSelfSigned(id, cert) {
+        return this.http.post("http://localhost:8080/certificate/generateSelfSigned/" + id, cert);
     }
 }
