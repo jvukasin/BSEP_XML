@@ -2,13 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PKIComponent } from './pki/pki.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PKIComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
