@@ -1,18 +1,36 @@
 <div class="container">
   <div class="row">
-    <h2 style="margin-top: 15px; margin-bottom: 15px;">List of all the certificates:</h2>
-    <div style="margin-left: 500px; margin-top: 15px;">
-      <button class="btn btn-primary">Add certificate</button>
-    </div>
+    <h2 style="margin-top: 15px; margin-bottom: 15px;">List of all applications:</h2>
   </div>
   <div class="row">
     <table class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">A</th>
-          <th scope="col">B</th>
-          <th scope="col">C</th>
+          <th scope="col">Application</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sf of softveri">
+          <th scope="row">{{sf.id}}</th>
+          <td>{{sf.name}}</td>
+          <td *ngIf="!sf.certified"><button class="btn btn-info">Add certificate</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <h2 style="margin-top: 15px; margin-bottom: 15px;">List of all the certificates/certified software:</h2>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Software</th>
+          <th scope="col">Start date</th>
+          <th scope="col">End date</th>
+          <th scope="col">Revoked</th>
+          <th scope="col">Reason</th>
         </tr>
       </thead>
       <tbody>
@@ -20,19 +38,9 @@
           <th scope="row">1</th>
           <td>Mark</td>
           <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
+          <td>/</td>
+          <td>/</td>
+          <td>/</td>
         </tr>
       </tbody>
     </table>
