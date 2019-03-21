@@ -1,11 +1,30 @@
 <div class="container">
   <div class="row">
-    <h2 style="margin-top: 15px; margin-bottom: 15px;">List of all the certificates:</h2>
+    <h2 style="margin-top: 15px; margin-bottom: 15px;">List of all applications:</h2>
     <div style="margin-left: 500px; margin-top: 15px;">
       <button class="btn btn-primary">Add certificate</button>
     </div>
   </div>
   <div class="row">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Application</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sf of softveri">
+          <th scope="row">{{sf.id}}</th>
+          <td>{{sf.name}}</td>
+          <td *ngIf="!sf.certificate"><button class="btn">Add certificate</button>></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <h2 style="margin-top: 15px; margin-bottom: 15px;">List of all the certificates:</h2>
     <table class="table">
       <thead class="thead-dark">
         <tr>
