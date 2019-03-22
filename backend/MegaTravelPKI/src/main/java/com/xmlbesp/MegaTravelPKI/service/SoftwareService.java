@@ -21,5 +21,9 @@ public class SoftwareService {
 	public List<Software> findAll() {
 		return softRepo.findAll();
 	}
+	
+	public Software save(Software soft) {
+		return softRepo.save(soft);
+	}
 
 }

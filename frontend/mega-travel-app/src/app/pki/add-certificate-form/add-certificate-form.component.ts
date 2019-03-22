@@ -3,18 +3,19 @@ import { NgForm } from '@angular/forms';
 import { PkiService } from 'src/app/services/pki.service';
 
 @Component({
-  selector: 'app-certificate-form',
-  templateUrl: './certificate-form.component.html',
-  styleUrls: ['./certificate-form.component.css']
+  selector: 'app-add-certificate-form',
+  templateUrl: './add-certificate-form.component.html',
+  styleUrls: ['./add-certificate-form.component.css']
 })
-export class CertificateFormComponent implements OnInit {
+export class AddCertificateFormComponent implements OnInit {
 
-  @Output() certificateSubmit = new EventEmitter();
+  @Output() certificateAdd = new EventEmitter();
+  @Input() softId;
 
   startDate: string;
   endDate: string;
   selfSigned: any;
-
+  
   constructor(private pkiService: PkiService) { }
 
   ngOnInit() {
@@ -26,9 +27,9 @@ export class CertificateFormComponent implements OnInit {
       endDate: new Date(this.endDate),
     }
 
-    this.pkiService.generateSelfSigned(subjectDataDTO).subscribe(
+    this.pkiService.generateCertificate(this.softId, subjectDataDTO).subscribe(
       (response) => {
-        this.certificateSubmit.emit(response);
+        this.certificateAdd.emit(response);
       },
       (error) => {alert("ERROR! something went wrong.")}
     )

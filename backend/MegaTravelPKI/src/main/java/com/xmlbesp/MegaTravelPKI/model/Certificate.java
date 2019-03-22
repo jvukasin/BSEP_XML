@@ -2,11 +2,14 @@ package com.xmlbesp.MegaTravelPKI.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -36,6 +39,9 @@ public class Certificate {
 	
 	@Column(name="reasonForRevocation",nullable = false)
 	private String reasonForRevocation;
+	
+	@OneToOne(mappedBy = "certificate", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Software software;
 
 	public Certificate() {
 
@@ -114,5 +120,13 @@ public class Certificate {
 
 	public void setCa(boolean ca) {
 		this.ca = ca;
+	}
+
+	public Software getSoftware() {
+		return software;
+	}
+
+	public void setSoftware(Software software) {
+		this.software = software;
 	}
 }

@@ -11,9 +11,7 @@ import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -33,15 +31,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xmlbesp.MegaTravelPKI.certificates.CertificateGenerator;
 import com.xmlbesp.MegaTravelPKI.dto.CertificateDTO;
+import com.xmlbesp.MegaTravelPKI.dto.SoftwareDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SubjectDataDTO;
 import com.xmlbesp.MegaTravelPKI.keystores.KeyStoreWriter;
 import com.xmlbesp.MegaTravelPKI.model.AdminPKI;
 import com.xmlbesp.MegaTravelPKI.model.Certificate;
 import com.xmlbesp.MegaTravelPKI.model.IssuerData;
+import com.xmlbesp.MegaTravelPKI.model.Software;
 import com.xmlbesp.MegaTravelPKI.model.SubjectData;
 import com.xmlbesp.MegaTravelPKI.model.User;
 import com.xmlbesp.MegaTravelPKI.service.AdminPKIService;
 import com.xmlbesp.MegaTravelPKI.service.CertificateService;
+import com.xmlbesp.MegaTravelPKI.service.SoftwareService;
 
 
 @RestController
@@ -53,6 +54,9 @@ public class CertificateController {
 	
 	@Autowired
 	AdminPKIService adminPKIService;
+	
+	@Autowired
+	SoftwareService softwareService;
 	
 	private KeyStoreWriter keyStoreWriter;
 	
@@ -92,10 +96,48 @@ public class CertificateController {
 		
 		//ovde vraca javin Certificate objekat, ne nas iz modela
 		java.security.cert.Certificate certificate = createCertificate(subject,issuer,keyPairIssuer.getPublic());
-		String pass = "selfSignPass";
+		String pass = "issuedCertPass";
 		keyStoreWriter.write("selfSignCertificate", keyPairIssuer.getPrivate(), pass.toCharArray(), certificate);
 		
 		return new ResponseEntity<>(new CertificateDTO(cert), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/generateCertificate/{idSub}", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<SoftwareDTO> generateCertificate(@PathVariable("idSub") Long idSubject, @RequestBody SubjectDataDTO subjectDataDTO) throws ParseException
+	{
+		List<AdminPKI> admins = adminPKIService.findAll();
+		//postoji za sada samo jedan admin
+		AdminPKI admin = admins.get(0);
+		
+		Certificate cert = new Certificate(admin.getId(),idSubject,subjectDataDTO.getStartDate(), subjectDataDTO.getEndDate(), false,true,"");
+		cert = certificateService.save(cert);
+		
+		Software soft = softwareService.findOneById(idSubject);
+		
+		SubjectData subjectD = generateSubjectData(cert.getId(),soft,subjectDataDTO.getStartDate(),subjectDataDTO.getEndDate());
+		
+		KeyPair keyPairIssuer = generateKeyPair();
+		IssuerData issuerD = generateIssuerData(keyPairIssuer.getPrivate(), admin);
+		
+		//ovde vraca javin Certificate objekat, ne nas iz modela
+		java.security.cert.Certificate certificate = createCertificate(subjectD, issuerD, keyPairIssuer.getPublic());
+		String pass = "issuedCertPass" + soft.getId();
+		keyStoreWriter.write(pass, subjectD.getPrivateKey() , pass.toCharArray(), certificate);
+		
+		
+		KeyStoreWriter keyStoreWriterModule = new KeyStoreWriter();
+		String alias = soft.getName() + soft.getId();
+		keyStoreWriterModule.loadKeyStore(null, alias.toCharArray());
+		keyStoreWriterModule.saveKeyStore(alias + "KeyStore", alias.toCharArray());
+		String localAlias="myCertificate";
+		
+		keyStoreWriterModule.write(localAlias, subjectD.getPrivateKey(), localAlias.toCharArray(), certificate);
+		
+		soft.setCertified(true);
+		soft.setCertificate(cert);
+		soft = softwareService.save(soft);
+		
+		return new ResponseEntity<>(new SoftwareDTO(soft), HttpStatus.OK);
 	}
 	
 	private SubjectData generateSubjectData(Long certId, Object subject, Date startDate, Date endDate) {
@@ -116,7 +158,9 @@ public class CertificateController {
 		}else if(subject instanceof User) {
 			
 		}else {
-			
+			Software soft = (Software) subject;
+			builder.addRDN(BCStyle.GIVENNAME, soft.getName());
+			builder.addRDN(BCStyle.UID, soft.getId().toString());
 		}
 		
 		//Kreiraju se podaci za sertifikat, sto ukljucuje:
@@ -124,7 +168,7 @@ public class CertificateController {
 	    // - podatke o vlasniku
 	    // - serijski broj sertifikata
 	    // - od kada do kada vazi sertifikat
-	    return new SubjectData(keyPairSubject.getPublic(), builder.build(), serial, startDate, endDate);
+	    return new SubjectData(keyPairSubject.getPublic(), keyPairSubject.getPrivate(), builder.build(), serial, startDate, endDate);
 	}
 	
 	private IssuerData generateIssuerData(PrivateKey privateKey, AdminPKI admin) {
