@@ -1,0 +1,17 @@
+<div class="container"> 
+  <h3>Revoke a certificate</h3>
+  <hr>
+    <form (ngSubmit)="onSubmitCert(f)" #f="ngForm"> 
+      <div class="row">
+        <div class="form-group col">
+          <label>Reason for revocation:</label>
+          <input type="text" class="form-control" required [(ngModel)]="reasonForRevocation" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="row">
+          <div class="form-group col">
+            <button type="submit" class="btn btn-success" [disabled]="!f.valid">Revoke</button>
+          </div>
+      </div>
+    </form>
+</div>

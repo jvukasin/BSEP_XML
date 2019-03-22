@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xmlbesp.MegaTravelPKI.certificates.CertificateGenerator;
 import com.xmlbesp.MegaTravelPKI.dto.CertificateDTO;
+import com.xmlbesp.MegaTravelPKI.dto.RevocationDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SoftwareDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SubjectDataDTO;
 import com.xmlbesp.MegaTravelPKI.keystores.KeyStoreWriter;
@@ -80,7 +81,7 @@ public class CertificateController {
 	
 	@RequestMapping(value = "/generateSelfSigned",method = RequestMethod.POST,consumes = "application/json")
 	public ResponseEntity<CertificateDTO> generateSelfSigned(@RequestBody SubjectDataDTO subjectDataDTO) throws ParseException
-	{
+	{  
 		
 		List<AdminPKI> admins = adminPKIService.findAll();
 		//postoji za sada samo jedan admin
@@ -138,6 +139,24 @@ public class CertificateController {
 		soft = softwareService.save(soft);
 		
 		return new ResponseEntity<>(new SoftwareDTO(soft), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/revokeCertificate", method = RequestMethod.PUT, consumes = "application/json")
+	public ResponseEntity<SoftwareDTO> revokeCertificate(@RequestBody RevocationDTO revocationDTO) throws ParseException
+	{
+		
+		Software software = softwareService.findOneById(revocationDTO.getSubjectId());
+		
+		if (software.isCertified() && software.getCertificate() != null) {
+			software.getCertificate().setRevoked(true);
+			software.getCertificate().setReasonForRevocation(revocationDTO.getReasonForRevocation());
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+		software = softwareService.save(software);
+		
+		return new ResponseEntity<>(new SoftwareDTO(software), HttpStatus.OK);
 	}
 	
 	private SubjectData generateSubjectData(Long certId, Object subject, Date startDate, Date endDate) {

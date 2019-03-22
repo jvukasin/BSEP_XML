@@ -24,4 +24,8 @@ export class PkiService {
     generateCertificate(id, cert) {
         return this.http.post("http://localhost:8080/certificate/generateCertificate/" + id, cert);
     }
+
+    revokeCertificate(revocationDTO) {
+        return this.http.put("http://localhost:8080/certificate/revokeCertificate",  revocationDTO);
+    }
 }
