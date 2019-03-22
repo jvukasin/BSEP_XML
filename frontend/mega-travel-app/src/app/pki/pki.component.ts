@@ -40,7 +40,6 @@ export class PKIComponent implements OnInit {
     alert("Uspsno ste dodali sertifikat");
   }
 
-
   onCloseForm(){
     this.genSelfSign = false;
   }
