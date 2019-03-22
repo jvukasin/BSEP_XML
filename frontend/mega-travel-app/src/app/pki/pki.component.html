@@ -3,10 +3,18 @@
     <div class="form-modal" *ngIf="genSelfSign">
         <div class="modal-content">
           <div class="modal-body">
+            <app-certificate-form (certificateSubmit)="certificateSubmitted($event)"></app-certificate-form>
+          </div>
+        </div>
+      </div>
+    
+      <div class="form-modal" *ngIf="addCertifDialog">
+        <div class="modal-content">
+          <div class="modal-body">
               <button type="button" class="close" (click)="onCloseForm()">
                   <span aria-hidden="true">&times;</span>
               </button>
-            <app-certificate-form (certificateSubmit)="certificateSubmitted($event)"></app-certificate-form>
+            <app-add-certificate-form [softId]="softId" (certificateAdd)="certificateAdded($event)"></app-add-certificate-form>
           </div>
         </div>
       </div>
@@ -27,7 +35,8 @@
         <tr *ngFor="let sf of softveri">
           <th scope="row">{{sf.id}}</th>
           <td>{{sf.name}}</td>
-          <td *ngIf="!sf.certified"><button class="btn btn-info">Add certificate</button></td>
+          <td *ngIf="!sf.certified"><button class="btn btn-info" (click)="onCreateCertificate(sf.id)">Add certificate</button></td>
+          <td *ngIf="sf.certified"><button class="btn btn-info">Revoke certificate</button></td>
         </tr>
       </tbody>
     </table>
@@ -38,7 +47,7 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Software</th>
+          <th scope="col">Application</th>
           <th scope="col">Start date</th>
           <th scope="col">End date</th>
           <th scope="col">Revoked</th>
@@ -46,13 +55,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>/</td>
-          <td>/</td>
-          <td>/</td>
+        <tr *ngFor="let s of softsert">
+          <th scope="row">{{s.id}}</th>
+          <td>{{s.name}}</td>
+          <td>{{s.certificate.startDate}}</td>
+          <td>{{s.certificate.endDate}}</td>
+          <td *ngIf="s.certificate.revoked">Yes</td>
+          <td *ngIf="s.certificate.revoked">{{s.certificate.reasonForRevocation}}</td>
+          <td *ngIf="!s.certificate.revoked">No</td>
+          <td *ngIf="!s.certificate.revoked">/</td>
         </tr>
       </tbody>
     </table>

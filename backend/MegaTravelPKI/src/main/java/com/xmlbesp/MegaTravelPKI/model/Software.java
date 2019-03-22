@@ -1,10 +1,13 @@
 package com.xmlbesp.MegaTravelPKI.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Software {
@@ -18,6 +21,9 @@ public class Software {
 	
 	@Column
 	private boolean certified;
+	
+	@OneToOne
+	private Certificate certificate;
 	
 	public Software() {
 		super();
@@ -50,5 +56,13 @@ public class Software {
 
 	public void setCertified(boolean certified) {
 		this.certified = certified;
+	}
+
+	public Certificate getCertificate() {
+		return certificate;
+	}
+
+	public void setCertificate(Certificate certificate) {
+		this.certificate = certificate;
 	}
 }

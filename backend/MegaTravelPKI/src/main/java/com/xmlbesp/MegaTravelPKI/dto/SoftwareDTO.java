@@ -7,20 +7,22 @@ public class SoftwareDTO {
 	private Long id;
 	private String name;
 	private boolean certified;
+	private CertificateDTO certificate;
 	
 	public SoftwareDTO() {
 		
 	}
 	
 	public SoftwareDTO(Software s) {
-		this(s.getId(), s.getName(), s.isCertified());
+		this(s.getId(), s.getName(), s.isCertified(), new CertificateDTO(s.getCertificate()));
 	}
 	
-	public SoftwareDTO(Long id, String name, boolean certified) {
+	public SoftwareDTO(Long id, String name, boolean certified, CertificateDTO certificate) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.certified = certified;
+		this.certificate = certificate;
 	}
 
 	public Long getId() {
@@ -45,5 +47,13 @@ public class SoftwareDTO {
 
 	public void setCertified(boolean certified) {
 		this.certified = certified;
+	}
+
+	public CertificateDTO getCertificate() {
+		return certificate;
+	}
+
+	public void setCertificate(CertificateDTO certificate) {
+		this.certificate = certificate;
 	}
 }
