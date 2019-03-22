@@ -9,13 +9,15 @@ import { PkiService } from './services/pki.service';
 import { CertificateFormComponent } from './pki/certificate-form/certificate-form.component';
 import { FormsModule } from '@angular/forms';
 import { AddCertificateFormComponent } from './pki/add-certificate-form/add-certificate-form.component';
+import { RevokeCertificateFormComponent } from './pki/revoke-certificate-form/revoke-certificate-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PKIComponent,
     CertificateFormComponent,
-    AddCertificateFormComponent
+    AddCertificateFormComponent,
+    RevokeCertificateFormComponent
   ],
   imports: [
     BrowserModule,

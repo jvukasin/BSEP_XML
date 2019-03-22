@@ -19,6 +19,17 @@
         </div>
       </div>
 
+      <div class="form-modal" *ngIf="revokeCertifDialog">
+        <div class="modal-content">
+          <div class="modal-body">
+              <button type="button" class="close" (click)="onCloseRevokeForm()">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            <app-revoke-certificate-form [softId]="softId" (certificateRevoke)="certificateRevoked($event)"></app-revoke-certificate-form>
+          </div>
+        </div>
+      </div>
+
   <div class="row">
     <h2 style="margin-top: 15px; margin-bottom: 15px;">List of all applications:</h2>
   </div>
@@ -36,7 +47,7 @@
           <th scope="row">{{sf.id}}</th>
           <td>{{sf.name}}</td>
           <td *ngIf="!sf.certified"><button class="btn btn-info" (click)="onCreateCertificate(sf.id)">Add certificate</button></td>
-          <td *ngIf="sf.certified"><button class="btn btn-info">Revoke certificate</button></td>
+          <td *ngIf="sf.certified"><button class="btn btn-info" (click)="onRevokeCertificate(sf.id)">Revoke certificate</button></td>
         </tr>
       </tbody>
     </table>

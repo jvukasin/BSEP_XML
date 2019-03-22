@@ -15,6 +15,8 @@ export class PKIComponent implements OnInit {
   genSelfSign: boolean = false;
   shoFormDialog: boolean = false;
   addCertifDialog: boolean = false;
+  revokeCertifDialog: boolean = false;
+  
   softId: any;
   softsert: any = [];
 
@@ -51,10 +53,6 @@ export class PKIComponent implements OnInit {
     this.genSelfSign = false;
   }
 
-  onCloseForm(){
-    this.addCertifDialog = false;
-  }
-
   certificateAdded(s) {
     alert("SUCCESS! Certificate added.");
     s.certificate.startDate = s.certificate.startDate.split('T')[0];
@@ -65,8 +63,38 @@ export class PKIComponent implements OnInit {
     this.addCertifDialog = false;
   }
 
+  certificateRevoked(s) {
+    alert("SUCCESS! Certificate revoked.")  
+    this.softsert = this.softsert.map(softver => {
+
+      if (softver.id === s.id) {
+        softver.certificate.revoked = true;
+        softver.certificate.reasonForRevocation = s.certificate.reasonForRevocation;
+      }
+
+      return softver;
+
+    });
+
+    this.revokeCertifDialog = false;
+  }
+
+
+  onCloseForm(){
+    this.addCertifDialog = false;
+  }
+
+  onCloseRevokeForm(){
+    this.revokeCertifDialog = false;
+  }
+
   onCreateCertificate(id) {
     this.addCertifDialog = true;
+    this.softId = id;
+  }
+
+  onRevokeCertificate(id) {
+    this.revokeCertifDialog = true;
     this.softId = id;
   }
 }
