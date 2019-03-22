@@ -13,6 +13,7 @@ export class PKIComponent implements OnInit {
   selfSigned: any;
   //boolean za modalni dijalog, kad ga nema(selfSigned sertifikata) odmah se otvori, kad ima nista
   genSelfSign: boolean = false;
+  shoFormDialog: boolean = false;
 
   constructor(private pkiService: PkiService) { }
 
@@ -21,6 +22,7 @@ export class PKIComponent implements OnInit {
       (data) => {
         this.selfSigned = data;
         if(!this.selfSigned) {
+          //ako vrati false, otvori modalni i napravi selfsigned za admina
           this.genSelfSign = true;
         }
       }
@@ -34,7 +36,12 @@ export class PKIComponent implements OnInit {
 
   }
 
-  generateSelfSigned() {
-    
+  certificateSubmitted(response){
+    alert("Uspsno ste dodali sertifikat");
+  }
+
+
+  onCloseForm(){
+    this.genSelfSign = false;
   }
 }

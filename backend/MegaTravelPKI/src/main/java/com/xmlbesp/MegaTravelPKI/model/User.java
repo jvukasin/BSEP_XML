@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class AdminPKI {
+public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +22,7 @@ public class AdminPKI {
 	@Column(name="email", nullable = false)
 	private String email;
 
-	public AdminPKI() {
+	public User() {
 		super();
 	}
 

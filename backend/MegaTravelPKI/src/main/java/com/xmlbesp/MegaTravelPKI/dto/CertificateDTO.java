@@ -7,7 +7,6 @@ import com.xmlbesp.MegaTravelPKI.model.Certificate;
 public class CertificateDTO {
 
 	private Long id;
-	private String serialNumber;
 	private Long idIssuer;
 	private Long idSubject;
 	private Date startDate;
@@ -21,12 +20,11 @@ public class CertificateDTO {
 	}
 	
 	public CertificateDTO(Certificate c) {
-		this(c.getId(), c.getSerialNumber(), c.getIdIssuer(), c.getIdSubject(), c.getStartDate(), c.getEndDate(), c.isRevoked(), c.isCa(), c.getReasonForRevocation());
+		this(c.getId(), c.getIdIssuer(), c.getIdSubject(), c.getStartDate(), c.getEndDate(), c.isRevoked(), c.isCa(), c.getReasonForRevocation());
 	}
 	
-	public CertificateDTO(Long id, String serNo, Long idIssuer, Long idSubject, Date startDate, Date endDate, boolean revoked, boolean ca, String reason) {
+	public CertificateDTO(Long id, Long idIssuer, Long idSubject, Date startDate, Date endDate, boolean revoked, boolean ca, String reason) {
 		this.id = id;
-		this.serialNumber = serNo;
 		this.idIssuer = idIssuer;
 		this.idSubject = idSubject;
 		this.startDate = startDate;
@@ -42,14 +40,6 @@ public class CertificateDTO {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getSerialNumber() {
-		return serialNumber;
-	}
-
-	public void setSerialNumber(String serialNumber) {
-		this.serialNumber = serialNumber;
 	}
 
 	public Long getIdIssuer() {

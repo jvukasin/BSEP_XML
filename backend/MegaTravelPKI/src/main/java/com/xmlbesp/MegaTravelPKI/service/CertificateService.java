@@ -21,4 +21,8 @@ public class CertificateService {
 	public List<Certificate> findAll() {
 		return certRepo.findAll();
 	}
+	
+	public Certificate save(Certificate cert) {
+		return certRepo.save(cert);
+	}
 }

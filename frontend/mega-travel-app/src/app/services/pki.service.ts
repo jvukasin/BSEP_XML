@@ -17,7 +17,7 @@ export class PkiService {
         return this.http.get("http://localhost:8080/certificate/selfSigned");
     }
 
-    generateSelfSigned(id, cert) {
-        return this.http.post("http://localhost:8080/certificate/generateSelfSigned/" + id, cert);
+    generateSelfSigned(cert) {
+        return this.http.post("http://localhost:8080/certificate/generateSelfSigned/", cert);
     }
 }

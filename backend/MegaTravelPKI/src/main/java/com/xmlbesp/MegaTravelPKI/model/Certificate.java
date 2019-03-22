@@ -15,9 +15,6 @@ public class Certificate {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column(name="serialNumber",nullable = false)
-	private String serialNumber;
 
 	@Column(name="idIssuer",nullable = false)
 	private Long idIssuer;
@@ -31,10 +28,10 @@ public class Certificate {
 	@Column(name="endDate",nullable = false)
 	private Date endDate;
 	
-	@Column
+	@Column(name="revoked")
 	private boolean revoked;
 	
-	@Column
+	@Column(name="ca")
 	private boolean ca;
 	
 	@Column(name="reasonForRevocation",nullable = false)
@@ -44,9 +41,8 @@ public class Certificate {
 
 	}
 
-	public Certificate(String serialNumber, Long idIssuer, Long idSubject, Date startDate, Date endDate, boolean revoked, boolean ca, String reasonForRevocation) {
+	public Certificate(Long idIssuer, Long idSubject, Date startDate, Date endDate, boolean revoked, boolean ca, String reasonForRevocation) {
 		super();
-		this.serialNumber = serialNumber;
 		this.idIssuer = idIssuer;
 		this.idSubject = idSubject;
 		this.startDate = startDate;
@@ -62,14 +58,6 @@ public class Certificate {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getSerialNumber() {
-		return serialNumber;
-	}
-
-	public void setSerialNumber(String serialNumber) {
-		this.serialNumber = serialNumber;
 	}
 
 	public Long getIdIssuer() {

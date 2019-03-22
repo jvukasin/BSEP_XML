@@ -1,4 +1,16 @@
 <div class="container">
+
+    <div class="form-modal" *ngIf="genSelfSign">
+        <div class="modal-content">
+          <div class="modal-body">
+              <button type="button" class="close" (click)="onCloseForm()">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            <app-certificate-form (certificateSubmit)="certificateSubmitted($event)"></app-certificate-form>
+          </div>
+        </div>
+      </div>
+
   <div class="row">
     <h2 style="margin-top: 15px; margin-bottom: 15px;">List of all applications:</h2>
   </div>
