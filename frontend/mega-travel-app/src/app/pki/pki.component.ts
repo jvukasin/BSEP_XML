@@ -36,6 +36,8 @@ export class PKIComponent implements OnInit {
         this.softveri = data;
         for(var s of this.softveri) {
           if(s.certified) {
+            s.certificate.startDate = s.certificate.startDate.split('T')[0];
+            s.certificate.endDate = s.certificate.endDate.split('T')[0];
             this.softsert.push(s);
           }
         }
@@ -55,6 +57,8 @@ export class PKIComponent implements OnInit {
 
   certificateAdded(s) {
     alert("SUCCESS! Certificate added.");
+    s.certificate.startDate = s.certificate.startDate.split('T')[0];
+    s.certificate.endDate = s.certificate.endDate.split('T')[0];
     let i = this.softveri.findIndex(soft => soft.id === s.id);
     this.softveri.splice(i, 1, s);
     this.softsert.push(s);
