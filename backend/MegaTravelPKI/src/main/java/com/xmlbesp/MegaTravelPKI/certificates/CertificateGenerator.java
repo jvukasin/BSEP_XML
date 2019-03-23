@@ -50,7 +50,6 @@ public class CertificateGenerator {
 			
 			//Generise se sertifikat
 			X509CertificateHolder certHolder = certGen.build(contentSigner);
-
 			//Builder generise sertifikat kao objekat klase X509CertificateHolder
 			//Nakon toga je potrebno certHolder konvertovati u sertifikat, za sta se koristi certConverter
 			JcaX509CertificateConverter certConverter = new JcaX509CertificateConverter();

@@ -12,6 +12,7 @@ import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -34,6 +35,7 @@ import com.xmlbesp.MegaTravelPKI.dto.CertificateDTO;
 import com.xmlbesp.MegaTravelPKI.dto.RevocationDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SoftwareDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SubjectDataDTO;
+import com.xmlbesp.MegaTravelPKI.keystores.KeyStoreReader;
 import com.xmlbesp.MegaTravelPKI.keystores.KeyStoreWriter;
 import com.xmlbesp.MegaTravelPKI.model.AdminPKI;
 import com.xmlbesp.MegaTravelPKI.model.Certificate;
@@ -99,7 +101,7 @@ public class CertificateController {
 		java.security.cert.Certificate certificate = createCertificate(subject,issuer,keyPairIssuer.getPublic());
 		String pass = "issuedCertPass";
 		keyStoreWriter.write("selfSignCertificate", keyPairIssuer.getPrivate(), pass.toCharArray(), certificate);
-		
+		keyStoreWriter.saveKeyStore("globalKeyStore", "global".toCharArray());
 		return new ResponseEntity<>(new CertificateDTO(cert), HttpStatus.OK);
 	}
 	
@@ -124,7 +126,7 @@ public class CertificateController {
 		java.security.cert.Certificate certificate = createCertificate(subjectD, issuerD, keyPairIssuer.getPublic());
 		String pass = "issuedCertPass" + soft.getId();
 		keyStoreWriter.write(pass, subjectD.getPrivateKey() , pass.toCharArray(), certificate);
-		
+		keyStoreWriter.saveKeyStore("globalKeyStore", "global".toCharArray());
 		
 		KeyStoreWriter keyStoreWriterModule = new KeyStoreWriter();
 		String alias = soft.getName() + soft.getId();
@@ -249,4 +251,58 @@ public class CertificateController {
 		return null;
 	}
 	
+	@RequestMapping(value = "/validateCertificate/{idSoft}", method = RequestMethod.GET)
+	private boolean validate(@PathVariable("idSoft") Long id){
+		Software s = softwareService.findOneById(id);
+		Certificate cert = s.getCertificate();
+		
+		Calendar thisMoment = Calendar.getInstance();
+		thisMoment.set(Calendar.HOUR_OF_DAY, 0);
+		thisMoment.set(Calendar.MINUTE, 0);
+		thisMoment.set(Calendar.SECOND, 0);
+		
+		//napraviti Date objekat kako bi moglo da se poredi
+		Date today = thisMoment.getTime();
+		if(cert.isRevoked()) {
+			return false;
+		}else if(today.after(cert.getEndDate())) {
+			return false;
+		}else{
+			//provera digitalnog potpisa
+			//treba uzeti sertifikat softvera i publickey admina iz globalKeyStore
+			KeyStoreReader keyStoreReader = new KeyStoreReader();
+			//uzimam sertifikat softvera
+			java.security.cert.Certificate certificateSoft = keyStoreReader.readCertificate("globalKeyStore", "global","issuedCertPass" + s.getId());
+			//uzimam sertifikat koji je potpisan od strane admin i izdat od strane admina za admina
+			java.security.cert.Certificate certificateSelfSign = keyStoreReader.readCertificate("globalKeyStore", "global","selfSignCertificate");
+			//uzimam javni kljuc 
+			PublicKey publicKey = certificateSelfSign.getPublicKey();
+			//proveravam da li je dobar digitalan potpis
+			try {
+				certificateSoft.verify(certificateSelfSign.getPublicKey());
+			} catch (InvalidKeyException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			} catch (CertificateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			} catch (NoSuchProviderException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			} catch (SignatureException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+			
+		}
+		return true;
+	}
 }

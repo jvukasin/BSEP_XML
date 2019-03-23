@@ -97,4 +97,17 @@ export class PKIComponent implements OnInit {
     this.revokeCertifDialog = true;
     this.softId = id;
   }
+
+  verifyCertificate(id){
+    this.pkiService.verifyCertificate(id).subscribe(
+      (verified) => {
+        if(verified){
+          alert("Certificate is valid!");
+        }else{
+          alert("Certificate is not valid!");
+        }
+      }
+    )
+  }
+
 }
