@@ -60,6 +60,7 @@ public class CertificateController {
 	SoftwareService softwareService;
 	
 	private KeyStoreWriter keyStoreWriter;
+	private KeyPair keyPairIssuer;
 	
 	@PostConstruct
 	public void init() {
@@ -67,6 +68,7 @@ public class CertificateController {
 		String global = "global";
 		keyStoreWriter.loadKeyStore(null, global.toCharArray());
 		keyStoreWriter.saveKeyStore("globalKeyStore",global.toCharArray());
+		keyPairIssuer = generateKeyPair();
 	}
 	
 	@RequestMapping(value = "/selfSigned", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -91,14 +93,20 @@ public class CertificateController {
 		cert = certificateService.save(cert);
 		
 		SubjectData subject = generateSubjectData(cert.getId(),admin,subjectDataDTO.getStartDate(),subjectDataDTO.getEndDate());
-		
-		KeyPair keyPairIssuer = generateKeyPair();
 		IssuerData issuer = generateIssuerData(keyPairIssuer.getPrivate(),admin);
+		subject.setPublicKey(keyPairIssuer.getPublic());
+		subject.setPrivateKey(keyPairIssuer.getPrivate());
+		
+		CertificateGenerator cg = new CertificateGenerator();
+		X509Certificate certificate = cg.generateCertificate(subject, issuer);
 		
 		//ovde vraca javin Certificate objekat, ne nas iz modela
-		java.security.cert.Certificate certificate = createCertificate(subject,issuer,keyPairIssuer.getPublic());
-		String pass = "issuedCertPass";
-		keyStoreWriter.write("selfSignCertificate", keyPairIssuer.getPrivate(), pass.toCharArray(), certificate);
+//		java.security.cert.Certificate certificate = createCertificate(subject,issuer,keyPairIssuer.getPublic());
+		String pass = "selfAssignedCertPass";
+		keyStoreWriter.write("selfAssignedCertPass", keyPairIssuer.getPrivate(), pass.toCharArray(), certificate);
+		
+		String globalPass = "globalPass";
+		keyStoreWriter.saveKeyStore("globalKeyStore", globalPass.toCharArray());
 		
 		return new ResponseEntity<>(new CertificateDTO(cert), HttpStatus.OK);
 	}
@@ -116,15 +124,15 @@ public class CertificateController {
 		Software soft = softwareService.findOneById(idSubject);
 		
 		SubjectData subjectD = generateSubjectData(cert.getId(),soft,subjectDataDTO.getStartDate(),subjectDataDTO.getEndDate());
-		
-		KeyPair keyPairIssuer = generateKeyPair();
 		IssuerData issuerD = generateIssuerData(keyPairIssuer.getPrivate(), admin);
 		
+		CertificateGenerator cg = new CertificateGenerator();
+		X509Certificate certificate = cg.generateCertificate(subjectD, issuerD);
+		
 		//ovde vraca javin Certificate objekat, ne nas iz modela
-		java.security.cert.Certificate certificate = createCertificate(subjectD, issuerD, keyPairIssuer.getPublic());
+//		java.security.cert.Certificate certificate = createCertificate(subjectD, issuerD, keyPairIssuer.getPublic());
 		String pass = "issuedCertPass" + soft.getId();
 		keyStoreWriter.write(pass, subjectD.getPrivateKey() , pass.toCharArray(), certificate);
-		
 		
 		KeyStoreWriter keyStoreWriterModule = new KeyStoreWriter();
 		String alias = soft.getName() + soft.getId();
