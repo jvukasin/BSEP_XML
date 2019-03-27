@@ -40,6 +40,8 @@
           <th scope="col">#</th>
           <th scope="col">Application</th>
           <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -48,6 +50,8 @@
           <td>{{sf.name}}</td>
           <td *ngIf="!sf.certified"><button class="btn btn-info" (click)="onCreateCertificate(sf.id)">Add certificate</button></td>
           <td *ngIf="sf.certified"><button class="btn btn-info" (click)="onRevokeCertificate(sf.id)">Revoke certificate</button></td>
+          <td *ngIf="sf.certified"><button class="btn btn-info" (click)="verifyCertificate(sf.id)">Verify</button></td>
+          <td *ngIf="!sf.certified"></td>
         </tr>
       </tbody>
     </table>

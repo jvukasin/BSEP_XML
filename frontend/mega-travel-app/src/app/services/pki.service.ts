@@ -28,4 +28,8 @@ export class PkiService {
     revokeCertificate(revocationDTO) {
         return this.http.put("http://localhost:8080/certificate/revokeCertificate",  revocationDTO);
     }
+
+    verifyCertificate(id){
+        return this.http.get("http://localhost:8080/certificate/validateCertificate/" + id);
+    }
 }
