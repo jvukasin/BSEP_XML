@@ -21,14 +21,11 @@ public class Communication {
 		super();
 	}
 	
-	
-
 	public Communication(Long idA, Long idB) {
 		
 		this.idA = idA;
 		this.idB = idB;
 	}
-
 
 
 	public Long getId() {
