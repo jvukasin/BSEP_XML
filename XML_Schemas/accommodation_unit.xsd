@@ -123,4 +123,33 @@
             <xs:attribute name="endDate" type="xs:date"/>
         </xs:complexType>
     </xs:element>
+    <xs:element name="Rating">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="value">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:positiveInteger">
+                            <xs:maxInclusive value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="comment">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element default="false" name="approved" type="xs:boolean"/>
+                            <xs:element name="text">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="0"/>
+                                        <xs:maxLength value="300"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Id" type="xs:long"/>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

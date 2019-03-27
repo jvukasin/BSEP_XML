@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/reservation"
+    xmlns:au="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
+    xmlns:rs="http://www.ftn.uns.ac.rs/MegaTravel/reservation">
+
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
+        schemaLocation="../../../../git/BSEP_XML/XML_Schemas/accommodation_unit.xsd"/>
+    <xs:element name="Reservation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="startDate" type="xs:date"/>
+                <xs:element name="endDate" type="xs:date"/>
+                <xs:element name="price" type="rs:price"/>
+                <xs:element ref="au:AccommodationUnit"/>
+            </xs:sequence>
+            <xs:attribute name="Id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:long">
+                        <xs:minInclusive value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="0"/>
+                            <xs:maxLength value="40"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="price" type="rs:price"/>
+            </xs:sequence>
+            <xs:attribute name="Id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:long">
+                        <xs:minInclusive value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="price">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
