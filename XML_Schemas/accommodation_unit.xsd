@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
-    xmlns:au="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
-    xmlns:loc="http://www.ftn.uns.ac.rs/MegaTravel/location">
+    xmlns:au="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit">
     <xs:complexType name="AccommodationUnit">
         <xs:sequence>
             <xs:element name="name">
