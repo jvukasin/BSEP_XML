@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/admin"
+    xmlns:adm="http://www.ftn.uns.ac.rs/MegaTravel/admin"
+    xmlns:ns1="http://www.ftn.uns.ac.rs/MegaTravel/user"
+    xmlns:ns2="http://www.ftn.uns.ac.rs/MegaTravel/reservation"
+    xmlns:ns3="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit">
+
+
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
+        schemaLocation="accommodation_unit.xsd"/>
+
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/user" schemaLocation="user.xsd"/>
+
+    <xs:element name="Admin">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ID" type="xs:long"/>
+                <xs:element name="name">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:whiteSpace value="replace"/>
+                            <xs:minLength value="2"/>
+                            <xs:maxLength value="20"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="lastname">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:whiteSpace value="collapse"/>
+                            <xs:minLength value="2"/>
+                            <xs:maxLength value="20"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="email">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:whiteSpace value="collapse"/>
+                            <xs:maxLength value="30"/>
+                            <xs:minLength value="5"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="password">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:whiteSpace value="preserve"/>
+                            <xs:minLength value="5"/>
+                            <xs:maxLength value="20"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                    <xs:element ref="ns3:Rating"/>
+                </xs:sequence>
+                <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                    <xs:element ref="ns3:AccommodationUnit"/>
+                </xs:sequence>
+                <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                    <xs:element ref="ns1:User"/>
+                </xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

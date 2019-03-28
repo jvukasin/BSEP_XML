@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
+    xmlns:au="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit">
+    <xs:element name="AccommodationUnit">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="0"/>
+                            <xs:maxLength value="40"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="description">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="0"/>
+                            <xs:maxLength value="150"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="capacity">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                            <xs:minExclusive value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="cancellationPeriod" type="xs:int"/>
+                <xs:element name="price" type="xs:double"/>
+                <xs:element name="defaultPrice" type="xs:double"/>
+                <xs:element name="type">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="hotel"/>
+                            <xs:enumeration value="bed_n_breakfast"/>
+                            <xs:enumeration value="apartment"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Location" type="au:TLocation"/>
+                <xs:element name="Amenities">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:element ref="au:Amenity"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="PricePlan">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:element ref="au:SpecificPrice"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Images">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+                            <xs:element ref="au:Image"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:long"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TLocation">
+        <xs:sequence>
+            <xs:element name="coordinates" type="xs:string"/>
+            <xs:element ref="au:City"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:long"/>
+    </xs:complexType>
+    <xs:element name="City">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="40"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element ref="au:Country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Country">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="40"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Image">
+        <xs:complexType>
+            <xs:attribute name="imageUrl" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Amenity">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SpecificPrice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="price" type="xs:double"/>
+            </xs:sequence>
+            <xs:attribute name="startDate" type="xs:date"/>
+            <xs:attribute name="endDate" type="xs:date"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Rating">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="value">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:positiveInteger">
+                            <xs:maxInclusive value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="comment">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element default="false" name="approved" type="xs:boolean"/>
+                            <xs:element name="text">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="0"/>
+                                        <xs:maxLength value="300"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Id" type="xs:long"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
