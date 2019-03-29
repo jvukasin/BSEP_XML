@@ -1,0 +1,35 @@
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+
+@Injectable()
+export class PkiService {
+    constructor(private http:HttpClient) {}
+
+    getSoftwares() {
+        return this.http.get("http://localhost:8080/software/all");
+    }
+
+    getCertificates() {
+        return this.http.get("http://localhost:8080/certificate/all");
+    }
+
+    getSelfSignedCert() {
+        return this.http.get("http://localhost:8080/certificate/selfSigned");
+    }
+
+    generateSelfSigned(cert) {
+        return this.http.post("http://localhost:8080/certificate/generateSelfSigned/", cert);
+    }
+
+    generateCertificate(id, cert) {
+        return this.http.post("http://localhost:8080/certificate/generateCertificate/" + id, cert);
+    }
+
+    revokeCertificate(revocationDTO) {
+        return this.http.put("http://localhost:8080/certificate/revokeCertificate",  revocationDTO);
+    }
+
+    verifyCertificate(id){
+        return this.http.get("http://localhost:8080/certificate/validateCertificate/" + id);
+    }
+}

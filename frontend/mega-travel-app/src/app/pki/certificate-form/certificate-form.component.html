@@ -1,0 +1,22 @@
+<div class="container"> 
+  <h3>Insert self signed certificate</h3>
+  <hr>
+    <form (ngSubmit)="onSubmitCert(f)" #f="ngForm"> 
+      <div class="row">
+        <div class="form-group col">
+          <label>Start date:</label>
+          <input type="date" class="form-control" required [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group col">
+            <label>End date:</label>
+            <input type="date" class="form-control" required [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}">
+        </div>
+  </div>
+      <div class="row">
+              <div class="form-group col">
+                <button type="submit" class="btn btn-success" [disabled]="!f.valid">Save</button>
+                <button type="button" (click)="onReset(f)" class="btn btn-danger">Reset</button>
+              </div>
+      </div>
+    </form>
+</div>
