@@ -68,6 +68,13 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
+                <xs:element name="Ratings">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:element ref="gl:Rating"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="Amenities">
                     <xs:complexType>
                         <xs:sequence maxOccurs="unbounded" minOccurs="0">
@@ -110,8 +117,15 @@
     <xs:element name="SpecificPrice">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="price" type="xs:double"/>
+                <xs:element name="price">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
             </xs:sequence>
+            <xs:attribute name="id" type="xs:long"/>
             <xs:attribute name="startDate" type="xs:date"/>
             <xs:attribute name="endDate" type="xs:date"/>
         </xs:complexType>
