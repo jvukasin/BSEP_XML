@@ -37,6 +37,8 @@ public class Certificate {
 	@Column(name="ca")
 	private boolean ca;
 	
+	
+	
 	@Column(name="reasonForRevocation",nullable = false)
 	private String reasonForRevocation;
 	

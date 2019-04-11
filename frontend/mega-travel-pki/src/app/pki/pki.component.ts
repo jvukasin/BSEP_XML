@@ -12,7 +12,6 @@ export class PKIComponent implements OnInit {
   softveri: any;
   selfSigned: any;
   //boolean za modalni dijalog, kad ga nema(selfSigned sertifikata) odmah se otvori, kad ima nista
-  genSelfSign: boolean = false;
   shoFormDialog: boolean = false;
   addCertifDialog: boolean = false;
   revokeCertifDialog: boolean = false;
@@ -23,15 +22,8 @@ export class PKIComponent implements OnInit {
   constructor(private pkiService: PkiService) { }
 
   ngOnInit() {
-    this.pkiService.getSelfSignedCert().subscribe(
-      (data) => {
-        this.selfSigned = data;
-        if(!this.selfSigned) {
-          //ako vrati false, otvori modalni i napravi selfsigned za admina
-          this.genSelfSign = true;
-        }
-      }
-    );
+    
+    
 
     this.pkiService.getSoftwares().subscribe(
       (data) => {
@@ -48,10 +40,7 @@ export class PKIComponent implements OnInit {
 
   }
 
-  certificateSubmitted(response){
-    alert("SUCCESS! Self-assigned certificate added.");
-    this.genSelfSign = false;
-  }
+  
 
   certificateAdded(s) {
     alert("SUCCESS! Certificate added.");

@@ -12,6 +12,7 @@ import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +32,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xmlbesp.MegaTravelPKI.certificates.CertificateGenerator;
-import com.xmlbesp.MegaTravelPKI.dto.CertificateDTO;
 import com.xmlbesp.MegaTravelPKI.dto.RevocationDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SoftwareDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SubjectDataDTO;
@@ -65,53 +65,59 @@ public class CertificateController {
 	private KeyPair keyPairIssuer;
 	
 	@PostConstruct
-	public void init() {
+	public void init() throws ParseException {
+		String rootKeyStoreName = "rootKeyStore.p12";
+		String rootKeyStorePassword = "mnogodobrasifra";
+		
 		keyStoreWriter = new KeyStoreWriter();
-		String global = "global";
-		keyStoreWriter.loadKeyStore(null, global.toCharArray());
-		keyStoreWriter.saveKeyStore("globalKeyStore",global.toCharArray());
+		keyStoreWriter.loadKeyStore(null, rootKeyStoreName.toCharArray());
+		keyStoreWriter.saveKeyStore("rootKeyStore", rootKeyStoreName.toCharArray());
 		keyPairIssuer = generateKeyPair();
+		
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+		Date startDate = simpleDateFormat.parse("2018-04-11");
+		Date endDate = simpleDateFormat.parse("2018-09-11");
+		
+		generateSelfSigned(startDate, endDate);
+
+		keyStoreWriter.saveKeyStore(rootKeyStoreName, rootKeyStorePassword.toCharArray());
+
 	}
 	
 	@RequestMapping(value = "/selfSigned", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public boolean selfSignedExists() {
 		
 		List<Certificate> certifs = certificateService.findAll();
+	
 		for(Certificate c : certifs) {
-			if(c.isCa()) return true;
+			if (c.getIdSubject().equals(c.getIdIssuer())) {
+				return true;
+			}
 		}
+		
 		return false;
 	}
 	
-	@RequestMapping(value = "/generateSelfSigned",method = RequestMethod.POST,consumes = "application/json")
-	public ResponseEntity<CertificateDTO> generateSelfSigned(@RequestBody SubjectDataDTO subjectDataDTO) throws ParseException
-	{  
-		
-		List<AdminPKI> admins = adminPKIService.findAll();
-		//postoji za sada samo jedan admin
-		AdminPKI admin = admins.get(0);
-		
-		Certificate cert = new Certificate(admin.getId(),admin.getId(),subjectDataDTO.getStartDate(), subjectDataDTO.getEndDate(), false,true,"");
+	
+	public void generateSelfSigned(Date startDate, Date endDate){  
+		Certificate cert = new Certificate(new Long(0) , new Long(0), startDate, endDate, false, true, "");
 		cert = certificateService.save(cert);
 		
-		SubjectData subject = generateSubjectData(cert.getId(),admin,subjectDataDTO.getStartDate(),subjectDataDTO.getEndDate());
-		IssuerData issuer = generateIssuerData(keyPairIssuer.getPrivate(),admin);
+		SubjectData subject = generateRootSubjectData(cert.getId(), startDate, endDate);
+		IssuerData issuer = generateRootIssuerData(keyPairIssuer.getPrivate());
+		
 		subject.setPublicKey(keyPairIssuer.getPublic());
 		subject.setPrivateKey(keyPairIssuer.getPrivate());
 		
 		CertificateGenerator cg = new CertificateGenerator();
 		X509Certificate certificate = cg.generateCertificate(subject, issuer);
 		
-		//ovde vraca javin Certificate objekat, ne nas iz modela
-//		java.security.cert.Certificate certificate = createCertificate(subject,issuer,keyPairIssuer.getPublic());
-		String pass = "selfAssignedCertPass";
+		String pass = "rootCAPass";
 		keyStoreWriter.write("selfAssignedCert", keyPairIssuer.getPrivate(), pass.toCharArray(), certificate);
-		
-		String globalPass = "global";
-		keyStoreWriter.saveKeyStore("globalKeyStore", globalPass.toCharArray());
-		
-		return new ResponseEntity<>(new CertificateDTO(cert), HttpStatus.OK);
 	}
+	
 	
 	@RequestMapping(value = "/generateCertificate/{idSub}", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<SoftwareDTO> generateCertificate(@PathVariable("idSub") Long idSubject, @RequestBody SubjectDataDTO subjectDataDTO) throws ParseException
@@ -168,6 +174,34 @@ public class CertificateController {
 		software = softwareService.save(software);
 		
 		return new ResponseEntity<>(new SoftwareDTO(software), HttpStatus.OK);
+	}
+	
+	private SubjectData generateRootSubjectData(Long certId, Date startDate, Date endDate) {
+		
+		KeyPair keyPairSubject = generateKeyPair();
+		String serial = certId.toString();
+		
+		X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
+		
+	    builder.addRDN(BCStyle.GIVENNAME, "BBF Root CA");
+	    builder.addRDN(BCStyle.E, "we_are_bbf@gmail.com");
+	    builder.addRDN(BCStyle.UID, "vladajovelazyka");
+		
+	    return new SubjectData(keyPairSubject.getPublic(), keyPairSubject.getPrivate(), builder.build(), serial, startDate, endDate);
+		
+	}
+	
+	private IssuerData generateRootIssuerData(PrivateKey privateKey) {
+		
+		X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
+    
+		builder.addRDN(BCStyle.GIVENNAME, "BBF Root CA");
+	    builder.addRDN(BCStyle.E, "we_are_bbf@gmail.com");
+	    builder.addRDN(BCStyle.UID, "vladajovelazyka");
+    
+  
+	    return new IssuerData(privateKey, builder.build());
+		
 	}
 	
 	private SubjectData generateSubjectData(Long certId, Object subject, Date startDate, Date endDate) {
