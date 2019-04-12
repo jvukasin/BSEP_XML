@@ -98,7 +98,7 @@ public class CertificateController {
 		}
 		
 		return false;
-	}
+	}  
 	
 	
 	public void generateSelfSigned(Date startDate, Date endDate){  
@@ -115,7 +115,7 @@ public class CertificateController {
 		X509Certificate certificate = cg.generateCertificate(subject, issuer);
 		
 		String pass = "rootCAPass";
-		keyStoreWriter.write("selfAssignedCert", keyPairIssuer.getPrivate(), pass.toCharArray(), certificate);
+		keyStoreWriter.write("bbf", keyPairIssuer.getPrivate(), pass.toCharArray(), certificate);
 	}
 	
 	
@@ -186,7 +186,7 @@ public class CertificateController {
 	    builder.addRDN(BCStyle.GIVENNAME, "BBF Root CA");
 	    builder.addRDN(BCStyle.E, "we_are_bbf@gmail.com");
 	    builder.addRDN(BCStyle.UID, "vladajovelazyka");
-		
+	    
 	    return new SubjectData(keyPairSubject.getPublic(), keyPairSubject.getPrivate(), builder.build(), serial, startDate, endDate);
 		
 	}
