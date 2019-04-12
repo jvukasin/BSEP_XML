@@ -292,5 +292,13 @@ public class CertificateService {
 		}
 		return null;
 	}
+	
+	public Certificate findOneById(Long id) {
+		return certRepo.findOneById(id);
+	}
+	
+	public List<Certificate> findAll() {
+		return certRepo.findAll();
+	}
 
 }

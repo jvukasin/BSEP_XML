@@ -7,8 +7,10 @@ import java.security.PublicKey;
 import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -100,7 +102,47 @@ public class CertificateController {
 		return new ResponseEntity<>(new SoftwareDTO(software), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/getAllCertificates", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<CertificateDTO>> getAllCertificates() {
+		
+		List<Certificate> certificates = certificateService.findAll();
+		List<CertificateDTO> cDTO = new ArrayList<>();
+		
+		for (Certificate c : certificates) {
+			CertificateDTO cdto = new CertificateDTO(c);
+			cDTO.add(cdto);
+		}
+		
+		return new ResponseEntity<>(cDTO, HttpStatus.OK);
+	}
 	
+	@RequestMapping(value = "/getAllCAs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<CertificateDTO>> getAllCAs() {
+		
+		List<Certificate> certificates = certificateService.findAll();
+		List<CertificateDTO> cDTO = new ArrayList<>();
+		
+		for (Certificate c : certificates) {
+			if(c.isCa()) {
+				CertificateDTO cdto = new CertificateDTO(c);
+				cDTO.add(cdto);
+			}
+		}
+		
+		return new ResponseEntity<>(cDTO, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/getCertificate/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CertificateDTO> getSpecificCert(@PathVariable("id") Long id) {
+		
+		Certificate cert = certificateService.findOneById(id);
+		
+		if(cert == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<>(new CertificateDTO(cert), HttpStatus.OK);
+	}
 	
 	@RequestMapping(value = "/validateCertificate/{idSoft}", method = RequestMethod.GET)
 	private boolean validate(@PathVariable("idSoft") Long id){
