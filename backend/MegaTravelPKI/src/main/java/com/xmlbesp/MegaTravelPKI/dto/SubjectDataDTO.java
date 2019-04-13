@@ -10,26 +10,13 @@ public class SubjectDataDTO {
 	private String organisationUnit;
 	private String countryCode;
 	private String email;
-	private String UID;
-	private Date startDate;
-	private Date endDate;
+	private String uid;
 	
 	public SubjectDataDTO() {
 		
 	}
 	
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-	public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
+
 
 	public String getCompanyName() {
 		return companyName;
@@ -71,14 +58,15 @@ public class SubjectDataDTO {
 		this.email = email;
 	}
 
-	public String getUID() {
-		return UID;
+	public String getUid() {
+		return uid;
 	}
 
-	public void setUID(String uID) {
-		UID = uID;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
-	
-	
+
+
+
 	
 }

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xmlbesp.MegaTravelPKI.dto.CertificateDTO;
+import com.xmlbesp.MegaTravelPKI.dto.CertificateInfoDTO;
 import com.xmlbesp.MegaTravelPKI.dto.RevocationDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SoftwareDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SubjectDataDTO;
@@ -47,11 +48,9 @@ public class CertificateController {
 	@Autowired
 	SoftwareService softwareService;
 	
-	
-	
-	
 	@RequestMapping(value = "/selfSignedExists", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public boolean selfSignedExists() {
+		System.out.println("ping");
 		return certificateService.selfSignedExists();
 	}
 	
@@ -67,19 +66,19 @@ public class CertificateController {
 	}  
 	
 	@RequestMapping(value = "/selfSigned", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CertificateDTO> generateSelfSignedCertificate (@RequestBody SubjectDataDTO subjectDataDTO){ 
+	public ResponseEntity<CertificateDTO> generateSelfSignedCertificate (@RequestBody CertificateInfoDTO certInfoDTO){ 
 		
-		Certificate c = certificateService.generateSelfSignedCertificate(subjectDataDTO.getStartDate(), subjectDataDTO.getEndDate());
+		Certificate c = certificateService.generateSelfSignedCertificate(certInfoDTO.getStartDate(), certInfoDTO.getEndDate());
 		
 
 		return new ResponseEntity<CertificateDTO>(new CertificateDTO(c), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/generateIssuedCertificate/{idSub}", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<CertificateDTO> generateIssuedCertificate(@PathVariable("idSub") Long idIssuer,
-			@RequestBody SubjectDataDTO subjectDataDTO) throws ParseException
+	@RequestMapping(value = "/generateIssuedCertificate", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<CertificateDTO> generateIssuedCertificate(@RequestBody CertificateInfoDTO certInfoDTO) throws ParseException
 	{
-		Certificate c = certificateService.generateIssuedCertificate(idIssuer, subjectDataDTO);
+		System.out.println(certInfoDTO.getSubjectDataDTO().getUid());
+		Certificate c = certificateService.generateIssuedCertificate(certInfoDTO);
 		
 		return new ResponseEntity<>(new CertificateDTO(c), HttpStatus.OK);
 	}
