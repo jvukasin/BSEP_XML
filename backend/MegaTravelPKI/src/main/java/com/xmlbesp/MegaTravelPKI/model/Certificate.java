@@ -19,11 +19,11 @@ public class Certificate {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name="idIssuer",nullable = false)
+	@Column(name="idIssuer")
 	private Long idIssuer;
 	
-	@Column(name="idSubject",nullable = false)
-	private Long idSubject;
+	@Column(name="alias", nullable = false) 
+	private String alias;
 	
 	@Column(name="startDate",nullable = false)
 	private Date startDate;
@@ -42,21 +42,23 @@ public class Certificate {
 	
 	@OneToOne(mappedBy = "certificate", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Software software;
-
+	
 	public Certificate() {
-
+		
 	}
+	
+	
 
-	public Certificate(Long idIssuer, Long idSubject, Date startDate, Date endDate, boolean revoked, boolean ca, String reasonForRevocation) {
+	public Certificate(Long idIssuer, String alias, Date startDate, Date endDate, boolean ca) {
 		super();
 		this.idIssuer = idIssuer;
-		this.idSubject = idSubject;
+		this.alias = alias;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.revoked = revoked;
 		this.ca = ca;
-		this.reasonForRevocation = reasonForRevocation;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -74,12 +76,12 @@ public class Certificate {
 		this.idIssuer = idIssuer;
 	}
 
-	public Long getIdSubject() {
-		return idSubject;
+	public String getAlias() {
+		return alias;
 	}
 
-	public void setIdSubject(Long idSubject) {
-		this.idSubject = idSubject;
+	public void setAlias(String alias) {
+		this.alias = alias;
 	}
 
 	public Date getStartDate() {
@@ -106,20 +108,20 @@ public class Certificate {
 		this.revoked = revoked;
 	}
 
-	public String getReasonForRevocation() {
-		return reasonForRevocation;
-	}
-
-	public void setReasonForRevocation(String reasonForRevocation) {
-		this.reasonForRevocation = reasonForRevocation;
-	}
-
 	public boolean isCa() {
 		return ca;
 	}
 
 	public void setCa(boolean ca) {
 		this.ca = ca;
+	}
+
+	public String getReasonForRevocation() {
+		return reasonForRevocation;
+	}
+
+	public void setReasonForRevocation(String reasonForRevocation) {
+		this.reasonForRevocation = reasonForRevocation;
 	}
 
 	public Software getSoftware() {
@@ -129,4 +131,6 @@ public class Certificate {
 	public void setSoftware(Software software) {
 		this.software = software;
 	}
+
+	
 }

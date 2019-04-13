@@ -1,4 +1,4 @@
-	package com.xmlbesp.MegaTravelPKI;
+package com.xmlbesp.MegaTravelPKI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +12,6 @@ public class MegaTravelPkiApplication {
 		SpringApplication.run(MegaTravelPkiApplication.class, args);
 		
 	}
-	
 	
 	@Bean
     public FilterRegistrationBean corsFilterRegistration() {
