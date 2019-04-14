@@ -15,6 +15,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -45,6 +46,7 @@ public class CertificateService {
 	// da li se loaduje postojeci key store ili se pravi novi
 	private boolean loadExistingRootKeyStore = false;
 	
+	private KeyStoreReader keyStoreReader;
 	private KeyStoreWriter keyStoreWriter;
 	private KeyPair keyPairIssuer;
 	
@@ -55,6 +57,7 @@ public class CertificateService {
 	public void init() throws ParseException {
 		
 		keyStoreWriter = new KeyStoreWriter();
+		keyStoreReader = new KeyStoreReader();
 		
 		if (loadExistingRootKeyStore) {
 			keyStoreWriter.loadKeyStore(formFileName(rootCertificateAlias), keyStorePassword.toCharArray());
@@ -193,6 +196,8 @@ public class CertificateService {
 		cert.setRevoked(false);
 		cert.setReasonForRevocation("");
 		
+		
+		
 		cert = certRepo.save(cert);
 		
 		// dobavi objekat IssuerData iz keystorea u kom se nalazi taj issuer
@@ -221,6 +226,56 @@ public class CertificateService {
 		return cert;
 	}
 	
+	public String validate(Certificate cert, Certificate parentCertificate) {
+		// TODO: uraditi revoke za sve sertifikate u hijerarhiji
+		
+		Calendar thisMoment = Calendar.getInstance();
+		thisMoment.set(Calendar.HOUR_OF_DAY, 0);
+		thisMoment.set(Calendar.MINUTE, 0);
+		thisMoment.set(Calendar.SECOND, 0);
+		
+		//napraviti Date objekat kako bi moglo da se poredi
+		Date today = thisMoment.getTime();
+		
+		if(cert.isRevoked()) {
+			return "The certificate has been revoked!";
+		}else if(today.after(cert.getEndDate())) {
+			return "The validation date has expired!";
+		}else {
+			// provera digitalnog potpisa
+			// uzmi sertifikat za koji proveravas digitalni potpis
+			java.security.cert.Certificate certificate = keyStoreReader.readCertificate(formFileName(cert.getAlias()), this.keyStorePassword, cert.getAlias());
+			
+			// nadji sertifikat issuer-a
+			java.security.cert.Certificate issuerCertificate = keyStoreReader.readCertificate(formFileName(parentCertificate.getAlias()), this.keyStorePassword, parentCertificate.getAlias());
+			
+			try {
+				certificate.verify(issuerCertificate.getPublicKey());
+			} catch (InvalidKeyException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "The digital signature is not valid!";
+			} catch (CertificateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "The digital signature is not valid!";
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "The digital signature is not valid!";
+			} catch (NoSuchProviderException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "The digital signature is not valid!";
+			} catch (SignatureException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "The digital signature is not valid!";
+			}
+			
+		}
+		return "The certificate is valid!";
+	}
 	
 	private IssuerData getIssuerDataFromKeyStore(Certificate parentCertificate) {
 		
