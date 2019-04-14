@@ -143,58 +143,11 @@ public class CertificateController {
 		return new ResponseEntity<>(new CertificateDTO(cert), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/validateCertificate/{idSoft}", method = RequestMethod.GET)
-	private boolean validate(@PathVariable("idSoft") Long id){
-		Software s = softwareService.findOneById(id);
-		Certificate cert = s.getCertificate();
+	@RequestMapping(value = "/validateCertificate/{id}", method = RequestMethod.GET)
+	private String validate(@PathVariable("id") Long id){
+		Certificate c = certificateService.findOneById(id);
+		Certificate parent = certificateService.findOneById(c.getIdIssuer());
 		
-		Calendar thisMoment = Calendar.getInstance();
-		thisMoment.set(Calendar.HOUR_OF_DAY, 0);
-		thisMoment.set(Calendar.MINUTE, 0);
-		thisMoment.set(Calendar.SECOND, 0);
-		
-		//napraviti Date objekat kako bi moglo da se poredi
-		Date today = thisMoment.getTime();
-		if(cert.isRevoked()) {
-			return false;
-		}else if(today.after(cert.getEndDate())) {
-			return false;
-		}else{
-			//provera digitalnog potpisa
-			//treba uzeti sertifikat softvera i publickey admina iz globalKeyStore
-			KeyStoreReader keyStoreReader = new KeyStoreReader();
-			//uzimam sertifikat softvera
-			java.security.cert.Certificate certificateSoft = keyStoreReader.readCertificate("globalKeyStore", "global","issuedCertPass" + s.getId());
-			//uzimam sertifikat koji je potpisan od strane admin i izdat od strane admina za admina
-			java.security.cert.Certificate certificateSelfSign = keyStoreReader.readCertificate("globalKeyStore", "global","selfAssignedCert");
-			//uzimam javni kljuc 
-			PublicKey publicKey = certificateSelfSign.getPublicKey();
-			//proveravam da li je dobar digitalan potpis
-			try {
-				certificateSoft.verify(certificateSelfSign.getPublicKey());
-			} catch (InvalidKeyException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			} catch (CertificateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			} catch (NoSuchAlgorithmException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			} catch (NoSuchProviderException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			} catch (SignatureException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}
-			
-		}
-		return true;
+		return certificateService.validate(c, parent);
 	}
 }
