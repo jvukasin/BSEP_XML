@@ -6,30 +6,30 @@ export class PkiService {
     constructor(private http:HttpClient) {}
 
     getSoftwares() {
-        return this.http.get("http://localhost:8080/software/all");
+        return this.http.get("/api/software/all");
     }
 
     getCertificates() {
-        return this.http.get("http://localhost:8080/certificate/all");
+        return this.http.get("/api/certificate/all");
     }
 
     getSelfSignedCert() {
-        return this.http.get("http://localhost:8080/certificate/selfSigned");
+        return this.http.get("/api/certificate/selfSigned");
     }
 
     generateSelfSigned(cert) {
-        return this.http.post("http://localhost:8080/certificate/generateSelfSigned/", cert);
+        return this.http.post("/api/certificate/generateSelfSigned/", cert);
     }
 
     generateCertificate(id, cert) {
-        return this.http.post("http://localhost:8080/certificate/generateCertificate/" + id, cert);
+        return this.http.post("/api/certificate/generateCertificate/" + id, cert);
     }
 
     revokeCertificate(revocationDTO) {
-        return this.http.put("http://localhost:8080/certificate/revokeCertificate",  revocationDTO);
+        return this.http.put("/api/certificate/revokeCertificate",  revocationDTO);
     }
 
     verifyCertificate(id){
-        return this.http.get("http://localhost:8080/certificate/validateCertificate/" + id);
+        return this.http.get("/api/certificate/validateCertificate/" + id);
     }
 }
