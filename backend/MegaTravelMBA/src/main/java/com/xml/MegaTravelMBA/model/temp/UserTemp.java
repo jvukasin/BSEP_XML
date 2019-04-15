@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,8 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 @Entity
-public class UserTemp {
+public class UserTemp implements UserDetails{
 	
 	 @Id
 	 @Column(name = "username", nullable = false)
@@ -34,10 +38,10 @@ public class UserTemp {
 	 @Column(name = "password")
 	 private String password;
 	 
-	 @Column(name = "last_password_reset_date")
+	 @Column(name = "last_password_reset_date", nullable = true)
 	    private Timestamp lastPasswordResetDate;
 	 
-	 @ManyToMany
+	 @ManyToMany(fetch = FetchType.EAGER)
 	    @JoinTable( 
 	        name = "users_roles", 
 	        joinColumns =  @JoinColumn(
@@ -109,6 +113,30 @@ public class UserTemp {
 
 	public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
 		this.lastPasswordResetDate = lastPasswordResetDate;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	

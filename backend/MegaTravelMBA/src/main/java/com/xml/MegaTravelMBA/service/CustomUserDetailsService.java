@@ -30,25 +30,25 @@ public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
 		UserTemp user = userRepo.findOneByUsername(username);
+		Role role = user.getRoles().iterator().next();
         if (user == null) {
             return new org.springframework.security.core.userdetails.User(
               " ", " ", true, true, true, true, 
               getAuthorities(Arrays.asList(
-                roleRepo.findByName("ROLE_USER"))));
+                roleRepo.findByName(role.getName()))));
         }
  
         return new org.springframework.security.core.userdetails.User(
-          user.getEmail(), user.getPassword(), user.isEnabled(), true, true, 
+          user.getUsername(), user.getPassword(), user.isEnabled(), true, true, 
           true, getAuthorities(user.getRoles()));
 	}
 	
-	private Collection<? extends GrantedAuthority> getAuthorities(
-		      Collection<Role> roles) {
-		  
-		        return getGrantedAuthorities(getPrivileges(roles));
-		        }
+	private Collection<? extends GrantedAuthority> getAuthorities(Collection<Role> roles) {
+		
+		return getGrantedAuthorities(getPrivileges(roles));
+	
+	}
 	
 	private List<String> getPrivileges(Collection<Role> roles) {
 		  
@@ -70,5 +70,4 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
         return authorities;
     }
-	
 }

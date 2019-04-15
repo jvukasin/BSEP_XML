@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mobile.device.Device;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +25,7 @@ public class TokenUtils {
 	@Value("somesecret")
 	public String SECRET;
 
-	@Value("5000")
+	@Value("3600")
 	private int EXPIRES_IN;
 
 	@Value("600")
@@ -98,12 +99,13 @@ public class TokenUtils {
 	// Functions for validating JWT token data
 
 	public Boolean validateToken(String token, UserDetails userDetails) {
-		UserTemp user = (UserTemp) userDetails;
+		User user = (User) userDetails;
 		final String username = getUsernameFromToken(token);
 		final Date created = getIssuedAtDateFromToken(token);
 		
-		return (username != null && username.equals(userDetails.getUsername())
-				&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate()));
+		return (username != null && username.equals(userDetails.getUsername()));
+//		return (username != null && username.equals(userDetails.getUsername())
+//				&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate()));
 	}
 
 	private Boolean isCreatedBeforeLastPasswordReset(Date created, Date lastPasswordReset) {

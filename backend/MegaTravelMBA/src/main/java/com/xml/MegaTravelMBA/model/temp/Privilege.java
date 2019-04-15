@@ -4,13 +4,16 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
-public class Privilege {
+public class Privilege{
   
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,6 +48,5 @@ public class Privilege {
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
-    
-    
+
 }
