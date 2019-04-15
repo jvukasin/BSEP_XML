@@ -43,11 +43,12 @@ public class Certificate {
 	@OneToOne(mappedBy = "certificate", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Software software;
 	
+	@Column(name="validationApi")
+	private String validationApi;
+	
 	public Certificate() {
 		
 	}
-	
-	
 
 	public Certificate(Long idIssuer, String alias, Date startDate, Date endDate, boolean ca) {
 		super();
@@ -57,8 +58,6 @@ public class Certificate {
 		this.endDate = endDate;
 		this.ca = ca;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -132,5 +131,12 @@ public class Certificate {
 		this.software = software;
 	}
 
-	
+	public String getValidationApi() {
+		return validationApi;
+	}
+
+	public void setValidationApi(String validationApi) {
+		this.validationApi = validationApi;
+	}
+
 }

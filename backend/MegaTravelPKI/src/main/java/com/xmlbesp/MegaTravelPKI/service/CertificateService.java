@@ -49,6 +49,7 @@ public class CertificateService {
 	private KeyStoreReader keyStoreReader;
 	private KeyStoreWriter keyStoreWriter;
 	private KeyPair keyPairIssuer;
+	private String validationApi = "https://localhost:8443/certificate/validateCertificate/";
 	
 	private String keyStorePassword = "mnogodobrasifra";
 	private String rootCertificateAlias = "bbf";
@@ -96,7 +97,7 @@ public class CertificateService {
 		cert = certRepo.save(cert);
 
 		cert.setIdIssuer(cert.getId());
-		
+		cert.setValidationApi(validationApi + cert.getId());
 		cert = certRepo.save(cert);
 		
 		this.keyPairIssuer = generateKeyPair();
@@ -197,6 +198,10 @@ public class CertificateService {
 		cert.setReasonForRevocation("");
 		
 		
+		
+		cert = certRepo.save(cert);
+		
+		cert.setValidationApi(validationApi + cert.getId());
 		
 		cert = certRepo.save(cert);
 		
