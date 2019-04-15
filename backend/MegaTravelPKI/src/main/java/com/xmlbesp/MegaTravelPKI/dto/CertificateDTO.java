@@ -25,8 +25,8 @@ public class CertificateDTO {
 	
 	
 	
-	public CertificateDTO(Long id, Long idIssuer, String alias, Date startDate, Date endDate, boolean revoked,
-			boolean ca, String reasonForRevocation) {
+	public CertificateDTO(Long id, Long idIssuer, String alias, Date startDate, Date endDate, boolean ca,
+			boolean revoked, String reasonForRevocation) {
 		super();
 		this.id = id;
 		this.idIssuer = idIssuer;
