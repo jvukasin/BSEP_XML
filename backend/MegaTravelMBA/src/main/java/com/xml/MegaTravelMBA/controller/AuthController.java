@@ -38,6 +38,11 @@ public class AuthController {
 	@RequestMapping(value="/login",method = RequestMethod.POST)
 	public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device){
 		
+		if(!inputValid(authenticationRequest.getUsername())) {
+			return new ResponseEntity<>(new UserTokenState("error",0), HttpStatus.NOT_FOUND);
+		}
+		
+		
 		final Authentication authentication = manager
 				.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
 		
@@ -58,6 +63,23 @@ public class AuthController {
 		
 		int expiresIn = 3600;
 		return ResponseEntity.ok(new UserTokenState(jwt,expiresIn));
+	}
+	
+	public boolean inputValid(String text) {
+		
+		if(text.isEmpty()) {
+			return false;
+		}
+		if(text.contains(";") || text.contains(">") || text.contains("<") || text.contains("'")) {
+			return false;
+		}
+		for(Character c : text.toCharArray()) {
+			if (Character.isWhitespace(c)) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 }
