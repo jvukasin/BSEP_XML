@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row" style="text-align: center; margin-top: 100px;">
+      <h3>Register</h3>
+      <form [formGroup]="myForm" novalidate (ngSubmit)="onSubmitSignUp(f)" #f="ngForm">
+          <div class="form-group">
+              <label>First Name: </label>
+              <input required formControlName="name" type="text" class="form-control" name="name" id="name">
+          </div>
+          <div class="form-group">
+              <label>Last name: </label>
+              <input formControlName="lastname" type="text" class="form-control" name="lastname"  id="lastname" >
+              </div>
+          <div class="form-group">
+              <label>Username: </label>
+              <input formControlName="username" type="text" class="form-control" name="username">
+          </div>
+      
+          <div class="form-group">
+              <label>E-mail:</label>
+              <input formControlName="email" type="email" class="form-control" name="email" 
+              >
+          </div>
+          <div class="form-group">
+              <label>Password:</label>
+              <input formControlName="password" type="password" class="form-control" name="password" >
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Sign up" class="btn float-right login_btn" [disabled]="!myForm.valid">
+          </div>
+      </form>
+  
+      <br/><div class="d-flex justify-content-center links">
+        Already have an account? <a routerLink="/login">Log in</a>
+      </div>
+  </div>
+</div>

@@ -1,19 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from "./helpers/jwt.interceptor"
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './services/auth.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomepageComponent,
+    RegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   
-  providers: [
+  providers: [AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
 

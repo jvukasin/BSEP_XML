@@ -1,10 +1,9 @@
 {
     "/api": {
-        "target": "https://localhost:8443",
+        "target": "https://localhost:8444",
         "secure": false,
         "pathRewrite": {
             "^/api": ""
-        },
-        "logLevel": "info"
+        }
     }
 }

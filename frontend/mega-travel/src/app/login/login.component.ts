@@ -1,0 +1,39 @@
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+
+  constructor(private service: AuthService, private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  loginUser(form: NgForm){
+
+    let user = {
+      username: form.value.username,
+      password: form.value.password,
+    }
+
+    this.service.login(user).subscribe(
+      (success) => {
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        if(error.status === 500){
+          alert("WHOOPS. Something went wrong!");
+        }else if(error.status === 401){
+          alert("Wrong username or password!");
+        }
+      }
+    );
+  }
+
+}

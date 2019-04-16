@@ -11,7 +11,7 @@ export class AuthService {
 	constructor(private http: HttpClient, private router: Router) { }
 
     login(user){
-        return this.http.post('http://localhost:4200/api/auth/login',user)
+        return this.http.post('api/auth/login',user)
         .pipe(
             map(user => {
                 this.loggedUser = user;
@@ -32,7 +32,7 @@ export class AuthService {
     }
 
     getUser(){
-        return this.http.get('http://localhost:4200/api/users/getUser/', {responseType: 'text'});
+        return this.http.get('/api/users/getUser/', {responseType: 'text'});
     }
 
     getLoggedUser() {
