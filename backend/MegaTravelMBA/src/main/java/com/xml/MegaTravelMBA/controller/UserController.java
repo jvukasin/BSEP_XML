@@ -22,6 +22,7 @@ public class UserController {
 	
 	
 	@RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE)
+	//@PreAuthorize("hasAuthority('DELETE_USER')")
 	private String deleteUser() {
 		return "deleteUser() metoda izvrsena!";
 	}
