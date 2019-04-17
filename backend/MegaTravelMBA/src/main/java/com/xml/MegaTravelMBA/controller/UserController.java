@@ -17,6 +17,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/getUser", method = RequestMethod.GET)
 	private String getUser() {
+		System.out.println("IN Get user");
 		return "getUser() metoda odradjena!";
 	}
 	

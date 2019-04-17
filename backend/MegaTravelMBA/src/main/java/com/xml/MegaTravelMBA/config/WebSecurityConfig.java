@@ -78,7 +78,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				// POTREBNO DA SVAKO UBACI KOJE PUTANJE SU DOSTUPNE SVIM KORISNICIMA, BEZ OBZIRA NA ULOGU
 				.authorizeRequests()
 				.antMatchers("/auth/**").permitAll()
-				.antMatchers("/users/deleteUser").hasAuthority("DELETE_USER")
+				.antMatchers("/users/**").permitAll()
+				//.antMatchers("/users/deleteUser").hasAuthority("DELETE_USER")
 				.antMatchers("/h2-console/**").permitAll()
 				// svaki zahtev mora biti autorizovan
 				.anyRequest().authenticated().and()
