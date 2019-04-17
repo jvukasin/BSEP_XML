@@ -49,12 +49,12 @@ public class AuthController {
 		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		
-		User user =  (User) authentication.getPrincipal();
+		UserTemp user =  (UserTemp) authentication.getPrincipal();
 //		
 //		if(!user.isActive()) {
 //			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 //		}
-		
+		// VRATI DRUGI STATUS KOD
 		if(user == null) {
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
@@ -70,7 +70,7 @@ public class AuthController {
 		if(text.isEmpty()) {
 			return false;
 		}
-		if(text.contains(";") || text.contains(">") || text.contains("<") || text.contains("'")) {
+		if(text.contains(";") || text.contains(">") || text.contains("<")) {
 			return false;
 		}
 		for(Character c : text.toCharArray()) {

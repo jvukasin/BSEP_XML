@@ -12,8 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
-public class Role {
+public class Role{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -65,6 +67,7 @@ public class Role {
 	public void setPrivileges(Collection<Privilege> privileges) {
 		this.privileges = privileges;
 	}
+
     
 	
 }
