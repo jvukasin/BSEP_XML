@@ -49,7 +49,7 @@ public class AuthController {
 		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		
-		User user =  (User) authentication.getPrincipal();
+		UserTemp user =  (UserTemp) authentication.getPrincipal();
 //		
 //		if(!user.isActive()) {
 //			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -1,7 +1,9 @@
 package com.xml.MegaTravelMBA.model.temp;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +16,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class UserTemp implements UserDetails{
@@ -32,8 +37,8 @@ public class UserTemp implements UserDetails{
 	 @Column(name = "email")
 	 private String email;
 	 
-	 @Column(name = "enabled")
-	 private boolean enabled;
+//	 @Column(name = "enabled")
+//	 private boolean enabled;
 	 
 	 @Column(name = "password")
 	 private String password;
@@ -91,14 +96,6 @@ public class UserTemp implements UserDetails{
 		this.password = password;
 	}
 
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
 	public Collection<Role> getRoles() {
 		return roles;
 	}
@@ -117,28 +114,28 @@ public class UserTemp implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+		Role role = this.getRoles().iterator().next();
+		return role.getPrivileges();
 	}
-
+	
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
+	
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
+	
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
-	
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.HttpMethod;
 import org.springframework.mobile.device.DeviceHandlerMethodArgumentResolver;
 import org.springframework.mobile.device.DeviceResolverHandlerInterceptor;
@@ -20,6 +21,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -31,7 +33,8 @@ import com.xml.MegaTravelMBA.service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableWebMvc
+@EnableGlobalMethodSecurity(prePostEnabled=true, proxyTargetClass = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
 		// Implementacija PasswordEncoder-a koriscenjem BCrypt hashing funkcije.
@@ -78,7 +81,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				// POTREBNO DA SVAKO UBACI KOJE PUTANJE SU DOSTUPNE SVIM KORISNICIMA, BEZ OBZIRA NA ULOGU
 				.authorizeRequests()
 				.antMatchers("/auth/**").permitAll()
-				.antMatchers("/users/deleteUser").hasAuthority("DELETE_USER")
+				.antMatchers("/users/**").permitAll()
 				.antMatchers("/h2-console/**").permitAll()
 				// svaki zahtev mora biti autorizovan
 				.anyRequest().authenticated().and()
