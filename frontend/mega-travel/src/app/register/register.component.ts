@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -16,9 +17,8 @@ export class RegisterComponent implements OnInit {
   userName: FormControl;
   password: FormControl;
   email: FormControl;
-  city: FormControl;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private userService: UserService,private router: Router) { }
 
   ngOnInit() {
     this.createFormControls();
@@ -39,8 +39,7 @@ export class RegisterComponent implements OnInit {
       lastname: this.lastName,
       username: this.userName,
       email: this.email,
-      password: this.password,
-      city: this.city,
+      password: this.password
     });
   }
 
@@ -50,17 +49,16 @@ export class RegisterComponent implements OnInit {
       lastname: this.myForm.value.lastname,
       username: this.myForm.value.username,
       password: this.myForm.value.password,
-      email: this.myForm.value.email,
-      city: this.myForm.value.city
+      email: this.myForm.value.email
     }
-    // this.service.saveUser(user).subscribe(
-    //   (success) => {
-    //     //dodati: nakon uspesne registracije prebaciti korisnika na glavnu stranicu 
-    //      swal("Success!","Your registration was successfull. Check your e-mail to confirm your account.", "success");
-    //      this.router.navigate(['/home']);
-    //   },
-    //   error => console.log(error)
-    // );
+    this.userService.registerUser(user).subscribe(
+      (success) => {
+        //dodati: nakon uspesne registracije prebaciti korisnika na glavnu stranicu 
+         alert("SUCCESS! User registered.");
+         this.router.navigate(['/login']);
+      },
+      error => console.log(error)
+    );
     form.reset();
   }
 

@@ -49,7 +49,6 @@ public class UserTemp implements UserDetails{
 	        inverseJoinColumns = @JoinColumn(
 	        	name = "role_id", referencedColumnName = "id")) 
 	 private Collection<Role> roles;
-	 
 
 	public String getUsername() {
 		return username;

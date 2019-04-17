@@ -1,12 +1,25 @@
 package com.xml.MegaTravelMBA.controller;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.xml.MegaTravelMBA.dto.UserDTO;
+import com.xml.MegaTravelMBA.model.temp.UserTemp;
+import com.xml.MegaTravelMBA.model.temp.UserTokenState;
 import com.xml.MegaTravelMBA.service.UserService;
+import org.owasp.encoder.Encode;
 
 @RestController
 @RequestMapping("/users")
@@ -25,6 +38,80 @@ public class UserController {
 	//@PreAuthorize("hasAuthority('DELETE_USER')")
 	private String deleteUser() {
 		return "deleteUser() metoda izvrsena!";
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<UserDTO> saveUser(@Valid @RequestBody UserDTO userDTO) {
+		
+		UserTemp exists = userService.findOneByUsername(Encode.forHtml(userDTO.getUsername()));
+		
+		if(!mailValid(userDTO.getEmail())) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else if (!namesValid(userDTO.getFirstname()) || !namesValid(userDTO.getLastname())) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else if (!usernameValid(userDTO.getUsername())) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		if(exists != null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+		UserTemp user = new UserTemp();
+		
+		user.setFirstName(userDTO.getFirstname());
+		user.setLastName(userDTO.getLastname());
+		user.setEmail(userDTO.getEmail());
+		user.setUsername(userDTO.getUsername());
+		//HASHOVATI PASSWORD!!!!
+		user.setPassword(userDTO.getPassword());
+		
+		user = userService.save(user);
+		
+		return new ResponseEntity<>(new UserDTO(), HttpStatus.CREATED);
+		
+	}
+	
+	public boolean namesValid(String text) {
+		
+		if(text.isEmpty()) {
+			return false;
+		}
+		for(Character c : text.toCharArray()) {
+			if (Character.isWhitespace(c) || !Character.isLetter(c)) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+public boolean usernameValid(String text) {
+		
+		if(text.isEmpty()) {
+			return false;
+		}
+		if(text.contains(";") || text.contains(">") || text.contains("<") || text.contains("'")) {
+			return false;
+		}
+		for(Character c : text.toCharArray()) {
+			if (Character.isWhitespace(c)) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public boolean mailValid(String mail) {
+		if(mail.isEmpty()) {
+			return false;
+		}
+		
+		Pattern pattern = Pattern.compile("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
+		Matcher matcher = pattern.matcher(mail);
+		
+		return matcher.matches();
 	}
 	
 }

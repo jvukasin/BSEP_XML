@@ -10,6 +10,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule
   ],
   
-  providers: [AuthService,
+  providers: [AuthService, UserService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
 

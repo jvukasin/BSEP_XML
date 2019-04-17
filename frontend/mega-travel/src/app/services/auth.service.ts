@@ -4,7 +4,6 @@ import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 
-
 @Injectable()
 export class AuthService {
     loggedUser: any;
