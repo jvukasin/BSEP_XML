@@ -113,6 +113,9 @@ public class UserTemp implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
+		if(this.getRoles().isEmpty()) {
+			return null;
+		}
 		Role role = this.getRoles().iterator().next();
 		return role.getPrivileges();
 	}

@@ -54,7 +54,7 @@ public class AuthController {
 //		if(!user.isActive()) {
 //			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 //		}
-		
+		// VRATI DRUGI STATUS KOD
 		if(user == null) {
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}

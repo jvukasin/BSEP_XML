@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private PasswordEncoder encoder;
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String getUser(@PathVariable("id") String username) {
@@ -63,14 +68,18 @@ public class UserController {
 		user.setLastName(userDTO.getLastname());
 		user.setEmail(userDTO.getEmail());
 		user.setUsername(userDTO.getUsername());
-		//HASHOVATI PASSWORD!!!!
-		user.setPassword(userDTO.getPassword());
+		
+		// generisati salt pomocu BCrypta i uraditi hesiranje sifre
+		String salt = BCrypt.gensalt();
+		String hashedPass = BCrypt.hashpw(userDTO.getPassword(), salt);
+		user.setPassword(hashedPass);
 		
 		user = userService.save(user);
 		
 		return new ResponseEntity<>(new UserDTO(), HttpStatus.CREATED);
 		
 	}
+	
 	
 	public boolean namesValid(String text) {
 		
