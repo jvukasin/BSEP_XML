@@ -13,6 +13,20 @@
       <button type="button" class="btn btn-primary" routerLink="/register"> Register </button>
     </div>
   </div>
+  <div class="row" style="margin-top: 30px; margin-bottom: 50px;">
+      <input type="text" name="search" [(ngModel)]="pretraga" placeholder="Search..." style="margin-right: 7px; width:300px;">
+      <button type="submit" class="btn btn-info" (click)="Pretrazi()" >Go!</button>
+  </div>
+  <div class="row" [innerHTML]="srctekst | keepHtml">
+      <h4>Pretraga:</h4>
+  </div>
+  <div class="row">
+    <table>
+      <tr *ngFor="let p of listaPretraga">
+        <td>{{p.text}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 

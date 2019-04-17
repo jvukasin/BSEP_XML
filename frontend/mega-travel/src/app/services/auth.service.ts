@@ -38,6 +38,10 @@ export class AuthService {
 
         return localStorage.getItem('currentUser');
     }
+
+    searchDemo(param) {
+        return this.http.post("/api/auth/search", param);
+    }
  
 }
 

@@ -11,13 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from './services/user.service';
+import { KeepHtmlPipe } from './pipe/keep-html.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomepageComponent,
-    RegisterComponent
+    RegisterComponent,
+    KeepHtmlPipe,
   ],
   imports: [
     BrowserModule,

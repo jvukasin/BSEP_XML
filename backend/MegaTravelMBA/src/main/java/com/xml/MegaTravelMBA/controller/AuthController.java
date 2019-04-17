@@ -1,5 +1,7 @@
 package com.xml.MegaTravelMBA.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.xml.MegaTravelMBA.dto.SearchDTO;
 import com.xml.MegaTravelMBA.model.temp.UserTemp;
 import com.xml.MegaTravelMBA.model.temp.UserTokenState;
 import com.xml.MegaTravelMBA.security.TokenUtils;
@@ -82,4 +85,9 @@ public class AuthController {
 		return true;
 	}
 	
+	@RequestMapping(value = "/search", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<SearchDTO> getSearchedHotels(@RequestBody SearchDTO sDTO) {
+		SearchDTO s = sDTO;
+		return new ResponseEntity<>(s, HttpStatus.OK);
+	}
 }
