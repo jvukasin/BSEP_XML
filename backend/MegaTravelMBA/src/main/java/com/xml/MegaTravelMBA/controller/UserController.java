@@ -3,26 +3,24 @@ package com.xml.MegaTravelMBA.controller;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.owasp.encoder.Encode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xml.MegaTravelMBA.dto.UserDTO;
 import com.xml.MegaTravelMBA.model.temp.UserTemp;
-import com.xml.MegaTravelMBA.model.temp.UserTokenState;
 import com.xml.MegaTravelMBA.service.UserService;
-import org.owasp.encoder.Encode;
 
 @RestController
 @RequestMapping("/users")
