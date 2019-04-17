@@ -44,7 +44,7 @@ public class CertificateService {
 	CertificateRepository certRepo;
 	
 	// da li se loaduje postojeci key store ili se pravi novi
-	private boolean loadExistingRootKeyStore = false;
+	private boolean loadExistingRootKeyStore = true;
 	
 	private KeyStoreReader keyStoreReader;
 	private KeyStoreWriter keyStoreWriter;
