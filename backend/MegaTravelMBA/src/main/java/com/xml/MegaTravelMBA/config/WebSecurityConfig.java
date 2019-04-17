@@ -20,6 +20,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -31,7 +32,8 @@ import com.xml.MegaTravelMBA.service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableWebMvc
+@EnableGlobalMethodSecurity(prePostEnabled=true, proxyTargetClass = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
 		// Implementacija PasswordEncoder-a koriscenjem BCrypt hashing funkcije.
@@ -80,7 +82,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				.authorizeRequests()
 				.antMatchers("/auth/**").permitAll()
 				.antMatchers("/users/**").permitAll()
-				.antMatchers("/users/deleteUser").hasAuthority("DELETE_USER")
 				.antMatchers("/h2-console/**").permitAll()
 				// svaki zahtev mora biti autorizovan
 				.anyRequest().authenticated().and()

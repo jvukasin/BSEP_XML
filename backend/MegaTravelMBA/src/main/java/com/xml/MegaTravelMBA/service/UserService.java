@@ -3,6 +3,7 @@ package com.xml.MegaTravelMBA.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.xml.MegaTravelMBA.model.temp.UserTemp;
@@ -18,6 +19,7 @@ public class UserService {
 		return userRepo.findAll();
 	}
 	
+	
 	public UserTemp findOneByUsername(String username) {
 		return userRepo.findOneByUsername(username);
 	}
@@ -29,6 +31,5 @@ public class UserService {
 	public void remove(String username) {
 		userRepo.deleteById(username);
 	}
-	
 	
 }

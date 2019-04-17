@@ -12,8 +12,10 @@ import javax.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class Privilege{
+public class Privilege implements GrantedAuthority{
   
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +30,7 @@ public class Privilege{
 	public Long getId() {
 		return id;
 	}
-
+    
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -49,4 +51,8 @@ public class Privilege{
 		this.roles = roles;
 	}
 
+	@Override
+	public String getAuthority() {
+		return name;
+	}
 }
