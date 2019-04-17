@@ -70,7 +70,7 @@ public class AuthController {
 		if(text.isEmpty()) {
 			return false;
 		}
-		if(text.contains(";") || text.contains(">") || text.contains("<") || text.contains("'")) {
+		if(text.contains(";") || text.contains(">") || text.contains("<")) {
 			return false;
 		}
 		for(Character c : text.toCharArray()) {

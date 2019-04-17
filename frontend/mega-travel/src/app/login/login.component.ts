@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       password: form.value.password,
     }
     
-    if(usr.includes('\'') || usr.includes('<') || usr.includes(' ') || usr.includes('>') || usr.includes(';')) {
+    if(usr.includes('<') || usr.includes(' ') || usr.includes('>') || usr.includes(';')) {
       this.errorInpBool = true;
     } else {
       this.errorInpBool = false;

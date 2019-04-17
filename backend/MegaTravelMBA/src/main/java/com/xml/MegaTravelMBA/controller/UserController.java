@@ -51,11 +51,11 @@ public class UserController {
 		UserTemp exists = userService.findOneByUsername(Encode.forHtml(userDTO.getUsername()));
 		
 		if(!mailValid(userDTO.getEmail())) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!namesValid(userDTO.getFirstname()) || !namesValid(userDTO.getLastname())) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!usernameValid(userDTO.getUsername())) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		if(exists != null) {
@@ -100,7 +100,7 @@ public boolean usernameValid(String text) {
 		if(text.isEmpty()) {
 			return false;
 		}
-		if(text.contains(";") || text.contains(">") || text.contains("<") || text.contains("'")) {
+		if(text.contains(";") || text.contains(">") || text.contains("<")) {
 			return false;
 		}
 		for(Character c : text.toCharArray()) {
