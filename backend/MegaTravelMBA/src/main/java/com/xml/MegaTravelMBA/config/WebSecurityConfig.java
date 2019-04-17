@@ -71,6 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.csrf().disable()
+			
 				// komunikacija izmedju klijenta i servera je stateless
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				
@@ -87,6 +88,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				.anyRequest().authenticated().and()
 				// presretni svaki zahtev filterom
 				.addFilterBefore(new TokenAuthenticationFilter(tokenUtils, jwtUserDetailsService), BasicAuthenticationFilter.class);
+			
+			http.headers().contentSecurityPolicy("script-src 'self' https://localhost:4200; object-src https://localhost:4200");
 		}
 		
 		
