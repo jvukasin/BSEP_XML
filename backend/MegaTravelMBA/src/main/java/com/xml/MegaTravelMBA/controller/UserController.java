@@ -54,6 +54,8 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!usernameValid(userDTO.getUsername())) {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		} else if (!passValid(userDTO.getPassword())) {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		if(exists != null) {
@@ -108,6 +110,16 @@ public boolean usernameValid(String text) {
 		}
 		
 		return true;
+	}
+
+	public boolean passValid(String pass) {
+		if(pass.isEmpty()) {
+			return false;
+		}
+		Pattern pattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$");
+		Matcher matcher = pattern.matcher(pass);
+		
+		return matcher.matches();
 	}
 	
 	public boolean mailValid(String mail) {

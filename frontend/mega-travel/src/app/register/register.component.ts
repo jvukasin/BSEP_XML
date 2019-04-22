@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   errLast: boolean = false;
   errUsr: boolean = false;
   errMail: boolean = false;
+  errPass: boolean = false;
 
   constructor(private http: HttpClient, private userService: UserService,private router: Router) { }
 
@@ -55,7 +56,7 @@ export class RegisterComponent implements OnInit {
       password: this.myForm.value.password,
       email: this.myForm.value.email
     }
-    if(this.checkNames(user.firstname, user.lastname) && this.checkUsername(user.username) && this.checkMail(user.email)) {
+    if(this.checkNames(user.firstname, user.lastname) && this.checkUsername(user.username) && this.checkMail(user.email) && this.checkPass(user.password)) {
       this.userService.registerUser(user).subscribe(
         (success) => {
            alert("SUCCESS! User registered.");
@@ -87,6 +88,16 @@ export class RegisterComponent implements OnInit {
       return false;
     }
     this.errUsr = false;
+    return true;
+  }
+
+  checkPass(text) : boolean {
+    const mailPatter = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\S+$).{8,}$/;
+    if(!mailPatter.test(text)) {
+      this.errPass = true;
+      return false;
+    }
+    this.errPass = false;
     return true;
   }
 
