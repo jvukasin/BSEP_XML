@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 import javax.validation.Valid;
 
 import org.owasp.encoder.Encode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +35,7 @@ public class UserController {
 	@Autowired
 	private PasswordEncoder encoder;
 	
-	private Logging logger = new Logging(this.getClass());
+	private Logging logger = new Logging(this);
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String getUser(@PathVariable("id") String username) {
@@ -48,23 +50,24 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<UserDTO> saveUser(@Valid @RequestBody UserDTO userDTO) {
-		
+		logger.logInfo("USER REG - START");
 		UserTemp exists = userService.findOneByUsername(Encode.forHtml(userDTO.getUsername()));
 		
 		if(!mailValid(userDTO.getEmail())) {
-			logger.logWarning("Unacceptable email entered: " + userDTO.getEmail());
+			logger.logError("Unacceptable email entered: " + userDTO.getEmail());
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!namesValid(userDTO.getFirstname()) || !namesValid(userDTO.getLastname())) {
-			logger.logWarning("Unacceptable FirstName/LastName entered: " + userDTO.getEmail());
+			logger.logError("Unacceptable FirstName/LastName entered: " + userDTO.getFirstname() + " " + userDTO.getLastname());
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!usernameValid(userDTO.getUsername())) {
-			logger.logWarning("Unacceptable username entered: " + userDTO.getEmail());
+			logger.logError("Unacceptable username entered: " + userDTO.getUsername());
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!passValid(userDTO.getPassword())) {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		if(exists != null) {
+			logger.logError("User with username _" + userDTO.getUsername() + "_ already exists");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
@@ -82,6 +85,7 @@ public class UserController {
 		
 		user = userService.save(user);
 		
+		logger.logInfo("USER REG - END");
 		return new ResponseEntity<>(new UserDTO(), HttpStatus.CREATED);
 		
 	}

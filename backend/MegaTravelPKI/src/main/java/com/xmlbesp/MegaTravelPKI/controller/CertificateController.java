@@ -32,6 +32,7 @@ import com.xmlbesp.MegaTravelPKI.model.Certificate;
 import com.xmlbesp.MegaTravelPKI.model.Software;
 import com.xmlbesp.MegaTravelPKI.service.AdminPKIService;
 import com.xmlbesp.MegaTravelPKI.service.CertificateService;
+import com.xmlbesp.MegaTravelPKI.service.Logging;
 import com.xmlbesp.MegaTravelPKI.service.SoftwareService;
 
 
@@ -47,6 +48,8 @@ public class CertificateController {
 	
 	@Autowired
 	SoftwareService softwareService;
+	
+	private Logging logger = new Logging(this);
 	
 	@RequestMapping(value = "/selfSignedExists", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public boolean selfSignedExists() {
@@ -86,18 +89,20 @@ public class CertificateController {
 	@RequestMapping(value = "/revokeCertificate", method = RequestMethod.PUT, consumes = "application/json")
 	public ResponseEntity<SoftwareDTO> revokeCertificate(@RequestBody RevocationDTO revocationDTO) throws ParseException
 	{
-		
+		logger.logInfo("Revoking certificate - START");
 		Software software = softwareService.findOneById(revocationDTO.getSubjectId());
 		
 		if (software.isCertified() && software.getCertificate() != null) {
 			software.getCertificate().setRevoked(true);
 			software.getCertificate().setReasonForRevocation(revocationDTO.getReasonForRevocation());
 		} else {
+			logger.logError("Revoking certificate " + software.getCertificate().getAlias() + " FAILED");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
 		software = softwareService.save(software);
 		
+		logger.logInfo("Revoking certificate - END");
 		return new ResponseEntity<>(new SoftwareDTO(software), HttpStatus.OK);
 	}
 	

@@ -60,8 +60,8 @@
         <appender-ref ref="Console" />
     </root>
      
-    <!-- LOG "com.xml.MegaTravelMBA.*" at TRACE level  -->
-    <logger name="com.xml.MegaTravelMBA" level="trace" additivity="false">
+    <!-- LOG "com.xmlbsep.MegaTravelPKI.*" at TRACE level  -->
+    <logger name="com.xmlbsep.MegaTravelPKI" level="trace" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
         <appender-ref ref="SevereRollingFile" />
