@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xml.MegaTravelMBA.dto.UserDTO;
 import com.xml.MegaTravelMBA.model.temp.UserTemp;
+import com.xml.MegaTravelMBA.service.Logging;
 import com.xml.MegaTravelMBA.service.UserService;
 
 @RestController
@@ -31,6 +32,8 @@ public class UserController {
 
 	@Autowired
 	private PasswordEncoder encoder;
+	
+	private Logging logger = new Logging(this.getClass());
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String getUser(@PathVariable("id") String username) {
@@ -49,10 +52,13 @@ public class UserController {
 		UserTemp exists = userService.findOneByUsername(Encode.forHtml(userDTO.getUsername()));
 		
 		if(!mailValid(userDTO.getEmail())) {
+			logger.logWarning("Unacceptable email entered: " + userDTO.getEmail());
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!namesValid(userDTO.getFirstname()) || !namesValid(userDTO.getLastname())) {
+			logger.logWarning("Unacceptable FirstName/LastName entered: " + userDTO.getEmail());
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!usernameValid(userDTO.getUsername())) {
+			logger.logWarning("Unacceptable username entered: " + userDTO.getEmail());
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!passValid(userDTO.getPassword())) {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);

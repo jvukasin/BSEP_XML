@@ -1,25 +1,20 @@
 package com.xml.MegaTravelMBA.model.temp;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class UserTemp implements UserDetails{
@@ -35,12 +30,15 @@ public class UserTemp implements UserDetails{
 	 private String lastName;
 	 
 	 @Column(name = "email")
+	 @NotNull
 	 private String email;
 	 
 //	 @Column(name = "enabled")
 //	 private boolean enabled;
 	 
 	 @Column(name = "password")
+	 @NotNull
+	 @Size(min=6, max = 80)
 	 private String password;
 	 
 	 @Column(name = "last_password_reset_date", nullable = true)

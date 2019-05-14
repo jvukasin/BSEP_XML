@@ -62,11 +62,11 @@
      
      <!-- DODATI GDE CE SE RADITI LOG  -->
      
-    <!-- LOG "com.plantplaces.*" at TRACE level 
-    <logger name="com.plantplaces" level="trace" additivity="false">
+    <!-- LOG "com.plantplaces.*" at TRACE level  -->
+    <logger name="com.xml.MegaTravelMBA" level="trace" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
         <appender-ref ref="SevereRollingFile" />
-    </logger> -->
+    </logger>
  
 </configuration>
