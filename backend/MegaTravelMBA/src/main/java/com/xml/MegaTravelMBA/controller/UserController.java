@@ -48,7 +48,7 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<UserDTO> saveUser(@Valid @RequestBody UserDTO userDTO) {
-		
+		logger.logInfo("USER REG - START");
 		UserTemp exists = userService.findOneByUsername(Encode.forHtml(userDTO.getUsername()));
 		
 		if(!mailValid(userDTO.getEmail())) {
@@ -65,6 +65,7 @@ public class UserController {
 		}
 		
 		if(exists != null) {
+			logger.logError("User with username _" + userDTO.getUsername() + "_ already exists");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
@@ -82,6 +83,7 @@ public class UserController {
 		
 		user = userService.save(user);
 		
+		logger.logInfo("USER REG - END");
 		return new ResponseEntity<>(new UserDTO(), HttpStatus.CREATED);
 		
 	}
