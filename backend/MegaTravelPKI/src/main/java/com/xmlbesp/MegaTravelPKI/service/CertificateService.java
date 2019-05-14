@@ -43,6 +43,8 @@ public class CertificateService {
 	@Autowired
 	CertificateRepository certRepo;
 	
+	private Logging logger = new Logging(this);
+	
 	// da li se loaduje postojeci key store ili se pravi novi
 	private boolean loadExistingRootKeyStore = true;
 	
@@ -83,6 +85,7 @@ public class CertificateService {
 	
 	public Certificate generateSelfSignedCertificate(Date startDate, Date endDate) {
 		
+		logger.logInfo("GENSELFSIGNED - START");
 		// pravimo Certificate objekat sa informacijama koje za sada imamo, kada se upisemo, dobijamo njegov id koji ce biti
 		// u ovom slucaju i issuerId jer je selfSigned, za sve ostalo issuerId ce biti onaj parent cert u lancu koji ga potpisuje
 		Certificate cert = new Certificate();
@@ -113,6 +116,7 @@ public class CertificateService {
 		
 		keyStoreWriter.write(this.rootCertificateAlias, keyPairIssuer.getPrivate(), this.keyStorePassword.toCharArray(), certificate);
 		
+		logger.logInfo("GENSELFSIGNED - END");
 		return cert;
 	}
 	
@@ -180,11 +184,12 @@ public class CertificateService {
 	// pravi se sertifikat sa informacijama iz subjectDataDTO i vezuje se na sertifikat koji ima idIssuer i to samo ukoliko je CA
 	public Certificate generateIssuedCertificate(CertificateInfoDTO certInfoDTO) throws ParseException
 	{
-		
+		logger.logInfo("GENCERT - START");
 		// ovde treba proveriti i validnost issuera
 		Certificate parentCertificate = certRepo.getOne(certInfoDTO.getIssuerId());
 		
 		if (parentCertificate == null || !parentCertificate.isCa()) {
+			logger.logError("Cannot create certificate;no parentCert/no CA");
 			return null;
 		}
 		
@@ -228,6 +233,7 @@ public class CertificateService {
 //		soft.setCertificate(cert);
 //		soft = softwareService.save(soft);
 		
+        logger.logInfo("GENCERT - END");
 		return cert;
 	}
 	
