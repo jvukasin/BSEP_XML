@@ -24,10 +24,13 @@ import com.xml.MegaTravelMBA.model.temp.UserTokenState;
 import com.xml.MegaTravelMBA.security.TokenUtils;
 import com.xml.MegaTravelMBA.security.auth.JwtAuthenticationRequest;
 import com.xml.MegaTravelMBA.service.CustomUserDetailsService;
+import com.xml.MegaTravelMBA.service.Logging;
 
 @RestController
 @RequestMapping(value = "/auth")
 public class AuthController {
+	
+	private Logging logger = new Logging(this);
 	
 	@Autowired
 	private TokenUtils tokenUtils;
@@ -41,7 +44,10 @@ public class AuthController {
 	@RequestMapping(value="/login",method = RequestMethod.POST)
 	public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device){
 		
+		logger.logInfo("/login endpoint entered. Username: " + authenticationRequest.getUsername());
+		
 		if(!inputValid(authenticationRequest.getUsername())) {
+			logger.logError("The entered username is not valid: " + authenticationRequest.getUsername());
 			return new ResponseEntity<>(new UserTokenState("error",0), HttpStatus.NOT_FOUND);
 		}
 		
@@ -59,12 +65,16 @@ public class AuthController {
 //		}
 		// VRATI DRUGI STATUS KOD
 		if(user == null) {
+				logger.logError("The user " + authenticationRequest.getUsername() + " is not authorized.");
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 		
 		String jwt = tokenUtils.generateToken(user.getUsername(), device);
 		
 		int expiresIn = 3600;
+		
+		logger.logInfo("/login endpoint returned.");
+		
 		return ResponseEntity.ok(new UserTokenState(jwt,expiresIn));
 	}
 	
