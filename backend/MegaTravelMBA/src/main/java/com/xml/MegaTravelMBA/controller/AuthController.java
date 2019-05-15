@@ -44,10 +44,10 @@ public class AuthController {
 	@RequestMapping(value="/login",method = RequestMethod.POST)
 	public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device){
 		
-		logger.logInfo("/login endpoint entered. Username: " + authenticationRequest.getUsername());
+		logger.logInfo("ULOG. Username: " + authenticationRequest.getUsername());
 		
 		if(!inputValid(authenticationRequest.getUsername())) {
-			logger.logError("The entered username is not valid: " + authenticationRequest.getUsername());
+			logger.logError("ULOG_UNAME_ERR. Username: " + authenticationRequest.getUsername());
 			return new ResponseEntity<>(new UserTokenState("error",0), HttpStatus.NOT_FOUND);
 		}
 		
@@ -65,7 +65,7 @@ public class AuthController {
 //		}
 		// VRATI DRUGI STATUS KOD
 		if(user == null) {
-				logger.logError("The user " + authenticationRequest.getUsername() + " is not authorized.");
+				logger.logError("ULOG_FAIL. "+ authenticationRequest.getUsername() + " is not authorized.");
 				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 		
@@ -73,7 +73,7 @@ public class AuthController {
 		
 		int expiresIn = 3600;
 		
-		logger.logInfo("/login endpoint returned.");
+		logger.logInfo("ULOG_SUCCESS");
 		
 		return ResponseEntity.ok(new UserTokenState(jwt,expiresIn));
 	}
