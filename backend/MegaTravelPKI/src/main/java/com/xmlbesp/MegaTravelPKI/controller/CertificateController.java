@@ -53,7 +53,6 @@ public class CertificateController {
 	
 	@RequestMapping(value = "/selfSignedExists", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public boolean selfSignedExists() {
-		System.out.println("ping");
 		return certificateService.selfSignedExists();
 	}
 	
