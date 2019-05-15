@@ -2,6 +2,7 @@ package com.xml.MegaTravelMBA.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +43,9 @@ public class AuthController {
 	private CustomUserDetailsService userDetailsService;
 	
 	@RequestMapping(value="/login",method = RequestMethod.POST)
-	public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device){
+	public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device, HttpServletRequest hr){
 		
-		logger.logInfo("ULOG. Username: " + authenticationRequest.getUsername());
+		logger.logInfo("ULOG. Username: " + authenticationRequest.getUsername() + ", IP ADDRESS: " + hr.getRemoteAddr());
 		
 		if(!inputValid(authenticationRequest.getUsername())) {
 			logger.logError("ULOG_UNAME_ERR. Username: " + authenticationRequest.getUsername());
