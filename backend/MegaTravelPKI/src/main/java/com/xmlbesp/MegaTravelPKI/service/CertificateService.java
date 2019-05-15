@@ -59,24 +59,26 @@ public class CertificateService {
 	@PostConstruct
 	public void init() throws ParseException {
 		
-		logger.logInfo("CertificateService init() started.");
+		logger.logInfo("KS_INIT");
 		
 		keyStoreWriter = new KeyStoreWriter();
 		keyStoreReader = new KeyStoreReader();
 		
 		if (loadExistingRootKeyStore) {
-			logger.logInfo("Loading existing root key store.");
+			logger.logInfo("KS_INIT_EXISTING");
 			
 			keyStoreWriter.loadKeyStore(formFileName(rootCertificateAlias), keyStorePassword.toCharArray());
 			
-			// PRIVREMENO - dok je hibernate postavljen na create-drop
-			if (!selfSignedExists()) {
-				
-			}
+			/*
+			 * // PRIVREMENO - dok je hibernate postavljen na create-drop if
+			 * (!selfSignedExists()) {
+			 * 
+			 * }
+			 */
 			
 		} else {
 
-			logger.logInfo("Creating new root key store.");
+			logger.logInfo("KS_INIT_NEW");
 			
 			keyStoreWriter.loadKeyStore(null, keyStorePassword.toCharArray());
 			String pattern = "yyyy-MM-dd";
@@ -89,13 +91,13 @@ public class CertificateService {
 			keyStoreWriter.saveKeyStore(formFileName(rootCertificateAlias), keyStorePassword.toCharArray());
 		}
 		
-		logger.logInfo("CertificateService init() ended.");
+		logger.logInfo("KS_INIT_SUCCESS.");
 		
 	}
 	
 	public Certificate generateSelfSignedCertificate(Date startDate, Date endDate) {
 		
-		logger.logInfo("generateSelfSignedCertificate() started.");
+		logger.logInfo("SS_CERT_CREATE");
 		// pravimo Certificate objekat sa informacijama koje za sada imamo, kada se upisemo, dobijamo njegov id koji ce biti
 		// u ovom slucaju i issuerId jer je selfSigned, za sve ostalo issuerId ce biti onaj parent cert u lancu koji ga potpisuje
 		Certificate cert = new Certificate();
@@ -122,17 +124,26 @@ public class CertificateService {
 		subject.setPrivateKey(keyPairIssuer.getPrivate());
 		
 		CertificateGenerator cg = new CertificateGenerator();
-		X509Certificate certificate = cg.generateCertificate(subject, issuer);
 		
-		keyStoreWriter.write(this.rootCertificateAlias, keyPairIssuer.getPrivate(), this.keyStorePassword.toCharArray(), certificate);
+		try {
+			X509Certificate certificate = cg.generateCertificate(subject, issuer);
+			keyStoreWriter.write(this.rootCertificateAlias, keyPairIssuer.getPrivate(), this.keyStorePassword.toCharArray(), certificate);
 
-		logger.logInfo("generateSelfSignedCertificate() ended.");
-		return cert;
+			logger.logInfo("SS_CERT_CREATE_SUCCESS");
+			return cert;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		
+		logger.logError("SS_CERT_CREATE_FAIL");
+		return null;
 	}
 	
 	private SubjectData generateRootSubjectData(Long certId, Date startDate, Date endDate) {
 
-		logger.logInfo("generateRootSubjectData() started.");
+		logger.logInfo("SD_ROOT_GEN");
 		
 		KeyPair keyPairSubject = generateKeyPair();
 		String serial = certId.toString();
@@ -147,14 +158,14 @@ public class CertificateService {
 	    //UID (USER ID) je ID korisnika
 	    builder.addRDN(BCStyle.UID, "123456");
 
-		logger.logInfo("generateRootSubjectData() ended.");
+		logger.logInfo("SD_ROOT_GEN_SUCCESS");
 	    return new SubjectData(keyPairSubject.getPublic(), keyPairSubject.getPrivate(), builder.build(), serial, startDate, endDate);
 		
 	}
 	
 	private IssuerData generateRootIssuerData(PrivateKey privateKey) {
 
-		logger.logInfo("generateRootIssuerData() started.");
+		logger.logInfo("ID_ROOT_GEN");
 		
 		X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
     
@@ -167,55 +178,54 @@ public class CertificateService {
 	    builder.addRDN(BCStyle.UID, "123456");
     
 
-		logger.logInfo("generateRootIssuerData() ended.");
+		logger.logInfo("ID_ROOT_GEN_SUCCESS");
 	    return new IssuerData(privateKey, builder.build());
 		
 	}
 	
 	public Certificate getSelfSigned() {
 
-		logger.logInfo("getSelfSIgned() started.");
+		logger.logInfo("SS_CERT_GET");
 		List<Certificate> certifs = certRepo.findAll();
 		
 		for(Certificate c : certifs) {
 			if (c.getId().equals(c.getIdIssuer())) {
 
-				logger.logInfo("getSelfSIgned() ended.");
+				logger.logInfo("SS_CERT_GET_SUCCESS");
 				return c;
 			}
 		}
 
-		logger.logError("Self signed certificate does not exist.");
+		logger.logError("SS_CERT_GET_FAIL");
 		return null;
 	}
 	
 
 	public boolean selfSignedExists() {
 
-		logger.logInfo("selfSignedExists() started.");
 		List<Certificate> certifs = certRepo.findAll();
 		
 		for(Certificate c : certifs) {
 			if (c.getId().equals(c.getIdIssuer())) {
 
-				logger.logInfo("selfSignedExists() ended. Self signed certificate exists.");
+				logger.logInfo("SS_CERT_EXISTS");
 				return true;
 			}
 		}
 
-		logger.logInfo("selfSignedExists() ended. Self signed certificate does not exist.");
+		logger.logWarning("SS_CERT_NOT_EXISTS");
 		return false;
 	}
 	
 	// pravi se sertifikat sa informacijama iz subjectDataDTO i vezuje se na sertifikat koji ima idIssuer i to samo ukoliko je CA
 	public Certificate generateIssuedCertificate(CertificateInfoDTO certInfoDTO) throws ParseException
 	{
-		logger.logInfo("generateIssuedCertificate() started.");
+		logger.logInfo("IS_GEN");
 		// ovde treba proveriti i validnost issuera
 		Certificate parentCertificate = certRepo.getOne(certInfoDTO.getIssuerId());
 		
 		if (parentCertificate == null || !parentCertificate.isCa()) {
-			logger.logError("Cannot create certificate;no parentCert/no CA");
+			logger.logError("IS_GEN_FAIL");
 			return null;
 		}
 		
@@ -259,14 +269,14 @@ public class CertificateService {
 //		soft.setCertificate(cert);
 //		soft = softwareService.save(soft);
 
-		logger.logInfo("generateIssuedCertificate() ended.");
+		logger.logInfo("IS_GEN_SUCCESS");
 		return cert;
 	}
 	
 	public String validate(Certificate cert, Certificate parentCertificate) {
 		// TODO: uraditi revoke za sve sertifikate u hijerarhiji
 
-		logger.logInfo("validate() started.");
+		logger.logInfo("CERT_VAL");
 		
 		Calendar thisMoment = Calendar.getInstance();
 		thisMoment.set(Calendar.HOUR_OF_DAY, 0);
@@ -277,12 +287,10 @@ public class CertificateService {
 		Date today = thisMoment.getTime();
 		
 		if(cert.isRevoked()) {
-			logger.logError("The certificate is revoked.");
-			logger.logInfo("validate() ended. ");
+			logger.logWarning("CERT_VAL_REVOKED");
 			return "The certificate has been revoked!";
 		}else if(today.after(cert.getEndDate())) {
-			logger.logError("The validation date has expired!");
-			logger.logInfo("validate() ended. ");
+			logger.logWarning("CERT_VAL_EXPIRIED");
 			return "The validation date has expired!";
 		}else {
 			// provera digitalnog potpisa
@@ -298,48 +306,44 @@ public class CertificateService {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 
-				logger.logError("InvalidKeyException. The digital signature is not valid!");
-				logger.logInfo("validate() ended.");
+				logger.logError("CERT_VAL_ERROR");
 				return "The digital signature is not valid!";
 			} catch (CertificateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 
-				logger.logError("CertificateException. The digital signature is not valid!");
-				logger.logInfo("validate() ended.");
+				logger.logError("CERT_VAL_ERROR");
 				return "The digital signature is not valid!";
 				
 			} catch (NoSuchAlgorithmException e) {
 				// TODO Auto-generated catch block
 
 				e.printStackTrace();
-				logger.logError("NoSuchAlgorithmException. The digital signature is not valid!");
-				logger.logInfo("validate() ended.");
+				logger.logError("CERT_VAL_ERROR");
 				return "The digital signature is not valid!";
 			} catch (NoSuchProviderException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 
-				logger.logError("NoSuchProviderException. The digital signature is not valid!");
-				logger.logInfo("validate() ended.");
+				logger.logError("CERT_VAL_ERROR");
 				return "The digital signature is not valid!";
 			} catch (SignatureException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 
-				logger.logError("SignatureException. The digital signature is not valid!");
-				logger.logInfo("validate() ended.");
+				logger.logError("CERT_VAL_ERROR");
+				
 				return "The digital signature is not valid!";
 			}
 			
 		}
-		logger.logInfo("validate() ended.");
+		logger.logInfo("CERT_VAL_SUCCESS");
 		return "The certificate is valid!";
 	}
 	
 	private IssuerData getIssuerDataFromKeyStore(Certificate parentCertificate) {
 
-		logger.logInfo("getIssuerDataFromKeyStore() started.");
+		logger.logInfo("ID_GET_KS");
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
@@ -352,7 +356,12 @@ public class CertificateService {
 	    														   this.keyStorePassword.toCharArray());
 	
 
-		logger.logInfo("getIssuerDataFromKeyStore() ended.");
+	    if (issuerData != null) {
+	    	logger.logInfo("ID_GET_KS_SUCCESS");
+	    } else {
+	    	logger.logError("ID_GET_KS_FAIL");
+	    }
+	    
 	    return issuerData;
 		
 	}
@@ -362,7 +371,7 @@ public class CertificateService {
 	
 	private SubjectData generateSubjectData(Long certId, SubjectDataDTO subjectDataDTO, Date startDate, Date endDate) {
 
-		logger.logInfo("generateSubjectData() started.");
+		logger.logInfo("SD_GEN");
 		
 		KeyPair keyPairSubject = generateKeyPair();
 		String serial = certId.toString();
@@ -397,7 +406,7 @@ public class CertificateService {
 	    // - serijski broj sertifikata
 	    // - od kada do kada vazi sertifikat
 
-		logger.logInfo("generateSubjectData() ended.");
+		logger.logInfo("SD_GEN_SUCCESS");
 	    return new SubjectData(keyPairSubject.getPublic(), keyPairSubject.getPrivate(), builder.build(), serial, 
 	    															startDate, endDate);
 	}
@@ -408,25 +417,24 @@ public class CertificateService {
 	//proveriti algoritme
 	private KeyPair generateKeyPair() {
 
-		logger.logInfo("generateKeyPair() started.");
+		logger.logInfo("KP_GEN");
 		try {
 			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA"); 
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
 			keyGen.initialize(2048, random);
-			logger.logInfo("generateKeyPair() ended.");
+			logger.logInfo("KP_GEN_SUCCESS");
 			return keyGen.generateKeyPair();
 			} catch (NoSuchAlgorithmException e) {
 
-				logger.logError("NoSuchAlgorithmException. KeyPair has not been generated.");
+				logger.logError("KP_GEN_ERROR");
 				e.printStackTrace();
 			} catch (NoSuchProviderException e) {
 
-				logger.logError("NoSuchProviderException. KeyPair has not been generated.");
+				logger.logError("KP_GEN_ERROR");
 				e.printStackTrace();
 			}
 		
 
-			logger.logInfo("generateKeyPair() ended.");
 	        return null;
 	}	
 	
@@ -434,8 +442,6 @@ public class CertificateService {
 	// ova metoda je prakticno nepotrebna
 	private X509Certificate createCertificate(SubjectData subjectData, IssuerData issuerData, PublicKey publicKey) {
 
-		logger.logInfo("createCertificate() started.");
-		
 		//Generise se sertifikat za subjekta, potpisan od strane issuer-a
 		CertificateGenerator cg = new CertificateGenerator();
 		X509Certificate cert = cg.generateCertificate(subjectData, issuerData);
@@ -444,27 +450,18 @@ public class CertificateService {
 			//ovde vraca javin Certificate objekat, ne nas iz modela
 			cert.verify(publicKey);
 
-			logger.logInfo("Certificate created.");
-			logger.logInfo("createCertificate() ended.");
 			return cert;
 		} catch (InvalidKeyException e) {
 			e.printStackTrace();
-			logger.logError("InvalidKeyException. Certificate has not been created.");
 		} catch (CertificateException e) {
 			e.printStackTrace();
-			logger.logError("CertificateException. Certificate has not been created.");
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
-			logger.logError("NoSuchAlgorithmException. Certificate has not been created.");
 		} catch (NoSuchProviderException e) {
 			e.printStackTrace();
-			logger.logError("NoSuchProviderException. Certificate has not been created.");
 		} catch (SignatureException e) {
 			e.printStackTrace();
-			logger.logError("SignatureException. Certificate has not been created.");
 		}
-
-		logger.logInfo("createCertificate() ended.");
 		return null;
 	}
 	
