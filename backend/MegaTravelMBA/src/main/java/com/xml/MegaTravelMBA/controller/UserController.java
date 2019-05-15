@@ -50,24 +50,32 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<UserDTO> saveUser(@Valid @RequestBody UserDTO userDTO) {
-		logger.logInfo("USER REG - START");
+		logger.logInfo("UREG");
 		UserTemp exists = userService.findOneByUsername(Encode.forHtml(userDTO.getUsername()));
 		
 		if(!mailValid(userDTO.getEmail())) {
-			logger.logError("Unacceptable email entered: " + userDTO.getEmail());
+			logger.logError("UREG_MAIL_ERR");
+			logger.logError("UREG_FAIL");
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
-		} else if (!namesValid(userDTO.getFirstname()) || !namesValid(userDTO.getLastname())) {
-			logger.logError("Unacceptable FirstName/LastName entered: " + userDTO.getFirstname() + " " + userDTO.getLastname());
+		} else if (!namesValid(userDTO.getFirstname())) {
+			logger.logError("UREG_FIRSTNAME_ERR");
+			logger.logError("UREG_FAIL");
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		} else if (!namesValid(userDTO.getLastname())) {
+			logger.logError("UREG_LASTNAME_ERR");
+			logger.logError("UREG_FAIL");
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!usernameValid(userDTO.getUsername())) {
-			logger.logError("Unacceptable username entered: " + userDTO.getUsername());
+			logger.logError("UREG_UNAME_ERR");
+			logger.logError("UREG_FAIL");
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		} else if (!passValid(userDTO.getPassword())) {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		if(exists != null) {
-			logger.logError("User with username _" + userDTO.getUsername() + "_ already exists");
+			logger.logError("UREG_UNAME_EXISTS_ERR");
+			logger.logError("UREG_FAIL");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
@@ -85,7 +93,7 @@ public class UserController {
 		
 		user = userService.save(user);
 		
-		logger.logInfo("USER REG - END");
+		logger.logInfo("UREG_SUCCESS");
 		return new ResponseEntity<>(new UserDTO(), HttpStatus.CREATED);
 		
 	}

@@ -10,3 +10,10 @@
 2019-05-15 14:28:50,445 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
 2019-05-15 14:28:50,461 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
 2019-05-15 14:28:59,153 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelMbaApplicationTests in 9.614 seconds (JVM running for 11.237)
+2019-05-15 18:33:04,676 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplicationTests on HPvj with PID 3020 (started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-05-15 18:33:04,680 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-15 18:33:04,682 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-05-15 18:35:38,862 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplicationTests on HPvj with PID 11696 (started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-05-15 18:35:38,868 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-15 18:35:38,869 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-05-15 18:35:50,705 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelMbaApplicationTests in 12.634 seconds (JVM running for 14.245)
