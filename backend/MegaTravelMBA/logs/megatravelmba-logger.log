@@ -1,0 +1,12 @@
+2019-05-15 14:16:19,766 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplication on DESKTOP-7EFKHD1 with PID 7948 (C:\GITHUB\BSEP_XML\backend\MegaTravelMBA\target\classes started by Vladimir in C:\GITHUB\BSEP_XML\backend\MegaTravelMBA)
+2019-05-15 14:16:19,766 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-15 14:16:19,766 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-05-15 14:16:22,696 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vladimir\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-05-15 14:16:22,699 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vladimir\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-05-15 14:16:22,699 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-05-15 14:16:23,394 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-05-15 14:16:28,810 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelMbaApplication in 9.859 seconds (JVM running for 10.589)
+2019-05-15 14:28:50,445 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplicationTests on DESKTOP-7EFKHD1 with PID 14216 (started by Vladimir in C:\GITHUB\BSEP_XML\backend\MegaTravelMBA)
+2019-05-15 14:28:50,445 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-05-15 14:28:50,461 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-05-15 14:28:59,153 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelMbaApplicationTests in 9.614 seconds (JVM running for 11.237)
