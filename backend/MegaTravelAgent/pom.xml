@@ -33,6 +33,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+		</dependency>
 	
 
 			<!-- MYSQL -->
@@ -48,6 +52,10 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<!-- tag::wsdl[] -->
+            <!-- plug-in for WSDL -->
+            <!-- end::wsdl[] -->
 		</plugins>
 	</build>
 
