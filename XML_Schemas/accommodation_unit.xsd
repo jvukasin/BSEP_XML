@@ -68,9 +68,40 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
+<<<<<<< HEAD
                 <xs:element maxOccurs="unbounded" minOccurs="0" ref="au:Amenity"/>
                 <xs:element maxOccurs="unbounded" minOccurs="1" ref="au:Image"/>
                 <xs:element maxOccurs="unbounded" minOccurs="0" ref="au:SpecificPrice"/>
+=======
+                <xs:element name="Ratings">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:element ref="gl:Rating"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Amenities">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:element ref="au:Amenity"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="PricePlan">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                            <xs:element ref="au:SpecificPrice"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Images">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+                            <xs:element ref="au:Image"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+>>>>>>> 404b6e473bc9c71868655040fbd33339b7a1f02f
                 <xs:element ref="gl:Location"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:long"/>
@@ -92,8 +123,15 @@
     <xs:element name="SpecificPrice">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="price" type="xs:double"/>
+                <xs:element name="price">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
             </xs:sequence>
+            <xs:attribute name="id" type="xs:long"/>
             <xs:attribute name="startDate" type="xs:date"/>
             <xs:attribute name="endDate" type="xs:date"/>
         </xs:complexType>

@@ -104,7 +104,6 @@
                 <xs:element name="comment">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element default="false" name="approved" type="xs:boolean"/>
                             <xs:element name="text">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
@@ -115,6 +114,7 @@
                             </xs:element>
                         </xs:sequence>
                         <xs:attribute name="id" type="xs:long"/>
+                        <xs:attribute name="approved" type="xs:boolean"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
