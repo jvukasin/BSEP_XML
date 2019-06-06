@@ -133,7 +133,7 @@ public class AccommodationUnit {
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double defaultPrice;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
-    protected String type;
+    protected AccommodationType type;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double ratingAvg;
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
@@ -267,7 +267,7 @@ public class AccommodationUnit {
      *     {@link String }
      *     
      */
-    public String getType() {
+    public AccommodationType getType() {
         return type;
     }
 
@@ -279,7 +279,7 @@ public class AccommodationUnit {
      *     {@link String }
      *     
      */
-    public void setType(String value) {
+    public void setType(AccommodationType value) {
         this.type = value;
     }
 

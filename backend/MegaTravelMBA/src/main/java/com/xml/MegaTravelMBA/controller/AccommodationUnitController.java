@@ -16,25 +16,17 @@ public class AccommodationUnitController
 {
 	
 	//ROLE: neulogovan i ulogovan
-	@RequestMapping(value = "/standardSeatch/{searchDTO}", method = RequestMethod.GET)
-	public ResponseEntity<?> getViaStandardSearch(@PathVariable("searchDTO") StandardSearchDTO dto)
+	@RequestMapping(value = "/query/{searchDTO}", method = RequestMethod.GET)
+	public ResponseEntity<?> getViaStandardSearch(@PathVariable("searchDTO") ExtendedSearchDTO dto)
 	{
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	
-	//ROLE: neulogovan i ulogovan
-	@RequestMapping(value = "/extendedSearch/{searchDTO}", method = RequestMethod.GET)
-	public ResponseEntity<?> getViaExtendedSearch(@PathVariable("searchDTO") ExtendedSearchDTO dto)
-	{
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-
 	
 	//ROLE: agent i admin
 	//TODO: dto?
-	@RequestMapping(value = "/edit/{accommodation}", method = RequestMethod.PUT)
-	public ResponseEntity<?> editAccommodation(@PathVariable("accommodation") AccommodationUnit dto)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> editAccommodation(@PathVariable("id") Long accommodationId)
 	{
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

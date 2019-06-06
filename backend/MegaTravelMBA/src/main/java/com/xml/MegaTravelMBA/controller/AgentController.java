@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.xml.MegaTravelMBA.model.User;
 
 @RestController
-@RequestMapping("/reservations")
+@RequestMapping("/agets")
 public class AgentController 
 {
 	//ROLE: admin
 	//TODO: user token ili id
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<?> upgradeUserToAgent(@RequestBody User user)
 	{	
 		
