@@ -19,6 +19,7 @@
                     </xs:simpleType>
                 </xs:element>
                 <xs:element ref="au:AccommodationUnit"/>
+                <xs:element default="false" name="isActive" type="xs:boolean"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:long"> </xs:attribute>
         </xs:complexType>
