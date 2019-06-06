@@ -98,6 +98,25 @@ public class UserController {
 		
 	}
 	
+
+	@RequestMapping(value = "changeStatus/{id}/{status}", method = RequestMethod.PUT)
+	public ResponseEntity<?> changeUserStatus(@PathVariable("id") Long id)//,@PathVariable("stauts") Status status)
+	{
+		return new ResponseEntity<>(HttpStatus.OK);
+
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// * * * UTILS * * *
 	
 	public boolean namesValid(String text) {
 		

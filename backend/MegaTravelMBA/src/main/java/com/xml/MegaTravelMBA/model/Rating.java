@@ -178,7 +178,7 @@ public class Rating {
 
         @XmlElement(defaultValue = "false")
         protected boolean approved;
-        @XmlElement(required = true)
+        @XmlElement(required = false)
         protected String text;
         @XmlAttribute(name = "id")
         protected Long id;

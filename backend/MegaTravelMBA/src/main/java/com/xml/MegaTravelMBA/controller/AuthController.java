@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xml.MegaTravelMBA.dto.SearchDTO;
+import com.xml.MegaTravelMBA.dto.StandardSearchDTO;
+import com.xml.MegaTravelMBA.dto.StandardSearchDTO;
 import com.xml.MegaTravelMBA.model.temp.UserTemp;
 import com.xml.MegaTravelMBA.model.temp.UserTokenState;
 import com.xml.MegaTravelMBA.security.TokenUtils;
@@ -97,8 +98,8 @@ public class AuthController {
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<SearchDTO> getSearchedHotels(@RequestBody SearchDTO sDTO) {
-		SearchDTO s = sDTO;
+	public ResponseEntity<StandardSearchDTO> getSearchedHotels(@RequestBody StandardSearchDTO sDTO) {
+		StandardSearchDTO s = sDTO;
 		return new ResponseEntity<>(s, HttpStatus.OK);
 	}
 }
