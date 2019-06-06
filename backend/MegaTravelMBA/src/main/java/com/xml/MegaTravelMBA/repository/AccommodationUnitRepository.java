@@ -6,6 +6,6 @@ import com.xml.MegaTravelMBA.model.AccommodationUnit;
 
 public interface AccommodationUnitRepository extends JpaRepository<AccommodationUnit, String> {
 	
-	
+	AccommodationUnit findOneById(Long id);
 	
 }

@@ -8,6 +8,16 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -15,7 +25,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -43,17 +52,34 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "", propOrder = {
     "price"
 })
+
+@Entity
 @XmlRootElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class SpecificPrice {
-
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    @XmlAttribute(name = "id")
+    protected Long id;
+	
+	@Column(name="price")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double price;
+    
+	@Column(name="startDate")
     @XmlAttribute(name = "startDate")
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar startDate;
+    protected Date startDate;
+    
+	@Column(name="endDate")
     @XmlAttribute(name = "endDate")
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar endDate;
+    protected Date endDate;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
+    protected AccommodationUnit accommodationUnit;
 
     /**
      * Gets the value of the price property.
@@ -79,7 +105,7 @@ public class SpecificPrice {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
@@ -91,7 +117,7 @@ public class SpecificPrice {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setStartDate(XMLGregorianCalendar value) {
+    public void setStartDate(Date value) {
         this.startDate = value;
     }
 
@@ -103,7 +129,7 @@ public class SpecificPrice {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
@@ -115,7 +141,7 @@ public class SpecificPrice {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setEndDate(XMLGregorianCalendar value) {
+    public void setEndDate(Date value) {
         this.endDate = value;
     }
 

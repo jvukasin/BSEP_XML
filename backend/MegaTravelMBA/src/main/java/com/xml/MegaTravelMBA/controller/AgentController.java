@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.xml.MegaTravelMBA.model.User;
 
 @RestController
-@RequestMapping("/reservations")
+@RequestMapping("/agent")
 public class AgentController 
 {
 	//ROLE: admin

@@ -10,6 +10,16 @@ package com.xml.MegaTravelMBA.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -117,33 +127,65 @@ import javax.xml.bind.annotation.XmlType;
     "specificPrice",
     "location"
 })
+@Entity
 @XmlRootElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class AccommodationUnit {
-
+	
+	@Column(name = "name")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String name;
+    
+	@Column(name = "description")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String description;
+    
+	@Column(name = "capacity")
+	
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int capacity;
+    
+	@Column(name = "cancellationPeriod")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int cancellationPeriod;
+    
+	@Column(name = "price")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double price;
+    
+	@Column(name = "defaultPrice")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double defaultPrice;
+    
+	@Column(name = "type")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String type;
+    
+	@Column(name = "ratingAvg")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double ratingAvg;
+    
+	@OneToMany(mappedBy = "accommodationUnit", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<Amenity> amenity;
+    
+	@Column(name = "image")
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
-    protected List<Image> image;
+    protected String image;
+   
+	@OneToMany(mappedBy = "accommodationUnit", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<SpecificPrice> specificPrice;
+    
+	@OneToMany(mappedBy = "accommodationUnit", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @XmlElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
-    protected Location location;
+    protected List<Location> locations;
+    
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 
@@ -350,11 +392,8 @@ public class AccommodationUnit {
      * 
      * 
      */
-    public List<Image> getImage() {
-        if (image == null) {
-            image = new ArrayList<Image>();
-        }
-        return this.image;
+    public String getImage() {
+        return image;
     }
 
     /**
@@ -394,8 +433,11 @@ public class AccommodationUnit {
      *     {@link Location }
      *     
      */
-    public Location getLocation() {
-        return location;
+    public List<Location> getLocations() {
+        if (locations == null) {
+        	locations = new ArrayList<Location>();
+        }
+        return this.locations;
     }
 
     /**
@@ -406,9 +448,6 @@ public class AccommodationUnit {
      *     {@link Location }
      *     
      */
-    public void setLocation(Location value) {
-        this.location = value;
-    }
 
     /**
      * Gets the value of the id property.

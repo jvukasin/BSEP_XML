@@ -1,0 +1,42 @@
+2019-06-06 23:41:24,170 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplication on HPvj with PID 160 (D:\git\BSEP_XML\backend\MegaTravelMBA\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-06-06 23:41:24,181 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-06 23:41:24,183 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-06 23:41:30,066 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:41:30,070 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:41:30,072 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-06 23:41:31,466 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-06 23:42:07,790 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplication on HPvj with PID 8932 (D:\git\BSEP_XML\backend\MegaTravelMBA\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-06-06 23:42:07,801 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-06 23:42:07,803 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-06 23:42:12,721 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:42:12,722 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:42:12,722 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-06 23:42:13,530 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-06 23:44:49,159 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplication on HPvj with PID 5980 (D:\git\BSEP_XML\backend\MegaTravelMBA\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-06-06 23:44:49,164 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-06 23:44:49,166 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-06 23:44:55,048 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:44:55,058 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:44:55,060 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-06 23:44:55,832 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-06 23:53:33,408 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplication on HPvj with PID 12600 (D:\git\BSEP_XML\backend\MegaTravelMBA\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-06-06 23:53:33,414 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-06 23:53:33,415 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-06 23:53:39,088 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:53:39,093 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:53:39,094 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-06 23:53:39,791 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-06 23:57:12,060 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplication on HPvj with PID 3652 (D:\git\BSEP_XML\backend\MegaTravelMBA\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-06-06 23:57:12,070 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-06 23:57:12,071 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-06 23:57:17,198 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:57:17,201 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:57:17,202 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-06 23:57:17,968 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-06 23:59:41,939 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelMbaApplication on HPvj with PID 8276 (D:\git\BSEP_XML\backend\MegaTravelMBA\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-06-06 23:59:41,951 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-06 23:59:41,952 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-06 23:59:46,898 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:59:46,900 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\Vukasin\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar
+2019-06-06 23:59:46,901 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-06 23:59:47,659 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
