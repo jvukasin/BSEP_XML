@@ -6,8 +6,6 @@ import java.util.regex.Pattern;
 import javax.validation.Valid;
 
 import org.owasp.encoder.Encode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xml.MegaTravelMBA.dto.UserDTO;
+import com.xml.MegaTravelMBA.model.UserStatus;
 import com.xml.MegaTravelMBA.model.temp.UserTemp;
 import com.xml.MegaTravelMBA.service.Logging;
 import com.xml.MegaTravelMBA.service.UserService;
@@ -99,8 +98,8 @@ public class UserController {
 	}
 	
 
-	@RequestMapping(value = "changeStatus/{id}/{status}", method = RequestMethod.PUT)
-	public ResponseEntity<?> changeUserStatus(@PathVariable("id") Long id)//,@PathVariable("stauts") Status status)
+	@RequestMapping(value = "/{id}/{status}", method = RequestMethod.PUT)
+	public ResponseEntity<?> changeUserStatus(@PathVariable("id") Long id, @PathVariable("status") UserStatus status)
 	{
 		return new ResponseEntity<>(HttpStatus.OK);
 

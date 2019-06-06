@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.xml.MegaTravelMBA.dto.RatingCommentDTO;
 
 @RestController
-@RequestMapping("/ratingAndComments")
+@RequestMapping("/ratings")
 public class RatingCommentController 
 {
-	//ROLE: ulogovanw
+	//ROLE: ulogovan
 	//TODO: user token ili id
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ResponseEntity<?> createReservation(@RequestBody RatingCommentDTO dto)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public ResponseEntity<?> create(@RequestBody RatingCommentDTO dto)
 	{	
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

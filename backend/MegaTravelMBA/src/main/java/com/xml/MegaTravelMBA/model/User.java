@@ -60,7 +60,7 @@ public class User
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
     protected List<Reservation> reservation;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
-    protected String status;
+    protected UserStatus status;
     @XmlElement(name = "Rating")
     protected List<Rating> rating;
 
@@ -101,7 +101,7 @@ public class User
      *     {@link String }
      *     
      */
-    public String getStatus() {
+    public UserStatus getStatus() {
         return status;
     }
 
@@ -113,7 +113,7 @@ public class User
      *     {@link String }
      *     
      */
-    public void setStatus(String value) {
+    public void setStatus(UserStatus value) {
         this.status = value;
     }
 

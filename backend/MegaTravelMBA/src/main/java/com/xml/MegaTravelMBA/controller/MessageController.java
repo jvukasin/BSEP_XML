@@ -7,17 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xml.MegaTravelMBA.model.User;
+import com.xml.MegaTravelMBA.model.Message;
 
 @RestController
-@RequestMapping("/agent")
-public class AgentController 
+@RequestMapping("/messages")
+public class MessageController 
 {
-	//ROLE: admin
-	//TODO: user token ili id
+	
+	//ROLE:  ulogovan, agnets
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ResponseEntity<?> list()
+	{
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<?> upgradeUserToAgent(@RequestBody User user)
-	{			
+	public ResponseEntity<?> send(@RequestBody Message message)
+	{	
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 }
