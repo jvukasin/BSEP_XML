@@ -101,24 +101,24 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
-                <xs:element name="comment">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element default="false" name="approved" type="xs:boolean"/>
-                            <xs:element name="text">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:minLength value="0"/>
-                                        <xs:maxLength value="300"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                        </xs:sequence>
-                        <xs:attribute name="id" type="xs:long"/>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element ref="gl:Comment"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:long"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Comment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element default="false" name="approved" type="xs:boolean"/>
+                <xs:element name="text">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="0"/>
+                            <xs:maxLength value="500"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
         </xs:complexType>
     </xs:element>
 </xs:schema>

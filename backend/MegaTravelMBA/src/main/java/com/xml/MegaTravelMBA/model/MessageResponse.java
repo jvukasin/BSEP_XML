@@ -10,7 +10,6 @@ package com.xml.MegaTravelMBA.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -26,9 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="Message" type="{http://www.ftn.uns.ac.rs/MegaTravel/Message}Message"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}long" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -38,62 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+    "message"
 })
-@XmlRootElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-public class Amenity {
+@XmlRootElement(name = "MessageResponse")
+public class MessageResponse {
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
-    protected String name;
-    @XmlAttribute(name = "id")
-    protected Long id;
+    @XmlElement(name = "Message", required = true)
+    protected Message message;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Message }
      *     
      */
-    public String getName() {
-        return name;
+    public Message getMessage() {
+        return message;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Message }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
-    }
-
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setId(Long value) {
-        this.id = value;
+    public void setMessage(Message value) {
+        this.message = value;
     }
 
 }

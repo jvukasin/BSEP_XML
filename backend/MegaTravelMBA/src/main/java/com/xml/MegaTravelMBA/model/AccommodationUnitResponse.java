@@ -10,7 +10,6 @@ package com.xml.MegaTravelMBA.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -26,9 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit}AccommodationUnit"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}long" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -38,62 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+    "accommodationUnit"
 })
-@XmlRootElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-public class Amenity {
+@XmlRootElement(name = "AccommodationUnitResponse")
+public class AccommodationUnitResponse {
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
-    protected String name;
-    @XmlAttribute(name = "id")
-    protected Long id;
+    @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
+    protected AccommodationUnit accommodationUnit;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the accommodationUnit property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link AccommodationUnit }
      *     
      */
-    public String getName() {
-        return name;
+    public AccommodationUnit getAccommodationUnit() {
+        return accommodationUnit;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the accommodationUnit property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link AccommodationUnit }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
-    }
-
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setId(Long value) {
-        this.id = value;
+    public void setAccommodationUnit(AccommodationUnit value) {
+        this.accommodationUnit = value;
     }
 
 }
