@@ -17,8 +17,7 @@ public class AgentController
 	//TODO: user token ili id
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<?> upgradeUserToAgent(@RequestBody User user)
-	{	
-		
+	{			
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 }

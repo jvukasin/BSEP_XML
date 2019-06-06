@@ -14,7 +14,7 @@ import com.xml.MegaTravelMBA.model.Reservation;
 @RequestMapping("/reservations")
 public class ReservationController 
 {
-	//ROLE: ulogovan
+	//ROLE: ulogovan, agnet
 	//TODO: user token ili id
 	//ako ne bude na ne bude moglo da se zameni u modelu XMLGregorianCalendar sa Date, pravicemo DTO
 	@RequestMapping(value = "", method = RequestMethod.POST)
@@ -29,4 +29,12 @@ public class ReservationController
 	{	
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	//ROLE: agent
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> setActive(@PathVariable Long reservationId)
+	{	
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
 }
