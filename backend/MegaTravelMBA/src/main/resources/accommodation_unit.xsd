@@ -79,6 +79,7 @@
     <xs:element name="Image">
         <xs:complexType>
             <xs:attribute name="imageUrl" type="xs:string"/>
+            <xs:attribute name="id" type="xs:long"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="Amenity">
@@ -96,6 +97,7 @@
             </xs:sequence>
             <xs:attribute name="startDate" type="xs:date"/>
             <xs:attribute name="endDate" type="xs:date"/>
+            <xs:attribute name="id" type="xs:long"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>
