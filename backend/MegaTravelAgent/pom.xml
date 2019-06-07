@@ -64,10 +64,10 @@
 			    </executions>
 			    <configuration>
 			        <schemaLanguage>WSDL</schemaLanguage>
-			        <generatePackage>com.xml.MegaTravelAgent.wsdl</generatePackage>
+			        <generatePackage>soap.wsdl</generatePackage>
 			        <schemas>
 			            <schema>
-			                <url>https://localhost:8444/ws/accomodation_unit.wsdl</url>
+			                <url>https://localhost:8444/ws/accommodation_unit.wsdl</url>
 			            </schema>
 			        </schemas>
 		    </configuration>
