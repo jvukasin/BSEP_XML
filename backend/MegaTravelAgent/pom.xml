@@ -47,16 +47,40 @@
 	</dependencies>
 
 	<build>
+	<pluginManagement>
 		<plugins>
+		
+		<!-- SOAP CONSUMER -->
+		<plugin>
+		    <groupId>org.jvnet.jaxb2.maven2</groupId>
+			    <artifactId>maven-jaxb2-plugin</artifactId>
+			    <version>0.13.1</version>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>generate</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			    <configuration>
+			        <schemaLanguage>WSDL</schemaLanguage>
+			        <generatePackage>com.xml.MegaTravelAgent.wsdl</generatePackage>
+			        <schemas>
+			            <schema>
+			                <url>https://localhost:8444/ws/accomodation_unit.wsdl</url>
+			            </schema>
+			        </schemas>
+		    </configuration>
+		</plugin>
+		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			
-			<!-- tag::wsdl[] -->
-            <!-- plug-in for WSDL -->
-            <!-- end::wsdl[] -->
 		</plugins>
+		
+	</pluginManagement>
 	</build>
 
 </project>
