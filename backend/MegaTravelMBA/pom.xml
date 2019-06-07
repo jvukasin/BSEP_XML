@@ -94,12 +94,15 @@
 
 	<build>
 		<plugins>
+	
+		
+		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			
-		<!-- OWASP dep check -->
+		 <!-- OWASP dep check -->
 			 <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
@@ -111,7 +114,9 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin> 
+			
+			
 			
 			
 		</plugins>
