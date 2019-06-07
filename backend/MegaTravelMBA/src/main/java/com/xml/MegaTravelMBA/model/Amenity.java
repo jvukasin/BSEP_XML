@@ -65,6 +65,10 @@ public class Amenity {
     
     @ManyToOne(fetch = FetchType.LAZY)
     protected AccommodationUnit accommodationUnit;
+    
+    public Amenity() {
+    	
+    }
 
     /**
      * Gets the value of the name property.

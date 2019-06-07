@@ -191,6 +191,10 @@ public class AccommodationUnit {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+	
+	public AccommodationUnit() {
+		
+	}
 
     /**
      * Gets the value of the name property.
