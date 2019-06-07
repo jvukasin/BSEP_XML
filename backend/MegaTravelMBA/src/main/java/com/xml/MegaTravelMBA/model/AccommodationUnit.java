@@ -9,7 +9,9 @@
 package com.xml.MegaTravelMBA.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -114,7 +116,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "name",
     "description",
@@ -171,19 +173,19 @@ public class AccommodationUnit {
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double ratingAvg;
     
-	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<Amenity> amenity;
     
-	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
-    protected List<Image> image;
+    protected Set<Image> image;
     
-	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-    protected List<SpecificPrice> specificPrice;
+    protected Set<SpecificPrice> specificPrice;
     
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
     @XmlElement(name = "Location", required = true)
     protected Location location;
     
@@ -399,9 +401,9 @@ public class AccommodationUnit {
      * 
      * 
      */
-    public List<Image> getImage() {
+    public Set<Image> getImage() {
         if (image == null) {
-            image = new ArrayList<Image>();
+            image = new HashSet<Image>();
         }
         return this.image;
     }
@@ -428,9 +430,9 @@ public class AccommodationUnit {
      * 
      * 
      */
-    public List<SpecificPrice> getSpecificPrice() {
+    public Set<SpecificPrice> getSpecificPrice() {
         if (specificPrice == null) {
-            specificPrice = new ArrayList<SpecificPrice>();
+            specificPrice = new HashSet<SpecificPrice>();
         }
         return this.specificPrice;
     }

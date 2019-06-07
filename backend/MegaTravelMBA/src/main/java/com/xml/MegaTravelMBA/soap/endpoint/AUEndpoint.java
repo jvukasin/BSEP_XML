@@ -6,6 +6,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.xml.MegaTravelMBA.model.AccommodationUnit;
 import com.xml.MegaTravelMBA.repository.AccommodationUnitRepository;
 import com.xml.MegaTravelMBA.soap.reqres.AccommodationUnitRequest;
 import com.xml.MegaTravelMBA.soap.reqres.AccommodationUnitResponse;
@@ -24,17 +25,21 @@ public class AUEndpoint {
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetAccommodationUnitRequest")
     @ResponsePayload
     public GetAccommodationUnitResponse createAccomodationUnit(@RequestPayload GetAccommodationUnitRequest request) {
-		System.out.println("Hit endpoint GetAccommodationUnit");
+		System.out.println("Hit endpoint GetAccommodationUnit, request id: " + request.getId());
+		AccommodationUnit au = auRepo.findOneById(request.getId());
+		System.out.println("Lokacija: " + au.getLocation().getCoordinates() + ", " + au.getLocation().getCity().getName());
 		GetAccommodationUnitResponse response = new GetAccommodationUnitResponse();
-		response.setAccommodationUnit(auRepo.findOneById(request.getId()));
+		
+		
+		
+		response.setAccommodationUnit(au);
 		
 		/*
 		 * AccommodationUnit au = new AccommodationUnit(); au.setName("Lepi vule");
 		 * au.setId(new Long(1)); au.setDescription("Neka deskripcija glupava");
 		 * au.setPrice(300); response.setAccommodationUnit(au);
 		 */
-		System.out.println(response.getAccommodationUnit().getName());
-        
+		
         return response;
     }
 	

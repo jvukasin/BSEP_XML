@@ -8,6 +8,9 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +19,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -54,7 +58,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "name",
     "country"
@@ -69,7 +73,7 @@ public class City {
     @XmlElement(required = true)
     protected String name;
     
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @XmlElement(name = "Country", required = true)
     protected Country country;
     
@@ -78,8 +82,8 @@ public class City {
     @XmlAttribute(name = "id")
     protected Long id;
     
-    @OneToOne(fetch = FetchType.LAZY)
-    protected Location location;
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Set<Location> locations = new HashSet<Location>();
 
     /**
      * Gets the value of the name property.

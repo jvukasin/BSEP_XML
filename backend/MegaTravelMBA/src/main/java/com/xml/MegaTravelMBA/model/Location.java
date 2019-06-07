@@ -8,12 +8,14 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -45,7 +47,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "coordinates",
     "city"
@@ -59,8 +61,8 @@ public class Location {
 	@NotNull
     @XmlElement(required = true)
     protected String coordinates;
-	
-	@OneToOne(fetch = FetchType.LAZY)
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @XmlElement(name = "City", required = true)
     protected City city;
     
@@ -69,7 +71,7 @@ public class Location {
     @XmlAttribute(name = "id")
     protected Long id;
     
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "location", fetch = FetchType.EAGER)
     protected AccommodationUnit accommodationUnit;
 
     /**

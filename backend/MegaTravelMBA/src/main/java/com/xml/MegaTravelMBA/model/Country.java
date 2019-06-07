@@ -55,7 +55,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "name"
 })
@@ -74,7 +74,7 @@ public class Country {
     @XmlAttribute(name = "id")
     protected Long id;
 	
-	@OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "country", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<City> cites = new HashSet<City>();
 
     /**

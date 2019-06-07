@@ -44,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "name"
 })
@@ -63,7 +63,7 @@ public class Amenity {
     @XmlAttribute(name = "id")
     protected Long id;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     protected AccommodationUnit accommodationUnit;
     
     public Amenity() {

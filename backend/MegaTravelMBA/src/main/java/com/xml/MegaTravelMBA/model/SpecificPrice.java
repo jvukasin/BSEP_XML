@@ -50,7 +50,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "price"
 })
@@ -81,7 +81,7 @@ public class SpecificPrice {
     @XmlAttribute(name = "id")
     protected Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	protected AccommodationUnit accommodationUnit;
 
     /**

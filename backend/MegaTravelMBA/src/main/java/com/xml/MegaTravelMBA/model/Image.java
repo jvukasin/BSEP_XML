@@ -42,7 +42,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @Entity
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "")
 @XmlRootElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class Image {
@@ -56,7 +56,7 @@ public class Image {
     @XmlAttribute(name = "id")
     protected Long id;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     protected AccommodationUnit accommodationUnit;
 
     /**
