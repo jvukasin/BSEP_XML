@@ -10,6 +10,12 @@ package com.xml.MegaTravelMBA.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -37,18 +43,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "registrationNumber",
     "accommodationUnit"
 })
 @XmlRootElement(name = "Agent", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
-public class Agent
-    extends TPerson
+public class Agent extends TPerson
 {
 
+	@Column(name = "registrationNumber")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     protected String registrationNumber;
+	
+	
+	@OneToMany(mappedBy = "agent", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<AccommodationUnit> accommodationUnit;
 
@@ -98,6 +108,7 @@ public class Agent
      * 
      * 
      */
+    
     public List<AccommodationUnit> getAccommodationUnit() {
         if (accommodationUnit == null) {
             accommodationUnit = new ArrayList<AccommodationUnit>();

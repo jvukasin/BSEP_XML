@@ -8,6 +8,13 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -59,18 +66,34 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlRootElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
 public class Reservation {
 
+	@Column(name = "startDate")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar startDate;
+	
+	@Column(name = "endDate")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar endDate;
+	
+	@Column(name = "price")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
     protected double price;
+	
+    @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected AccommodationUnit accommodationUnit;
+    
+	@Column(name = "isActive")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", defaultValue = "false")
     protected boolean isActive;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 

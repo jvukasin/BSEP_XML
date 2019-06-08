@@ -8,6 +8,11 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -43,7 +48,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "value",
     "comment"
@@ -51,9 +56,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "Rating")
 public class Rating {
 
+	@Column(name = "value")
+	@NotNull
+    @XmlElement(name = "Value", required = true)
     protected int value;
+	
+	@Column(name = "comment")
     @XmlElement(name = "Comment", required = true)
     protected Comment comment;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 

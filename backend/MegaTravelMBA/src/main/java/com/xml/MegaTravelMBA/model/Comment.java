@@ -8,6 +8,8 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -42,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "approved",
     "text"
@@ -50,8 +52,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "Comment")
 public class Comment {
 
+	@Column(name = "approved")
+	@NotNull	
     @XmlElement(defaultValue = "false")
     protected boolean approved;
+	
+	@Column(name = "text")
+	@NotNull
     @XmlElement(required = true)
     protected String text;
 

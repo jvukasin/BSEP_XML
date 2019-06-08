@@ -8,6 +8,13 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -40,7 +47,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "Message", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", propOrder = {
     "sender",
     "content",
@@ -49,15 +56,26 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class Message {
 
+    @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(required = true)
     protected TPerson sender;
+    
+	@Column(name = "content")
+	@NotNull
     @XmlElement(required = true)
     protected String content;
+	
+	@Column(name = "dateTime")
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar date;
+	
+    @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(required = true)
     protected TPerson receiver;
+    
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 

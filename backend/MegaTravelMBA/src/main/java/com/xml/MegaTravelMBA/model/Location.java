@@ -63,6 +63,7 @@ public class Location {
     protected String coordinates;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@NotNull
     @XmlElement(name = "City", required = true)
     protected City city;
     
