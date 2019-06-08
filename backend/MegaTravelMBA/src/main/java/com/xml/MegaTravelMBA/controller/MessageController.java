@@ -14,7 +14,7 @@ import com.xml.MegaTravelMBA.model.Message;
 public class MessageController 
 {
 	
-	//ROLE:  ulogovan, agnets
+	//ROLE:  ulogovan, agents
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<?> list()
 	{
