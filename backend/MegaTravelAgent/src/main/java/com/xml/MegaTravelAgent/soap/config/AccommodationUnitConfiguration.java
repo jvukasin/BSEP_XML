@@ -1,12 +1,10 @@
 package com.xml.MegaTravelAgent.soap.config;
 
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
-import org.springframework.ws.config.annotation.EnableWs;
-import org.springframework.ws.transport.http.MessageDispatcherServlet;
+
+import com.xml.MegaTravelAgent.soap.client.AccommodationUnitClient;
 
 
 @Configuration

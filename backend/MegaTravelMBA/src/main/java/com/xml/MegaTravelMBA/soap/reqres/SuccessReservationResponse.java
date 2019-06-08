@@ -14,8 +14,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.xml.MegaTravelMBA.model.Message;
-
 
 /**
  * <p>Java class for anonymous complex type.
@@ -27,7 +25,7 @@ import com.xml.MegaTravelMBA.model.Message;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Message" type="{http://www.ftn.uns.ac.rs/MegaTravel/Message}Message"/>
+ *         &lt;element name="responseInfo" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,36 +36,36 @@ import com.xml.MegaTravelMBA.model.Message;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "message"
+    "responseInfo"
 })
-@XmlRootElement(name = "MessageResponse")
-public class MessageResponse {
+@XmlRootElement(name = "SuccessReservationResponse")
+public class SuccessReservationResponse {
 
-    @XmlElement(name = "Message", required = true)
-    protected Message message;
+    @XmlElement(required = true)
+    protected String responseInfo;
 
     /**
-     * Gets the value of the message property.
+     * Gets the value of the responseInfo property.
      * 
      * @return
      *     possible object is
-     *     {@link Message }
+     *     {@link String }
      *     
      */
-    public Message getMessage() {
-        return message;
+    public String getResponseInfo() {
+        return responseInfo;
     }
 
     /**
-     * Sets the value of the message property.
+     * Sets the value of the responseInfo property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Message }
+     *     {@link String }
      *     
      */
-    public void setMessage(Message value) {
-        this.message = value;
+    public void setResponseInfo(String value) {
+        this.responseInfo = value;
     }
 
 }
