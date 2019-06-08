@@ -25,35 +25,70 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="AccommodationUnitRequest">
+    
+    <xs:element name="PostAccommodationUnitRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="au:AccommodationUnit"/>
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PostAccommodationUnitResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="au:AccommodationUnit"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="AccommodationUnitResponse">
+
+    <xs:element name="FetchReservationsRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="au:AccommodationUnit"/>
+                <xs:element name="agentId" type="xs:long" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="ReservationRequest">
+    <xs:element name="FetchReservationsResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="reservationID" type="xs:long"/>
-                <xs:element name="reservationActive" type="xs:boolean"/>
+                <xs:element ref="rs:Reservation" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="ReservationResponse">
+
+    <xs:element name="PostReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="rs:Reservation"/>
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PostReservationResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="rs:Reservation"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="SuccessReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservationId" type="xs:long" />
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SuccessReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="responseInfo" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="MessageRequest">
         <xs:complexType>
             <xs:sequence>

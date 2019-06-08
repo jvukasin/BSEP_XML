@@ -10,11 +10,8 @@ package com.xml.MegaTravelMBA.soap.reqres;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
-import com.xml.MegaTravelMBA.model.Message;
 
 
 /**
@@ -27,7 +24,8 @@ import com.xml.MegaTravelMBA.model.Message;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Message" type="{http://www.ftn.uns.ac.rs/MegaTravel/Message}Message"/>
+ *         &lt;element name="reservationId" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="agentId" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,36 +36,45 @@ import com.xml.MegaTravelMBA.model.Message;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "message"
+    "reservationId",
+    "agentId"
 })
-@XmlRootElement(name = "MessageResponse")
-public class MessageResponse {
+@XmlRootElement(name = "SuccessReservationRequest")
+public class SuccessReservationRequest {
 
-    @XmlElement(name = "Message", required = true)
-    protected Message message;
+    protected long reservationId;
+    protected long agentId;
 
     /**
-     * Gets the value of the message property.
+     * Gets the value of the reservationId property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Message }
-     *     
      */
-    public Message getMessage() {
-        return message;
+    public long getReservationId() {
+        return reservationId;
     }
 
     /**
-     * Sets the value of the message property.
+     * Sets the value of the reservationId property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Message }
-     *     
      */
-    public void setMessage(Message value) {
-        this.message = value;
+    public void setReservationId(long value) {
+        this.reservationId = value;
+    }
+
+    /**
+     * Gets the value of the agentId property.
+     * 
+     */
+    public long getAgentId() {
+        return agentId;
+    }
+
+    /**
+     * Sets the value of the agentId property.
+     * 
+     */
+    public void setAgentId(long value) {
+        this.agentId = value;
     }
 
 }
