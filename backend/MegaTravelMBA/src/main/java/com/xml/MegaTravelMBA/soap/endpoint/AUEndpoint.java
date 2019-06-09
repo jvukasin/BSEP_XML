@@ -29,7 +29,7 @@ public class AUEndpoint {
     @ResponsePayload
     public GetAccommodationUnitResponse getAccommodationUnit(@RequestPayload GetAccommodationUnitRequest request) {
 		
-		AccommodationUnit au = auRepo.findOneById(request.getId());
+		AccommodationUnit au = auRepo.findById(request.getId()).get();
 		
 		GetAccommodationUnitResponse response = new GetAccommodationUnitResponse();
 		response.setAccommodationUnit(au);

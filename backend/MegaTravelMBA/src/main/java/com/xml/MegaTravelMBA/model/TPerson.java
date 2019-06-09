@@ -8,10 +8,17 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -91,7 +98,9 @@ import javax.xml.bind.annotation.XmlType;
     "password",
     "role"
 })
-public abstract class TPerson {
+@Entity
+@DiscriminatorColumn(name="REF_TYPE")
+public class TPerson {
 
 	@Column(name = "name")
 	@NotNull
@@ -122,6 +131,58 @@ public abstract class TPerson {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+	
+	
+	@OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Message> sentMessages;
+	
+	
+	public List<Message> getSentMessages() {
+		return sentMessages;
+	}
+
+	public void setSentMessages(List<Message> sentMessages) {
+		this.sentMessages = sentMessages;
+	}
+
+	public List<Message> getRecivedMessages() {
+		return recivedMessages;
+	}
+
+	public void setRecivedMessages(List<Message> recivedMessages) {
+		this.recivedMessages = recivedMessages;
+	}
+
+	public List<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+
+	@OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Message> recivedMessages;
+	
+	@OneToMany(mappedBy = "reservator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
+    protected List<Reservation> reservation;
+	
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setId(Long value) {
+        this.id = value;
+    }
 
     /**
      * Gets the value of the name property.
@@ -251,20 +312,6 @@ public abstract class TPerson {
      *     {@link Long }
      *     
      */
-    public Long getId() {
-        return id;
-    }
 
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setId(Long value) {
-        this.id = value;
-    }
 
 }

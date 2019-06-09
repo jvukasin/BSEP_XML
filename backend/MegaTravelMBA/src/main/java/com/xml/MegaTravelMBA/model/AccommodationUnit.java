@@ -8,6 +8,7 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -20,6 +21,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -134,8 +136,10 @@ import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @XmlRootElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-public class AccommodationUnit {
-	
+public class AccommodationUnit  implements Serializable{
+
+	private static final long serialVersionUID = -909611899261808448L;
+
 	@Column(name = "name")
 	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
@@ -193,6 +197,12 @@ public class AccommodationUnit {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+	
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Reservation> reservation;
+	
+    @ManyToOne(fetch = FetchType.EAGER)
+	private Agent agent;
 	
 	public AccommodationUnit() {
 		
@@ -484,5 +494,33 @@ public class AccommodationUnit {
     public void setId(Long value) {
         this.id = value;
     }
+
+	public List<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
+
+	public void setAmenity(List<Amenity> amenity) {
+		this.amenity = amenity;
+	}
+
+	public void setImage(Set<Image> image) {
+		this.image = image;
+	}
+
+	public void setSpecificPrice(Set<SpecificPrice> specificPrice) {
+		this.specificPrice = specificPrice;
+	}
 
 }

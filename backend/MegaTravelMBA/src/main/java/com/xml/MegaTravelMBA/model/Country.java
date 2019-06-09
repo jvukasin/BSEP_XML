@@ -8,6 +8,7 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -62,7 +63,10 @@ import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @XmlRootElement(name = "Country")
-public class Country {
+public class Country  implements Serializable
+{
+
+	private static final long serialVersionUID = -8801832181408977767L;
 
 	@Column(name = "name")
 	@NotNull
@@ -124,5 +128,13 @@ public class Country {
     public void setId(Long value) {
         this.id = value;
     }
+
+	public Set<City> getCites() {
+		return cites;
+	}
+
+	public void setCites(Set<City> cites) {
+		this.cites = cites;
+	}
 
 }

@@ -8,16 +8,22 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -54,28 +60,39 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
-    "reservation",
+	"reservation",
     "status",
     "rating"
 })
 @XmlRootElement(name = "User", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
-public class User
-    extends TPerson
+@Entity
+public class User extends TPerson implements Serializable
 {
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
-    protected List<Reservation> reservation;
+	private static final long serialVersionUID = 1968009409243991852L;
 	
 	@Column(name = "status")
 	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     protected String status;
 	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Rating")
     protected List<Rating> rating;
 
+
+    public void setRating(List<Rating> rating) {
+		this.rating = rating;
+	}
+
+	/**
+     * Gets the value of the id property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
     /**
      * Gets the value of the reservation property.
      * 
@@ -98,6 +115,7 @@ public class User
      * 
      * 
      */
+	
     public List<Reservation> getReservation() {
         if (reservation == null) {
             reservation = new ArrayList<Reservation>();

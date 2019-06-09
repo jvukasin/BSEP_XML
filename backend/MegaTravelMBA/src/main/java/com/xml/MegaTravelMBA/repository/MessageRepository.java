@@ -7,5 +7,5 @@ import com.xml.MegaTravelMBA.model.Message;
 
 public interface MessageRepository extends JpaRepository<Message, Long> 
 {
-	  Message findOneById(Long id);
+
 }

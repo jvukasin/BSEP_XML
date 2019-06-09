@@ -8,6 +8,7 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -66,7 +67,10 @@ import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @XmlRootElement(name = "City")
-public class City {
+public class City  implements Serializable
+{
+	
+	private static final long serialVersionUID = 1L;
 
 	@Column(name = "name")
 	@NotNull
@@ -156,5 +160,13 @@ public class City {
     public void setId(Long value) {
         this.id = value;
     }
+
+	public Set<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(Set<Location> locations) {
+		this.locations = locations;
+	}
 
 }

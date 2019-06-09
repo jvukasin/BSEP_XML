@@ -1,4 +1,8 @@
 package com.xml.MegaTravelMBA.controller;
+import java.util.Collection;
+import java.util.NoSuchElementException;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,25 +13,37 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xml.MegaTravelMBA.dto.AccommodationDTO;
 import com.xml.MegaTravelMBA.dto.ExtendedSearchDTO;
-import com.xml.MegaTravelMBA.dto.StandardSearchDTO;
 import com.xml.MegaTravelMBA.model.AccommodationUnit;
-import com.xml.MegaTravelMBA.model.User;
+import com.xml.MegaTravelMBA.service.AccommodationUnitService;
 
 @RestController
 @RequestMapping("/accommodations")
 public class AccommodationUnitController
 {	
 	
+	@Autowired
+	AccommodationUnitService accommodationService;
+	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<?> getAccommodationUnits()
+	public ResponseEntity<Collection<AccommodationUnit>> getAccommodationUnits()
 	{
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<Collection<AccommodationUnit>>(accommodationService.findAll(),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getAccommodationUnit(@PathVariable Long id)
+	public ResponseEntity<AccommodationUnit> getAccommodationUnit(@PathVariable Long id)
 	{
-		return new ResponseEntity<>(HttpStatus.OK);
+		try
+		{
+			return new ResponseEntity<AccommodationUnit>(accommodationService.findById(id).get(), HttpStatus.OK);
+
+		}
+		catch(NoSuchElementException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 	
 	@RequestMapping(value = "/{id}/amenities", method = RequestMethod.GET)
@@ -40,7 +56,7 @@ public class AccommodationUnitController
 	@RequestMapping(value = "/query/{searchDTO}", method = RequestMethod.GET)
 	public ResponseEntity<?> search(@PathVariable("searchDTO") ExtendedSearchDTO dto)
 	{
-		return new ResponseEntity<>(HttpStatus.OK);
+		return null;
 	}
 	
 	

@@ -8,6 +8,8 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -55,7 +57,10 @@ import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @XmlRootElement(name = "Location")
-public class Location {
+public class Location implements Serializable
+{
+
+	private static final long serialVersionUID = -3060696858468656616L;
 
 	@Column(name = "coordinates")
 	@NotNull
@@ -146,5 +151,13 @@ public class Location {
     public void setId(Long value) {
         this.id = value;
     }
+
+	public AccommodationUnit getAccommodationUnit() {
+		return accommodationUnit;
+	}
+
+	public void setAccommodationUnit(AccommodationUnit accommodationUnit) {
+		this.accommodationUnit = accommodationUnit;
+	}
 
 }

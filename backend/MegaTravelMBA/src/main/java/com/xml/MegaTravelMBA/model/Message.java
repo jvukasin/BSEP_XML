@@ -8,7 +8,11 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +25,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -54,9 +57,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "date",
     "receiver"
 })
-public class Message {
+@Entity
+public class Message  implements Serializable{
 
-    @ManyToOne(fetch = FetchType.EAGER)
+	private static final long serialVersionUID = 1L;
+
+	@ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(required = true)
     protected TPerson sender;
     
@@ -68,7 +74,7 @@ public class Message {
 	@Column(name = "dateTime")
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar date;
+    protected Date date;
 	
     @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(required = true)
@@ -132,10 +138,10 @@ public class Message {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -144,10 +150,10 @@ public class Message {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setDate(XMLGregorianCalendar value) {
+    public void setDate(Date value) {
         this.date = value;
     }
 

@@ -8,6 +8,8 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -51,7 +53,9 @@ import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @XmlRootElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-public class Amenity {
+public class Amenity  implements Serializable{
+
+	private static final long serialVersionUID = 6170476803188960206L;
 
 	@Column(name = "name")
 	@NotNull
@@ -63,7 +67,7 @@ public class Amenity {
     @XmlAttribute(name = "id")
     protected Long id;
     
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     protected AccommodationUnit accommodationUnit;
     
     public Amenity() {
@@ -117,5 +121,13 @@ public class Amenity {
     public void setId(Long value) {
         this.id = value;
     }
+
+	public AccommodationUnit getAccommodationUnit() {
+		return accommodationUnit;
+	}
+
+	public void setAccommodationUnit(AccommodationUnit accommodationUnit) {
+		this.accommodationUnit = accommodationUnit;
+	}
 
 }

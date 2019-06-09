@@ -8,16 +8,23 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
+import java.lang.annotation.Inherited;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -49,8 +56,12 @@ import javax.xml.bind.annotation.XmlType;
     "accommodationUnit"
 })
 @XmlRootElement(name = "Agent", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
-public class Agent extends TPerson
+@Entity
+public class Agent extends TPerson implements Serializable
 {
+
+	private static final long serialVersionUID = 4731395978486181701L;
+
 
 	@Column(name = "registrationNumber")
 	@NotNull
@@ -62,6 +73,8 @@ public class Agent extends TPerson
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<AccommodationUnit> accommodationUnit;
 
+	
+	
     /**
      * Gets the value of the registrationNumber property.
      * 
@@ -115,5 +128,9 @@ public class Agent extends TPerson
         }
         return this.accommodationUnit;
     }
+
+	public void setAccommodationUnit(List<AccommodationUnit> accommodationUnit) {
+		this.accommodationUnit = accommodationUnit;
+	}
 
 }

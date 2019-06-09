@@ -8,6 +8,8 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,7 +52,10 @@ import javax.xml.bind.annotation.XmlType;
     "text"
 })
 @XmlRootElement(name = "Comment")
-public class Comment {
+public class Comment  implements Serializable
+{
+
+	private static final long serialVersionUID = -481247646616454558L;
 
 	@Column(name = "approved")
 	@NotNull	

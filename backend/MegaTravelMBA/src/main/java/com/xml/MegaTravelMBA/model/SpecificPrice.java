@@ -172,4 +172,12 @@ public class SpecificPrice {
         this.id = value;
     }
 
+	public AccommodationUnit getAccommodationUnit() {
+		return accommodationUnit;
+	}
+
+	public void setAccommodationUnit(AccommodationUnit accommodationUnit) {
+		this.accommodationUnit = accommodationUnit;
+	}
+
 }

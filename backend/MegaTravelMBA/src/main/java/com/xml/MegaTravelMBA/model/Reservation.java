@@ -8,7 +8,11 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -64,20 +68,23 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "isActive"
 })
 @XmlRootElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
-public class Reservation {
+@Entity
+public class Reservation implements Serializable{
+
+	private static final long serialVersionUID = -8880699270092150877L;
 
 	@Column(name = "startDate")
 	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar startDate;
+    protected Date startDate;
 	
 	@Column(name = "endDate")
 	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar endDate;
-	
+    protected Date endDate;
+
 	@Column(name = "price")
 	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
@@ -96,6 +103,9 @@ public class Reservation {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private TPerson reservator;
 
     /**
      * Gets the value of the startDate property.
@@ -105,7 +115,9 @@ public class Reservation {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getStartDate() {
+	
+	
+    public Date getStartDate() {
         return startDate;
     }
 
@@ -117,7 +129,7 @@ public class Reservation {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setStartDate(XMLGregorianCalendar value) {
+    public void setStartDate(Date value) {
         this.startDate = value;
     }
 
@@ -129,7 +141,7 @@ public class Reservation {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
@@ -141,7 +153,7 @@ public class Reservation {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setEndDate(XMLGregorianCalendar value) {
+    public void setEndDate(Date value) {
         this.endDate = value;
     }
 
@@ -224,5 +236,21 @@ public class Reservation {
     public void setId(Long value) {
         this.id = value;
     }
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public TPerson getReservator() {
+		return reservator;
+	}
+
+	public void setReservator(TPerson reservator) {
+		this.reservator = reservator;
+	}
 
 }

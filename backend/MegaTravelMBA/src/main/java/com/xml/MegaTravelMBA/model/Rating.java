@@ -8,10 +8,15 @@
 
 package com.xml.MegaTravelMBA.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -54,7 +59,11 @@ import javax.xml.bind.annotation.XmlType;
     "comment"
 })
 @XmlRootElement(name = "Rating")
-public class Rating {
+@Entity
+public class Rating  implements Serializable
+{
+
+	private static final long serialVersionUID = 690099404686962821L;
 
 	@Column(name = "value")
 	@NotNull
@@ -69,6 +78,9 @@ public class Rating {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+	
+    @ManyToOne(fetch = FetchType.EAGER)
+	private User user;
 
     /**
      * Gets the value of the value property.
@@ -133,5 +145,13 @@ public class Rating {
     public void setId(Long value) {
         this.id = value;
     }
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }
