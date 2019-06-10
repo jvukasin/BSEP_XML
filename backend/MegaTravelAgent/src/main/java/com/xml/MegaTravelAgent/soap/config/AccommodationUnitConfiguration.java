@@ -10,6 +10,7 @@ import com.xml.MegaTravelAgent.soap.client.AccommodationUnitClient;
 @Configuration
 public class AccommodationUnitConfiguration {
 
+	/*
 	@Bean
 	public Jaxb2Marshaller marshaller() {
 		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
@@ -27,5 +28,7 @@ public class AccommodationUnitConfiguration {
 		client.setUnmarshaller(marshaller);
 		return client;
 	}
+	
+	*/
 
 }

@@ -12,6 +12,8 @@ import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from './services/user.service';
 import { KeepHtmlPipe } from './pipe/keep-html.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { KeepHtmlPipe } from './pipe/keep-html.pipe';
     HomepageComponent,
     RegisterComponent,
     KeepHtmlPipe,
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
