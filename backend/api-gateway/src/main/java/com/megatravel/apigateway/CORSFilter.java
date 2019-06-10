@@ -1,4 +1,4 @@
-package com.megatravel.accommodationservice;
+package com.megatravel.apigateway;
 
 import java.io.IOException;
 

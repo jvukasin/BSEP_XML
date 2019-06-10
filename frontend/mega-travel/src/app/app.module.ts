@@ -14,6 +14,7 @@ import { UserService } from './services/user.service';
 import { KeepHtmlPipe } from './pipe/keep-html.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { TestService } from './services/testMS.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule
   ],
   
-  providers: [AuthService, UserService,
+  providers: [AuthService, UserService, TestService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
 
