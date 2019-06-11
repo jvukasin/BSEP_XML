@@ -4,18 +4,21 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2019.06.11 at 10:45:02 PM CEST 
 //
-
-
 package com.megatravel.authservice.model;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * <p>Java class for anonymous complex type.
@@ -54,7 +57,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 @XmlRootElement(name = "User", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
 public class User
-    extends TPerson
+    extends TPerson implements UserDetails
 {
 
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
@@ -63,6 +66,18 @@ public class User
     protected String status;
     @XmlElement(name = "Rating")
     protected List<Rating> rating;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns =  @JoinColumn(
+                    name = "user_id", referencedColumnName = "username"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
+
+    @Column(name = "last_password_reset_date", nullable = true)
+    private Timestamp lastPasswordResetDate;
 
     /**
      * Gets the value of the reservation property.
@@ -146,4 +161,55 @@ public class User
         return this.rating;
     }
 
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(this.getRoles().isEmpty()) {
+            return null;
+        }
+        Role role = this.getRoles().iterator().next();
+        return role.getPrivileges();
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public Timestamp getLastPasswordResetDate() {
+        return lastPasswordResetDate;
+    }
+
+    public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
+        this.lastPasswordResetDate = lastPasswordResetDate;
+    }
 }
+

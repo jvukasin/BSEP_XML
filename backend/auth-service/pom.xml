@@ -35,8 +35,12 @@
     		<groupId>org.springframework.cloud</groupId>
     		<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		
-		
+
+		<!-- MYSQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 		
 	<!-- Web tokens -->
 		<dependency>
@@ -56,8 +60,12 @@
 	    	<artifactId>spring-boot-starter-mobile</artifactId>
 	    	<version>1.5.18.RELEASE</version>
 		</dependency>
-		
-		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>2.1.6.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 	
 	<dependencyManagement>
