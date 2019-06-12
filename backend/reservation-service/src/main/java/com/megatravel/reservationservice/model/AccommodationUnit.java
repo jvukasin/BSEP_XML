@@ -68,9 +68,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="type">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;enumeration value="hotel"/>
- *               &lt;enumeration value="bed_n_breakfast"/>
- *               &lt;enumeration value="apartment"/>
+ *               &lt;minLength value="0"/>
+ *               &lt;maxLength value="50"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>

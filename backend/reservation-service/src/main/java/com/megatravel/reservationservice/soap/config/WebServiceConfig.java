@@ -29,14 +29,14 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("ReservationPort");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("http://www.ftn.uns.ac.rs/MegaTravel/soap");
+        wsdl11Definition.setTargetNamespace("http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation");
         wsdl11Definition.setSchema(accomodationUnitSchema);
         return wsdl11Definition;
     }
 
     @Bean
     public XsdSchema soapSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("SOAP.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("SOAP_reservation.xsd"));
     }
 
 }

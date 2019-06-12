@@ -35,12 +35,12 @@ import javax.xml.bind.annotation.XmlType;
     "reservation",
     "agentId"
 })
-@XmlRootElement(name = "PostReservationRequest", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap")
+@XmlRootElement(name = "PostReservationRequest", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
 public class PostReservationRequest {
 
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     protected Reservation reservation;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
     protected long agentId;
 
     /**

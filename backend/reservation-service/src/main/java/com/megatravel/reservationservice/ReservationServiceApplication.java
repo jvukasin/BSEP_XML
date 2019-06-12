@@ -1,8 +1,8 @@
 package com.megatravel.reservationservice;
 
+import com.megatravel.reservationservice.model.ObjectFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
@@ -14,7 +14,10 @@ public class ReservationServiceApplication {
 		SpringApplication.run(ReservationServiceApplication.class, args);
 	}
 
-
+	@Bean
+	public ObjectFactory getObjectFactory() {
+		return new ObjectFactory();
+	}
 
 
 }

@@ -31,10 +31,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "agentId"
 })
-@XmlRootElement(name = "FetchReservationsRequest", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap")
+@XmlRootElement(name = "FetchReservationsRequest", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
 public class FetchReservationsRequest {
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
     protected long agentId;
 
     /**

@@ -55,6 +55,13 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="coordinates" type="xs:string"/>
+                <xs:element name="distanceFromCity">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:double">
+                            <xs:minInclusive value="0"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
                 <xs:element ref="gl:City"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:long"/>

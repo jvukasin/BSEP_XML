@@ -1,6 +1,8 @@
 
 package com.megatravel.reservationservice.soap.reqres;
 
+import com.megatravel.reservationservice.model.Reservation;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -8,7 +10,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import com.megatravel.reservationservice.model.Reservation;
+
 
 /**
  * <p>Java class for anonymous complex type.
@@ -33,7 +35,7 @@ import com.megatravel.reservationservice.model.Reservation;
 @XmlType(name = "", propOrder = {
     "reservation"
 })
-@XmlRootElement(name = "FetchReservationsResponse", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap")
+@XmlRootElement(name = "FetchReservationsResponse", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
 public class FetchReservationsResponse {
 
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)

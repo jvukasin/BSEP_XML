@@ -1,7 +1,9 @@
 package com.megatravel.reservationservice.soap.endpoints;
 
+import com.megatravel.reservationservice.model.ObjectFactory;
 import com.megatravel.reservationservice.model.Reservation;
 import com.megatravel.reservationservice.soap.reqres.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -10,8 +12,11 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class ReservationEndpoint implements IReservationEndpoint {
 
-    private static final String NAMESPACE_URI = "http://www.ftn.uns.ac.rs/MegaTravel/soap";
+    private static final String NAMESPACE_URI = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation";
 
+
+    @Autowired
+    private ObjectFactory factory;
 
     @Override
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "FetchReservationsRequest")
@@ -30,7 +35,7 @@ public class ReservationEndpoint implements IReservationEndpoint {
         r2.setPrice(450);
         r2.setId(new Long(2));
 
-        FetchReservationsResponse response = new FetchReservationsResponse();
+        FetchReservationsResponse response = factory.createFetchReservationsResponse();
         response.getReservation().add((r1));
         response.getReservation().add((r2));
 
@@ -48,7 +53,7 @@ public class ReservationEndpoint implements IReservationEndpoint {
         System.out.println("AgentID: " + request.getAgentId());
         System.out.println("Reservation: " + request.getReservation());
 
-        PostReservationResponse response = new PostReservationResponse();
+        PostReservationResponse response = factory.createPostReservationResponse();
         response.setReservation(null);
 
         return response;
@@ -63,9 +68,21 @@ public class ReservationEndpoint implements IReservationEndpoint {
 
         // ovde se setuje rezervacija na success
 
-        SuccessReservationResponse response = new SuccessReservationResponse();
+        SuccessReservationResponse response = factory.createSuccessReservationResponse();
         response.setResponseInfo("success");
 
         return response;
+    }
+
+    @Override
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetMessagesRequest")
+    @ResponsePayload
+    public GetMessagesResponse getMessages(GetMessagesRequest request) {
+
+        System.out.println("Hit getMessages endpoint");
+
+        GetMessagesResponse response = factory.createGetMessagesResponse();
+
+        return null;
     }
 }
