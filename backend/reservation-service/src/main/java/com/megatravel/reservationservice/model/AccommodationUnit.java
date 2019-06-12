@@ -1,5 +1,5 @@
 
-package com.megatravel.reservationservice;
+package com.megatravel.reservationservice.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +21,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
-import com.megatravel.reservationservice.model.Amenity;
-import com.megatravel.reservationservice.model.Image;
-import com.megatravel.reservationservice.model.Location;
-import com.megatravel.reservationservice.model.Reservation;
-import com.megatravel.reservationservice.model.SpecificPrice;
 
 
 
@@ -177,11 +171,11 @@ public class AccommodationUnit {
     protected double ratingAvg;
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     
-	@ManyToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<Amenity> amenity;
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     
-	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<Image> image;
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     

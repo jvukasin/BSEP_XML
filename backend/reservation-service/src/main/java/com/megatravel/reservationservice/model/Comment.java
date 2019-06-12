@@ -4,6 +4,9 @@ package com.megatravel.reservationservice.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -48,7 +51,11 @@ import javax.xml.bind.annotation.XmlType;
 @Entity
 @XmlRootElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Comment {
-
+	
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	protected boolean id;
+	
 	@Column(name = "approved")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", defaultValue = "false")
     protected boolean approved;

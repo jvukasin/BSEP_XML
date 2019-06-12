@@ -1,4 +1,4 @@
-package repository;
+package com.megatravel.reservationservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

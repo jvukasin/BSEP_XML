@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 
 
 /**
@@ -55,8 +55,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlRootElement(name = "Message", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message")
 public class Message {
 
-	@Column(name = "reservation")
-	@NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     protected Reservation reservation;
 	
@@ -71,7 +70,7 @@ public class Message {
 	@Column(name = "dateTime")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar date;
+    protected Date date;
 	
     @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
@@ -164,10 +163,10 @@ public class Message {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -176,10 +175,10 @@ public class Message {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setDate(XMLGregorianCalendar value) {
+    public void setDate(Date value) {
         this.date = value;
     }
 
