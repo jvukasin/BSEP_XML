@@ -12,5 +12,8 @@ public class TestController {
 	public String getUser() {
 		return "USPEO SI DA DOBIJES TEKST IZ RESERVATION KONTROLERA!!!";
 	}
-	
+
+	@RequestMapping(value = "/authTest", method = RequestMethod.GET)
+	public String authTest() {return "USPEO SI DA PRISTUPIS!"; }
+
 }
