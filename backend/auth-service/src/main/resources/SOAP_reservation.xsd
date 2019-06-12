@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/soap"
-    xmlns:sp="http://www.ftn.uns.ac.rs/MegaTravel/soap"
+    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation"
+    xmlns:sp="http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation"
     xmlns:au="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
     xmlns:ms="http://www.ftn.uns.ac.rs/MegaTravel/Message"
     xmlns:rs="http://www.ftn.uns.ac.rs/MegaTravel/reservation">
@@ -11,38 +11,7 @@
         schemaLocation="reservation.xsd"/>
     <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/Message" schemaLocation="Message.xsd"/>
 
-    <xs:element name="GetAccommodationUnitRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="id" type="xs:long"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-     <xs:element name="GetAccommodationUnitResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="au:AccommodationUnit"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    
-    <xs:element name="PostAccommodationUnitRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="au:AccommodationUnit"/>
-                <xs:element name="agentId" type="xs:long" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="PostAccommodationUnitResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="au:AccommodationUnit"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="FetchReservationsRequest">
+     <xs:element name="FetchReservationsRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="agentId" type="xs:long" />
@@ -89,18 +58,23 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="MessageRequest">
+    <xs:element name="GetMessagesRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Message" type="ms:Message"/>
+                <xs:element name="reservationId" type="xs:long" />
+                <xs:element name="agentId" type="xs:long" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="MessageResponse">
+    <xs:element name="GetMessagesResponse">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element name="Message" type="ms:Message"/>
+             <xs:sequence>
+                <xs:element ref="ms:Message" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+
+
+
 </xs:schema>
