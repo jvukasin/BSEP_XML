@@ -5,21 +5,23 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for Message complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Message">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/reservation}Reservation"/>
  *         &lt;element name="sender" type="{http://www.ftn.uns.ac.rs/MegaTravel/global}TPerson"/>
  *         &lt;element name="content" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
@@ -34,14 +36,18 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Message", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", propOrder = {
+@XmlType(name = "", propOrder = {
+    "reservation",
     "sender",
     "content",
     "date",
     "receiver"
 })
+@XmlRootElement(name = "Message", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message")
 public class Message {
 
+    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
+    protected Reservation reservation;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
     protected TPerson sender;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
@@ -53,6 +59,30 @@ public class Message {
     protected TPerson receiver;
     @XmlAttribute(name = "id")
     protected Long id;
+
+    /**
+     * Gets the value of the reservation property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Reservation }
+     *     
+     */
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    /**
+     * Sets the value of the reservation property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Reservation }
+     *     
+     */
+    public void setReservation(Reservation value) {
+        this.reservation = value;
+    }
 
     /**
      * Gets the value of the sender property.
