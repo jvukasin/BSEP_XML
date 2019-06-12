@@ -1,6 +1,8 @@
 
 package com.megatravel.reservationservice.model;
 
+import com.megatravel.reservationservice.soap.reqres.*;
+
 import javax.xml.bind.annotation.XmlRegistry;
 
 
@@ -27,6 +29,22 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link GetMessagesResponse }
+     * 
+     */
+    public GetMessagesResponse createGetMessagesResponse() {
+        return new GetMessagesResponse();
+    }
+
+    /**
+     * Create an instance of {@link Message }
+     * 
+     */
+    public Message createMessage() {
+        return new Message();
     }
 
     /**
@@ -91,6 +109,62 @@ public class ObjectFactory {
      */
     public Country createCountry() {
         return new Country();
+    }
+
+    /**
+     * Create an instance of {@link GetMessagesRequest }
+     * 
+     */
+    public GetMessagesRequest createGetMessagesRequest() {
+        return new GetMessagesRequest();
+    }
+
+    /**
+     * Create an instance of {@link FetchReservationsRequest }
+     * 
+     */
+    public FetchReservationsRequest createFetchReservationsRequest() {
+        return new FetchReservationsRequest();
+    }
+
+    /**
+     * Create an instance of {@link FetchReservationsResponse }
+     * 
+     */
+    public FetchReservationsResponse createFetchReservationsResponse() {
+        return new FetchReservationsResponse();
+    }
+
+    /**
+     * Create an instance of {@link SuccessReservationResponse }
+     * 
+     */
+    public SuccessReservationResponse createSuccessReservationResponse() {
+        return new SuccessReservationResponse();
+    }
+
+    /**
+     * Create an instance of {@link SuccessReservationRequest }
+     * 
+     */
+    public SuccessReservationRequest createSuccessReservationRequest() {
+        return new SuccessReservationRequest();
+    }
+
+    /**
+     * Create an instance of {@link PostReservationResponse }
+     * 
+     */
+    public PostReservationResponse createPostReservationResponse() {
+        return new PostReservationResponse();
+    }
+
+    /**
+     * Create an instance of {@link PostReservationRequest }
+     * 
+     */
+    public PostReservationRequest createPostReservationRequest() {
+        return new PostReservationRequest();
     }
 
     /**

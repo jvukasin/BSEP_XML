@@ -54,9 +54,8 @@
                 <xs:element name="type">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="hotel"/>
-                            <xs:enumeration value="bed_n_breakfast"/>
-                            <xs:enumeration value="apartment"/>
+                            <xs:minLength value="0"/>
+                            <xs:maxLength value="50"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
@@ -68,11 +67,21 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
+
+
                 <xs:element maxOccurs="unbounded" minOccurs="0" ref="au:Amenity"/>
                 <xs:element maxOccurs="unbounded" minOccurs="1" ref="au:Image"/>
                 <xs:element maxOccurs="unbounded" minOccurs="0" ref="au:SpecificPrice"/>
                 <xs:element ref="gl:Location"/>
             </xs:sequence>
+            <xs:attribute name="category">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="5"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
             <xs:attribute name="id" type="xs:long"/>
         </xs:complexType>
     </xs:element>

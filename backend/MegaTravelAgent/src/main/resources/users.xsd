@@ -7,7 +7,7 @@
     xmlns:gl="http://www.ftn.uns.ac.rs/MegaTravel/global">
 
     <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/reservation"
-        schemaLocation="Reservation.xsd"/>
+        schemaLocation="reservation.xsd"/>
 
 
     <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"

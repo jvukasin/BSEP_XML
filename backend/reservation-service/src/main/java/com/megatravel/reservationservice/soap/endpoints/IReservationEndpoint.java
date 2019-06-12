@@ -9,4 +9,6 @@ public interface IReservationEndpoint {
     PostReservationResponse postReservation(PostReservationRequest request);
 
     SuccessReservationResponse successReservation(SuccessReservationRequest request);
+
+    GetMessagesResponse getMessages(GetMessagesRequest request);
 }

@@ -1,6 +1,8 @@
 
 package com.megatravel.accommodationservice.model;
 
+import com.megatravel.accommodationservice.soap.reqres.*;
+
 import javax.xml.bind.annotation.XmlRegistry;
 
 
@@ -30,11 +32,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Amenity }
+     * Create an instance of {@link EditAccommodationUnitRequest }
      * 
      */
-    public Amenity createAmenity() {
-        return new Amenity();
+    public EditAccommodationUnitRequest createEditAccommodationUnitRequest() {
+        return new EditAccommodationUnitRequest();
     }
 
     /**
@@ -43,6 +45,14 @@ public class ObjectFactory {
      */
     public AccommodationUnit createAccommodationUnit() {
         return new AccommodationUnit();
+    }
+
+    /**
+     * Create an instance of {@link Amenity }
+     * 
+     */
+    public Amenity createAmenity() {
+        return new Amenity();
     }
 
     /**
@@ -86,6 +96,62 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EditAccommodationUnitResponse }
+     * 
+     */
+    public EditAccommodationUnitResponse createEditAccommodationUnitResponse() {
+        return new EditAccommodationUnitResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAccommodationUnitRequest }
+     * 
+     */
+    public GetAccommodationUnitRequest createGetAccommodationUnitRequest() {
+        return new GetAccommodationUnitRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetAccommodationUnitResponse }
+     * 
+     */
+    public GetAccommodationUnitResponse createGetAccommodationUnitResponse() {
+        return new GetAccommodationUnitResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteAccommodationUnitRequest }
+     * 
+     */
+    public DeleteAccommodationUnitRequest createDeleteAccommodationUnitRequest() {
+        return new DeleteAccommodationUnitRequest();
+    }
+
+    /**
+     * Create an instance of {@link DeleteAccommodationUnitResponse }
+     * 
+     */
+    public DeleteAccommodationUnitResponse createDeleteAccommodationUnitResponse() {
+        return new DeleteAccommodationUnitResponse();
+    }
+
+    /**
+     * Create an instance of {@link PostAccommodationUnitRequest }
+     * 
+     */
+    public PostAccommodationUnitRequest createPostAccommodationUnitRequest() {
+        return new PostAccommodationUnitRequest();
+    }
+
+    /**
+     * Create an instance of {@link PostAccommodationUnitResponse }
+     * 
+     */
+    public PostAccommodationUnitResponse createPostAccommodationUnitResponse() {
+        return new PostAccommodationUnitResponse();
+    }
+
+    /**
      * Create an instance of {@link Comment }
      * 
      */
@@ -99,6 +165,22 @@ public class ObjectFactory {
      */
     public Rating createRating() {
         return new Rating();
+    }
+
+    /**
+     * Create an instance of {@link Reservation }
+     * 
+     */
+    public Reservation createReservation() {
+        return new Reservation();
+    }
+
+    /**
+     * Create an instance of {@link Message }
+     * 
+     */
+    public Message createMessage() {
+        return new Message();
     }
 
 }

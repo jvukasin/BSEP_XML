@@ -68,9 +68,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="type">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;enumeration value="hotel"/>
- *               &lt;enumeration value="bed_n_breakfast"/>
- *               &lt;enumeration value="apartment"/>
+ *               &lt;minLength value="0"/>
+ *               &lt;maxLength value="50"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -87,6 +86,14 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit}SpecificPrice" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/global}Location"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="category">
+ *         &lt;simpleType>
+ *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}int">
+ *             &lt;minInclusive value="0"/>
+ *             &lt;maxInclusive value="5"/>
+ *           &lt;/restriction>
+ *         &lt;/simpleType>
+ *       &lt;/attribute>
  *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}long" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -137,6 +144,8 @@ public class AccommodationUnit {
     protected List<SpecificPrice> specificPrice;
     @XmlElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Location location;
+    @XmlAttribute(name = "category")
+    protected Integer category;
     @XmlAttribute(name = "id")
     protected Long id;
 
@@ -401,6 +410,30 @@ public class AccommodationUnit {
      */
     public void setLocation(Location value) {
         this.location = value;
+    }
+
+    /**
+     * Gets the value of the category property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public Integer getCategory() {
+        return category;
+    }
+
+    /**
+     * Sets the value of the category property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setCategory(Integer value) {
+        this.category = value;
     }
 
     /**

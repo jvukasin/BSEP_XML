@@ -1,25 +1,54 @@
 package com.xml.MegaTravelAgent.controller;
 
-import java.io.IOException;
-
+import com.xml.MegaTravelAgent.model.Reservation;
+import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
+import com.xml.MegaTravelAgent.soap.client.IReservationClient;
+import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsResponse;
+import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationUnitResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xml.MegaTravelAgent.client.TestClient;
+import java.io.IOException;
+import java.util.List;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/soapTest")
 public class TestController {
-	
-	@RequestMapping(value = "/testController", method = RequestMethod.GET)
-	public String testController() throws IOException {
-		
-		TestClient testClient = new TestClient();
-		
-		String response = testClient.testGetMethod("https://localhost:8444/users/getUser");
-		
-		return response;
+
+	@Autowired
+	IAccommodationUnitClient auClient;
+
+	@Autowired
+	IReservationClient resClient;
+
+	@RequestMapping(value = "/au", method = RequestMethod.GET)
+	public String testAu() throws IOException {
+
+
+		GetAccommodationUnitResponse response = auClient.getAccommodationUnit(new Long(1));
+
+
+
+		return response.getAccommodationUnit().getName();
+	}
+
+	@RequestMapping(value = "/res", method = RequestMethod.GET)
+	public String testRes() throws IOException {
+
+
+		FetchReservationsResponse response = resClient.fetchAgentsReservations(new Long(55));
+
+		List<Reservation> reservations = response.getReservation();
+
+		// test print
+		for (Reservation r: reservations) {
+			System.out.println("Reservation id: " + r.getId() + ", price: " + r.getPrice());
+		}
+
+
+		return "ok";
 	}
 	
 }

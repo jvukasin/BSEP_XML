@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/soap_accommodation_unit"
+    xmlns:sp="http://www.ftn.uns.ac.rs/MegaTravel/soap_accommodation_unit"
+    xmlns:au="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
+    xmlns:ms="http://www.ftn.uns.ac.rs/MegaTravel/Message"
+    xmlns:rs="http://www.ftn.uns.ac.rs/MegaTravel/reservation">
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
+        schemaLocation="accommodation_unit.xsd"/>
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/reservation"
+        schemaLocation="reservation.xsd"/>
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/Message" schemaLocation="Message.xsd"/>
+
+    <xs:element name="GetAccommodationUnitRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+     <xs:element name="GetAccommodationUnitResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="au:AccommodationUnit"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="PostAccommodationUnitRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="au:AccommodationUnit"/>
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PostAccommodationUnitResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="au:AccommodationUnit"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="EditAccommodationUnitRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="au:AccommodationUnit"/>
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EditAccommodationUnitResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="au:AccommodationUnit"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DeleteAccommodationUnitRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accommodationUnitId" type="xs:long" />
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DeleteAccommodationUnitResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="responseInfo" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

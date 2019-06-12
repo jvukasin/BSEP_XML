@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "accommodationUnit"
 })
-@XmlRootElement(name = "PostAccommodationUnitResponse", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap")
+@XmlRootElement(name = "PostAccommodationUnitResponse", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_accommodation_unit")
 public class PostAccommodationUnitResponse {
 
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)

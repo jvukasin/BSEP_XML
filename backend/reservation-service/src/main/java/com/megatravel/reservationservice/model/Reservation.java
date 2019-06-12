@@ -31,7 +31,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;/simpleType>
  *         &lt;/element>
  *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit}AccommodationUnit"/>
- *         &lt;element name="isActive" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="isSuccessful" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}long" />
  *     &lt;/restriction>
@@ -47,7 +47,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "endDate",
     "price",
     "accommodationUnit",
-    "isActive"
+    "isSuccessful"
 })
 @XmlRootElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
 public class Reservation {
@@ -63,7 +63,7 @@ public class Reservation {
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected AccommodationUnit accommodationUnit;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", defaultValue = "false")
-    protected boolean isActive;
+    protected boolean isSuccessful;
     @XmlAttribute(name = "id")
     protected Long id;
 
@@ -156,19 +156,19 @@ public class Reservation {
     }
 
     /**
-     * Gets the value of the isActive property.
+     * Gets the value of the isSuccessful property.
      * 
      */
-    public boolean isIsActive() {
-        return isActive;
+    public boolean isIsSuccessful() {
+        return isSuccessful;
     }
 
     /**
-     * Sets the value of the isActive property.
+     * Sets the value of the isSuccessful property.
      * 
      */
-    public void setIsActive(boolean value) {
-        this.isActive = value;
+    public void setIsSuccessful(boolean value) {
+        this.isSuccessful = value;
     }
 
     /**

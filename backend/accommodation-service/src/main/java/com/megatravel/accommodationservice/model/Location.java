@@ -20,6 +20,13 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="coordinates" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="distanceFromCity">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}double">
+ *               &lt;minInclusive value="0"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
  *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/global}City"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}long" />
@@ -33,6 +40,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "coordinates",
+    "distanceFromCity",
     "city"
 })
 @XmlRootElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
@@ -40,6 +48,8 @@ public class Location {
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String coordinates;
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
+    protected double distanceFromCity;
     @XmlElement(name = "City", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected City city;
     @XmlAttribute(name = "id")
@@ -67,6 +77,22 @@ public class Location {
      */
     public void setCoordinates(String value) {
         this.coordinates = value;
+    }
+
+    /**
+     * Gets the value of the distanceFromCity property.
+     * 
+     */
+    public double getDistanceFromCity() {
+        return distanceFromCity;
+    }
+
+    /**
+     * Sets the value of the distanceFromCity property.
+     * 
+     */
+    public void setDistanceFromCity(double value) {
+        this.distanceFromCity = value;
     }
 
     /**

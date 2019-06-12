@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation"
+    xmlns:ms="http://www.ftn.uns.ac.rs/MegaTravel/Message"
+    xmlns:rs="http://www.ftn.uns.ac.rs/MegaTravel/reservation">
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
+        schemaLocation="accommodation_unit.xsd"/>
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/reservation"
+        schemaLocation="reservation.xsd"/>
+    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/Message" schemaLocation="Message.xsd"/>
+
+     <xs:element name="FetchReservationsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="FetchReservationsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="rs:Reservation" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="PostReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="rs:Reservation"/>
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PostReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="rs:Reservation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SuccessReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservationId" type="xs:long" />
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SuccessReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="responseInfo" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetMessagesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservationId" type="xs:long" />
+                <xs:element name="agentId" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetMessagesResponse">
+        <xs:complexType>
+             <xs:sequence>
+                <xs:element ref="ms:Message" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+
+</xs:schema>
