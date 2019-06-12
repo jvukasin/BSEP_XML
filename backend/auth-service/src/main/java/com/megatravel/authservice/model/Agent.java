@@ -3,6 +3,8 @@ package com.megatravel.authservice.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -36,12 +38,18 @@ import javax.xml.bind.annotation.XmlType;
     "accommodationUnit"
 })
 @XmlRootElement(name = "Agent", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
+@Entity
+@DiscriminatorValue("AGENT")
 public class Agent
     extends TPerson
 {
 
+    @Column(name="registrationNumber")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     protected String registrationNumber;
+
+    @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<AccommodationUnit> accommodationUnit;
 

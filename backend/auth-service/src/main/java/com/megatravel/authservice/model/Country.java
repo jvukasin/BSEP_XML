@@ -1,12 +1,15 @@
 
 package com.megatravel.authservice.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Set;
 
 
 /**
@@ -40,13 +43,24 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "name"
 })
+@Entity
 @XmlRootElement(name = "Country", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Country {
 
+    @Column(name="name")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+
+
+    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    protected Set<City> city;
+
 
     /**
      * Gets the value of the name property.
@@ -96,4 +110,11 @@ public class Country {
         this.id = value;
     }
 
+    public Set<City> getCity() {
+        return city;
+    }
+
+    public void setCity(Set<City> city) {
+        this.city = city;
+    }
 }
