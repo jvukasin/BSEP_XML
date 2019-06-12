@@ -1,6 +1,8 @@
 
 package com.megatravel.authservice.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -9,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 
 
 /**
@@ -49,23 +52,43 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "accommodationUnit",
     "isSuccessful"
 })
+@Entity
 @XmlRootElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
 public class Reservation {
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar startDate;
+    @Column(name="startDate")
+    @NotNull
+    protected Date startDate;
+
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar endDate;
+    @Column(name="endDate")
+    @NotNull
+    protected Date endDate;
+
+    @Column(name="price")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
     protected double price;
+
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected AccommodationUnit accommodationUnit;
+
+    @Column(name="isSuccessful")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", defaultValue = "false")
     protected boolean isSuccessful;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected User user;
+
 
     /**
      * Gets the value of the startDate property.
@@ -75,7 +98,7 @@ public class Reservation {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
@@ -87,7 +110,7 @@ public class Reservation {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setStartDate(XMLGregorianCalendar value) {
+    public void setStartDate(Date value) {
         this.startDate = value;
     }
 
@@ -99,7 +122,7 @@ public class Reservation {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
@@ -111,7 +134,7 @@ public class Reservation {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setEndDate(XMLGregorianCalendar value) {
+    public void setEndDate(Date value) {
         this.endDate = value;
     }
 
@@ -193,6 +216,14 @@ public class Reservation {
      */
     public void setId(Long value) {
         this.id = value;
+    }
+
+    public boolean isSuccessful() {
+        return isSuccessful;
+    }
+
+    public void setSuccessful(boolean successful) {
+        isSuccessful = successful;
     }
 
 }

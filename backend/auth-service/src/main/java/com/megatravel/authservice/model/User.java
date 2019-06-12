@@ -1,8 +1,14 @@
 
 package com.megatravel.authservice.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -46,15 +52,26 @@ import javax.xml.bind.annotation.XmlType;
     "rating"
 })
 @XmlRootElement(name = "User", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
+
+@Entity
+@DiscriminatorValue("USER")
 public class User
     extends TPerson
 {
 
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<Reservation> reservation;
+
+
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
+    @Column(name="status")
+    @NotNull
     protected String status;
+
+
     @XmlElement(name = "Rating", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<Rating> rating;
 
     /**
@@ -138,5 +155,4 @@ public class User
         }
         return this.rating;
     }
-
 }

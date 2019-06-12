@@ -3,6 +3,8 @@ package com.megatravel.authservice.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -117,37 +119,80 @@ import javax.xml.bind.annotation.XmlType;
     "specificPrice",
     "location"
 })
+@Entity
 @XmlRootElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class AccommodationUnit {
 
+    @Column(name = "name")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String name;
+
+    @Column(name = "description")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String description;
+
+    @Column(name = "capacity")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int capacity;
+
+    @Column(name = "cancellationPeriod")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int cancellationPeriod;
+
+    @Column(name = "price")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double price;
+
+    @Column(name = "defaultPrice")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double defaultPrice;
+
+    @Column(name = "type")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String type;
+
+    @Column(name = "ratingAvg")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double ratingAvg;
+
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<Amenity> amenity;
+
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected List<Image> image;
+
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<SpecificPrice> specificPrice;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Location location;
+
+    @Column(name = "category")
+    @NotNull
     @XmlAttribute(name = "category")
     protected Integer category;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected List<Reservation> reservations;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected Agent agent;
 
     /**
      * Gets the value of the name property.
@@ -460,4 +505,31 @@ public class AccommodationUnit {
         this.id = value;
     }
 
+    public void setAmenity(List<Amenity> amenity) {
+        this.amenity = amenity;
+    }
+
+    public void setImage(List<Image> image) {
+        this.image = image;
+    }
+
+    public void setSpecificPrice(List<SpecificPrice> specificPrice) {
+        this.specificPrice = specificPrice;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {
+        this.agent = agent;
+    }
 }

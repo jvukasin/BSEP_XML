@@ -1,6 +1,8 @@
 
 package com.megatravel.authservice.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -33,11 +35,20 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "name"
 })
+@Entity
 @XmlRootElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class Amenity {
 
+    @Column(name ="name")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String name;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected AccommodationUnit accommodationUnit;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 
@@ -89,4 +100,11 @@ public class Amenity {
         this.id = value;
     }
 
+    public AccommodationUnit getAccommodationUnit() {
+        return accommodationUnit;
+    }
+
+    public void setAccommodationUnit(AccommodationUnit accommodationUnit) {
+        this.accommodationUnit = accommodationUnit;
+    }
 }

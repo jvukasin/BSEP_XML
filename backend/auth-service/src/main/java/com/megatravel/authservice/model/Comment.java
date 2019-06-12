@@ -1,6 +1,11 @@
 
 package com.megatravel.authservice.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -40,13 +45,21 @@ import javax.xml.bind.annotation.XmlType;
     "approved",
     "text"
 })
+@Entity
 @XmlRootElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Comment {
 
+    @Column(name = "approved")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", defaultValue = "false")
     protected boolean approved;
+
+    @Column(name ="text")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String text;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
+    protected Rating rating;
 
     /**
      * Gets the value of the approved property.
@@ -88,4 +101,11 @@ public class Comment {
         this.text = value;
     }
 
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
 }

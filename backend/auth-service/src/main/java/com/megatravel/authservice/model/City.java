@@ -1,6 +1,8 @@
 
 package com.megatravel.authservice.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -42,13 +44,21 @@ import javax.xml.bind.annotation.XmlType;
     "name",
     "country"
 })
+@Entity
 @XmlRootElement(name = "City", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class City {
 
+    @Column(name ="name")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String name;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Country", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Country country;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 

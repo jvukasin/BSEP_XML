@@ -1,6 +1,8 @@
 
 package com.megatravel.authservice.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -26,13 +28,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@Entity
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class Image {
 
+    @Column(name="imageUrl")
+    @NotNull
     @XmlAttribute(name = "imageUrl")
     protected String imageUrl;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected AccommodationUnit accommodationUnit;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 
@@ -84,4 +95,11 @@ public class Image {
         this.id = value;
     }
 
+    public AccommodationUnit getAccommodationUnit() {
+        return accommodationUnit;
+    }
+
+    public void setAccommodationUnit(AccommodationUnit accommodationUnit) {
+        this.accommodationUnit = accommodationUnit;
+    }
 }

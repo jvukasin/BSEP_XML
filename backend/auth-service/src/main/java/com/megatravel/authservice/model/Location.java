@@ -1,12 +1,15 @@
 
 package com.megatravel.authservice.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.List;
 
 
 /**
@@ -43,17 +46,32 @@ import javax.xml.bind.annotation.XmlType;
     "distanceFromCity",
     "city"
 })
+@Entity
 @XmlRootElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Location {
 
+    @Column(name = "coordinates")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String coordinates;
+
+    @Column(name = "distanceFromCity")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
     protected double distanceFromCity;
+
+
+    // MAPIRAJ!!!!!!!!!!!!!!!!!!!!!
     @XmlElement(name = "City", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected City city;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+
+    @OneToMany(mappedBy = "location",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected List<AccommodationUnit> accommodationUnit;
 
     /**
      * Gets the value of the coordinates property.
@@ -143,4 +161,12 @@ public class Location {
         this.id = value;
     }
 
+
+    public List<AccommodationUnit> getAccommodationUnit() {
+        return accommodationUnit;
+    }
+
+    public void setAccommodationUnit(List<AccommodationUnit> accommodationUnit) {
+        this.accommodationUnit = accommodationUnit;
+    }
 }

@@ -1,6 +1,10 @@
 
 package com.megatravel.authservice.model;
 
+import org.bouncycastle.asn1.cmp.GenRepContent;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -41,15 +45,26 @@ import javax.xml.bind.annotation.XmlType;
     "value",
     "comment"
 })
+@Entity
 @XmlRootElement(name = "Rating", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Rating {
 
+    @Column(name = "value")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
     protected int value;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
     @XmlElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Comment comment;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+
+
+
 
     /**
      * Gets the value of the value property.
