@@ -1,14 +1,33 @@
 
-package com.megatravel.reservationservice.model;
+package com.megatravel.reservationservice;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import com.megatravel.reservationservice.model.Amenity;
+import com.megatravel.reservationservice.model.Image;
+import com.megatravel.reservationservice.model.Location;
+import com.megatravel.reservationservice.model.Reservation;
+import com.megatravel.reservationservice.model.SpecificPrice;
+
 
 
 /**
@@ -102,7 +121,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "name",
     "description",
@@ -117,38 +136,76 @@ import javax.xml.bind.annotation.XmlType;
     "specificPrice",
     "location"
 })
+@Entity
 @XmlRootElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class AccommodationUnit {
 
+	@Column(name = "name")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String name;
+	
+	@Column(name = "description")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String description;
+	
+	@Column(name = "capacity")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int capacity;
+	
+	@Column(name = "cancellationPeriod")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int cancellationPeriod;
+	
+	@Column(name = "price")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double price;
+	
+	@Column(name = "defaultPrice")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double defaultPrice;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
+    
+	@Column(name = "type")
     protected String type;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
+    
+	@Column(name = "ratingAvg")
     protected double ratingAvg;
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
+    
+	@ManyToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     protected List<Amenity> amenity;
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
+    
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     protected List<Image> image;
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
+    
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     protected List<SpecificPrice> specificPrice;
     @XmlElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
+    
+	@OneToOne(fetch = FetchType.EAGER)
     protected Location location;
+    
+    @Column(name = "category")
     @XmlAttribute(name = "category")
     protected Integer category;
+    
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 
+    
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Reservation> reservation;
+    
     /**
      * Gets the value of the name property.
      * 
@@ -459,5 +516,31 @@ public class AccommodationUnit {
     public void setId(Long value) {
         this.id = value;
     }
+    
+    
+    public List<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+
+	public void setAmenity(List<Amenity> amenity) {
+		this.amenity = amenity;
+	}
+
+	public void setImage(List<Image> image) {
+		this.image = image;
+	}
+
+	public void setSpecificPrice(List<SpecificPrice> specificPrice) {
+		this.specificPrice = specificPrice;
+	}
+
+	public AccommodationUnit() 
+	{
+		super();
+	}
 
 }

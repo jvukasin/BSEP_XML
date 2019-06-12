@@ -1,6 +1,14 @@
 
 package com.megatravel.reservationservice.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -9,6 +17,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+
+import com.megatravel.reservationservice.AccommodationUnit;
+
 
 
 /**
@@ -41,7 +52,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "startDate",
     "endDate",
@@ -49,25 +60,68 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "accommodationUnit",
     "isSuccessful"
 })
+@Entity
 @XmlRootElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
 public class Reservation {
 
+	@Column(name = "startDate")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar startDate;
+	
+	@Column(name = "endDate")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar endDate;
+	
+	@Column(name = "price")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
     protected double price;
+	
+    @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected AccommodationUnit accommodationUnit;
+    
+    @Column(name = "isSuccessful")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", defaultValue = "false")
     protected boolean isSuccessful;
+    
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 
-    /**
+    
+	@ManyToOne(fetch = FetchType.LAZY)
+	private TPerson reservator;
+    
+	
+	
+	public Reservation() {
+		super();
+	}
+
+	public boolean isSuccessful() {
+		return isSuccessful;
+	}
+
+	public void setSuccessful(boolean isSuccessful) {
+		this.isSuccessful = isSuccessful;
+	}
+
+	public TPerson getReservator() {
+		return reservator;
+	}
+
+	public void setReservator(TPerson reservator) {
+		this.reservator = reservator;
+	}
+
+	/**
      * Gets the value of the startDate property.
      * 
      * @return

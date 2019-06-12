@@ -1,6 +1,7 @@
 
 package com.megatravel.reservationservice.model;
 
+import com.megatravel.reservationservice.AccommodationUnit;
 import com.megatravel.reservationservice.soap.reqres.*;
 
 import javax.xml.bind.annotation.XmlRegistry;
