@@ -32,27 +32,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetMessagesResponse }
+     * Create an instance of {@link EditAccommodationUnitRequest }
      * 
      */
-    public GetMessagesResponse createGetMessagesResponse() {
-        return new GetMessagesResponse();
-    }
-
-    /**
-     * Create an instance of {@link Message }
-     * 
-     */
-    public Message createMessage() {
-        return new Message();
-    }
-
-    /**
-     * Create an instance of {@link Reservation }
-     * 
-     */
-    public Reservation createReservation() {
-        return new Reservation();
+    public EditAccommodationUnitRequest createEditAccommodationUnitRequest() {
+        return new EditAccommodationUnitRequest();
     }
 
     /**
@@ -112,59 +96,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetMessagesRequest }
+     * Create an instance of {@link EditAccommodationUnitResponse }
      * 
      */
-    public GetMessagesRequest createGetMessagesRequest() {
-        return new GetMessagesRequest();
+    public EditAccommodationUnitResponse createEditAccommodationUnitResponse() {
+        return new EditAccommodationUnitResponse();
     }
 
     /**
-     * Create an instance of {@link FetchReservationsRequest }
+     * Create an instance of {@link GetAccommodationUnitRequest }
      * 
      */
-    public FetchReservationsRequest createFetchReservationsRequest() {
-        return new FetchReservationsRequest();
+    public GetAccommodationUnitRequest createGetAccommodationUnitRequest() {
+        return new GetAccommodationUnitRequest();
     }
 
     /**
-     * Create an instance of {@link FetchReservationsResponse }
+     * Create an instance of {@link GetAccommodationUnitResponse }
      * 
      */
-    public FetchReservationsResponse createFetchReservationsResponse() {
-        return new FetchReservationsResponse();
+    public GetAccommodationUnitResponse createGetAccommodationUnitResponse() {
+        return new GetAccommodationUnitResponse();
     }
 
     /**
-     * Create an instance of {@link SuccessReservationResponse }
+     * Create an instance of {@link DeleteAccommodationUnitRequest }
      * 
      */
-    public SuccessReservationResponse createSuccessReservationResponse() {
-        return new SuccessReservationResponse();
+    public DeleteAccommodationUnitRequest createDeleteAccommodationUnitRequest() {
+        return new DeleteAccommodationUnitRequest();
     }
 
     /**
-     * Create an instance of {@link SuccessReservationRequest }
+     * Create an instance of {@link DeleteAccommodationUnitResponse }
      * 
      */
-    public SuccessReservationRequest createSuccessReservationRequest() {
-        return new SuccessReservationRequest();
+    public DeleteAccommodationUnitResponse createDeleteAccommodationUnitResponse() {
+        return new DeleteAccommodationUnitResponse();
     }
 
     /**
-     * Create an instance of {@link PostReservationResponse }
+     * Create an instance of {@link PostAccommodationUnitRequest }
      * 
      */
-    public PostReservationResponse createPostReservationResponse() {
-        return new PostReservationResponse();
+    public PostAccommodationUnitRequest createPostAccommodationUnitRequest() {
+        return new PostAccommodationUnitRequest();
     }
 
     /**
-     * Create an instance of {@link PostReservationRequest }
+     * Create an instance of {@link PostAccommodationUnitResponse }
      * 
      */
-    public PostReservationRequest createPostReservationRequest() {
-        return new PostReservationRequest();
+    public PostAccommodationUnitResponse createPostAccommodationUnitResponse() {
+        return new PostAccommodationUnitResponse();
     }
 
     /**
@@ -181,6 +165,86 @@ public class ObjectFactory {
      */
     public Rating createRating() {
         return new Rating();
+    }
+
+    /**
+     * Create an instance of {@link Reservation }
+     * 
+     */
+    public Reservation createReservation() {
+        return new Reservation();
+    }
+
+    /**
+     * Create an instance of {@link Message }
+     * 
+     */
+    public Message createMessage() {
+        return new Message();
+    }
+
+    /**
+     * Create an instance of {@link GetMessagesResponse }
+     *
+     */
+    public GetMessagesResponse createGetMessagesResponse() {
+        return new GetMessagesResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetMessagesRequest }
+     *
+     */
+    public GetMessagesRequest createGetMessagesRequest() {
+        return new GetMessagesRequest();
+    }
+
+    /**
+     * Create an instance of {@link FetchReservationsRequest }
+     *
+     */
+    public FetchReservationsRequest createFetchReservationsRequest() {
+        return new FetchReservationsRequest();
+    }
+
+    /**
+     * Create an instance of {@link FetchReservationsResponse }
+     *
+     */
+    public FetchReservationsResponse createFetchReservationsResponse() {
+        return new FetchReservationsResponse();
+    }
+
+    /**
+     * Create an instance of {@link SuccessReservationResponse }
+     *
+     */
+    public SuccessReservationResponse createSuccessReservationResponse() {
+        return new SuccessReservationResponse();
+    }
+
+    /**
+     * Create an instance of {@link SuccessReservationRequest }
+     *
+     */
+    public SuccessReservationRequest createSuccessReservationRequest() {
+        return new SuccessReservationRequest();
+    }
+
+    /**
+     * Create an instance of {@link PostReservationResponse }
+     *
+     */
+    public PostReservationResponse createPostReservationResponse() {
+        return new PostReservationResponse();
+    }
+
+    /**
+     * Create an instance of {@link PostReservationRequest }
+     *
+     */
+    public PostReservationRequest createPostReservationRequest() {
+        return new PostReservationRequest();
     }
 
 }
