@@ -1,32 +1,368 @@
-<div class="container">
-  <div class="row">
-    <p>
-      homepage works!
-    </p>
-  </div>
-  <div class="row">
-    <div *ngIf="isLoggedIn">
-      <button type="button" class="btn btn-primary" (click)="logOut()"> Log out </button> 
-    </div>
-    <div *ngIf="!isLoggedIn">
-      <button type="button" class="btn btn-primary" routerLink="/login" style="margin-right: 10px;"> Log in </button>
-      <button type="button" class="btn btn-primary" routerLink="/register"> Register </button>
+<div class="homepage">
+  <div class="hero-wrap js-fullheight" style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+        <div class="col-md-7  mt-5" data-scrollax=" properties: { translateY: '70%' }">
+          <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Be a Traveler not a Tourist</h1>
+          <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row" style="margin-top: 30px; margin-bottom: 50px;">
-      <input type="text" name="search" [(ngModel)]="pretraga" placeholder="Search..." style="margin-right: 7px; width:300px;">
-      <button type="submit" class="btn btn-info" (click)="Pretrazi()" >Go!</button>
-  </div>
-  <div class="row" [innerHTML]="srctekst | keepHtml">
-      <h4>Pretraga:</h4>
-  </div>
-  <div class="row">
-    <table>
-      <tr *ngFor="let p of listaPretraga">
-        <td>{{p.text}}</td>
-      </tr>
-    </table>
-  </div>
+
+
+  <section class="ftco-section ftco-no-pb ftco-no-pt">
+    	<div class="container">
+	    	<div class="row">
+					<div class="col-md-12">
+						<div class="search-wrap-1  p-4">
+							<form action="#" class="search-property-1">
+		        		<div class="row">
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="#">Destination</label>
+		          				<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-search"></span></div>
+				                <input type="text" class="form-control" placeholder="Search place">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="#">Check-in date</label>
+		        					<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
+				                <input type="text" class="form-control checkin_date" placeholder="Check In Date">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="#">Check-out date</label>
+		        					<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
+				                <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="#">Price Limit</label>
+		        					<div class="form-field">
+		          					<div class="select-wrap">
+		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                      <select name="" id="" class="form-control">
+		                        <option value="">$5,000</option>
+		                        <option value="">$10,000</option>
+		                        <option value="">$50,000</option>
+		                        <option value="">$100,000</option>
+		                        <option value="">$200,000</option>
+		                        <option value="">$300,000</option>
+		                        <option value="">$400,000</option>
+		                        <option value="">$500,000</option>
+		                        <option value="">$600,000</option>
+		                        <option value="">$700,000</option>
+		                        <option value="">$800,000</option>
+		                        <option value="">$900,000</option>
+		                        <option value="">$1,000,000</option>
+		                        <option value="">$2,000,000</option>
+		                      </select>
+		                    </div>
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-self-end">
+		        				<div class="form-group">
+		        					<div class="form-field">
+				                <input type="submit" value="Search" class="form-control btn btn-primary">
+				              </div>
+			              </div>
+		        			</div>
+		        		</div>
+		        	</form>
+		        </div>
+					</div>
+	    	</div>
+	    </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+          <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ">
+              <h2 class="mb-4">Best Place to Travel</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-3 ">
+              <div class="project">
+                <div class="img">
+                  <img src="assets/images/destination-1.jpg" class="img-fluid" alt="Colorlib Template">
+                </div>
+                <div class="text">
+                  <h4 class="price">$400</h4>
+                  <span>15 Days Tour</span>
+                  <h3><a href="project.html">Gurtnellen, Swetzerland</a></h3>
+                  <div class="star d-flex clearfix">
+                    <div class="mr-auto float-left">
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                    </div>
+                    <div class="float-right">
+                      <span class="rate"><a href="#">(120)</a></span>
+                    </div>
+                  </div>
+                </div>
+                <a href="assets/images/destination-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                  <span class="icon-expand"></span>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ">
+              <div class="project">
+                <div class="img">
+                  <img src="assets/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template">
+                </div>
+                <div class="text">
+                  <h4 class="price">$400</h4>
+                  <span>15 Days Tour</span>
+                  <h3><a href="project.html">Gurtnellen, Swetzerland</a></h3>
+                  <div class="star d-flex clearfix">
+                    <div class="mr-auto float-left">
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                    </div>
+                    <div class="float-right">
+                      <span class="rate"><a href="#">(120)</a></span>
+                    </div>
+                  </div>
+                </div>
+                <a href="assets/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                  <span class="icon-expand"></span>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ">
+              <div class="project">
+                <div class="img">
+                  <img src="assets/images/destination-3.jpg" class="img-fluid" alt="Colorlib Template">
+                </div>
+                <div class="text">
+                  <h4 class="price">$400</h4>
+                  <span>15 Days Tour</span>
+                  <h3><a href="project.html">Gurtnellen, Swetzerland</a></h3>
+                  <div class="star d-flex clearfix">
+                    <div class="mr-auto float-left">
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                    </div>
+                    <div class="float-right">
+                      <span class="rate"><a href="#">(120)</a></span>
+                    </div>
+                  </div>
+                </div>
+                <a href="assets/images/destination-3.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                  <span class="icon-expand"></span>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 ">
+              <div class="project">
+                <div class="img">
+                  <img src="assets/images/destination-4.jpg" class="img-fluid" alt="Colorlib Template">
+                </div>
+                <div class="text">
+                  <h4 class="price">$400</h4>
+                  <span>15 Days Tour</span>
+                  <h3><a href="project.html">Gurtnellen, Swetzerland</a></h3>
+                  <div class="star d-flex clearfix">
+                    <div class="mr-auto float-left">
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                      <span class="ion-ios-star"></span>
+                    </div>
+                    <div class="float-right">
+                      <span class="rate"><a href="#">(120)</a></span>
+                    </div>
+                  </div>
+                </div>
+                <a href="assets/images/destination-4.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                  <span class="icon-expand"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ftco-counter img" id="section-counter">
+          <div class="container">
+            <div class="row d-flex">
+              <div class="col-md-6 d-flex">
+                <div class="img d-flex align-self-stretch" style="background-image:url(assets/images/about.jpg);"></div>
+              </div>
+              <div class="col-md-6 pl-md-5 py-5">
+                <div class="row justify-content-start pb-3">
+                  <div class="col-md-12 heading-section ">
+                    <h2 class="mb-4">About Traveland</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 justify-content-center counter-wrap ">
+                    <div class="block-18 text-center py-5 bg-light mb-4">
+                      <div class="text">
+                        <strong class="number" data-number="30">0</strong>
+                        <span>Amazing Deals</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 justify-content-center counter-wrap ">
+                    <div class="block-18 text-center py-5 bg-light mb-4">
+                      <div class="text">
+                        <strong class="number" data-number="200">0</strong>
+                        <span>Sold Tours</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 justify-content-center counter-wrap ">
+                    <div class="block-18 text-center py-5 bg-light mb-4">
+                      <div class="text">
+                        <strong class="number" data-number="2500">0</strong>
+                        <span>New Tours</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 justify-content-center counter-wrap ">
+                    <div class="block-18 text-center py-5 bg-light mb-4">
+                      <div class="text">
+                        <strong class="number" data-number="40">0</strong>
+                        <span>Happy Customers</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+    
+        <section class="ftco-section">
+          <div class="container">
+            <div class="row justify-content-center pb-5">
+              <div class="col-md-12 heading-section text-center ">
+                <h2 class="mb-4">Hotel &amp; Restaurant</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-lg-4 ">
+                <div class="project">
+                  <div class="img">
+                    <img src="assets/images/hotel-resto-1.jpg" class="img-fluid" alt="Colorlib Template">
+                  </div>
+                  <div class="text">
+                    <h4 class="price">$600</h4>
+                    <span>300 per person</span>
+                    <h3><a href="project.html">New Orleans Hotel</a></h3>
+                    <div class="star d-flex clearfix">
+                      <div class="mr-auto float-left">
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                      </div>
+                      <div class="float-right">
+                        <span class="rate"><a href="#">(120)</a></span>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="assets/images/hotel-resto-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                    <span class="icon-expand"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4 ">
+                <div class="project">
+                  <div class="img">
+                    <img src="assets/images/hotel-resto-2.jpg" class="img-fluid" alt="Colorlib Template">
+                  </div>
+                  <div class="text">
+                    <h4 class="price">$600</h4>
+                    <span>300 per person</span>
+                    <h3><a href="project.html">New Orleans Hotel</a></h3>
+                    <div class="star d-flex clearfix">
+                      <div class="mr-auto float-left">
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                      </div>
+                      <div class="float-right">
+                        <span class="rate"><a href="#">(120)</a></span>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="assets/images/hotel-resto-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                    <span class="icon-expand"></span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4 ">
+                <div class="project">
+                  <div class="img">
+                    <img src="assets/images/hotel-resto-3.jpg" class="img-fluid" alt="Colorlib Template">
+                  </div>
+                  <div class="text">
+                    <h4 class="price">$600</h4>
+                    <span>300 per person</span>
+                    <h3><a href="project.html">New Orleans Restaurant</a></h3>
+                    <div class="star d-flex clearfix">
+                      <div class="mr-auto float-left">
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                        <span class="ion-ios-star"></span>
+                      </div>
+                      <div class="float-right">
+                        <span class="rate"><a href="#">(120)</a></span>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="assets/images/hotel-resto-3.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                    <span class="icon-expand"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin-bottom: 100px;">
+          <div class="container">
+            <div class="row">
+              <button class="btn btn-primary" (click)="onTestClick()">TEST</button>
+            </div>
+            <div class="row">
+              <p [innerHTML]='srctekst'></p>
+            </div>
+          </div>
+        </section>
 </div>
-
-

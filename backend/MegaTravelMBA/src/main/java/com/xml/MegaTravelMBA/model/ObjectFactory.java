@@ -105,7 +105,7 @@ public class ObjectFactory {
      * 
      */
     public Rating createRating() {
-        return new Rating();
+    	return new Rating();
     }
 
 }
