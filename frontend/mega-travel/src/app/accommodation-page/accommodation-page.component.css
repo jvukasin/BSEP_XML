@@ -1,0 +1,31 @@
+.fa-star {
+    color: rgb(255, 230, 7);
+    font-size: 20px;
+    margin-top: -15px;
+}
+
+.fa-star:not(:first-child) {
+    margin-left: 4px;
+}
+
+.acc-image {
+    background-image: url("https://phgcdn.com/images/uploads/BEGHM/masthead/Hotel_Moskva_Overview1_Left.jpg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    height: 390px;
+    width: 95%;
+}
+
+.desc {
+    text-align: justify;
+    padding-right: 10px;
+}
+
+.amenities-rating {
+    margin-top: 20px;
+}
+
+.amenities {
+    border-right: 1px solid darkslategray;
+}

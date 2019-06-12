@@ -14,7 +14,8 @@ import { UserService } from './services/user.service';
 import { KeepHtmlPipe } from './pipe/keep-html.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { TestService } from './services/testMS.service';
+import { AccommodationPageComponent } from './accommodation-page/accommodation-page.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -25,16 +26,18 @@ import { TestService } from './services/testMS.service';
     KeepHtmlPipe,
     NavbarComponent,
     FooterComponent,
+    AccommodationPageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    AngularFontAwesomeModule,
     ReactiveFormsModule
   ],
   
-  providers: [AuthService, UserService, TestService,
+  providers: [AuthService, UserService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
 
