@@ -1,8 +1,6 @@
 
 package com.megatravel.reservationservice.soap.reqres;
 
-import com.megatravel.reservationservice.model.Reservation;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;

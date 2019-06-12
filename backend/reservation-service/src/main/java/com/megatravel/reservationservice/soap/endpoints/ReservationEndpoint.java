@@ -1,6 +1,5 @@
 package com.megatravel.reservationservice.soap.endpoints;
 
-import com.megatravel.reservationservice.model.Reservation;
 import com.megatravel.reservationservice.soap.reqres.*;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
