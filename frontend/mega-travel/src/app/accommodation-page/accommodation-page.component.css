@@ -9,12 +9,17 @@
 }
 
 .acc-image {
-    background-image: url("https://phgcdn.com/images/uploads/BEGHM/masthead/Hotel_Moskva_Overview1_Left.jpg");
+    background-image: url("https://www.futuremediaga.com/wp-content/uploads/2017/08/Cool-Studio-Apartment-Setup.jpg");
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: cover;
     height: 390px;
     width: 95%;
+}
+
+.desc-title {
+    margin-top: 15%;
+    margin-bottom: 20px;
 }
 
 .desc {
@@ -28,4 +33,95 @@
 
 .amenities {
     border-right: 1px solid darkslategray;
+}
+
+.amenity {
+    margin: 20px;
+    margin-right: 40px;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.rate-circle {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.7rem;
+    padding: 17px;
+    margin-top: 5px;
+    border-radius: 50%;
+    font-weight: 640;
+    color: white;
+    background-color: rgb(36, 163, 36);
+}
+
+.rating-content {
+    margin-top: 15px;
+    margin-left: 100px;
+}
+
+.rate-text {
+    font-size: 20px;
+    font-weight: 440;
+    margin-left: 30px;
+}
+
+.rate-div {
+    display: inline-block;
+}
+
+.NO-reviews {
+    float: right;
+    padding-top: 20px;
+    font-size: 15px;
+}
+
+.book {
+    text-align: center;
+    margin: 50px;
+}
+
+.book-btn {
+    width: 50%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.card {
+    display: inline-block;
+    margin: 10px;
+    width: 48%;
+    height: 200px;
+    padding: 5px;
+    padding-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    vertical-align: top;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+.left-card {
+    display: inline-block;
+    border-right: 1px solid #9fa105; /* promeniti u border-right: 2px solid grey */
+    height: 180px;
+    width: 23%;
+}
+
+.right-card {
+    display: inline-block;
+    vertical-align: top;
+    height: 180px;
+    width: 77%;
+    font-size: 14px;
+    padding-left: 8px;
+}
+
+.com-date {
+    margin-top: 5px;
+    font-size: 12px;
 }
