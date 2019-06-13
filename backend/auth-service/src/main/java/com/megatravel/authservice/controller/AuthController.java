@@ -56,7 +56,7 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         //posalji zahtev servisu da stavi u kontekst
-        restTemplate.postForEntity("http://localhost:8084/reservation-service/test/setAuth", authenticationRequest, JwtAuthenticationRequest.class);
+        restTemplate.postForEntity("http://localhost:8084/reservationservice/test/setAuth", authenticationRequest, JwtAuthenticationRequest.class);
 
 
         User user =  (User) authentication.getPrincipal();
