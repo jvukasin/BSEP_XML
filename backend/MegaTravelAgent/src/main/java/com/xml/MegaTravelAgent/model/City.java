@@ -1,6 +1,19 @@
 
 package com.xml.MegaTravelAgent.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -37,20 +50,32 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "name",
     "country"
 })
+@Entity
 @XmlRootElement(name = "City", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class City {
 
+	
+	@Column(name = "name")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String name;
+	
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @XmlElement(name = "Country", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Country country;
+    
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+
+	@OneToMany(mappedBy = "city", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Set<Location> locations = new HashSet<Location>();
 
     /**
      * Gets the value of the name property.
@@ -123,5 +148,19 @@ public class City {
     public void setId(Long value) {
         this.id = value;
     }
+    
+    
+    public Set<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(Set<Location> locations) {
+		this.locations = locations;
+	}
+
+	public City() {
+		super();
+	}
+
 
 }
