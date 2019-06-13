@@ -1,5 +1,6 @@
-package com.megatravel.authservice.security;
+package com.megatravel.reservationservice.security;
 
+import com.megatravel.reservationservice.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
-import com.megatravel.authservice.model.User;
 
 @Component
 public class TokenUtils {

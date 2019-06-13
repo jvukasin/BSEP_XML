@@ -1,16 +1,11 @@
 
-package com.megatravel.authservice.model;
+package com.megatravel.reservationservice.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -170,11 +165,11 @@ public class AccommodationUnit {
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<Amenity> amenity;
 
-    @OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected List<Image> image;
 
-    @OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<SpecificPrice> specificPrice;
 
@@ -192,7 +187,7 @@ public class AccommodationUnit {
     @XmlAttribute(name = "id")
     protected Long id;
 
-    @OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<Reservation> reservations;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

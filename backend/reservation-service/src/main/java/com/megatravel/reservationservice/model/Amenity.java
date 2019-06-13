@@ -62,13 +62,6 @@ public class Amenity {
     
     
 
-    public List<AccommodationUnit> getAccommodationUnit() {
-		return accommodationUnit;
-	}
-
-	public void setAccommodationUnit(List<AccommodationUnit> accommodationUnit) {
-		this.accommodationUnit = accommodationUnit;
-	}
 
 	public Amenity() 
     {
@@ -123,4 +116,11 @@ public class Amenity {
         this.id = value;
     }
 
+    public List<AccommodationUnit> getAccommodationUnit() {
+        return accommodationUnit;
+    }
+
+    public void setAccommodationUnit(List<AccommodationUnit> accommodationUnit) {
+        this.accommodationUnit = accommodationUnit;
+    }
 }
