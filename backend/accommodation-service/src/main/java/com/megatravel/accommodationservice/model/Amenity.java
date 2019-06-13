@@ -1,6 +1,16 @@
 
 package com.megatravel.accommodationservice.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -29,19 +39,43 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "name"
 })
+@Entity
 @XmlRootElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class Amenity {
 
+	@Column(name = "name")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String name;
+	
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    protected List<AccommodationUnit> accommodationUnit;
+    
+    
 
-    /**
+    public List<AccommodationUnit> getAccommodationUnit() {
+		return accommodationUnit;
+	}
+
+	public void setAccommodationUnit(List<AccommodationUnit> accommodationUnit) {
+		this.accommodationUnit = accommodationUnit;
+	}
+
+	public Amenity() 
+    {
+		super();
+	}
+
+	/**
      * Gets the value of the name property.
      * 
      * @return

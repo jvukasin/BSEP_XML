@@ -21,10 +21,10 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Autowired
-	UserRepository userRepo;
+	private UserRepository userRepo;
 	
 	@Autowired
-	RoleRepository roleRepo;
+	private RoleRepository roleRepo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

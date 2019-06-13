@@ -1,6 +1,14 @@
 
 package com.xml.MegaTravelAgent.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -36,18 +44,26 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "value",
     "comment"
 })
+@Entity
 @XmlRootElement(name = "Rating", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Rating {
 
+	@Column(name = "value")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
     protected int value;
+	
+    @OneToOne(fetch = FetchType.EAGER)
     @XmlElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Comment comment;
+    
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 
@@ -55,6 +71,8 @@ public class Rating {
      * Gets the value of the value property.
      * 
      */
+	
+	
     public int getValue() {
         return value;
     }

@@ -54,9 +54,14 @@ public class AccommodationUnitController
 	
 	//ROLE: neulogovan i ulogovan
 	@RequestMapping(value = "/query/{searchDTO}", method = RequestMethod.GET)
-	public ResponseEntity<?> search(@PathVariable("searchDTO") ExtendedSearchDTO dto)
+	public ResponseEntity<Collection<AccommodationUnit>> search(@PathVariable("searchDTO") ExtendedSearchDTO dto)
 	{
-		return null;
+		if(dto.getCityID() == null || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() == null)
+		{
+			return new ResponseEntity<Collection<AccommodationUnit>>(HttpStatus.BAD_REQUEST);
+		}
+		
+		return new ResponseEntity<Collection<AccommodationUnit>>(accommodationService.search(dto), HttpStatus.OK);
 	}
 	
 	

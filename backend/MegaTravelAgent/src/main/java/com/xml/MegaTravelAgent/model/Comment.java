@@ -1,6 +1,13 @@
 
 package com.xml.MegaTravelAgent.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -35,18 +42,30 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "approved",
     "text"
 })
+
+@Entity
 @XmlRootElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Comment {
-
+	
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	protected boolean id;
+	
+	@Column(name = "approved")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", defaultValue = "false")
     protected boolean approved;
+	
+	@Column(name = "text")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String text;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	protected Rating rating;
 
     /**
      * Gets the value of the approved property.
@@ -56,7 +75,15 @@ public class Comment {
         return approved;
     }
 
-    /**
+    public Rating getRating() {
+		return rating;
+	}
+
+	public void setRating(Rating rating) {
+		this.rating = rating;
+	}
+
+	/**
      * Sets the value of the approved property.
      * 
      */
@@ -88,4 +115,9 @@ public class Comment {
         this.text = value;
     }
 
+	public Comment() {
+		super();
+	}
+
+    
 }

@@ -1,6 +1,16 @@
 
 package com.megatravel.reservationservice.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -37,25 +47,54 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "coordinates",
     "distanceFromCity",
     "city"
 })
+@Entity
 @XmlRootElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Location {
 
+	@Column(name = "coordinates")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String coordinates;
+	
+	@Column(name = "distanceFromCity")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
     protected double distanceFromCity;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@NotNull
     @XmlElement(name = "City", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected City city;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+	
+    @OneToOne(mappedBy = "location", fetch = FetchType.EAGER)
+    protected AccommodationUnit accommodationUnit;
+    
+    
 
-    /**
+    public Location() {
+		super();
+	}
+
+	public AccommodationUnit getAccommodationUnit() {
+		return accommodationUnit;
+	}
+
+	public void setAccommodationUnit(AccommodationUnit accommodationUnit) {
+		this.accommodationUnit = accommodationUnit;
+	}
+
+	/**
      * Gets the value of the coordinates property.
      * 
      * @return

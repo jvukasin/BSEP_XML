@@ -8,33 +8,43 @@ import com.xml.MegaTravelMBA.model.Amenity;
 public class ExtendedSearchDTO 
 {
 	 private Long cityID;
-	 private Long countryID;
 	 
 	 private Date fromDate;
 	 private Date endDate;
 	 
-	 private int personCount;
+	 private Integer personCount;
 	 
-	 private double ratingAvg;
+	 private Double ratingAvg;
 	 private List<Amenity> amenities;
+	 private String type;
 
-	public ExtendedSearchDTO(Long cityID, Long countryID, Date fromDate, Date endDate, int personCount,
-			double ratingAvg, List<Amenity> amenities) {
+
+
+	public ExtendedSearchDTO(Long cityID, Date fromDate, Date endDate, Integer personCount,
+			Double ratingAvg, List<Amenity> amenities, String t) {
 		super();
 		this.cityID = cityID;
-		this.countryID = countryID;
 		this.fromDate = fromDate;
 		this.endDate = endDate;
 		this.personCount = personCount;
 		this.ratingAvg = ratingAvg;
 		this.amenities = amenities;
+		this.type = t;
+	}
+	
+	public String getType() {
+		return type;
 	}
 
-	public double getRatingAvg() {
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Double getRatingAvg() {
 		return ratingAvg;
 	}
 
-	public void setRatingAvg(double ratingAvg) {
+	public void setRatingAvg(Double ratingAvg) {
 		this.ratingAvg = ratingAvg;
 	}
 
@@ -58,14 +68,6 @@ public class ExtendedSearchDTO
 		this.cityID = cityID;
 	}
 
-	public Long getCountryID() {
-		return countryID;
-	}
-
-	public void setCountryID(Long countryID) {
-		this.countryID = countryID;
-	}
-
 	public Date getFromDate() {
 		return fromDate;
 	}
@@ -82,11 +84,11 @@ public class ExtendedSearchDTO
 		this.endDate = endDate;
 	}
 
-	public int getPersonCount() {
+	public Integer getPersonCount() {
 		return personCount;
 	}
 
-	public void setPersonCount(int personCount) {
+	public void setPersonCount(Integer personCount) {
 		this.personCount = personCount;
 	}
 }

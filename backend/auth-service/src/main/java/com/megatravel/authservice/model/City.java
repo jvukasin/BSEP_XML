@@ -1,12 +1,15 @@
 
 package com.megatravel.authservice.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.List;
 
 
 /**
@@ -42,15 +45,26 @@ import javax.xml.bind.annotation.XmlType;
     "name",
     "country"
 })
+@Entity
 @XmlRootElement(name = "City", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class City {
 
+    @Column(name ="name")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String name;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Country", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Country country;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected List<Location> locations;
 
     /**
      * Gets the value of the name property.
@@ -124,4 +138,11 @@ public class City {
         this.id = value;
     }
 
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
+    }
 }

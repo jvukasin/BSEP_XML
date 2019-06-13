@@ -1,6 +1,14 @@
 
 package com.megatravel.reservationservice.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -8,7 +16,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 
 
 /**
@@ -35,7 +43,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "reservation",
     "sender",
@@ -43,24 +51,42 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "date",
     "receiver"
 })
+@Entity
 @XmlRootElement(name = "Message", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message")
 public class Message {
 
+    @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     protected Reservation reservation;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
     protected TPerson sender;
+	
+	@Column(name = "content")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
     protected String content;
+	
+	@Column(name = "dateTime")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar date;
+    protected Date date;
+	
+    @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
     protected TPerson receiver;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 
-    /**
+	
+    public Message() {
+		super();
+	}
+
+	/**
      * Gets the value of the reservation property.
      * 
      * @return
@@ -137,10 +163,10 @@ public class Message {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -149,10 +175,10 @@ public class Message {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setDate(XMLGregorianCalendar value) {
+    public void setDate(Date value) {
         this.date = value;
     }
 

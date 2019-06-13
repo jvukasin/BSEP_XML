@@ -1,6 +1,12 @@
 
 package com.megatravel.accommodationservice.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -71,7 +77,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "TPerson", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", propOrder = {
     "name",
     "lastname",
@@ -79,22 +85,49 @@ import javax.xml.bind.annotation.XmlType;
     "password",
     "role"
 })
+@Entity
 public abstract class TPerson {
 
+	@Column(name = "name")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String name;
+	
+	@Column(name = "lastname")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String lastname;
+	
+	@Column(name = "email")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String email;
+	
+	@Column(name = "password")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String password;
+	
+	@Column(name = "role")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String role;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+	
 
-    /**
+	
+	
+	
+    public TPerson()
+    {
+		super();
+	}
+
+	/**
      * Gets the value of the name property.
      * 
      * @return

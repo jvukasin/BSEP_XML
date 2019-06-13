@@ -1,12 +1,9 @@
 
 package com.megatravel.authservice.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -36,25 +33,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "value",
     "comment"
 })
+@Entity
 @XmlRootElement(name = "Rating", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Rating {
 
+	@Column(name = "value")
+	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
     protected int value;
+	
+    @OneToOne(mappedBy = "rating", fetch = FetchType.EAGER)
     @XmlElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Comment comment;
+    
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private User user;
 
     /**
      * Gets the value of the value property.
      * 
      */
+	
+	
     public int getValue() {
         return value;
     }
@@ -115,4 +125,11 @@ public class Rating {
         this.id = value;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
