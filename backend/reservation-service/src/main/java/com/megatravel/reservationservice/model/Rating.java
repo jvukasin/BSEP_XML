@@ -52,7 +52,7 @@ public class Rating {
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
     protected int value;
 	
-    @OneToOne(mappedBy = "comment", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @XmlElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected Comment comment;
     

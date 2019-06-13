@@ -1,33 +1,11 @@
 
-package com.megatravel.reservationservice;
+package com.megatravel.reservationservice.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
-import com.megatravel.reservationservice.model.Amenity;
-import com.megatravel.reservationservice.model.Image;
-import com.megatravel.reservationservice.model.Location;
-import com.megatravel.reservationservice.model.Reservation;
-import com.megatravel.reservationservice.model.SpecificPrice;
-
 
 
 /**
@@ -121,7 +99,7 @@ import com.megatravel.reservationservice.model.SpecificPrice;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.NONE)
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "name",
     "description",
@@ -140,72 +118,81 @@ import com.megatravel.reservationservice.model.SpecificPrice;
 @XmlRootElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class AccommodationUnit {
 
-	@Column(name = "name")
-	@NotNull
+    @Column(name = "name")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String name;
-	
-	@Column(name = "description")
+
+    @Column(name = "description")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String description;
-	
-	@Column(name = "capacity")
-	@NotNull
+
+    @Column(name = "capacity")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int capacity;
-	
-	@Column(name = "cancellationPeriod")
+
+    @Column(name = "cancellationPeriod")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int cancellationPeriod;
-	
-	@Column(name = "price")
-	@NotNull
+
+    @Column(name = "price")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double price;
-	
-	@Column(name = "defaultPrice")
-	@NotNull
+
+    @Column(name = "defaultPrice")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double defaultPrice;
+
+    @Column(name = "type")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
-    
-	@Column(name = "type")
     protected String type;
+
+    @Column(name = "ratingAvg")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-    
-	@Column(name = "ratingAvg")
     protected double ratingAvg;
+
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "accommodationunit_amenity",
+            joinColumns = @JoinColumn(name = "accommodationunit_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "amenity_id", referencedColumnName = "id"))
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-    
-	@ManyToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     protected List<Amenity> amenity;
+
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
-    
-	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     protected List<Image> image;
+
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-    
-	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     protected List<SpecificPrice> specificPrice;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @XmlElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
-    
-	@OneToOne(fetch = FetchType.EAGER)
     protected Location location;
-    
+
     @Column(name = "category")
+    @NotNull
     @XmlAttribute(name = "category")
     protected Integer category;
-    
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 
-    
-	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Reservation> reservation;
-    
+    @OneToMany(mappedBy = "accomodationunit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected List<Reservation> reservations;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected Agent agent;
+
     /**
      * Gets the value of the name property.
      * 
@@ -516,31 +503,32 @@ public class AccommodationUnit {
     public void setId(Long value) {
         this.id = value;
     }
-    
-    
-    public List<Reservation> getReservation() {
-		return reservation;
-	}
 
-	public void setReservation(List<Reservation> reservation) {
-		this.reservation = reservation;
-	}
+    public void setAmenity(List<Amenity> amenity) {
+        this.amenity = amenity;
+    }
 
-	public void setAmenity(List<Amenity> amenity) {
-		this.amenity = amenity;
-	}
+    public void setImage(List<Image> image) {
+        this.image = image;
+    }
 
-	public void setImage(List<Image> image) {
-		this.image = image;
-	}
+    public void setSpecificPrice(List<SpecificPrice> specificPrice) {
+        this.specificPrice = specificPrice;
+    }
 
-	public void setSpecificPrice(List<SpecificPrice> specificPrice) {
-		this.specificPrice = specificPrice;
-	}
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
 
-	public AccommodationUnit() 
-	{
-		super();
-	}
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {
+        this.agent = agent;
+    }
 }

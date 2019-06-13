@@ -1,4 +1,4 @@
-package repository;
+package com.megatravel.reservationservice.repository;
 
 import java.util.Collection;
 import java.util.Date;
@@ -8,11 +8,13 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.megatravel.reservationservice.AccommodationUnit;
+import com.megatravel.reservationservice.model.AccommodationUnit;
 
 
   public interface AccommodationUnitRepository extends JpaRepository<AccommodationUnit, Long> 
   {
+	  
+	  /*
 		@Transactional
 		@Query(value = "select distinct\n" + 
 				"	accommodation_unit.*, @id := accommodation_unit.id\n" + 
@@ -30,6 +32,6 @@ import com.megatravel.reservationservice.AccommodationUnit;
 				"			(reservation.start_date <= ?3 and reservation.end_date >= ?3) or (reservation.start_date >= ?3 and reservation.start_date >= ?4)\n" + 
 				"		)",nativeQuery = true)
 		public Collection<AccommodationUnit> search( Long cityId,int capacity, Date start,Date end);
-
+		*/
   }
  

@@ -1,6 +1,8 @@
 
 package com.megatravel.reservationservice.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,8 +17,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
-import com.megatravel.reservationservice.AccommodationUnit;
 
 
 /**
@@ -58,11 +58,12 @@ public class Amenity {
     protected Long id;
     
     @ManyToMany(fetch = FetchType.LAZY)
-    protected AccommodationUnit accommodationUnit;
+    protected List<AccommodationUnit> accommodationUnit;
+    
+    
 
 
-
-    public Amenity() 
+	public Amenity() 
     {
 		super();
 	}
@@ -115,4 +116,11 @@ public class Amenity {
         this.id = value;
     }
 
+    public List<AccommodationUnit> getAccommodationUnit() {
+        return accommodationUnit;
+    }
+
+    public void setAccommodationUnit(List<AccommodationUnit> accommodationUnit) {
+        this.accommodationUnit = accommodationUnit;
+    }
 }

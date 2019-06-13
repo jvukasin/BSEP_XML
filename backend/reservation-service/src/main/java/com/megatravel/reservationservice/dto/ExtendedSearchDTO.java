@@ -1,4 +1,4 @@
-package dto;
+package com.megatravel.reservationservice.dto;
 
 import java.util.Date;
 import java.util.List;
