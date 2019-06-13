@@ -59,8 +59,8 @@ public class Amenity {
     
     @ManyToMany(fetch = FetchType.LAZY)
     protected AccommodationUnit accommodationUnit;
-    
-    
+
+
 
     public Amenity() 
     {

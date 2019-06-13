@@ -1,10 +1,7 @@
 
 package com.megatravel.authservice.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -61,6 +58,10 @@ public class Comment {
     @OneToOne(fetch = FetchType.LAZY, optional = true)
     protected Rating rating;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id;
+
     /**
      * Gets the value of the approved property.
      * 
@@ -107,5 +108,13 @@ public class Comment {
 
     public void setRating(Rating rating) {
         this.rating = rating;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +25,9 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping(value = "/auth")
 public class AuthController {
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Autowired
     private TokenUtils tokenUtils;
@@ -50,6 +54,10 @@ public class AuthController {
 
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        //posalji zahtev servisu da stavi u kontekst
+        restTemplate.postForEntity("http://localhost:8084/reservation-service/test/setAuth", authenticationRequest, JwtAuthenticationRequest.class);
+
 
         User user =  (User) authentication.getPrincipal();
 //

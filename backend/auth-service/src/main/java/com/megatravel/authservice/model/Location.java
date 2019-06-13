@@ -63,6 +63,7 @@ public class Location {
 
     // MAPIRAJ!!!!!!!!!!!!!!!!!!!!!
     @XmlElement(name = "City", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     protected City city;
 
     @Id
