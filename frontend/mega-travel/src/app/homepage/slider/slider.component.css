@@ -1,0 +1,32 @@
+.hero-wrap {
+    background-image: url('../../../assets/images/bg_1.jpg');
+    height: 580px;
+    margin-top: -10px;
+}
+
+
+
+.hero-wrap .slider-text {
+    padding-top: 130px;
+    text-align: center;
+}
+
+
+
+.hero-wrap .overlay {
+    background: linear-gradient(to top, #6b75ff, rgba(107, 117, 255, 0) 0%, #6b75ff, rgba(107, 117, 255, 0.3) 57%, #59b7ff 100%);
+    height: 90vh;
+}
+
+.slider-text h1 {
+    text-shadow: -1px 5px 2px rgba(0, 0, 0, 0.68);
+    color: white;
+}
+
+.slider-text p {
+    font-size: 26px;
+    font-weight: 400;
+    text-shadow: -1px 5px 2px rgba(0, 0, 0, 0.68);
+    color: white;
+
+}

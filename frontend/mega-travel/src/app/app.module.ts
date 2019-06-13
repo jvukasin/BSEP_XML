@@ -16,6 +16,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AccommodationPageComponent } from './accommodation-page/accommodation-page.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { SearchComponent } from './search/search.component';
+import { SliderComponent } from './homepage/slider/slider.component';
+import { BestPlacesComponent } from './homepage/best-places/best-places.component';
+import { BestFeaturedComponent } from './homepage/best-featured/best-featured.component';
+import { AboutUsComponent } from './homepage/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     KeepHtmlPipe,
     NavbarComponent,
     FooterComponent,
-    AccommodationPageComponent
+    AccommodationPageComponent,
+    SearchComponent,
+    SliderComponent,
+    BestPlacesComponent,
+    BestFeaturedComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
