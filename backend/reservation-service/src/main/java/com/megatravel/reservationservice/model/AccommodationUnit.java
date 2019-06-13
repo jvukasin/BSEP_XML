@@ -2,7 +2,9 @@
 package com.megatravel.reservationservice.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -162,27 +164,28 @@ public class AccommodationUnit {
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double defaultPrice;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
-    
 	@Column(name = "type")
     protected String type;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 	@Column(name = "ratingAvg")
     protected double ratingAvg;
+    
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    protected Set<Amenity> amenity;
     
-	@ManyToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    protected List<Amenity> amenity;
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
+	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    protected Set<Image> image;
     
-	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    protected List<Image> image;
+    
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
-    
 	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     protected List<SpecificPrice> specificPrice;
-    @XmlElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     
+    
+    @XmlElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
 	@OneToOne(fetch = FetchType.EAGER)
     protected Location location;
     
@@ -374,9 +377,9 @@ public class AccommodationUnit {
      * 
      * 
      */
-    public List<Amenity> getAmenity() {
+    public Set<Amenity> getAmenity() {
         if (amenity == null) {
-            amenity = new ArrayList<Amenity>();
+            amenity = new HashSet<Amenity>();
         }
         return this.amenity;
     }
@@ -403,9 +406,9 @@ public class AccommodationUnit {
      * 
      * 
      */
-    public List<Image> getImage() {
+    public Set<Image> getImage() {
         if (image == null) {
-            image = new ArrayList<Image>();
+            image = new HashSet<Image>();
         }
         return this.image;
     }
@@ -520,11 +523,11 @@ public class AccommodationUnit {
 		this.reservation = reservation;
 	}
 
-	public void setAmenity(List<Amenity> amenity) {
+	public void setAmenity(Set<Amenity> amenity) {
 		this.amenity = amenity;
 	}
 
-	public void setImage(List<Image> image) {
+	public void setImage(Set<Image> image) {
 		this.image = image;
 	}
 
