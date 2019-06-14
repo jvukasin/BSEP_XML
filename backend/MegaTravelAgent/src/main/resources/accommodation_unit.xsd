@@ -97,6 +97,7 @@
                 <xs:element name="name" type="xs:string"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:long"/>
+            <xs:attribute name="faIcon" type="xs:string"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="SpecificPrice">

@@ -41,7 +41,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
-    "name"
+    "name",
+    "faIcon"
 })
 @Entity
 @XmlRootElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
@@ -51,6 +52,10 @@ public class Amenity {
 	@NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String name;
+
+    @Column(name = "faIcon")
+    @XmlAttribute(name = "faIcon")
+    protected String faIcon;
 	
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -83,6 +88,7 @@ public class Amenity {
      *     {@link String }
      *     
      */
+
     public String getName() {
         return name;
     }
@@ -100,12 +106,37 @@ public class Amenity {
     }
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the faIcon property.
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link String }
      *     
+     */
+
+    public String getFaIcon() {
+        return faIcon;
+    }
+
+    /**
+     * Sets the value of the faIcon property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setFaIcon(String value) {
+        this.faIcon = value;
+    }
+
+    /**
+     * Gets the value of the id property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *
      */
     public Long getId() {
         return id;

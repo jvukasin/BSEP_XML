@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -36,85 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
-    "name"
+        "name",
+        "faIcon"
 })
 @Entity
 @XmlRootElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 public class Amenity {
 
-	@Column(name = "name")
-	@NotNull
+    @Column(name = "name")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String name;
-	
+
+    @Column(name = "faIcon")
+    @XmlAttribute(name = "faIcon")
+    protected String faIcon;
+
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
-    
+
     @ManyToMany(fetch = FetchType.LAZY)
     protected List<AccommodationUnit> accommodationUnit;
-    
-    
 
 
-	public Amenity() 
-    {
-		super();
-	}
-
-	/**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setName(String value) {
-        this.name = value;
-    }
-
-    /**
-     * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setId(Long value) {
-        this.id = value;
-    }
 
     public List<AccommodationUnit> getAccommodationUnit() {
         return accommodationUnit;
@@ -123,4 +74,84 @@ public class Amenity {
     public void setAccommodationUnit(List<AccommodationUnit> accommodationUnit) {
         this.accommodationUnit = accommodationUnit;
     }
+
+    public Amenity()
+    {
+        super();
+    }
+
+    /**
+     * Gets the value of the name property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Sets the value of the name property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setName(String value) {
+        this.name = value;
+    }
+
+    /**
+     * Gets the value of the faIcon property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+
+    public String getFaIcon() {
+        return faIcon;
+    }
+
+    /**
+     * Sets the value of the faIcon property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setFaIcon(String value) {
+        this.faIcon = value;
+    }
+
+    /**
+     * Gets the value of the id property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *
+     */
+    public void setId(Long value) {
+        this.id = value;
+    }
+
 }

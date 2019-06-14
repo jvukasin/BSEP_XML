@@ -99,7 +99,7 @@ public class Reservation {
 
     
 	@ManyToOne(fetch = FetchType.LAZY)
-	private TPerson reservator;
+	private User reservator;
     
 	@OneToMany(mappedBy="reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Message> messages;
@@ -117,11 +117,11 @@ public class Reservation {
 		this.isSuccessful = isSuccessful;
 	}
 
-	public TPerson getReservator() {
+	public User getReservator() {
 		return reservator;
 	}
 
-	public void setReservator(TPerson reservator) {
+	public void setReservator(User reservator) {
 		this.reservator = reservator;
 	}
 

@@ -8,6 +8,9 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Endpoint
 public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
@@ -32,8 +35,17 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
 
         // temp:
         AccommodationUnit au = new AccommodationUnit();
-        au.setName("Blejaz");
+        Amenity amenity = new Amenity();
+        amenity.setFaIcon("fa fa-wifi");
+        amenity.setName("WiFi");
+        amenity.setId(new Long(12));
 
+        Set<Amenity> amenities = new HashSet<Amenity>();
+        amenities.add(amenity);
+
+
+        au.setName("Blejaz");
+        au.setAmenity(amenities);
         GetAccommodationUnitResponse response = new GetAccommodationUnitResponse();
         response.setAccommodationUnit(au);
 
