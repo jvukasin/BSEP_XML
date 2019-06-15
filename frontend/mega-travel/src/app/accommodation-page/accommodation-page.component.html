@@ -13,10 +13,17 @@
       <div class="col-md-8 acc-image"></div>
     </div>
 
+    <div class="sidebar">
+      <h5 style="margin-bottom: 30px;">Apartment BBF</h5>
+      <h6>Price: 220$<span class="pernight">/per night</span></h6>
+      <h6>Total price: 880$</h6>
+      <button class="btn btn-primary book-btn">Book</button>
+    </div>
+    
     <div class="row amenities-rating">
-      <div class="col-md-7 amenities">
+      <div class="amenities">
         <h4>Amenities:</h4>
-        <div class="row">
+        <div class="row" [ngClass] = "{'showCont':hideServ === false,  'hideCont':hideServ  === true }">
           <div class="amenity">
             <i class="fa fa-wifi"></i> WiFi
           </div>
@@ -30,11 +37,13 @@
             <i class="fa fa-cutlery"></i> Breakfast
           </div>
         </div>
+        <div class="show-more">
+          <button class="btn btn-light mmmore" (click)="onShowMore()">{{ShowText}}</button>
+        </div>
       </div>
-      <hr>
-      <div class="col-md-5">
+      <div class="rating">
         <div class="NO-reviews">
-          <p>49 Reviews</p>
+          <p class="no-of-revs">49 Reviews</p>
         </div>
         <h4>Rating:</h4>
         <div class="rating-content">
@@ -48,49 +57,47 @@
       </div>
     </div>
 
-    <div class="book">
-      <button class="btn btn-primary book-btn">Book</button>
+    <div class="row">
+      <div class="comments">
+        <h4>Comments:</h4>
+  
+        <div class="card">
+          <div class="container">
+            <div class="left-card">
+              <h6><b>Vladimir Cvetanovic</b></h6>
+              <p class="com-date">05.06.2019.</p>
+            </div>
+            <div class="right-card">
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="container">
+            <div class="left-card">
+              <h6><b>John Doe</b></h6>
+              <p class="com-date">10.06.2019.</p>
+            </div>
+            <div class="right-card">
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="container">
+            <div class="left-card">
+              <h6><b>Miroslav Zaric</b></h6>
+              <p class="com-date">14.06.2019.</p>
+            </div>
+            <div class="right-card">
+              <p>Great!</p>
+            </div>
+          </div>
+        </div>
     </div>
-
-    <div class="comments">
-      <h4>Comments:</h4>
-
-      <div class="card">
-        <div class="container">
-          <div class="left-card">
-            <h6><b>Vladimir Cvetanovic</b></h6>
-            <p class="com-date">05.06.2019.</p>
-          </div>
-          <div class="right-card">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="container">
-          <div class="left-card">
-            <h6><b>John Doe</b></h6>
-            <p class="com-date">10.06.2019.</p>
-          </div>
-          <div class="right-card">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="container">
-          <div class="left-card">
-            <h6><b>Miroslav Zaric</b></h6>
-            <p class="com-date">14.06.2019.</p>
-          </div>
-          <div class="right-card">
-            <p>Great!</p>
-          </div>
-        </div>
-      </div>
-
+    
     </div>
   </div>
 </section>>
