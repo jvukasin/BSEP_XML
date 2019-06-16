@@ -1,0 +1,53 @@
+#cover {
+    height: 100vh;
+    background: url('../../assets/images/login_image.jpg') center;
+    background-size: cover;
+}
+
+.wall-sticker {
+    padding-top: 10px;
+    background: #ffffffda;
+    height: 90vh;
+}
+
+.megatravel {
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 40%;
+}
+
+input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0) !important;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.7);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.sticker-content {
+    margin: 0px 20px;
+    height: 100%;
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.polje {
+    min-height: 80px;
+}
+
+.login_btn {
+    float: right;
+    width: 120px;
+}
+
+.links {
+    margin-top: 20%;
+    text-align: center;
+}

@@ -1,3 +1,61 @@
 .inp {
-    width: 500px;
+    width: 100%;
+}
+
+#cover {
+    height: 100vh;
+    background: url('../../assets/images/register_image.jpg') center;
+    background-size: cover;
+}
+
+.wall-sticker {
+    padding-top: 10px;
+    background: #ffffffda;
+    height: 90vh;
+}
+
+.forma {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.megatravel {
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 6%;
+}
+
+.sticker-content {
+    margin: 0px 20px;
+    height: 100%;
+    text-align: center;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0) !important;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.7);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.error {
+    color: red;
+}
+
+.reg_btn {
+    float: right;
+    width: 120px;
+}
+
+.polje {
+    min-height: 80px;
+}
+
+.links {
+    margin-top: 15%;
+    text-align: center;
 }

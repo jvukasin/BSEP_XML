@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   errorInpBool: boolean = false;
+  errorNotFOund: boolean = false;
 
   constructor(private service: AuthService, private router: Router) { }
 

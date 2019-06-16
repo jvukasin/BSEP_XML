@@ -10,7 +10,7 @@ const appRoutes: Routes = [
 	{ path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: 'home', component: HomepageComponent },
     { path: 'login', component: LoginComponent},
-	{ path: 'register', component: RegisterComponent},
+	{ path: 'signup', component: RegisterComponent},
 	{ path: 'accommodationsKrozID', component: AccommodationPageComponent},
 	{ path: 'accommodations', component: AccommodationListComponent}
 	]
