@@ -1,5 +1,6 @@
 package com.megatravel.accommodationservice.controller;
 import java.util.Collection;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,15 +54,15 @@ public class AccommodationUnitController
 	}
 	
 	//ROLE: neulogovan i ulogovan
-	@RequestMapping(value = "/query/{searchDTO}", method = RequestMethod.GET)
-	public ResponseEntity<Collection<AccommodationUnit>> search(@PathVariable("searchDTO") ExtendedSearchDTO dto)
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public ResponseEntity<List<AccommodationUnit>> search(@RequestBody ExtendedSearchDTO dto)
 	{
 		if(dto.getCityID() == null || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() == null)
 		{
-			return new ResponseEntity<Collection<AccommodationUnit>>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<List<AccommodationUnit>>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return new ResponseEntity<Collection<AccommodationUnit>>(accommodationService.search(dto), HttpStatus.OK);
+		return new ResponseEntity<List<AccommodationUnit>>(accommodationService.search(dto), HttpStatus.OK);
 	}
 	
 	

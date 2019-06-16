@@ -36,7 +36,7 @@ public class AccommodationUnitService
 		return accommodationRepo.findAll();
 	}
 	
-	public Collection<AccommodationUnit> search(ExtendedSearchDTO dto)
+	public List<AccommodationUnit> search(ExtendedSearchDTO dto)
 	{
 		return null;
 	}
