@@ -112,7 +112,7 @@
 }
 
 .book-btn {
-    width: 50%;
+    width: 60%;
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 20px;
@@ -195,4 +195,34 @@
 .mmmore {
     font-size: 14px;
     border-radius: 13px;
+}
+
+.book {
+    text-align: center;
+}
+
+.totalprice {
+    border-top: 1px solid rgba(156, 154, 154, 0.7);
+    padding-top: 10px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.fa-calendar-o {
+    font-size: 14px;
+}
+
+.sel-date {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.guests {
+    float: right;
+    font-size: 13px;
+    margin-right: 10%;
+}
+
+.fa-user {
+    font-size: 16px;
 }
