@@ -62,8 +62,8 @@ public class AuthController {
         headers.add("Content-Type", "application/json");
         HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest,headers);
         //posalji zahtev servisu da stavi u kontekst
-        ResponseEntity<?> responseEntity = restTemplate.postForEntity("http://reservation-service/test/setAuth", HReq, JwtAuthenticationRequest.class);
-
+        ResponseEntity<?> responseEntity = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+        ResponseEntity<?> res = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
 
         User user =  (User) authentication.getPrincipal();
 //

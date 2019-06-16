@@ -1,9 +1,9 @@
-package com.megatravel.reservationservice.security.config;
+package com.megatravel.accommodationservice.security.config;
 
-import com.megatravel.reservationservice.security.CustomUserDetailsService;
-import com.megatravel.reservationservice.security.TokenUtils;
-import com.megatravel.reservationservice.security.auth.RestAuthenticationEntryPoint;
-import com.megatravel.reservationservice.security.auth.TokenAuthenticationFilter;
+import com.megatravel.accommodationservice.security.CustomUserDetailsService;
+import com.megatravel.accommodationservice.security.TokenUtils;
+import com.megatravel.accommodationservice.security.auth.RestAuthenticationEntryPoint;
+import com.megatravel.accommodationservice.security.auth.TokenAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -79,8 +79,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				// svim korisnicima dopusti da pristupe putanjama /auth/** i /h2-console/**
 				// POTREBNO DA SVAKO UBACI KOJE PUTANJE SU DOSTUPNE SVIM KORISNICIMA, BEZ OBZIRA NA ULOGU
 				.authorizeRequests()
-				.antMatchers("/test/**").permitAll()
-					.antMatchers("/resSecurity/**").permitAll()
+					.antMatchers("/accSecurity/**").permitAll()
 				.antMatchers("/h2-console/**").permitAll()
 				.antMatchers("/ws/**").permitAll()
 				// svaki zahtev mora biti autorizovan
@@ -96,7 +95,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		@Override
 		public void configure(WebSecurity web) throws Exception {
 			// TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
-			web.ignoring().antMatchers(HttpMethod.POST, "/resSecurity/setAuthentication");
+			web.ignoring().antMatchers(HttpMethod.POST, "/accSecurity/setAuthentication");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
 		}
 		
