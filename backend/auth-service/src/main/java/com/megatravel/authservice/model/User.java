@@ -47,7 +47,6 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "reservation",
     "status",
     "rating"
 })
@@ -58,11 +57,6 @@ import javax.xml.bind.annotation.XmlType;
 public class User
     extends TPerson
 {
-
-    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    protected List<Reservation> reservation;
-
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     @Column(name="status")

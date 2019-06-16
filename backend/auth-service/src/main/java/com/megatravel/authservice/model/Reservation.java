@@ -87,7 +87,8 @@ public class Reservation {
     protected Long id;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    protected User user;
+    protected TPerson reservator;
+
 
 
     /**
@@ -226,4 +227,11 @@ public class Reservation {
         isSuccessful = successful;
     }
 
+    public TPerson getReservator() {
+        return reservator;
+    }
+
+    public void setReservator(TPerson reservator) {
+        this.reservator = reservator;
+    }
 }
