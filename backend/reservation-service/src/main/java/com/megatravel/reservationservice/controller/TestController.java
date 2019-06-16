@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mobile.device.Device;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -32,6 +33,7 @@ public class TestController {
 	}
 
 	@RequestMapping(value = "/authTest", method = RequestMethod.GET)
+	@PreAuthorize("hasAuthority('TEST')")
 	public String authTest() {return "USPEO SI DA PRISTUPIS!"; }
 
 	@RequestMapping(value = "/setAuth", method = RequestMethod.POST)

@@ -6,6 +6,7 @@ import com.megatravel.authservice.security.CustomUserDetailsService;
 import com.megatravel.authservice.security.TokenUtils;
 import com.megatravel.authservice.security.auth.JwtAuthenticationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mobile.device.Device;
@@ -13,6 +14,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,8 +58,11 @@ public class AuthController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
+        MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
+        headers.add("Content-Type", "application/json");
+        HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest,headers);
         //posalji zahtev servisu da stavi u kontekst
-        restTemplate.postForEntity("http://localhost:8084/reservationservice/test/setAuth", authenticationRequest, JwtAuthenticationRequest.class);
+        ResponseEntity<?> responseEntity = restTemplate.postForEntity("http://reservation-service/test/setAuth", HReq, JwtAuthenticationRequest.class);
 
 
         User user =  (User) authentication.getPrincipal();

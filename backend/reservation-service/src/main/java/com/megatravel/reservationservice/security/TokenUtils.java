@@ -99,9 +99,11 @@ public class TokenUtils {
 			User user = (User) userDetails;
 			final String username = getUsernameFromToken(token);
 			final Date created = getIssuedAtDateFromToken(token);
-			
-			return (username != null && username.equals(userDetails.getUsername())
-					&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate().getTimestamp()));
+			if(user.getLastPasswordResetDate() != null){
+				return (username != null && username.equals(userDetails.getUsername())
+						&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate().getTimestamp()));
+			}
+			return (username != null && username.equals(userDetails.getUsername()));
 		}
 
 		private Boolean isCreatedBeforeLastPasswordReset(Date created, Date lastPasswordReset) {
@@ -194,7 +196,7 @@ public class TokenUtils {
 		}
 
 		public String getAuthHeaderFromHeader(HttpServletRequest request) {
-			return request.getHeader(AUTH_HEADER);
+			return request.getHeader("Authorization");
 		}
 
 }
