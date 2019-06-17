@@ -32,6 +32,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Agent }
+     *
+     */
+    public Agent createAgent() {
+        return new Agent();
+    }
+
+    /**
      * Create an instance of {@link EditAccommodationUnitRequest }
      * 
      */

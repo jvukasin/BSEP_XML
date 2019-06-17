@@ -194,7 +194,12 @@ public class AccommodationUnit {
     
 	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Reservation> reservation;
-    
+
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected Agent agent;
+
+
     /**
      * Gets the value of the name property.
      * 
@@ -526,6 +531,15 @@ public class AccommodationUnit {
 	public void setSpecificPrice(List<SpecificPrice> specificPrice) {
 		this.specificPrice = specificPrice;
 	}
+
+
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {
+        this.agent = agent;
+    }
 
 	public AccommodationUnit() 
 	{

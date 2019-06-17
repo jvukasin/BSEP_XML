@@ -1,4 +1,4 @@
-package com.megatravel.accommodationservice.dto;
+package com.megatravel.authservice.dto;
 
 import java.util.Date;
 

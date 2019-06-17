@@ -3,6 +3,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.megatravel.accommodationservice.dto.AccommodationDTO;
 import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.service.AccommodationUnitService;
@@ -77,7 +77,7 @@ public class AccommodationUnitController
 	//ROLE: agent, admin
 	//TODO: user token ili id
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<?> create(@RequestBody AccommodationDTO accommodationUnit)
+	public ResponseEntity<?> create(@RequestBody AccommodationUnitDTO accommodationUnit)
 	{	
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

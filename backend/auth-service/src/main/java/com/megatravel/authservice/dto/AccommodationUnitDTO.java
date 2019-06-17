@@ -1,4 +1,4 @@
-package com.xml.MegaTravelAgent.dto;
+package com.megatravel.authservice.dto;
 
 import java.util.List;
 
