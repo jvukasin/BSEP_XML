@@ -7,18 +7,18 @@ import java.util.List;
 
 public class AccommodationSettingsDTO {
 
-    public List<Amenity> amenities = new ArrayList<>();
-    public List<String> accommodationTypes = new ArrayList<>();
+    private List<AmenityDTO> amenities = new ArrayList<>();
+    private List<String> accommodationTypes = new ArrayList<>();
 
     public AccommodationSettingsDTO() {
 
     }
 
-    public List<Amenity> getAmenities() {
+    public List<AmenityDTO> getAmenities() {
         return amenities;
     }
 
-    public void setAmenities(List<Amenity> amenities) {
+    public void setAmenities(List<AmenityDTO> amenities) {
         this.amenities = amenities;
     }
 

@@ -1,6 +1,8 @@
 package com.xml.MegaTravelAgent.controller;
 
 import com.xml.MegaTravelAgent.dto.AccommodationSettingsDTO;
+import com.xml.MegaTravelAgent.dto.AmenityDTO;
+import com.xml.MegaTravelAgent.model.Amenity;
 import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
 import com.xml.MegaTravelAgent.soap.reqres.AccommodationType;
 import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
@@ -43,6 +45,7 @@ public class AccommodationUnitController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
+	// just for testing, treba da se prebaci u servis
 	@RequestMapping(value = "/settings", method = RequestMethod.GET)
 	public ResponseEntity<AccommodationSettingsDTO> getAUSettings()
 	{
@@ -50,10 +53,13 @@ public class AccommodationUnitController {
 
 		AccommodationSettingsDTO settingsDTO = new AccommodationSettingsDTO();
 
-		settingsDTO.setAmenities(soapResponse.getAmenity());
+		for (Amenity a: soapResponse.getAmenity()) {
+			AmenityDTO aDTO = new AmenityDTO(a.getId(), a.getName(), a.getFaIcon());
+			settingsDTO.getAmenities().add(aDTO);
+		}
 
 		for (AccommodationType t: soapResponse.getAccommodationType()) {
-			settingsDTO.accommodationTypes.add(t.getType());
+			settingsDTO.getAccommodationTypes().add(t.getType());
 		}
 
 
