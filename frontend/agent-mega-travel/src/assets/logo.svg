@@ -1,0 +1,26 @@
+<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="679.799 221 572.321 77">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3a1729;
+        font-size: 77px;
+        font-family: Overpass-Regular, Overpass;
+        letter-spacing: -0.003em;
+      }
+
+      .cls-2 {
+        fill: #cc0d6d;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        font-size: 44px;
+        font-family: Overpass-Bold, Overpass;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <text id="MegaTravel" class="cls-1" transform="translate(679.799 279)"><tspan x="0" y="0">MegaTravel</tspan></text>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-2" width="172.252" height="65.072" transform="translate(1079.868 221)"/>
+  <text id="AGENT" class="cls-3" transform="translate(1091.539 269.79)"><tspan x="0" y="0">AGENT</tspan></text>
+</svg>

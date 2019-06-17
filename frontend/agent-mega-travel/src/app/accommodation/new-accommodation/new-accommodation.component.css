@@ -1,0 +1,67 @@
+.container {
+    padding: 10px 100px;
+}
+
+select {
+    width: 100%;
+}
+
+.new-ac-form {
+    margin-top: 30px;
+}
+
+h1 {
+    line-height: 1.4;
+    font-weight: 400;
+    font-size: 34px;
+    letter-spacing: 0px;
+}
+
+p {
+    color: var(--grey-3);
+}
+
+.fa {
+    font-size: 20px;
+    margin-right: 10px;
+
+}
+
+.mt-6 {
+    margin-top: 60px;
+}
+
+.price {
+    width: 40%;
+}
+
+.after-input {
+    margin-left: 20px;
+    font-size: 21px;
+}
+
+.smaller-button {
+    font-size: 18px;
+    padding: 7px 15px 5px 15px;
+}
+
+.add-row {
+    display: flex;
+    align-items: center;
+}
+
+.control-bar {
+    margin-top: 40px;
+}
+
+.control-bar p {
+    font-style: italic;
+}
+
+.control-bar .btn {
+    width: 100%;
+}
+
+.remove {
+    margin-left: 10px;
+}

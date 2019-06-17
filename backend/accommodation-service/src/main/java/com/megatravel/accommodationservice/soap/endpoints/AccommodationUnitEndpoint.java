@@ -8,7 +8,9 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -74,7 +76,7 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
     @Override
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "EditAccommodationUnitRequest")
     @ResponsePayload
-    public EditAccommodationUnitResponse editAccommodationUnit(EditAccommodationUnitRequest request) {
+    public EditAccommodationUnitResponse editAccommodationUnit(@RequestPayload EditAccommodationUnitRequest request) {
 
         System.out.println("Hit editAccommodationUnit");
 
@@ -91,12 +93,60 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
     @Override
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "DeleteAccommodationUnitRequest")
     @ResponsePayload
-    public DeleteAccommodationUnitResponse deleteAccommodationUnit(DeleteAccommodationUnitRequest request) {
+    public DeleteAccommodationUnitResponse deleteAccommodationUnit(@RequestPayload DeleteAccommodationUnitRequest request) {
 
         System.out.println("Hit deleteAccommodationUnit");
 
         DeleteAccommodationUnitResponse response = factory.createDeleteAccommodationUnitResponse();
         response.setResponseInfo("deleted");
+
+        return response;
+    }
+
+    @Override
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetAccommodationSettingsRequest")
+    @ResponsePayload
+    public GetAccommodationSettingsResponse getAccommodationSettingsResponse(@RequestPayload GetAccommodationSettingsRequest request) {
+
+        System.out.println("Hit GetAccommodationSettingsResponse endpoint");
+
+        GetAccommodationSettingsResponse response = factory.createGetAccommodationSettingsResponse();
+
+        List<Amenity> amenities = new ArrayList<>();
+
+        Amenity a1 = new Amenity();
+        a1.setId(new Long(1));
+        a1.setName("Air Conditioning");
+        a1.setFaIcon("fa fa-snowflake-o");
+
+        Amenity a2 = new Amenity();
+        a2.setId(new Long(2));
+        a2.setName("WiFi");
+        a2.setFaIcon("fa fa-wifi");
+
+        Amenity a3 = new Amenity();
+        a3.setId(new Long(3));
+        a3.setName("Cable TV");
+        a3.setFaIcon("fa fa-television");
+
+        response.getAmenity().add(a1);
+        response.getAmenity().add(a2);
+        response.getAmenity().add(a3);
+
+        AccommodationType t1 = new AccommodationType();
+        t1.setType("hotel");
+        AccommodationType t2 = new AccommodationType();
+        t2.setType("bnb");
+        AccommodationType t3 = new AccommodationType();
+        t3.setType("studio");
+        AccommodationType t4 = new AccommodationType();
+        t4.setType("entire house");
+
+        response.getAccommodationType().add(t1);
+        response.getAccommodationType().add(t2);
+        response.getAccommodationType().add(t3);
+        response.getAccommodationType().add(t4);
+
 
         return response;
     }

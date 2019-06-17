@@ -1,0 +1,234 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Overpass:300,400,600,700&display=swap');
+
+:root {
+    --bg-color: #FFF8FB;
+    --rosa: #CC0D6D;
+    --grey: #3A1729;
+    --grey-low-opacity: rgba(58, 23, 41, 0.5);
+
+    --grey-2: rgb(92, 72, 81);
+    --grey-3: rgb(124, 98, 110);
+    
+
+    --standard-shadow: -1px 6px 7px rgba(0,0,0,0.17);
+}
+
+* {
+    box-sizing: border-box;
+    
+}
+ 
+body {
+    font-family: 'Overpass', sans-serif;
+    color: var(--grey);
+    background: var(--bg-color);
+}
+
+p {
+    font-size: 19px;
+    color: var(--grey-2);
+}
+
+a {
+    color: var(--rosa);
+}
+
+a:hover {
+    color: black;
+}
+
+strong {
+    font-weight: 700 !important;   
+}
+
+.form-group {
+    margin: 20px 0;
+}
+
+.form-group select {
+    height: 45px;
+}
+
+.form-ctrl {
+    box-sizing: border-box;
+    padding: 6px 10px;
+    font-size: 19px;
+    font-family: 'Overpass', sans-serif;
+    width: 100%;
+       
+}
+
+.form-ctrl::placeholder {
+    font-style: italic;
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+select:not(:focus):invalid,  input[type=date]:not(:focus):invalid {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--grey-low-opacity);
+}
+
+.btn {
+    
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 10px 20px 5px 20px;
+    font-weight: 600;
+    transition: transform 0.2s;
+    border-radius: 0px;
+    
+    font-family: 'Overpass', sans-serif;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: var(--standard-shadow);
+}
+
+.btn.btn-primary {
+    color: var(--rosa);
+    background: white;
+    border: 2px solid var(--rosa);
+}
+
+.btn.btn-secondary {
+    background: var(--rosa);
+    color: white;
+    border: 2px solid var(--rosa);
+}
+
+.btn.btn-primary:hover, .btn.btn-secondary:hover {
+    
+    background: black;
+    border: 2px solid black;
+    color: white;
+
+}
+
+app-navbar {
+    width: 30%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.accommodation-card {
+    margin-bottom: 30px;
+}
+
+.right-to-nav {
+    position: relative;
+    left: 30%;
+    width: 70%;
+    padding: 80px 120px 80px 40px;
+}
+
+.appear {
+    animation: appear 0.6s;
+}
+
+
+
+.info-bar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    transition-timing-function: ease-out;
+}
+
+.cb-container {
+    font-size: 20px;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+/* Hide the browser's default checkbox */
+.cb-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 19px;
+    width: 19px;
+    background: var(--bg-color);
+    border: 1.5px solid var(--rosa);
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .cb-container:hover input ~ .checkmark {
+    background-color: var(--rosa);
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .cb-container input:checked ~ .checkmark {
+    background-color: var(--rosa);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .cb-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .cb-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+
+  .align-left {
+      text-align: left;
+  }
+
+  .align-right {
+    text-align: right;
+}
+
+
+  input[type=date], input[type=datetime-local], input[type=month], input[type=time] {
+    -webkit-appearance: textfield;
+  }
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+  }

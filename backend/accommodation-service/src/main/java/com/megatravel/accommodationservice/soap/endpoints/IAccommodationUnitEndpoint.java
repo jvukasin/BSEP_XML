@@ -13,6 +13,8 @@ public interface IAccommodationUnitEndpoint {
 
     DeleteAccommodationUnitResponse deleteAccommodationUnit(DeleteAccommodationUnitRequest request);
 
+    GetAccommodationSettingsResponse getAccommodationSettingsResponse(GetAccommodationSettingsRequest request);
+
 
 
 }

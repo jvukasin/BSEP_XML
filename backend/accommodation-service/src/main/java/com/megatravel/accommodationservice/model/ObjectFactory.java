@@ -151,6 +151,23 @@ public class ObjectFactory {
         return new PostAccommodationUnitResponse();
     }
 
+
+    /**
+     * Create an instance of {@link GetAccommodationSettingsResponse }
+     *
+     */
+    public GetAccommodationSettingsResponse createGetAccommodationSettingsResponse() {
+        return new GetAccommodationSettingsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAccommodationSettingsRequest }
+     *
+     */
+    public GetAccommodationSettingsRequest createGetAccommodationSettingsRequest() {
+        return new GetAccommodationSettingsRequest();
+    }
+
     /**
      * Create an instance of {@link Comment }
      * 

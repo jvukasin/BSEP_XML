@@ -1,0 +1,6 @@
+#accommodation {
+    
+    display: flex;
+    flex-direction: column;
+}
+

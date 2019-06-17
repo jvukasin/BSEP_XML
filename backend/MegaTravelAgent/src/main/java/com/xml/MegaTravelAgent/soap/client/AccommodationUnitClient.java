@@ -3,7 +3,6 @@ package com.xml.MegaTravelAgent.soap.client;
 import com.xml.MegaTravelAgent.model.AccommodationUnit;
 import com.xml.MegaTravelAgent.soap.reqres.*;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
-import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 
 public class AccommodationUnitClient extends WebServiceGatewaySupport implements IAccommodationUnitClient {
@@ -79,6 +78,24 @@ public class AccommodationUnitClient extends WebServiceGatewaySupport implements
 
 		return response;
 
+	}
+
+	@Override
+	public GetAccommodationSettingsResponse getAccommodationSettings() {
+
+
+		System.out.println("getAccommodationSettingsResponse client");
+
+		GetAccommodationSettingsRequest request = new GetAccommodationSettingsRequest();
+
+		// temporary test
+		request.setAgentId(new Long(2));
+
+
+		GetAccommodationSettingsResponse response = (GetAccommodationSettingsResponse) getWebServiceTemplate()
+				.marshalSendAndReceive(ENDPOINT_URI, request);
+
+		return response;
 	}
 
 

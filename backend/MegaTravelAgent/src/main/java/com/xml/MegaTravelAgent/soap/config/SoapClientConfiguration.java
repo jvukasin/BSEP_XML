@@ -1,5 +1,6 @@
 package com.xml.MegaTravelAgent.soap.config;
 
+import com.xml.MegaTravelAgent.model.AccommodationUnit;
 import com.xml.MegaTravelAgent.soap.client.ReservationClient;
 import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationUnitRequest;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +22,7 @@ public class SoapClientConfiguration {
 		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
 		// this package must match the package in the <generatePackage> specified in
 		// pom.xml
-		marshaller.setContextPath(GetAccommodationUnitRequest.class.getPackage().getName());
+		marshaller.setContextPath(AccommodationUnit.class.getPackage().getName());
 		return marshaller;
 	}
 

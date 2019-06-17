@@ -247,4 +247,20 @@ public class ObjectFactory {
         return new PostReservationRequest();
     }
 
+    /**
+     * Create an instance of {@link GetAccommodationSettingsResponse }
+     *
+     */
+    public GetAccommodationSettingsResponse createGetAccommodationSettingsResponse() {
+        return new GetAccommodationSettingsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAccommodationSettingsRequest }
+     *
+     */
+    public GetAccommodationSettingsRequest createGetAccommodationSettingsRequest() {
+        return new GetAccommodationSettingsRequest();
+    }
+
 }

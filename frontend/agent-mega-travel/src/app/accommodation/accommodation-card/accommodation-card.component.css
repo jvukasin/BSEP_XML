@@ -1,0 +1,82 @@
+a {
+    text-decoration: none;
+    color: var(--grey);
+}
+
+.accommodation-card {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.accommodation-card:hover {
+    box-shadow: 0px 3px 9px 5px rgba(0, 0, 0, 0.04);
+    transform: translateX(6px);
+    transition: all 0.3s;
+    
+    
+}
+
+
+.accommodation-card h2 {
+    font-weight: 500;
+    color: var(--rosa);
+}
+
+.accommodation-card-info {
+    flex: 1 0 65%;
+}
+
+.accommodation-card-image {
+    flex: 0 1 35%;
+    text-align: right;
+}
+
+.accommodation-card-image img {
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.ac-other {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ac-other > *:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.ac-other .location {
+    font-weight: 700;
+}
+
+.ac-other .description {
+}
+
+.ac-other .other-info {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+
+.amenities .fa {
+    font-size: 19px;
+    margin-right: 10px;
+}
+
+.location .fa {
+    margin-right: 5px;
+}
+
+.rating {
+    color: green;
+}
+

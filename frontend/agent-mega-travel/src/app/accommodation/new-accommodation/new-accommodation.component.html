@@ -1,0 +1,237 @@
+
+<div class="right-to-nav appear">
+    <div class="container">
+      <p>Please fill this form in order to add a new accommodation unit.</p>
+    
+      <h1>General info</h1>
+  
+      <div class="new-ac-form">
+      
+      <form [formGroup]="newAccommodationForm" (ngSubmit)="onSubmit()">
+  
+        <div class="form-group">
+          
+          <div class="row">
+  
+            <!-- TYPE -->
+            <div class="col-6">
+              <select class="form-ctrl" required formControlName="type">
+                <option value="">Type of accommodation</option>
+                <option *ngFor="let t of accommodationTypes" value="{{t}}">{{t}}</option>
+              </select>
+            </div>
+            
+            <!-- CAPACITY -->
+            <div class="col-6">
+              <select class="form-ctrl" required formControlName="capacity">
+                <option value="">Capacity</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+            
+          </div>
+        </div>
+  
+        <!-- NAME -->
+        <div class="form-group">
+          <input formControlName="name"
+            type="text" class="form-ctrl" placeholder="Name of your accommodation unit">
+        </div>
+  
+  
+        
+        <!-- DESCRIPTION -->
+        <div class="form-group">
+          <textarea formControlName="description"
+          class="form-ctrl" rows="4"  placeholder="Few words about your accommodation..."></textarea>
+  
+        </div>
+  
+    
+  
+        <!-- ADDRESS -->
+        <div class="form-group">
+          <input formControlName="coordinates"
+            type="text" class="form-ctrl" placeholder="Street and number">
+        </div>
+        
+  
+        <!-- CITY AND COUNTRY -->
+        <div class="form-group">
+          <div class="row">
+            <!-- CITY -->
+            <div class="col-6">
+              <select class="form-ctrl" required formControlName="type">
+                <option value="">City</option>
+                <option value="1">Hotel</option>
+                <option value="2">Bed N Breakfast</option>
+                <option value="3">Studio</option>
+              </select>
+            </div>
+            
+            <!-- COUNTRY -->
+            <div class="col-6">
+              <select class="form-ctrl" required formControlName="capacity">
+                <option value="">Country</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+          </div>
+        </div>
+  
+        
+      
+        
+  
+        <h1 class="mt-6">Amenities</h1>
+        <p class="mb-4">Which of these features does your accommodation unit have?</p>
+  
+        <!-- AMENITIES -->
+        <div class="amenities-checkbox">
+          <div *ngFor="let a of amenities">
+            <label class="cb-container">
+              <input type="checkbox" formControlName="amenity{{ a.id }}" >
+              <span class="checkmark"></span>
+              <i [ngClass]="a.faIcon"></i>{{ a.name }} 
+            </label>
+          </div>
+        </div>
+  
+  
+        <h1 class="mt-6">Pricing and Terms</h1>
+        <p class="">Please specify a default price of accommodation which will be 
+            applied in case there is no specific pricing plan for given dates.
+        </p>
+  
+        <!-- DEFAULT PRICE -->
+        <div class="form-group">
+            <input formControlName="defaultPrice"
+              type="number" class="form-ctrl price" placeholder="Price">
+              
+            <span class="after-input">€ / night</span>
+        </div>
+      
+      
+  
+        <p class="mt-4">
+            Please specify cancellation period.
+        </p>
+  
+        <!-- CANCELlATION PERIOD -->
+        <div class="form-group">
+            <input formControlName="cancellationPeriod"
+              type="number" class="form-ctrl price" placeholder="Cancellation period">
+              
+            <span class="after-input">days</span>
+        </div>
+  
+  
+        <div class="add-row mb-5">
+            <p class="mt-3 mr-4">You can specify specify specific pricing plan:</p>
+          
+            <button (click)="onAddPlan()" class="btn btn-primary smaller-button" type="button">add plan</button>
+        </div>
+  
+        <div formArrayName="specificPlans">
+          <div class="one-specific-plan mb-5 appear" 
+          *ngFor="let specificPriceCtrl of newAccommodationForm.get('specificPlans').controls;
+           let i = index" [formGroupName]="i">
+  
+             <!-- START & END DATE -->
+             <h4>Specific pricing plan {{i+1}}</h4>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-6">
+                  <input type="date" formControlName="startDate" placeholder="Start date" class="form-ctrl" required>
+                </div>
+                <div class="col-6">
+                  <input type="date" formControlName="endDate" placeholder="End date"
+                  class="form-ctrl" required>
+                </div>
+      
+              </div>
+            </div>
+  
+            <!-- PRICE -->
+            <div class="form-group">
+              <input formControlName="price"
+              type="number" class="form-ctrl price" placeholder="Price">
+                
+              <span class="after-input mr-5">€ / night</span> <button (click)="onDeletePlan(i)" class="btn btn-primary smaller-button" type="button">remove</button>
+            </div>
+          </div>
+  
+        </div>
+  
+        
+        <h1 class="mt-6">Images</h1>
+        <p class="mb-4">Please insert url of images of your accommodation unit.</p>
+  
+        <div class="form-group">
+            <input formControlName="image"
+            type="text" class="form-ctrl" placeholder="Image url">
+        </div>
+  
+        <div formArrayName="images">
+          <div class="one-specific-plan mb-3 appear" 
+          *ngFor="let imageCtrl of newAccommodationForm.get('images').controls;
+            let i = index" [formGroupName]="i">
+  
+            <!-- IMAGE URL -->
+            <div class="form-group">
+              <div class="row">
+                <div class="col-9">
+                  <input formControlName="imageUrl"
+                  type="text" class="form-ctrl" placeholder="Image url">
+                </div>
+                <div class="col-3 align-right">
+                   <button (click)="onDeleteImage(i)" class="btn btn-primary smaller-button remove" type="button">
+                     remove
+                   </button>
+                </div>
+              </div>
+              
+                
+              
+            </div>
+          </div>
+  
+        </div>
+  
+        <button (click)="onAddImage()" class="btn btn-primary smaller-button" type="button">add more</button>
+  
+  
+        <div class="control-bar">
+          <p>By clicking on submit button you are adding your accommodation unit in MegaTravel offer list.</p>
+          <div class="row">
+            <div class="col-9">
+              <button type="submit" class="btn btn-secondary">submit accommodation unit</button>
+            </div>
+            <div class="col-3">
+              <button (click)="onReset()" type="button" class="btn btn-primary">reset</button>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </form>
+  
+      </div>
+  
+    </div>
+  </div>

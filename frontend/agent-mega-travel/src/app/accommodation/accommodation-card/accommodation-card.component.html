@@ -1,0 +1,43 @@
+
+<a routerLink="{{accommodationUnit.id}}">
+  <div class="accommodation-card">
+  
+    <div class="ac-info">
+      <div class="ac-title-bar">
+        <h2>{{ accommodationUnit.name }}</h2>
+      </div>
+  
+      <div class="ac-other">
+        <span class="location"><i class="fa fa-map-marker"></i> {{ accommodationUnit.location.city.name }}, {{ accommodationUnit.location.city.country.name }}</span>
+  
+        <span class="description">
+          {{ accommodationUnit.description }}
+        </span>
+  
+        <div class="other-info">
+          <span>{{ accommodationUnit.capacity }} guests</span>
+  
+          <span>{{ accommodationUnit.price }} € / night</span>
+  
+          <span class="rating">{{ accommodationUnit.ratingAvg }}</span>
+  
+          <div class="amenities">
+            <span *ngFor="let amenity of accommodationUnit.amenity">
+              <i [ngClass]="amenity.faIcon" title="{{amenity.name}}"></i>
+            </span>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+    <div class="accommodation-card-image">
+      <img [src]="accommodationUnit.image.imageUrl" alt="">
+    </div>
+  
+    
+  
+  </div>
+  </a>

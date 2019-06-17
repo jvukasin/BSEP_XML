@@ -12,4 +12,6 @@ public interface IAccommodationUnitClient {
     EditAccommodationUnitResponse editAccommodationUnit(AccommodationUnit au, Long agentId);
 
     DeleteAccommodationUnitResponse deleteAccommodationUnit(Long accommodationUnitId, Long agentId);
+
+    GetAccommodationSettingsResponse getAccommodationSettings();
 }

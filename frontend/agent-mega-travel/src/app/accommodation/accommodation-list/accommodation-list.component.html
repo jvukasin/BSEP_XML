@@ -1,0 +1,26 @@
+<section class="right-to-nav appear">
+
+  <div id="accommodation">
+
+    <div class="info-bar">
+        <div>You are offering 5 accommodation units.</div>
+        <div>
+          <button (click)="onAddAccommodationUnit()" type="button" class="btn btn-secondary">Add accommodation unit</button>
+        </div>
+    </div>
+
+
+    <div class="accommodation-components">
+      <div *ngFor="let a of accommodationUnits" >
+        
+        <app-accommodation-card [accommodationUnit]="a"></app-accommodation-card>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
