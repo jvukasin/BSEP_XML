@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccommodationPageComponent implements OnInit {
 
+  hideServ: boolean = true;
+  ShowText: any = "Show more";
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onShowMore() {
+    this.hideServ = !this.hideServ;
+    if(this.ShowText == "Show more") {
+      this.ShowText = "Show less"
+    } else {
+      this.ShowText = "Show more"
+    }
   }
 
 }

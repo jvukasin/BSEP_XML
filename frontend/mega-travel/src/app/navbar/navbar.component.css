@@ -1,3 +1,8 @@
 nav {
     height: 80px;
 }
+
+.sign {
+    background-color: rgb(252, 104, 90);
+    margin-left: 10px;
+}

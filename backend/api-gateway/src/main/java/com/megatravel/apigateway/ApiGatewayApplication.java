@@ -1,5 +1,6 @@
 package com.megatravel.apigateway;
 
+import com.megatravel.apigateway.filter.ZuulPreFIlter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -27,5 +28,9 @@ public class ApiGatewayApplication {
         registrationBean.setOrder(1);
         return registrationBean;
     }
+//    @Bean
+//    public ZuulPreFIlter simpleFilter() {
+//        return new ZuulPreFIlter();
+//	}
 
 }

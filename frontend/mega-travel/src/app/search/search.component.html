@@ -19,40 +19,34 @@
                   <label for="#">Check-in date</label>
                   <div class="form-field">
                     <div class="icon"><span class="ion-ios-calendar"></span></div>
-                    <input type="text" class="form-control checkin_date" placeholder="Check In Date">
+                    <input type="text" class="form-control checkin_date" readonly data-provide="datepicker" data-date-format="dd/mm/yyyy" placeholder="Check In Date">
                   </div>
                 </div>
               </div>
               <div class="col-lg align-items-end">
                 <div class="form-group">
                   <label for="#">Check-out date</label>
-                  <div class="form-field">
+                  <div class="form-field form_date">
                     <div class="icon"><span class="ion-ios-calendar"></span></div>
-                    <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
+                    <input type="text" class="form-control checkout_date" readonly data-provide="datepicker" data-date-format="dd/mm/yyyy" placeholder="Check Out Date">
                   </div>
                 </div>
               </div>
               <div class="col-lg align-items-end">
                 <div class="form-group">
-                  <label for="#">Price Limit</label>
+                  <label for="guests">Guests</label>
                   <div class="form-field">
                     <div class="select-wrap">
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="" class="form-control">
-                        <option value="">$5,000</option>
-                        <option value="">$10,000</option>
-                        <option value="">$50,000</option>
-                        <option value="">$100,000</option>
-                        <option value="">$200,000</option>
-                        <option value="">$300,000</option>
-                        <option value="">$400,000</option>
-                        <option value="">$500,000</option>
-                        <option value="">$600,000</option>
-                        <option value="">$700,000</option>
-                        <option value="">$800,000</option>
-                        <option value="">$900,000</option>
-                        <option value="">$1,000,000</option>
-                        <option value="">$2,000,000</option>
+                      <select name="guests" id="guests" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                       </select>
                     </div>
                   </div>

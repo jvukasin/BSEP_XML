@@ -21,6 +21,7 @@ import { SliderComponent } from './homepage/slider/slider.component';
 import { BestPlacesComponent } from './homepage/best-places/best-places.component';
 import { BestFeaturedComponent } from './homepage/best-featured/best-featured.component';
 import { AboutUsComponent } from './homepage/about-us/about-us.component';
+import { AccommodationListComponent } from './accommodation-list/accommodation-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AboutUsComponent } from './homepage/about-us/about-us.component';
     SliderComponent,
     BestPlacesComponent,
     BestFeaturedComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    AccommodationListComponent
   ],
   imports: [
     BrowserModule,

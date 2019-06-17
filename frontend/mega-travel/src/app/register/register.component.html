@@ -1,42 +1,47 @@
-<div class="container">
-    <div class="row justify-content-center" style="text-align: center; margin-top: 100px;">
-        <h3>Register</h3>
-    </div>
-    <div class="row justify-content-center">
-        <form [formGroup]="myForm" novalidate (ngSubmit)="onSubmitSignUp(f)" #f="ngForm">
-            <div class="form-group">
-                <label for="name">First Name: </label>
-                <input required formControlName="name" type="text" class="form-control inp" name="name" id="name">
-                <span *ngIf="errFirst" style="color: red;">This field can contain only letters without whitespace.</span>
+<section id="cover">   
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                
             </div>
-            <div class="form-group">
-                <label for="lastname">Last name: </label>
-                <input formControlName="lastname" type="text" class="form-control inp" name="lastname"  id="lastname">
-                <span *ngIf="errLast" style="color: red;">This field can contain only letters without whitespace.</span>
+            <div class="col-sm-5">
+                <div class="wall-sticker">
+                    <h2 class="megatravel" routerLink="/home"><i class="fa fa-globe"></i> MegaTravel</h2>
+                    <div class="sticker-content">
+                        <div class="forma">
+                            <form [formGroup]="myForm" novalidate (ngSubmit)="onSubmitSignUp(f)" #f="ngForm">
+                                <div class="form-group polje">
+                                    <input required formControlName="name" type="text" class="form-control inp" placeholder="First name" name="name" id="name">
+                                    <span class="error" *ngIf="errFirst">This field can contain only letters without whitespace.</span>
+                                </div>
+                                <div class="form-group polje">
+                                    <input formControlName="lastname" type="text" class="form-control inp" name="lastname" placeholder="Last name" id="lastname">
+                                    <span class="error" *ngIf="errLast">This field can contain only letters without whitespace.</span>
+                                    </div>
+                                <div class="form-group polje">
+                                    <input formControlName="username" type="text" class="form-control inp" placeholder="Username" name="username">
+                                    <span class="error" *ngIf="errUsr">This field cannot contain characters > < ; and whitespace</span>
+                                </div>
+                                <div class="form-group polje">
+                                    <input formControlName="email" type="email" class="form-control inp" placeholder="E-mail" name="email">
+                                    <span class="error" *ngIf="errMail">Invalid email type</span>
+                                </div>
+                                <div class="form-group polje">
+                                    <input formControlName="password" type="password" class="form-control inp" placeholder="Password" name="password" >
+                                    <span class="error" *ngIf="errPass">Password must be at least 8 characters long and must contain at least one number,<br>one lower case and one uppercase letter, a special character (@#$%^&+=!) and no whitespace</span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Sign up" class="btn btn-primary float right reg_btn" [disabled]="!myForm.valid">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="links">
+                            Already have an account?  <a routerLink="/login">Log in</a>
+                        </div>
+                    </div>
                 </div>
-            <div class="form-group">
-                <label for="username">Username: </label>
-                <input formControlName="username" type="text" class="form-control inp" name="username">
-                <span *ngIf="errUsr" style="color: red;">This field cannot contain characters > < ; and whitespace</span>
             </div>
-        
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input formControlName="email" type="email" class="form-control inp" name="email">
-                <span *ngIf="errMail" style="color: red;">Invalid email type</span>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input formControlName="password" type="password" class="form-control inp" name="password" >
-                <span *ngIf="errPass" style="color: red;">Password must be at least 8 characters long and must contain at least one number,<br>one lower case and one uppercase letter, a special character (@#$%^&+=!) and no whitespace</span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Sign up" class="btn btn-primary float-right login_btn" [disabled]="!myForm.valid">
-            </div>
-        </form>
+        </div>
     </div>
-      
-    <div class="row d-flex justify-content-center links" style="margin-top:15px;">
-        Already have an account? <a routerLink="/login">Log in</a>
-    </div>
-</div>
+</section>
+

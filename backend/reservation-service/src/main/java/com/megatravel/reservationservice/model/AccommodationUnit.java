@@ -196,11 +196,9 @@ public class AccommodationUnit {
 	private List<Reservation> reservation;
 
 
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected Agent agent;
 
-    
     /**
      * Gets the value of the name property.
      * 

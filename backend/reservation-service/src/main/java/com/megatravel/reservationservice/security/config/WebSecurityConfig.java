@@ -79,7 +79,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				// svim korisnicima dopusti da pristupe putanjama /auth/** i /h2-console/**
 				// POTREBNO DA SVAKO UBACI KOJE PUTANJE SU DOSTUPNE SVIM KORISNICIMA, BEZ OBZIRA NA ULOGU
 				.authorizeRequests()
-				//.antMatchers("/auth/**").permitAll()
+				.antMatchers("/test/**").permitAll()
+					.antMatchers("/resSecurity/**").permitAll()
 				.antMatchers("/h2-console/**").permitAll()
 				.antMatchers("/ws/**").permitAll()
 				// svaki zahtev mora biti autorizovan
@@ -95,7 +96,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		@Override
 		public void configure(WebSecurity web) throws Exception {
 			// TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
-			web.ignoring().antMatchers(HttpMethod.POST, "/auth/login");
+			web.ignoring().antMatchers(HttpMethod.POST, "/resSecurity/setAuthentication");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
 		}
 		
