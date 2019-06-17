@@ -1,6 +1,9 @@
 package com.xml.MegaTravelAgent.controller;
 
+import com.xml.MegaTravelAgent.dto.CityDTO;
+import com.xml.MegaTravelAgent.model.City;
 import com.xml.MegaTravelAgent.model.Reservation;
+import com.xml.MegaTravelAgent.service.CityService;
 import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
 import com.xml.MegaTravelAgent.soap.client.IReservationClient;
 import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsResponse;
@@ -11,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/soapTest")
@@ -22,6 +27,11 @@ public class TestController {
 
 	@Autowired
 	IReservationClient resClient;
+
+	@Autowired
+	CityService cityService;
+
+
 
 	@RequestMapping(value = "/au", method = RequestMethod.GET)
 	public String testAu() throws IOException {
@@ -49,6 +59,13 @@ public class TestController {
 
 
 		return "ok";
+	}
+
+	@RequestMapping(value = "/cities", method = RequestMethod.GET)
+	public HashMap<Long, CityDTO> cities() throws IOException {
+
+		return cityService.getCities();
+
 	}
 	
 }
