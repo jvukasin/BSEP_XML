@@ -1,5 +1,7 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.Country;
+
 public class CountryDTO {
 
     private Long id;
@@ -11,6 +13,11 @@ public class CountryDTO {
     public CountryDTO(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public CountryDTO(Country c) {
+        this.id = c.getId();
+        this.name = c.getName();
     }
 
     public Long getId() {

@@ -17,13 +17,11 @@ public class CityService {
     @Autowired
     CityRepository cityRepo;
 
-    public Optional<City> findById(Long id)
-    {
-        return cityRepo.findById(id);
+    public City findById(Long id) {
+        return cityRepo.findOneById(id);
     }
 
-    public Collection<City> findAll()
-    {
+    public Collection<City> findAll() {
         return cityRepo.findAll();
     }
 
@@ -35,11 +33,20 @@ public class CityService {
 
     }
 
+    public CityDTO getCity(Long id) {
+
+        City city = findById(id);
+
+
+        return new CityDTO(city.getId(), city.getName(), new CountryDTO(city.getCountry()));
+    }
+
+
     public HashMap<Long, CityDTO> getCountryCities(Long countryId) {
 
-            Collection<City> cities = cityRepo.findAllByCountryId(countryId);
+        Collection<City> cities = cityRepo.findAllByCountryId(countryId);
 
-            return makeDtoMap(cities);
+        return makeDtoMap(cities);
 
     }
 
@@ -47,7 +54,7 @@ public class CityService {
         HashMap<Long, CityDTO> citiesMap = new HashMap<>();
 
 
-        for (City c: cities) {
+        for (City c : cities) {
 
             citiesMap.put(c.getId(), new CityDTO(c.getId(), c.getName(),
                     new CountryDTO(c.getCountry().getId(), c.getCountry().getName())));
@@ -56,4 +63,6 @@ public class CityService {
 
         return citiesMap;
     }
+
+
 }

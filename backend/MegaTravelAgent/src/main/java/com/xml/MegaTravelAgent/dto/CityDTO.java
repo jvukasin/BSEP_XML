@@ -1,5 +1,7 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.City;
+
 public class CityDTO {
 
     private Long id;
@@ -13,6 +15,13 @@ public class CityDTO {
         this.id = id;
         this.name = name;
         this.country = country;
+    }
+
+    public CityDTO(City c) {
+        this.id = c.getId();
+        this.name = c.getName();
+        this.country = new CountryDTO(c.getCountry());
+
     }
 
     public Long getId() {

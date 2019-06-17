@@ -31,6 +31,13 @@ public class LocationController {
 
     }
 
+    @RequestMapping(value = "/cities/{id}", method = RequestMethod.GET)
+    public CityDTO cities(@PathVariable Long id) throws IOException {
+
+        return cityService.getCity(id);
+
+    }
+
     @RequestMapping(value = "/countries", method = RequestMethod.GET)
     public HashMap<Long, CountryDTO> countries() throws IOException {
 
