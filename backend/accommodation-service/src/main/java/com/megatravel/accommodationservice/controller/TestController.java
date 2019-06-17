@@ -15,7 +15,7 @@ public class TestController {
 	}
 
 	@RequestMapping(value = "/authTest", method = RequestMethod.GET)
-	@PreAuthorize("hasAuthority('TEST')")
+	//@PreAuthorize("hasAuthority('TEST')")
 	public String authTest() {return "USPEO SI DA PRISTUPIS!"; }
 
 }
