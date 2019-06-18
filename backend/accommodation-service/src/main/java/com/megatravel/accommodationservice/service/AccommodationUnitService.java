@@ -1,33 +1,18 @@
 package com.megatravel.accommodationservice.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-
+import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
+import com.megatravel.accommodationservice.model.*;
+import com.megatravel.accommodationservice.repository.*;
+import exceptions.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.AmenityDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.dto.ImageDTO;
-import com.megatravel.accommodationservice.model.AccommodationUnit;
-import com.megatravel.accommodationservice.model.Agent;
-import com.megatravel.accommodationservice.model.Amenity;
-import com.megatravel.accommodationservice.model.City;
-import com.megatravel.accommodationservice.model.Image;
-import com.megatravel.accommodationservice.model.Location;
-import com.megatravel.accommodationservice.repository.AccommodationUnitRepository;
-import com.megatravel.accommodationservice.repository.AmenityRepository;
-import com.megatravel.accommodationservice.repository.CityRepository;
-import com.megatravel.accommodationservice.repository.ImageRepository;
-import com.megatravel.accommodationservice.repository.LocationRepository;
-import com.megatravel.accommodationservice.repository.TPersonRepository;
-
-import exceptions.BusinessException;
+import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class AccommodationUnitService 
@@ -46,9 +31,15 @@ public class AccommodationUnitService
 
 	@Autowired
 	private LocationRepository locationRepo;
+
+	@Autowired
+	private SpecificPriceRepository specificPriceRepo;
 	
 	@Autowired
 	private TPersonRepository personRepo;
+
+	@Autowired
+	EntityManager entityManager;
 
 	
 	public AccommodationUnitDTO findById(Long id)
@@ -71,9 +62,32 @@ public class AccommodationUnitService
 		{
 			retVal.add(new AccommodationUnitDTO(a));
 		}
-		
+
 		return retVal;
 	}
+
+	public AccommodationUnit saveFromSoap(AccommodationUnit au) {
+
+		Location loc = locationRepo.save(au.getLocation());
+		au.setLocation(loc);
+		accommodationRepo.save(au);
+
+		for (SpecificPrice sp: au.getSpecificPrice()) {
+			sp.setAccommodationUnit(au);
+		}
+
+		for (Image i: au.getImage()) {
+			i.setAccommodationUnit(au);
+		}
+
+		specificPriceRepo.saveAll(au.getSpecificPrice());
+		imageRepo.saveAll(au.getImage());
+
+		return au;
+
+	}
+
+
 	
 	public Collection<AccommodationUnitDTO> search(ExtendedSearchDTO dto)
 	{
@@ -95,7 +109,7 @@ public class AccommodationUnitService
 		{
 			list = doesContainAmenities(list,dto.getAmenities());
 		}
-		
+
 		if(dto.getDistanceFromCity() >=0 )
 		{
 			list = underDistance(list,dto.getDistanceFromCity());
@@ -110,93 +124,6 @@ public class AccommodationUnitService
 		
 		return ret;
 	}
-	
-	public Long save(AccommodationUnitDTO dto)
-	{			
-		AccommodationUnit accommodation = new AccommodationUnit();
-
-		try
-		{
-			Agent agent = (Agent) personRepo.findById(dto.getAgent().getUsername()).get();
-			accommodation.setAgent(agent);
-
-		}
-		catch(Exception e)
-		{
-			throw new BusinessException("An unknown agent tried to register an accommodation.");
-		}
-		
-		accommodation.setName(dto.getName());
-		accommodation.setDescription(dto.getDescription());
-		accommodation.setType(dto.getType());
-		
-		if(dto.getCapacity() < 1)
-		{
-			throw new BusinessException("Capacity cannot be 0 or less.");
-		}
-			
-		
-		accommodation.setCapacity(dto.getCapacity());
-		accommodation.setCancellationPeriod(dto.getCancellationPeriod());
-		accommodation.setDefaultPrice(dto.getPrice());
-		accommodation.setRatingAvg(-1);
-		accommodation.setCategory(-1);
-		
-		accommodation.setAmenity(new HashSet<Amenity>());
-		if(dto.getAmenities() != null)
-		{
-			for(AmenityDTO amenityDTO : dto.getAmenities())
-			{
-				try
-				{
-					Amenity amenity = amenityRepo.findById(amenityDTO.getId()).get();
-					accommodation.getAmenity().add(amenity);
-				}
-				catch(NoSuchElementException e)
-				{
-					throw new BusinessException("Unknown amenity: " + amenityDTO.getName() + " found in request.");
-				}
-			}
-		}
-
-		
-		accommodation.setImage(new HashSet<Image>());
-		if(dto.getImages() != null)
-		{
-			for(ImageDTO imageDTO : dto.getImages())
-			{
-					Image image = new Image();
-					image.setImageUrl(imageDTO.getImageUrl());
-					
-					accommodation.getImage().add(image);
-					imageRepo.save(image);	
-			}
-		}
-
-		
-		Location location = new Location();
-		try
-		{
-			location.setCoordinates(dto.getLocation().getCoordinates());
-			location.setDistanceFromCity(dto.getLocation().getDistanceFromCity());
-			
-			City city = cityRepo.findById(dto.getLocation().getCity().getId()).get();
-			location.setCity(city);
-			
-			accommodation.setLocation(location);
-			locationRepo.save(location);
-		}
-		catch(NoSuchElementException e)
-		{
-			throw new BusinessException("Unknown city:" + dto.getLocation().getCity().getName() + " found in request.");
-		}
-
-		
-		
-		accommodationRepo.save(accommodation);
-		return accommodation.getId();
-	}
-
 	
 	
 	
@@ -264,5 +191,5 @@ public class AccommodationUnitService
 		
 		return retVal;
 	}
-	
+
 }

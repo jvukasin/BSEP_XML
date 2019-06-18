@@ -83,6 +83,15 @@ select:not(:focus):invalid,  input[type=date]:not(:focus):invalid {
     font-family: 'Overpass', sans-serif;
 }
 
+.btn:disabled, .btn:disabled:hover {
+    opacity: 0.6;
+    transform: translateY(0px);
+    
+    cursor: not-allowed;
+}
+
+
+
 .btn:hover {
     transform: translateY(-4px);
     cursor: pointer;
@@ -94,6 +103,13 @@ select:not(:focus):invalid,  input[type=date]:not(:focus):invalid {
     color: var(--rosa);
     background: white;
     border: 2px solid var(--rosa);
+}
+
+.btn.btn-primary:disabled:hover {
+    color: var(--rosa);
+    background: white;
+    border: 2px solid var(--rosa);
+    box-shadow: none;
 }
 
 .btn.btn-secondary {
@@ -109,6 +125,21 @@ select:not(:focus):invalid,  input[type=date]:not(:focus):invalid {
     color: white;
 
 }
+
+.btn.btn-primary:disabled:hover {
+    color: var(--rosa);
+    background: white;
+    border: 2px solid var(--rosa);
+}
+
+
+.btn.btn-secondary:disabled:hover {
+    background: var(--rosa);
+    color: white;
+    border: 2px solid var(--rosa);
+    
+}
+
 
 app-navbar {
     width: 30%;

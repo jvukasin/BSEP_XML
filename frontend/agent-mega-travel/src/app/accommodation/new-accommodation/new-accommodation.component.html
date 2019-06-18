@@ -41,7 +41,7 @@
   
         <!-- NAME -->
         <div class="form-group">
-          <input formControlName="name"
+          <input formControlName="name" required
             type="text" class="form-ctrl" placeholder="Name of your accommodation unit">
         </div>
   
@@ -49,7 +49,7 @@
         
         <!-- DESCRIPTION -->
         <div class="form-group">
-          <textarea formControlName="description"
+          <textarea formControlName="description" required
           class="form-ctrl" rows="4"  placeholder="Few words about your accommodation..."></textarea>
   
         </div>
@@ -60,11 +60,11 @@
         <div class="form-group">
           <div class="row">
             <div class="col-7">
-              <input formControlName="coordinates"
+              <input formControlName="coordinates" required
               type="text" class="form-ctrl" placeholder="Street and number">
             </div>
             <div class="col-5">
-              <input formControlName="distanceFromCity"
+              <input formControlName="distanceFromCity" min="0" required
               type="number" class="form-ctrl distance" placeholder="Distance from city">
               
               <span class="after-input">km</span>
@@ -128,7 +128,7 @@
   
         <!-- DEFAULT PRICE -->
         <div class="form-group">
-            <input formControlName="defaultPrice"
+            <input formControlName="defaultPrice" required min="0"
               type="number" class="form-ctrl price" placeholder="Price">
               
             <span class="after-input">€ / night</span>
@@ -142,7 +142,7 @@
   
         <!-- CANCELlATION PERIOD -->
         <div class="form-group">
-            <input formControlName="cancellationPeriod"
+            <input formControlName="cancellationPeriod" required min="0"
               type="number" class="form-ctrl price" placeholder="Cancellation period">
               
             <span class="after-input">days</span>
@@ -177,7 +177,7 @@
   
             <!-- PRICE -->
             <div class="form-group">
-              <input formControlName="price"
+              <input formControlName="price" 
               type="number" class="form-ctrl price" placeholder="Price">
                 
               <span class="after-input mr-5">€ / night</span> <button (click)="onDeletePlan(i)" class="btn btn-primary smaller-button" type="button">remove</button>
@@ -191,7 +191,7 @@
         <p class="mb-4">Please insert url of images of your accommodation unit.</p>
   
         <div class="form-group">
-            <input formControlName="image"
+            <input formControlName="image" required
             type="text" class="form-ctrl" placeholder="Image url">
         </div>
   
@@ -225,13 +225,17 @@
   
   
         <div class="control-bar">
+          <p class="validation-msg" *ngIf="!newAccommodationForm.valid">Your data is not valid.</p>
           <p>By clicking on submit button you are adding your accommodation unit in MegaTravel offer list.</p>
           <div class="row">
             <div class="col-9">
-              <button type="submit" class="btn btn-secondary">submit accommodation unit</button>
+              <button  [disabled]="!newAccommodationForm.valid" type="submit" class="btn btn-secondary">submit accommodation unit</button>
             </div>
             <div class="col-3">
-              <button (click)="onReset()" type="button" class="btn btn-primary">reset</button>
+              <button (click)="onReset()" type="button" class="btn btn-primary"
+                 >
+                reset
+              </button>
             </div>
   
           </div>

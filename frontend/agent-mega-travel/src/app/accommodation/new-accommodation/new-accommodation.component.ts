@@ -3,6 +3,7 @@ import { AccommodationService } from 'src/app/services/accommodation.service';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { LocationService } from 'src/app/services/location.service';
 import { formDirectiveProvider } from '@angular/forms/src/directives/ng_form';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-accommodation',
@@ -36,7 +37,7 @@ export class NewAccommodationComponent implements OnInit {
 		
 	  });
 
-	constructor(private acService: AccommodationService, private fb: FormBuilder, private locationService: LocationService) {
+	constructor(private acService: AccommodationService, private fb: FormBuilder, private locationService: LocationService, private router: Router) {
 
 		
 		locationService.getCountries().subscribe(
@@ -117,9 +118,12 @@ export class NewAccommodationComponent implements OnInit {
 
 		if (!this.validateForm()) return;
 
-		let auDTO = this.formDTO();
+		this.acService.postAccommodationUnit(this.formDTO()).subscribe(
+			id => this.router.navigate(['accommodation/' + id]),
+			error => alert("Can't post new accommodation unit")
+		);
 
-		console.log(auDTO);
+		
 
 	}
 
@@ -187,10 +191,7 @@ export class NewAccommodationComponent implements OnInit {
 			imageUrl: imageUrl
 		}
 
-		// add to the beggining of the array
-		images.unshift(image);
-
-		return images;
+		return [image, ...images];
 
 	}
 

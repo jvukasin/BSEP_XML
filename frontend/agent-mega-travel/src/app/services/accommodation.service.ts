@@ -6,10 +6,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccommodationService {
 
+	ENDPOINT_URI: string = "/api/accommodations";
+
 	constructor(private http: HttpClient) { }
 
+	getAccommodationUnit(id: number) {
+		return this.http.get(this.ENDPOINT_URI + "/" + id);
+	}
+
 	getAccommodationSettings() {
-		return this.http.get("api/accommodations/settings");
+		return this.http.get(this.ENDPOINT_URI + "/settings");
+	}
+
+	postAccommodationUnit(auDTO) {
+		return this.http.post(this.ENDPOINT_URI, auDTO);
 	}
 
 

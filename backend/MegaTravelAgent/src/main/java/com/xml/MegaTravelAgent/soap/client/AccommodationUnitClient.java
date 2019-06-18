@@ -31,7 +31,7 @@ public class AccommodationUnitClient extends WebServiceGatewaySupport implements
 	@Override
 	public PostAccommodationUnitResponse createAccommodationUnit(AccommodationUnit au, Long agentId) {
 
-		System.out.println("createAccommodationUnit client");
+
 
 		PostAccommodationUnitRequest request = new PostAccommodationUnitRequest();
 

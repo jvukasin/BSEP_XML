@@ -80,32 +80,6 @@ public class AccommodationUnitController
 		
 		return new ResponseEntity<Collection<AccommodationUnitDTO>>(accommodationService.search(dto), HttpStatus.OK);
 	}
-	
-	
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<?> create(@RequestBody AccommodationUnitDTO accommodationUnit)
-	{	
-		try
-		{
-			Long id = accommodationService.save(accommodationUnit);
-			return new ResponseEntity<>(id,HttpStatus.CREATED);
-		}
-		catch(BusinessException e)
-		{
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		catch(Exception e)
-		{
-			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	
-	
-	
-	//TODO: dale treba???? 
-	@RequestMapping(value = "/{dto}", method = RequestMethod.PUT)
-	public ResponseEntity<?> edit(@PathVariable("dto") AccommodationUnitDTO dto)
-	{
-		return null;
-	}
+
+
 }
