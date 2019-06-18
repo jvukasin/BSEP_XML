@@ -45,10 +45,10 @@ export class SearchComponent implements OnInit {
     let tempDest = this.searchForm.value.destination.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/"/g, '&#x27;');
     let src = {
       city: tempDest,
-      startDate: this.searchForm.value.startDate,
+      fromDate: this.searchForm.value.startDate,
       endDate: this.searchForm.value.endDate,
       personCount: this.searchForm.value.guests,
-      ratingAvg: "",
+      ratingAvg: 0,
       amenities: [],
       type: "",
       category: ""

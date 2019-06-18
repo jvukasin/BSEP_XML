@@ -1,5 +1,7 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.Amenity;
+
 public class AmenityDTO {
 
     private Long id;
@@ -7,6 +9,10 @@ public class AmenityDTO {
     private String faIcon;
 
     public AmenityDTO() {
+    }
+
+    public AmenityDTO(Amenity a) {
+        this(a.getId(), a.getName(), a.getFaIcon());
     }
 
     public AmenityDTO(Long id, String name, String faIcon) {

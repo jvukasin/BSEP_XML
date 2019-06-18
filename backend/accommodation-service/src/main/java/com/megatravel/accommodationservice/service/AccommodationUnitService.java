@@ -59,16 +59,18 @@ public class AccommodationUnitService
 		return accommodationRepo.findAll();
 	}
 	
-	public Collection<AccommodationUnit> search(ExtendedSearchDTO dto)
+	public Collection<AccommodationUnitDTO> search(ExtendedSearchDTO dto)
 	{
-		Collection<AccommodationUnit> list = accommodationRepo.search(dto.getCityID(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
+		City city = cityRepo.findOneByName(dto.getCity());
+
+		Collection<AccommodationUnit> list = accommodationRepo.search(city.getId(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
 		
-		if(dto.getRatingAvg() != -1)
+		if(dto.getRatingAvg() > 0)
 		{
 			list = aboveRating(list,dto.getRatingAvg());
 		}
 		
-		if(dto.getType() != null)
+		if(dto.getType() != null && dto.getType() != "")
 		{
 			list = selectType(list,dto.getType());
 		}
@@ -78,12 +80,19 @@ public class AccommodationUnitService
 			list = doesContainAmenities(list,dto.getAmenities());
 		}
 		
-		if(dto.getDistanceFromCity() != -1)
+		if(dto.getDistanceFromCity() >=0 )
 		{
 			list = underDistance(list,dto.getDistanceFromCity());
 		}
+
+		List<AccommodationUnitDTO> ret = new ArrayList<AccommodationUnitDTO>();
+
+		for(AccommodationUnit a : list) {
+			AccommodationUnitDTO adto = new AccommodationUnitDTO(a);
+			ret.add(adto);
+		}
 		
-		return list;
+		return ret;
 	}
 	
 	public boolean save(AccommodationUnitDTO dto)

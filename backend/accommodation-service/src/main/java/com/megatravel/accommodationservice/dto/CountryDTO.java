@@ -1,11 +1,17 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.Country;
+
 public class CountryDTO {
 
     private Long id;
     private String name;
 
     public CountryDTO() {
+    }
+
+    public CountryDTO(Country c) {
+        this(c.getId(), c.getName());
     }
 
     public CountryDTO(Long id, String name) {

@@ -1,5 +1,11 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.AccommodationUnit;
+import com.megatravel.accommodationservice.model.Amenity;
+import com.megatravel.accommodationservice.model.Image;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -20,6 +26,22 @@ public class AccommodationUnitDTO {
     private UserInfoDTO agent;
 
     public AccommodationUnitDTO() {
+    }
+
+    public AccommodationUnitDTO(AccommodationUnit a) {
+        List<AmenityDTO> alist = new ArrayList<>();
+        for(Amenity amen : a.getAmenity()) {
+            AmenityDTO aa = new AmenityDTO(amen);
+            alist.add(aa);
+        }
+
+        List<ImageDTO> ilist = new ArrayList<>();
+        for(Image im : a.getImage()) {
+            ImageDTO ii = new ImageDTO(im);
+            ilist.add(ii);
+        }
+        this(a.getId(), a.getName(), a.getDescription(), a.getType(), a.getCapacity(), a.getCancellationPeriod(), a.getPrice(),
+                a.getRatingAvg(), a.getCategory(), alist, ilist, new LocationDTO(a.getLocation()), new UserInfoDTO(a.getAgent()));
     }
 
     public AccommodationUnitDTO(Long id, String name, String description, String type, int capacity, int cancellationPeriod, double price,

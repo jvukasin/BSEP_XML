@@ -1,5 +1,7 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.City;
+
 public class CityDTO {
 
     private Long id;
@@ -7,6 +9,10 @@ public class CityDTO {
     private CountryDTO country;
 
     public CityDTO() {
+    }
+
+    public CityDTO(City c) {
+        this(c.getId(), c.getName(), new CountryDTO(c.getCountry()));
     }
 
     public CityDTO(Long id, String name, CountryDTO country) {

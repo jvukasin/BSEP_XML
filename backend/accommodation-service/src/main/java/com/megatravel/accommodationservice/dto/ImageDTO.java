@@ -1,11 +1,17 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.Image;
+
 public class ImageDTO {
 
     private Long id;
     private String imageUrl;
 
     public ImageDTO() {
+    }
+
+    public ImageDTO(Image i) {
+        this(i.getId(), i.getImageUrl());
     }
 
     public ImageDTO(Long id, String imageUrl) {
