@@ -1,0 +1,59 @@
+<section>
+    <div class="container">
+      <div class="row">
+        <h3 style="margin-bottom: 30px;">Where to stay</h3>
+        <div class="right-div">
+          <span>Sort by </span>
+          <select class="select-sort">
+            <option value="">Price</option>
+            <option value="">Distance from location</option>
+            <option value="">Ratings</option>
+            <option value="">Accommodation category</option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="!srcEmpty">
+        <div class="row" *ngFor="let acc of accList">
+          <div class="tile">
+            <div class="card-inside">
+                <div class="left-part-card">
+                    <img class="image-card" alt="Hotel image" src="{{acc.images[0].imageUrl}}" width="300px" height="253px">
+                </div>
+                <div class="right-part-card">
+                  <div class="upper-right">
+                    <h4 class="hotel-name">{{acc.name}} 
+                      <span *ngIf="acc.category === 5"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                      <span *ngIf="acc.category === 4"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                      <span *ngIf="acc.category === 3"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                      <span *ngIf="acc.category === 2"><i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                      <span *ngIf="acc.category === 1"><i class="fa fa-star"></i></span>
+                      <span *ngIf="acc.category === 0">Uncategorized</span>
+                    </h4> 
+                    <h6 class="hotel-address"><i class="fa fa-map-marker"></i> {{acc.location.coordinates}}, {{acc.location.city.name}}, {{acc.location.city.country.name}}</h6>
+                    <div class="rating">
+                      <span class="rating-round">{{acc.ratingAvg}}</span> <span class="no-revs">Based on X reviews</span>
+                    </div>
+  
+                    <div class="price">
+                      <h3>${{acc.price}}</h3>
+                    </div>
+                  </div>
+                  <div class="lower-right">
+                    <div class="distance">
+                      <span>{{acc.location.distanceFromCity}}km from city center</span>
+                    </div>
+                    <div class="details-btn-card">
+                      <a class="btn btn-primary" [routerLink]="['/accommodations', acc.id]" id="details">See details</a>
+                    </div>
+                  </div> 
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <h5 *ngIf="srcEmpty">Unfortunately there seem to be no accommodation unit that matches your requirements.</h5>
+      
+    </div>
+  </section>
+  

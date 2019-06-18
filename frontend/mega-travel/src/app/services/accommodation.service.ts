@@ -11,4 +11,8 @@ export class AccommodationService {
     search(searchDTO) {
         return this.http.post("/api/accommodationservice/accommodations/search", searchDTO);
     }
+
+    getAccUnit(id: number) {
+        return this.http.get("/api/accommodationservice/accommodations/" + id);
+    }
 }

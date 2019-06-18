@@ -44,9 +44,13 @@ public class AccommodationUnitService
 	
 	public AccommodationUnitDTO findById(Long id)
 	{
+		System.out.println("usao u FINDBYID");
 		try
 		{
-			return new AccommodationUnitDTO(accommodationRepo.findById(id).get());
+			System.out.println("usao u TRY");
+			AccommodationUnitDTO asd = new AccommodationUnitDTO(accommodationRepo.findOneById(id));
+			System.out.println("vration ovaj acc: " + asd.getName());
+			return asd;
 		}
 		catch(NoSuchElementException e)
 		{
@@ -91,37 +95,42 @@ public class AccommodationUnitService
 	
 	public Collection<AccommodationUnitDTO> search(ExtendedSearchDTO dto)
 	{
-		City city = cityRepo.findOneByName(dto.getCity());
+		List<City> cities = cityRepo.findByNameContainingIgnoreCase(dto.getCity());
 
-		Collection<AccommodationUnit> list = accommodationRepo.search(city.getId(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
-		
-		if(dto.getRatingAvg() > 0)
-		{
-			list = aboveRating(list,dto.getRatingAvg());
-		}
-		
-		if(dto.getType() != null && dto.getType() != "")
-		{
-			list = selectType(list,dto.getType());
-		}
-		
-		if(dto.getAmenities().size() != 0 && dto.getAmenities() != null)
-		{
-			list = doesContainAmenities(list,dto.getAmenities());
-		}
-
-		if(dto.getDistanceFromCity() >=0 )
-		{
-			list = underDistance(list,dto.getDistanceFromCity());
-		}
-
+		List<AccommodationUnit> list = new ArrayList<>();
 		List<AccommodationUnitDTO> ret = new ArrayList<AccommodationUnitDTO>();
 
-		for(AccommodationUnit a : list) {
-			AccommodationUnitDTO adto = new AccommodationUnitDTO(a);
-			ret.add(adto);
+		for(City city : cities) {
+			if (city != null) {
+				list = accommodationRepo.search(city.getId(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
+
+				if(dto.getRatingAvg() > 0)
+				{
+					list = aboveRating(list,dto.getRatingAvg());
+				}
+
+				if(dto.getType() != null && dto.getType() != "")
+				{
+					list = selectType(list,dto.getType());
+				}
+
+				if(dto.getAmenities().size() != 0 && dto.getAmenities() != null)
+				{
+					list = doesContainAmenities(list,dto.getAmenities());
+				}
+
+				if(dto.getDistanceFromCity() >=0 )
+				{
+					list = underDistance(list,dto.getDistanceFromCity());
+				}
+			}
+
+			for(AccommodationUnit a : list) {
+				AccommodationUnitDTO adto = new AccommodationUnitDTO(a);
+				ret.add(adto);
+			}
 		}
-		
+
 		return ret;
 	}
 	
@@ -132,7 +141,7 @@ public class AccommodationUnitService
 	
 	// * * * SEARCH UTILITIES * * *
 	
-	private Collection<AccommodationUnit> underDistance(Collection<AccommodationUnit> input, double distanceFromCity)
+	private List<AccommodationUnit> underDistance(Collection<AccommodationUnit> input, double distanceFromCity)
 	{
 		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
 		
@@ -147,7 +156,7 @@ public class AccommodationUnitService
 		return retVal;
 	}
 
-	private Collection<AccommodationUnit> selectType(Collection<AccommodationUnit> input, String type)
+	private List<AccommodationUnit> selectType(Collection<AccommodationUnit> input, String type)
 	{
 		
 		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
@@ -164,7 +173,7 @@ public class AccommodationUnitService
 	}
 
 	
-	private Collection<AccommodationUnit> doesContainAmenities(Collection<AccommodationUnit> input, List<Amenity> amenities)
+	private List<AccommodationUnit> doesContainAmenities(Collection<AccommodationUnit> input, List<Amenity> amenities)
 	{
 		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
 		
@@ -178,7 +187,7 @@ public class AccommodationUnitService
 		
 		return retVal;
 	}
-	private Collection<AccommodationUnit> aboveRating(Collection<AccommodationUnit> input, double rating)
+	private List<AccommodationUnit> aboveRating(Collection<AccommodationUnit> input, double rating)
 	{
 		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
 		for(AccommodationUnit au : input)

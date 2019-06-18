@@ -1,0 +1,127 @@
+<section *ngIf="acu">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h2>{{acu.name}}</h2>
+          <p>
+            <span *ngIf="acu.category === 5"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+            <span *ngIf="acu.category === 4"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+            <span *ngIf="acu.category === 3"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+            <span *ngIf="acu.category === 2"><i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+            <span *ngIf="acu.category === 1"><i class="fa fa-star"></i></span>
+            <span *ngIf="acu.category === 0">Uncategorized</span>
+          </p>
+          <h6><i class="fa fa-map-marker"></i> {{acu.location.coordinates}}, {{acu.location.city.name}}, {{acu.location.city.country.name}}</h6>
+          <h6 class="desc-title">Accommodation type: {{acu.type}}</h6>
+          <h6>Description:</h6>
+          <p class="desc">{{acu.description}}</p>
+        </div>
+        <div class="col-md-8 acc-image"></div>
+      </div>
+  
+      <div class="sidebar">
+        <h4 style="margin-bottom: 30px;">{{acu.name}}</h4>
+        <div class="priceDate">
+          <h5>Price: ${{acu.price}}<span class="pernight">/per night</span></h5>
+          <p class="guests"><i class="fa fa-user"></i> {{guests}} guests</p>
+          <p class="sel-date"><i class="fa fa-calendar-o"></i> {{sDate}} - {{eDate}}</p>
+        </div>
+        <div class="totalprice">
+          <h5>Total price: ${{acu.price * dayz}}</h5>
+        </div>
+        <div class="book">
+          <button class="btn btn-primary book-btn">Book</button>
+        </div>
+      </div>
+      
+      <div class="row amenities-rating">
+        <div class="amenities">
+          <h4>Amenities:</h4>
+          <div class="row" [ngClass] = "{'showCont':hideServ === false,  'hideCont':hideServ  === true }">
+            <div class="amenity">
+              <i class="fa fa-wifi"></i> WiFi
+            </div>
+            <div class="amenity">
+              <i class="fa fa-product-hunt"></i> Parking
+            </div>
+            <div class="amenity">
+              <i class="fa fa-paw"></i> Pet friendly
+            </div>
+            <div class="amenity">
+              <i class="fa fa-cutlery"></i> Breakfast
+            </div>
+          </div>
+          <div class="show-more">
+            <button class="btn btn-light mmmore" (click)="onShowMore()">{{ShowText}}</button>
+          </div>
+        </div>
+        <div class="rating">
+          <div class="NO-reviews">
+            <p class="no-of-revs">X Reviews</p>
+          </div>
+          <h4>Rating:</h4>
+          <div class="rating-content">
+            <div class="rate-div">
+              <span class="rate-circle">{{acu.ratingAvg}}</span>
+            </div>
+            <div class="rate-div">
+              <p class="rate-text">
+                <span *ngIf="acu.ratingAvg >= 9.0">Excellent</span>
+                <span *ngIf="acu.ratingAvg >= 8.0 && acu.ratinAvg < 9.0">Excellent</span>
+                <span *ngIf="acu.ratingAvg >= 7.0 && acu.ratinAvg < 8.0">Very good</span>
+                <span *ngIf="acu.ratingAvg >= 6.0 && acu.ratinAvg < 7.0">Good</span>
+                <span *ngIf="acu.ratingAvg >= 5.0 && acu.ratinAvg < 6.0">Satisfactory</span>
+                <span *ngIf="acu.ratingAvg >= 4.0 && acu.ratinAvg < 5.0">Poor</span>
+                <span *ngIf="acu.ratingAvg >= 3.0 && acu.ratinAvg < 4.0">Bad</span>
+                <span *ngIf="acu.ratinAvg < 3.0">Very Bad</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="comments">
+          <h4>Comments:</h4>
+    
+          <div class="card">
+            <div class="container">
+              <div class="left-card">
+                <h6><b>Vladimir Cvetanovic</b></h6>
+                <p class="com-date">05.06.2019.</p>
+              </div>
+              <div class="right-card">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="card">
+            <div class="container">
+              <div class="left-card">
+                <h6><b>John Doe</b></h6>
+                <p class="com-date">10.06.2019.</p>
+              </div>
+              <div class="right-card">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="container">
+              <div class="left-card">
+                <h6><b>Miroslav Zaric</b></h6>
+                <p class="com-date">14.06.2019.</p>
+              </div>
+              <div class="right-card">
+                <p>Great!</p>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+      </div>
+    </div>
+  </section>
+  

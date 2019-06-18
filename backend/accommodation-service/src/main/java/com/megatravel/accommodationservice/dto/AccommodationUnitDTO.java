@@ -24,8 +24,8 @@ public class AccommodationUnitDTO {
     private double price;
     private double ratingAvg;
     private int category;
-    private List<AmenityDTO> amenities;
-    private List<ImageDTO> images;
+    private List<AmenityDTO> amenities = new ArrayList<>();
+    private List<ImageDTO> images = new ArrayList<>();
     private LocationDTO location;
     private UserInfoDTO agent;
 
@@ -55,6 +55,7 @@ public class AccommodationUnitDTO {
     	
     	id = accommodation.getId();
     	name = accommodation.getName();
+    	description = accommodation.getDescription();
     	type = accommodation.getType();
     	capacity = accommodation.getCapacity();
     	cancellationPeriod = accommodation.getCancellationPeriod();

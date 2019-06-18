@@ -53,13 +53,19 @@ export class SearchComponent implements OnInit {
       type: "",
       category: ""
     }
+
     this.accServise.search(src).subscribe(
       (data) => {
-        // this.srcres.accommodations = data;
+        this.srcres.accommodations = data;
         this.router.navigate(['/accommodations']);
       },
       (error) => alert('ERROR')
     );
+
+    this.srcres.destination = tempDest;
+    this.srcres.startDate = this.searchForm.value.startDate;
+    this.srcres.endDate = this.searchForm.value.endDate;
+    this.srcres.guests = this.searchForm.value.guests;
 
   }
 

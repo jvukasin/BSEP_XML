@@ -14,16 +14,17 @@ import { UserService } from './services/user.service';
 import { KeepHtmlPipe } from './pipe/keep-html.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { AccommodationPageComponent } from './accommodation-page/accommodation-page.component';
+import { AccommodationPageComponent } from './accommodation/accommodation-page/accommodation-page.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SearchComponent } from './search/search.component';
 import { SliderComponent } from './homepage/slider/slider.component';
 import { BestPlacesComponent } from './homepage/best-places/best-places.component';
 import { BestFeaturedComponent } from './homepage/best-featured/best-featured.component';
 import { AboutUsComponent } from './homepage/about-us/about-us.component';
-import { AccommodationListComponent } from './accommodation-list/accommodation-list.component';
+import { AccommodationListComponent } from './accommodation/accommodation-list/accommodation-list.component';
 import { AccommodationService } from './services/accommodation.service';
 import { SearchResultsService } from './services/search-results.service';
+import { AccommodationComponent } from './accommodation/accommodation.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SearchResultsService } from './services/search-results.service';
     BestPlacesComponent,
     BestFeaturedComponent,
     AboutUsComponent,
-    AccommodationListComponent
+    AccommodationListComponent,
+    AccommodationComponent
   ],
   imports: [
     BrowserModule,

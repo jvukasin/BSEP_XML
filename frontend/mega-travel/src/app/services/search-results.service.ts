@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
     constructor(private http: HttpClient) { }
     
     public accommodations: any = [];
+    
     public destination: String = "";
     public startDate: Date;
     public endDate: Date;
