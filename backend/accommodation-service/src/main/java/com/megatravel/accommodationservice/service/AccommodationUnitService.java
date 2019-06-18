@@ -1,12 +1,10 @@
 package com.megatravel.accommodationservice.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.awt.peer.ScrollbarPeer;
+import java.util.*;
 
+import com.megatravel.accommodationservice.model.*;
+import com.megatravel.accommodationservice.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,18 +12,9 @@ import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
 import com.megatravel.accommodationservice.dto.AmenityDTO;
 import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
 import com.megatravel.accommodationservice.dto.ImageDTO;
-import com.megatravel.accommodationservice.model.AccommodationUnit;
-import com.megatravel.accommodationservice.model.Agent;
-import com.megatravel.accommodationservice.model.Amenity;
-import com.megatravel.accommodationservice.model.City;
-import com.megatravel.accommodationservice.model.Image;
-import com.megatravel.accommodationservice.model.Location;
-import com.megatravel.accommodationservice.repository.AccommodationUnitRepository;
-import com.megatravel.accommodationservice.repository.AmenityRepository;
-import com.megatravel.accommodationservice.repository.CityRepository;
-import com.megatravel.accommodationservice.repository.ImageRepository;
-import com.megatravel.accommodationservice.repository.LocationRepository;
-import com.megatravel.accommodationservice.repository.TPersonRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
 
 @Service
 public class AccommodationUnitService 
@@ -44,9 +33,15 @@ public class AccommodationUnitService
 
 	@Autowired
 	private LocationRepository locationRepo;
+
+	@Autowired
+	private SpecificPriceRepository specificPriceRepo;
 	
 	@Autowired
 	private TPersonRepository personRepo;
+
+	@Autowired
+	EntityManager entityManager;
 
 	
 	public Optional<AccommodationUnit> findById(Long id)
@@ -58,11 +53,33 @@ public class AccommodationUnitService
 	{
 		return accommodationRepo.findAll();
 	}
-	
+
+
+	public AccommodationUnit saveFromSoap(AccommodationUnit au) {
+
+		Location loc = locationRepo.save(au.getLocation());
+		au.setLocation(loc);
+		accommodationRepo.save(au);
+
+		for (SpecificPrice sp: au.getSpecificPrice()) {
+			sp.setAccommodationUnit(au);
+		}
+
+		for (Image i: au.getImage()) {
+			i.setAccommodationUnit(au);
+		}
+
+		specificPriceRepo.saveAll(au.getSpecificPrice());
+		imageRepo.saveAll(au.getImage());
+
+		return au;
+
+	}
+
 	public Collection<AccommodationUnit> search(ExtendedSearchDTO dto)
 	{
 		Collection<AccommodationUnit> list = accommodationRepo.search(dto.getCityID(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
-		
+
 		if(dto.getRatingAvg() != -1)
 		{
 			list = aboveRating(list,dto.getRatingAvg());
@@ -86,7 +103,7 @@ public class AccommodationUnitService
 		return list;
 	}
 	
-	public boolean save(AccommodationUnitDTO dto)
+	/*public boolean saveDto(AccommodationUnitDTO dto)
 	{			
 		AccommodationUnit accommodation = new AccommodationUnit();
 
@@ -173,7 +190,7 @@ public class AccommodationUnitService
 		
 		accommodationRepo.save(accommodation);
 		return true;
-	}
+	}*/
 
 	
 	
@@ -242,5 +259,9 @@ public class AccommodationUnitService
 		
 		return retVal;
 	}
-	
+
+	public void saveLocation(Location loc) {
+
+		locationRepo.save(loc);
+	}
 }

@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NewAccommodationComponent } from './accommodation/new-accommodation/new-accommodation.component';
 import { AccommodationService } from './services/accommodation.service';
 import { LocationService } from './services/location.service';
+import { AccommodationUnitComponent } from './accommodation/accommodation-unit/accommodation-unit.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { LocationService } from './services/location.service';
   ReservationComponent,
   NavbarComponent,
   NewAccommodationComponent,
+  AccommodationUnitComponent,
   ],
   imports: [
     BrowserModule,

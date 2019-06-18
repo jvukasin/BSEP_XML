@@ -75,21 +75,7 @@ public class AccommodationUnitController
 		
 		return new ResponseEntity<Collection<AccommodationUnit>>(accommodationService.search(dto), HttpStatus.OK);
 	}
-	
-	
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<?> create(@RequestBody AccommodationUnitDTO accommodationUnit)
-	{	
-		
-		if(accommodationService.save(accommodationUnit) == true)
-		{
-			return new ResponseEntity<>(HttpStatus.CREATED);
-		}
-		else
-		{
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}	
-	}
+
 	
 	
 	

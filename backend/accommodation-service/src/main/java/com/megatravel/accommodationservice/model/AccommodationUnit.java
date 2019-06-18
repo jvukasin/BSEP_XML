@@ -1,6 +1,9 @@
 
 package com.megatravel.accommodationservice.model;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -187,7 +190,6 @@ public class AccommodationUnit {
     
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 

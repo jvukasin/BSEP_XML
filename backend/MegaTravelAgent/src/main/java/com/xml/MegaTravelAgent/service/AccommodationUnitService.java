@@ -2,16 +2,15 @@ package com.xml.MegaTravelAgent.service;
 
 import java.util.*;
 
-import com.xml.MegaTravelAgent.dto.AmenityDTO;
-import com.xml.MegaTravelAgent.dto.ImageDTO;
-import com.xml.MegaTravelAgent.dto.NewAccommodationUnitDTO;
+import com.xml.MegaTravelAgent.dto.*;
 import com.xml.MegaTravelAgent.exceptions.BusinessException;
 import com.xml.MegaTravelAgent.model.*;
 import com.xml.MegaTravelAgent.repository.*;
+import com.xml.MegaTravelAgent.soap.client.AccommodationUnitClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.xml.MegaTravelAgent.dto.ExtendedSearchDTO;
+import javax.transaction.Transactional;
 
 
 @Service
@@ -35,9 +34,16 @@ public class AccommodationUnitService
 	@Autowired
 	private LocationRepository locationRepo;
 
+	@Autowired
+	private SpecificPriceRepository specificPriceRepo;
+
+	@Autowired
+	private AccommodationUnitClient auClient;
+
 
 	public Optional<AccommodationUnit> findById(Long id)
 	{
+
 		return accommodationRepo.findById(id);
 	}
 	
@@ -52,7 +58,7 @@ public class AccommodationUnitService
 	}
 
 
-
+ 	@Transactional
 	public Long save(NewAccommodationUnitDTO dto) throws Exception {
 
 		AccommodationUnit au = new AccommodationUnit();
@@ -75,6 +81,17 @@ public class AccommodationUnitService
 		if(dto.getCapacity() < 1)
 		{
 			throw new BusinessException("Capacity can not be lower than 1.");
+		}
+
+		if(dto.getDefaultPrice() <= 0)
+		{
+			throw new BusinessException("Price can not be 0 or negative.");
+		}
+
+
+		if(dto.getCancellationPeriod() < 0)
+		{
+			throw new BusinessException("Cancellation period can not be negative.");
 		}
 
 
@@ -112,11 +129,41 @@ public class AccommodationUnitService
 				image.setImageUrl(imageDTO.getImageUrl());
 
 				au.getImage().add(image);
-				imageRepo.save(image);
+//				imageRepo.save(image);
 			}
 		} else {
 			throw new BusinessException("There must be at least one image.");
 		}
+
+
+		au.setSpecificPrice(new ArrayList<>());
+
+		if (dto.getSpecificPrices() != null) {
+
+
+
+			for (SpecificPriceDTO spDTO: dto.getSpecificPrices()) {
+				SpecificPrice sp = new SpecificPrice();
+
+				if(spDTO.getPrice() <= 0)
+				{
+					throw new BusinessException("Price can not be 0 or negative.");
+				}
+
+				if (spDTO.getStartDate().after(spDTO.getEndDate())) {
+					throw new BusinessException("Specific price plan start date can not be after end date.");
+				}
+
+				sp.setPrice(spDTO.getPrice());
+				sp.setStartDate(spDTO.getStartDate());
+				sp.setEndDate(spDTO.getEndDate());
+
+//				sp = specificPriceRepo.save(sp);
+				au.getSpecificPrice().add(sp);
+
+			}
+		}
+
 
 
 		Location location = new Location();
@@ -138,6 +185,21 @@ public class AccommodationUnitService
 
 
 		au = accommodationRepo.save(au);
+
+		for (SpecificPrice sp: au.getSpecificPrice()) {
+			sp.setAccommodationUnit(au);
+		}
+
+		for (Image i: au.getImage()) {
+			i.setAccommodationUnit(au);
+		}
+
+		specificPriceRepo.saveAll(au.getSpecificPrice());
+		imageRepo.saveAll(au.getImage());
+
+		// send to soap
+		auClient.createAccommodationUnit(au, new Long(-1));
+
 
 		return au.getId();
 	}
@@ -189,5 +251,7 @@ public class AccommodationUnitService
 		
 		return retVal;
 	}
+
+
 	
 }

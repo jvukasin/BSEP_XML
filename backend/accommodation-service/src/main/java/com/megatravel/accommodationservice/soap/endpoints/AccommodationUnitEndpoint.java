@@ -1,6 +1,7 @@
 package com.megatravel.accommodationservice.soap.endpoints;
 
 import com.megatravel.accommodationservice.model.*;
+import com.megatravel.accommodationservice.service.AccommodationUnitService;
 import com.megatravel.accommodationservice.soap.reqres.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -23,6 +24,9 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
 
     @Autowired
     private ObjectFactory factory;
+
+    @Autowired
+    AccommodationUnitService acService;
 
 
     @Override
@@ -61,11 +65,8 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
 
         System.out.println("Hit postAccommodationUnit");
 
-        AccommodationUnit requestAu = request.getAccommodationUnit();
-
-        // Insertion in DB
-        AccommodationUnit au = new AccommodationUnit();
-        //au = auRepo.save(requestAu);
+        AccommodationUnit au = request.getAccommodationUnit();
+        acService.saveFromSoap(au);
 
         PostAccommodationUnitResponse response = new PostAccommodationUnitResponse();
         response.setAccommodationUnit(au);
@@ -129,9 +130,16 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
         a3.setName("Cable TV");
         a3.setFaIcon("fa fa-television");
 
+        Amenity a4 = new Amenity();
+        a4.setId(new Long(4));
+        a4.setName("Hot water");
+        a4.setFaIcon("fa fa-bath");
+
         response.getAmenity().add(a1);
         response.getAmenity().add(a2);
         response.getAmenity().add(a3);
+        response.getAmenity().add(a4);
+
 
         AccommodationType t1 = new AccommodationType();
         t1.setType("hotel");
