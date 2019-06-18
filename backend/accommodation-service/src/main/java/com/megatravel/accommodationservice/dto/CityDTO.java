@@ -11,16 +11,19 @@ public class CityDTO {
     public CityDTO() {
     }
 
-    public CityDTO(City c) {
-        this(c.getId(), c.getName(), new CountryDTO(c.getCountry()));
-    }
-
     public CityDTO(Long id, String name, CountryDTO country) {
         this.id = id;
         this.name = name;
         this.country = country;
     }
-
+    
+    public CityDTO(City city)
+    {
+    	id = city.getId();
+    	name = city.getName();
+    	country = new CountryDTO(city.getCountry());
+    }
+    
     public Long getId() {
         return id;
     }

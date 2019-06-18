@@ -11,14 +11,17 @@ public class AmenityDTO {
     public AmenityDTO() {
     }
 
-    public AmenityDTO(Amenity a) {
-        this(a.getId(), a.getName(), a.getFaIcon());
-    }
-
     public AmenityDTO(Long id, String name, String faIcon) {
         this.id = id;
         this.name = name;
         this.faIcon = faIcon;
+    }
+    
+    public AmenityDTO(Amenity amenity)
+    {
+    	id = amenity.getId();
+    	name = amenity.getName();
+    	faIcon = amenity.getFaIcon();
     }
 
     public Long getId() {

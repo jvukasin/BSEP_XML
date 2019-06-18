@@ -24,7 +24,9 @@ export class LocationService {
 	// GET one country's cities
 	getCountryCities(id: number) {
 		return this.http.get(this.ENDPOINT_URI + "/countries/" + id + "/cities");
-  	}
+	  }
+	  
+	
 
     
   

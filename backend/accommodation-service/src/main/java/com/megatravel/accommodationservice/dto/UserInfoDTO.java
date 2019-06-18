@@ -1,6 +1,6 @@
 package com.megatravel.accommodationservice.dto;
 
-import com.megatravel.accommodationservice.model.Agent;
+import com.megatravel.accommodationservice.model.TPerson;
 
 public class UserInfoDTO {
 
@@ -12,15 +12,20 @@ public class UserInfoDTO {
     public UserInfoDTO() {
     }
 
-    public UserInfoDTO(Agent a) {
-        this(a.getUsername(), a.getEmail(), a.getName(), a.getLastname());
-    }
-
     public UserInfoDTO(String username, String email, String firstname, String lastname) {
         this.username = username;
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+    
+    public UserInfoDTO(TPerson person)
+    {
+    	username = person.getUsername();
+    	email = person.getEmail();
+    	firstname = person.getName();
+    	lastname = person.getLastname();
+    	
     }
 
     public String getUsername() {

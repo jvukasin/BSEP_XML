@@ -2,7 +2,10 @@ package com.xml.MegaTravelAgent.controller;
 
 import com.xml.MegaTravelAgent.dto.AccommodationSettingsDTO;
 import com.xml.MegaTravelAgent.dto.AmenityDTO;
+import com.xml.MegaTravelAgent.dto.NewAccommodationUnitDTO;
+import com.xml.MegaTravelAgent.exceptions.BusinessException;
 import com.xml.MegaTravelAgent.model.Amenity;
+import com.xml.MegaTravelAgent.service.AccommodationUnitService;
 import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
 import com.xml.MegaTravelAgent.soap.reqres.AccommodationType;
 import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
@@ -24,6 +27,9 @@ public class AccommodationUnitController {
 
 	@Autowired
 	IAccommodationUnitClient auClient;
+
+	@Autowired
+	AccommodationUnitService auService;
 	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -33,9 +39,16 @@ public class AccommodationUnitController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<?> create(@RequestBody AccommodationUnitDTO accommodationUnit)
-	{	
-		return new ResponseEntity<>(HttpStatus.CREATED);
+	public ResponseEntity<?> create(@RequestBody NewAccommodationUnitDTO auDTO)
+	{
+
+		try {
+			return new ResponseEntity<>(auService.save(auDTO), HttpStatus.CREATED);
+		} catch (BusinessException e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@RequestMapping(value = "/{id}/amenities", method = RequestMethod.GET)

@@ -1,5 +1,7 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.SpecificPrice;
+
 import java.util.List;
 
 public class NewAccommodationUnitDTO {
@@ -10,9 +12,104 @@ public class NewAccommodationUnitDTO {
     private int capacity;
     private int cancellationPeriod;
     private double defaultPrice;
-    private int category;
-    private List<AmenityDTO> amenities;
-    private List<ImageDTO> images;
     private LocationDTO location;
-    private UserInfoDTO agent;
+    private List<AmenityDTO> amenities;
+    private List<SpecificPriceDTO> specificPrices;
+    private List<ImageDTO> images;
+
+    public NewAccommodationUnitDTO() {
+    }
+
+    public NewAccommodationUnitDTO(String name, String description, String type, int capacity, int cancellationPeriod, double defaultPrice, LocationDTO location, List<AmenityDTO> amenities, List<SpecificPriceDTO> specificPrices, List<ImageDTO> images) {
+        this.name = name;
+        this.description = description;
+        this.type = type;
+        this.capacity = capacity;
+        this.cancellationPeriod = cancellationPeriod;
+        this.defaultPrice = defaultPrice;
+        this.location = location;
+        this.amenities = amenities;
+        this.specificPrices = specificPrices;
+        this.images = images;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getCancellationPeriod() {
+        return cancellationPeriod;
+    }
+
+    public void setCancellationPeriod(int cancellationPeriod) {
+        this.cancellationPeriod = cancellationPeriod;
+    }
+
+    public double getDefaultPrice() {
+        return defaultPrice;
+    }
+
+    public void setDefaultPrice(double defaultPrice) {
+        this.defaultPrice = defaultPrice;
+    }
+
+    public LocationDTO getLocation() {
+        return location;
+    }
+
+    public void setLocation(LocationDTO location) {
+        this.location = location;
+    }
+
+    public List<AmenityDTO> getAmenities() {
+        return amenities;
+    }
+
+    public void setAmenities(List<AmenityDTO> amenities) {
+        this.amenities = amenities;
+    }
+
+    public List<SpecificPriceDTO> getSpecificPrices() {
+        return specificPrices;
+    }
+
+    public void setSpecificPrices(List<SpecificPriceDTO> specificPrices) {
+        this.specificPrices = specificPrices;
+    }
+
+    public List<ImageDTO> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImageDTO> images) {
+        this.images = images;
+    }
 }

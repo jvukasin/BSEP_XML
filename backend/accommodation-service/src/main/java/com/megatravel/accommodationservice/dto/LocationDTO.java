@@ -12,15 +12,19 @@ public class LocationDTO {
     public LocationDTO() {
     }
 
-    public LocationDTO(Location l) {
-        this(l.getId(), l.getCoordinates(), l.getDistanceFromCity(), new CityDTO(l.getCity()));
-    }
-
     public LocationDTO(Long id, String coordinates, double distanceFromCity, CityDTO city) {
         this.id = id;
         this.coordinates = coordinates;
         this.distanceFromCity = distanceFromCity;
         this.city = city;
+    }
+    
+    public LocationDTO(Location location)
+    {
+    	id = location.getId();
+    	coordinates = location.getCoordinates();
+    	distanceFromCity = location.getDistanceFromCity();
+    	city = new CityDTO(location.getCity());
     }
 
     public Long getId() {

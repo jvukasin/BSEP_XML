@@ -1,7 +1,5 @@
 package com.megatravel.accommodationservice.controller;
 import java.util.Collection;
-import java.util.List;
-import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.AmenityDTO;
 import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
-import com.megatravel.accommodationservice.model.Amenity;
 import com.megatravel.accommodationservice.service.AccommodationUnitService;
+
+import exceptions.BusinessException;
 
 @RestController
 @RequestMapping("/accommodations")
@@ -27,40 +27,37 @@ public class AccommodationUnitController
 	AccommodationUnitService accommodationService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<Collection<AccommodationUnit>> getAccommodationUnits()
+	public ResponseEntity<Collection<AccommodationUnitDTO>> getAccommodationUnits()
 	{
-		return new ResponseEntity<Collection<AccommodationUnit>>(accommodationService.findAll(),HttpStatus.OK);
+		return new ResponseEntity<Collection<AccommodationUnitDTO>>(accommodationService.findAll(),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<AccommodationUnit> getAccommodationUnit(@PathVariable Long id)
+	public ResponseEntity<?> getAccommodationUnit(@PathVariable Long id)
 	{
 		try
 		{
-			return new ResponseEntity<AccommodationUnit>(accommodationService.findById(id).get(), HttpStatus.OK);
+			return new ResponseEntity<AccommodationUnitDTO>(accommodationService.findById(id), HttpStatus.OK);
 
 		}
-		catch(NoSuchElementException e)
+		catch(BusinessException e)
 		{
-			e.printStackTrace();
-			return new ResponseEntity<AccommodationUnit>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		
 	}
 	
 	@RequestMapping(value = "/{id}/amenities", method = RequestMethod.GET)
-	public ResponseEntity<Collection<Amenity>> getAUAmenities(@PathVariable Long id)
+	public ResponseEntity<?> getAUAmenities(@PathVariable Long id)
 	{
 		try
 		{
-			AccommodationUnit ac = accommodationService.findById(id).get();
-			
-			return new ResponseEntity<Collection<Amenity>>(ac.getAmenity(), HttpStatus.OK);
+			return new ResponseEntity<Collection<AmenityDTO>>(accommodationService.findById(id).getAmenities(), HttpStatus.OK);
+
 		}
-		catch(NoSuchElementException e)
+		catch(BusinessException e)
 		{
-			e.printStackTrace();
-			return new ResponseEntity<Collection<Amenity>>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 	}
 	
@@ -80,12 +77,12 @@ public class AccommodationUnitController
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<?> create(@RequestBody AccommodationUnitDTO accommodationUnit)
 	{	
-		
-		if(accommodationService.save(accommodationUnit) == true)
+		try
 		{
-			return new ResponseEntity<>(HttpStatus.CREATED);
+			Long id = accommodationService.save(accommodationUnit);
+			return new ResponseEntity<>(id,HttpStatus.CREATED);
 		}
-		else
+		catch(BusinessException e)
 		{
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}	

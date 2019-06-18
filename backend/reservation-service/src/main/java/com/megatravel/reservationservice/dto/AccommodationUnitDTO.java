@@ -2,6 +2,10 @@ package com.megatravel.reservationservice.dto;
 
 import java.util.List;
 
+import com.megatravel.reservationservice.model.AccommodationUnit;
+import com.megatravel.reservationservice.model.Amenity;
+import com.megatravel.reservationservice.model.Image;
+
 public class AccommodationUnitDTO {
 
     private Long id;
@@ -37,6 +41,33 @@ public class AccommodationUnitDTO {
         this.images = images;
         this.location = location;
         this.agent = agent;
+    }
+    
+    public AccommodationUnitDTO(AccommodationUnit accommodation)
+    {
+    	
+    	id = accommodation.getId();
+    	name = accommodation.getName();
+    	type = accommodation.getType();
+    	capacity = accommodation.getCapacity();
+    	cancellationPeriod = accommodation.getCancellationPeriod();
+    	price = accommodation.getPrice();
+    	ratingAvg = accommodation.getRatingAvg();
+    	category = accommodation.getCategory();
+    	
+    	for(Amenity amenity : accommodation.getAmenity())
+    	{
+    		amenities.add(new AmenityDTO(amenity));
+    	}
+    	
+    	for(Image image : accommodation.getImage())
+    	{
+    		images.add(new ImageDTO(image));
+    	}
+    	
+    	location = new LocationDTO(accommodation.getLocation());
+    	agent = new UserInfoDTO(accommodation.getAgent());
+    	
     }
 
     public Long getId() {

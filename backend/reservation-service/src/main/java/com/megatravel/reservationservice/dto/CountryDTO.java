@@ -1,5 +1,7 @@
 package com.megatravel.reservationservice.dto;
 
+import com.megatravel.reservationservice.model.Country;
+
 public class CountryDTO {
 
     private Long id;
@@ -13,6 +15,12 @@ public class CountryDTO {
         this.name = name;
     }
 
+    public CountryDTO(Country country)
+    {
+    	id = country.getId();
+    	name = country.getName();
+    }
+    
     public Long getId() {
         return id;
     }

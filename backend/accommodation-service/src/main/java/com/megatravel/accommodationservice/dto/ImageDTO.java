@@ -10,13 +10,15 @@ public class ImageDTO {
     public ImageDTO() {
     }
 
-    public ImageDTO(Image i) {
-        this(i.getId(), i.getImageUrl());
-    }
-
     public ImageDTO(Long id, String imageUrl) {
         this.id = id;
         this.imageUrl = imageUrl;
+    }
+    
+    public ImageDTO(Image image)
+    {
+    	id = image.getId();
+    	imageUrl = image.getImageUrl();
     }
 
     public Long getId() {
