@@ -16,14 +16,14 @@ public class CityDTO {
         this.name = name;
         this.country = country;
     }
-
-    public CityDTO(City c) {
-        this.id = c.getId();
-        this.name = c.getName();
-        this.country = new CountryDTO(c.getCountry());
-
+    
+    public CityDTO(City city)
+    {
+    	id = city.getId();
+    	name = city.getName();
+    	country = new CountryDTO(city.getCountry());
     }
-
+    
     public Long getId() {
         return id;
     }

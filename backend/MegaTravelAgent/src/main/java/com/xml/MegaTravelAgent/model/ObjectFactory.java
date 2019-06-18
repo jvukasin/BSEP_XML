@@ -1,9 +1,26 @@
 
 package com.xml.MegaTravelAgent.model;
 
-import com.xml.MegaTravelAgent.soap.reqres.*;
-
 import javax.xml.bind.annotation.XmlRegistry;
+
+import com.xml.MegaTravelAgent.soap.reqres.DeleteAccommodationUnitRequest;
+import com.xml.MegaTravelAgent.soap.reqres.DeleteAccommodationUnitResponse;
+import com.xml.MegaTravelAgent.soap.reqres.EditAccommodationUnitRequest;
+import com.xml.MegaTravelAgent.soap.reqres.EditAccommodationUnitResponse;
+import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsRequest;
+import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsResponse;
+import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsRequest;
+import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
+import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationUnitRequest;
+import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationUnitResponse;
+import com.xml.MegaTravelAgent.soap.reqres.GetMessagesRequest;
+import com.xml.MegaTravelAgent.soap.reqres.GetMessagesResponse;
+import com.xml.MegaTravelAgent.soap.reqres.PostAccommodationUnitRequest;
+import com.xml.MegaTravelAgent.soap.reqres.PostAccommodationUnitResponse;
+import com.xml.MegaTravelAgent.soap.reqres.PostReservationRequest;
+import com.xml.MegaTravelAgent.soap.reqres.PostReservationResponse;
+import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationRequest;
+import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationResponse;
 
 
 /**

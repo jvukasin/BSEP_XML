@@ -1,5 +1,7 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.Amenity;
+
 public class AmenityDTO {
 
     private Long id;
@@ -14,6 +16,21 @@ public class AmenityDTO {
         this.name = name;
         this.faIcon = faIcon;
     }
+    
+    public AmenityDTO(Amenity amenity)
+    {
+    	id = amenity.getId();
+    	name = amenity.getName();
+    	faIcon = amenity.getFaIcon();
+    }
+
+    public AmenityDTO(Amenity amenity)
+    {
+        id = amenity.getId();
+        name = amenity.getName();
+        faIcon = amenity.getFaIcon();
+    }
+
 
     public Long getId() {
         return id;

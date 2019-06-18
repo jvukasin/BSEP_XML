@@ -18,6 +18,13 @@ insert into user_roles values ('tjokarda',3);
 
 insert into roles_privileges values (1,1);
 
+INSERT INTO amenity VALUES (1,'fa fa-snowflake-o','Air Conditioning');
+INSERT INTO amenity VALUES (2,'fa fa-wifi','WiFi');
+INSERT INTO amenity VALUES (3,'fa fa-television','Cable TV');
+INSERT INTO amenity VALUES (4,'fa fa-bath','Hot water');
+
+
+
 INSERT INTO country (id, name) values
 (1, 'Argentina'),
 (2, 'Bahamas'),

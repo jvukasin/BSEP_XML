@@ -1,16 +1,37 @@
 package com.xml.MegaTravelAgent.service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.NoSuchElementException;
 
-import com.xml.MegaTravelAgent.dto.*;
-import com.xml.MegaTravelAgent.exceptions.BusinessException;
-import com.xml.MegaTravelAgent.model.*;
-import com.xml.MegaTravelAgent.repository.*;
-import com.xml.MegaTravelAgent.soap.client.AccommodationUnitClient;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import com.xml.MegaTravelAgent.dto.AccommodationUnitDTO;
+import com.xml.MegaTravelAgent.dto.AmenityDTO;
+import com.xml.MegaTravelAgent.dto.ExtendedSearchDTO;
+import com.xml.MegaTravelAgent.dto.ImageDTO;
+import com.xml.MegaTravelAgent.dto.NewAccommodationUnitDTO;
+import com.xml.MegaTravelAgent.dto.SpecificPriceDTO;
+import com.xml.MegaTravelAgent.exceptions.BusinessException;
+import com.xml.MegaTravelAgent.model.AccommodationUnit;
+import com.xml.MegaTravelAgent.model.Amenity;
+import com.xml.MegaTravelAgent.model.City;
+import com.xml.MegaTravelAgent.model.Image;
+import com.xml.MegaTravelAgent.model.Location;
+import com.xml.MegaTravelAgent.model.SpecificPrice;
+import com.xml.MegaTravelAgent.repository.AccommodationUnitRepository;
+import com.xml.MegaTravelAgent.repository.AmenityRepository;
+import com.xml.MegaTravelAgent.repository.CityRepository;
+import com.xml.MegaTravelAgent.repository.ImageRepository;
+import com.xml.MegaTravelAgent.repository.LocationRepository;
+import com.xml.MegaTravelAgent.repository.ReservationRepository;
+import com.xml.MegaTravelAgent.repository.SpecificPriceRepository;
+import com.xml.MegaTravelAgent.soap.client.AccommodationUnitClient;
 
 
 @Service
@@ -41,15 +62,28 @@ public class AccommodationUnitService
 	private AccommodationUnitClient auClient;
 
 
-	public Optional<AccommodationUnit> findById(Long id)
+	public AccommodationUnitDTO findById(Long id)
 	{
-
-		return accommodationRepo.findById(id);
+		try
+		{
+			return new AccommodationUnitDTO(accommodationRepo.findById(id).get());
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new BusinessException("No accommodation unit with id: " + id + " found.");
+		}
 	}
-	
-	public Collection<AccommodationUnit> findAll()
+
+	public Collection<AccommodationUnitDTO> findAll()
 	{
-		return accommodationRepo.findAll();
+		Collection<AccommodationUnit> list = accommodationRepo.findAll();
+		Collection<AccommodationUnitDTO> retVal = new ArrayList<AccommodationUnitDTO>();
+		for(AccommodationUnit a : list)
+		{
+			retVal.add(new AccommodationUnitDTO(a));
+		}
+
+		return retVal;
 	}
 	
 	public Collection<AccommodationUnit> search(ExtendedSearchDTO dto)

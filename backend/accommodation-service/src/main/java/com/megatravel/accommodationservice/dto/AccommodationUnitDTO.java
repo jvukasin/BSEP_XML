@@ -1,16 +1,12 @@
 package com.megatravel.accommodationservice.dto;
 
-import com.megatravel.accommodationservice.model.AccommodationUnit;
-import com.megatravel.accommodationservice.model.Amenity;
-import com.megatravel.accommodationservice.model.Image;
-
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.model.Amenity;
 import com.megatravel.accommodationservice.model.Image;
+import com.megatravel.accommodationservice.model.SpecificPrice;
 
 
 public class AccommodationUnitDTO {
@@ -59,7 +55,7 @@ public class AccommodationUnitDTO {
     	type = accommodation.getType();
     	capacity = accommodation.getCapacity();
     	cancellationPeriod = accommodation.getCancellationPeriod();
-    	price = accommodation.getPrice();
+    	price = findCurrentPrice(accommodation);
     	ratingAvg = accommodation.getRatingAvg();
     	category = accommodation.getCategory();
     	
@@ -74,11 +70,46 @@ public class AccommodationUnitDTO {
     	}
     	
     	location = new LocationDTO(accommodation.getLocation());
-    	agent = new UserInfoDTO(accommodation.getAgent());
+    	//agent = new UserInfoDTO(accommodation.getAgent());
     	
     }
 
-    public Long getId() {
+    private double findCurrentPrice(AccommodationUnit accommodation) 
+    {
+    	Date today = new Date();
+    	double retVal = -1;
+    	
+		for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
+		{
+			if(isInSpecificPrice(today,specificPrice))
+			{
+				retVal = specificPrice.getPrice();
+			}
+		}
+    	
+		if(retVal == -1)
+		{
+			retVal = accommodation.getDefaultPrice();
+		}
+		
+    	return retVal;
+	}
+    
+	private boolean isInSpecificPrice(Date currentDay, SpecificPrice specificPrice) 
+	{
+		if(currentDay.getTime() >= specificPrice.getStartDate().getTime() 
+		   && 
+		   currentDay.getTime() <= specificPrice.getEndDate().getTime())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public Long getId() {
         return id;
     }
 

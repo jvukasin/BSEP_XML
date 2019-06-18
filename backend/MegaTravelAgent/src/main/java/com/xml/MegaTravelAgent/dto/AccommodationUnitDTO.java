@@ -1,6 +1,23 @@
 package com.xml.MegaTravelAgent.dto;
 
+<<<<<<< HEAD
+import java.util.Date;
+=======
+import com.xml.MegaTravelAgent.model.AccommodationUnit;
+import com.xml.MegaTravelAgent.model.Amenity;
+import com.xml.MegaTravelAgent.model.Image;
+
+import java.util.ArrayList;
+>>>>>>> 567393c9c1720338bdd8b614fcc822e05b517589
 import java.util.List;
+
+import com.xml.MegaTravelAgent.model.AccommodationUnit;
+import com.xml.MegaTravelAgent.model.Amenity;
+import com.xml.MegaTravelAgent.model.Image;
+import com.xml.MegaTravelAgent.model.SpecificPrice;
+
+
+
 
 public class AccommodationUnitDTO {
 
@@ -13,8 +30,8 @@ public class AccommodationUnitDTO {
     private double price;
     private double ratingAvg;
     private int category;
-    private List<AmenityDTO> amenities;
-    private List<ImageDTO> images;
+    private List<AmenityDTO> amenities = new ArrayList<>();
+    private List<ImageDTO> images = new ArrayList<>();
     private LocationDTO location;
     private UserInfoDTO agent;
 
@@ -38,8 +55,103 @@ public class AccommodationUnitDTO {
         this.location = location;
         this.agent = agent;
     }
+<<<<<<< HEAD
+    
+    public AccommodationUnitDTO(AccommodationUnit accommodation)
+    {
+    	
+    	id = accommodation.getId();
+    	name = accommodation.getName();
+    	type = accommodation.getType();
+    	capacity = accommodation.getCapacity();
+    	cancellationPeriod = accommodation.getCancellationPeriod();
+    	price = findCurrentPrice(accommodation);
+    	ratingAvg = accommodation.getRatingAvg();
+    	category = accommodation.getCategory();
+    	
+    	for(Amenity amenity : accommodation.getAmenity())
+    	{
+    		amenities.add(new AmenityDTO(amenity));
+    	}
+    	
+    	for(Image image : accommodation.getImage())
+    	{
+    		images.add(new ImageDTO(image));
+    	}
+    	
+    	location = new LocationDTO(accommodation.getLocation());
+    	agent = new UserInfoDTO(accommodation.getAgent());
+    	
+    }
+
+    private double findCurrentPrice(AccommodationUnit accommodation) 
+    {
+    	Date today = new Date();
+    	double retVal = -1;
+    	
+		for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
+		{
+			if(isInSpecificPrice(today,specificPrice))
+			{
+				retVal = specificPrice.getPrice();
+			}
+		}
+    	
+		if(retVal == -1)
+		{
+			retVal = accommodation.getDefaultPrice();
+		}
+		
+    	return retVal;
+	}
+    
+	private boolean isInSpecificPrice(Date currentDay, SpecificPrice specificPrice) 
+	{
+		if(currentDay.getTime() >= specificPrice.getStartDate().getTime() 
+		   && 
+		   currentDay.getTime() <= specificPrice.getEndDate().getTime())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public Long getId() {
+=======
+
+    public AccommodationUnitDTO(AccommodationUnit accommodation)
+    {
+
+        id = accommodation.getId();
+        name = accommodation.getName();
+        description = accommodation.getDescription();
+        type = accommodation.getType();
+        capacity = accommodation.getCapacity();
+        cancellationPeriod = accommodation.getCancellationPeriod();
+        price = accommodation.getPrice();
+        ratingAvg = accommodation.getRatingAvg();
+        category = accommodation.getCategory();
+
+        for(Amenity amenity : accommodation.getAmenity())
+        {
+            amenities.add(new AmenityDTO(amenity));
+        }
+
+        for(Image image : accommodation.getImage())
+        {
+            images.add(new ImageDTO(image));
+        }
+
+        location = new LocationDTO(accommodation.getLocation());
+        //agent = new UserInfoDTO(accommodation.getAgent());
+
+    }
 
     public Long getId() {
+>>>>>>> 567393c9c1720338bdd8b614fcc822e05b517589
         return id;
     }
 

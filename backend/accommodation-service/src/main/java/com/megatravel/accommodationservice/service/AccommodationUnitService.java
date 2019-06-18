@@ -1,6 +1,8 @@
 package com.megatravel.accommodationservice.service;
 
+
 import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.AmenityDTO;
 import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
 import com.megatravel.accommodationservice.model.*;
 import com.megatravel.accommodationservice.repository.*;
@@ -13,6 +15,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import com.megatravel.accommodationservice.model.AccommodationUnit;
+import com.megatravel.accommodationservice.model.Amenity;
+import com.megatravel.accommodationservice.model.City;
+import com.megatravel.accommodationservice.model.Image;
+import com.megatravel.accommodationservice.model.Location;
+import com.megatravel.accommodationservice.model.SpecificPrice;
+import com.megatravel.accommodationservice.repository.AccommodationUnitRepository;
+import com.megatravel.accommodationservice.repository.AmenityRepository;
+import com.megatravel.accommodationservice.repository.CityRepository;
+import com.megatravel.accommodationservice.repository.ImageRepository;
+import com.megatravel.accommodationservice.repository.LocationRepository;
+import com.megatravel.accommodationservice.repository.SpecificPriceRepository;
+import com.megatravel.accommodationservice.repository.TPersonRepository;
 
 @Service
 public class AccommodationUnitService 
@@ -64,11 +80,13 @@ public class AccommodationUnitService
 		Collection<AccommodationUnitDTO> retVal = new ArrayList<AccommodationUnitDTO>();
 		for(AccommodationUnit a : list)
 		{
-			retVal.add(new AccommodationUnitDTO(a));
+			AccommodationUnitDTO dto = new AccommodationUnitDTO(a);
+			retVal.add(dto);
 		}
 
 		return retVal;
 	}
+
 
 	public AccommodationUnit saveFromSoap(AccommodationUnit au) {
 
@@ -134,9 +152,22 @@ public class AccommodationUnitService
 		return ret;
 	}
 	
+
+	public List<Amenity> findAllAmenities() {
+		return amenityRepo.findAll();
+	}
 	
-	
-	
+	public List<AmenityDTO> findAllAmenitiesDTO() {
+
+		List<AmenityDTO> retVal = new ArrayList<>();
+
+		for (Amenity a: amenityRepo.findAll()) {
+			retVal.add(new AmenityDTO(a));
+		}
+
+		return retVal;
+
+	}
 	
 	
 	// * * * SEARCH UTILITIES * * *

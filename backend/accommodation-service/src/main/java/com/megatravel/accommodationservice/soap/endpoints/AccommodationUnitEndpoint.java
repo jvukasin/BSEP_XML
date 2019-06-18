@@ -113,33 +113,11 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
 
         GetAccommodationSettingsResponse response = factory.createGetAccommodationSettingsResponse();
 
-        List<Amenity> amenities = new ArrayList<>();
+        List<Amenity> amenities = acService.findAllAmenities();
 
-        Amenity a1 = new Amenity();
-        a1.setId(new Long(1));
-        a1.setName("Air Conditioning");
-        a1.setFaIcon("fa fa-snowflake-o");
-
-        Amenity a2 = new Amenity();
-        a2.setId(new Long(2));
-        a2.setName("WiFi");
-        a2.setFaIcon("fa fa-wifi");
-
-        Amenity a3 = new Amenity();
-        a3.setId(new Long(3));
-        a3.setName("Cable TV");
-        a3.setFaIcon("fa fa-television");
-
-        Amenity a4 = new Amenity();
-        a4.setId(new Long(4));
-        a4.setName("Hot water");
-        a4.setFaIcon("fa fa-bath");
-
-        response.getAmenity().add(a1);
-        response.getAmenity().add(a2);
-        response.getAmenity().add(a3);
-        response.getAmenity().add(a4);
-
+        for (Amenity a: amenities) {
+            response.getAmenity().add(a);
+        }
 
         AccommodationType t1 = new AccommodationType();
         t1.setType("hotel");

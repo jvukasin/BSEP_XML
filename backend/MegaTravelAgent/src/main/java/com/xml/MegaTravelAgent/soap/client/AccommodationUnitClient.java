@@ -37,7 +37,6 @@ public class AccommodationUnitClient extends WebServiceGatewaySupport implements
 
 		// temporary test
 		request.setAgentId(agentId);
-		au.setName("Kod Laze");
 		request.setAccommodationUnit(au);
 
 		PostAccommodationUnitResponse response = (PostAccommodationUnitResponse) getWebServiceTemplate()

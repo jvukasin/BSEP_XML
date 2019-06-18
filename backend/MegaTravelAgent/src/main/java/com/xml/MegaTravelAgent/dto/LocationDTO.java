@@ -1,5 +1,7 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.Location;
+
 public class LocationDTO {
 
     private Long id;
@@ -15,6 +17,22 @@ public class LocationDTO {
         this.coordinates = coordinates;
         this.distanceFromCity = distanceFromCity;
         this.city = city;
+    }
+    
+    public LocationDTO(Location location)
+    {
+    	id = location.getId();
+    	coordinates = location.getCoordinates();
+    	distanceFromCity = location.getDistanceFromCity();
+    	city = new CityDTO(location.getCity());
+    }
+
+    public LocationDTO(Location location)
+    {
+        id = location.getId();
+        coordinates = location.getCoordinates();
+        distanceFromCity = location.getDistanceFromCity();
+        city = new CityDTO(location.getCity());
     }
 
     public Long getId() {

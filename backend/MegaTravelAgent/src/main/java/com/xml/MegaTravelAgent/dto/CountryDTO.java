@@ -15,11 +15,12 @@ public class CountryDTO {
         this.name = name;
     }
 
-    public CountryDTO(Country c) {
-        this.id = c.getId();
-        this.name = c.getName();
+    public CountryDTO(Country country)
+    {
+    	id = country.getId();
+    	name = country.getName();
     }
-
+    
     public Long getId() {
         return id;
     }
