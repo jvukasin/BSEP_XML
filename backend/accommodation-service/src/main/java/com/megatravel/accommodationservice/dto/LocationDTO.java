@@ -1,5 +1,7 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.Location;
+
 public class LocationDTO {
 
     private Long id;
@@ -15,6 +17,14 @@ public class LocationDTO {
         this.coordinates = coordinates;
         this.distanceFromCity = distanceFromCity;
         this.city = city;
+    }
+    
+    public LocationDTO(Location location)
+    {
+    	id = location.getId();
+    	coordinates = location.getCoordinates();
+    	distanceFromCity = location.getDistanceFromCity();
+    	city = new CityDTO(location.getCity());
     }
 
     public Long getId() {

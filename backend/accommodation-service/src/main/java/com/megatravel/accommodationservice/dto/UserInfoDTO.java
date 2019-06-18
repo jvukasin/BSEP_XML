@@ -1,5 +1,7 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.TPerson;
+
 public class UserInfoDTO {
 
     private String username;
@@ -15,6 +17,15 @@ public class UserInfoDTO {
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+    
+    public UserInfoDTO(TPerson person)
+    {
+    	username = person.getUsername();
+    	email = person.getEmail();
+    	firstname = person.getName();
+    	lastname = person.getLastname();
+    	
     }
 
     public String getUsername() {

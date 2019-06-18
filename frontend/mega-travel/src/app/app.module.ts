@@ -22,6 +22,8 @@ import { BestPlacesComponent } from './homepage/best-places/best-places.componen
 import { BestFeaturedComponent } from './homepage/best-featured/best-featured.component';
 import { AboutUsComponent } from './homepage/about-us/about-us.component';
 import { AccommodationListComponent } from './accommodation-list/accommodation-list.component';
+import { AccommodationService } from './services/accommodation.service';
+import { SearchResultsService } from './services/search-results.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,7 @@ import { AccommodationListComponent } from './accommodation-list/accommodation-l
     ReactiveFormsModule
   ],
   
-  providers: [AuthService, UserService,
+  providers: [AuthService, UserService, AccommodationService, SearchResultsService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
 

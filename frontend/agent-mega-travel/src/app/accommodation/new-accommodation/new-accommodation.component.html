@@ -58,8 +58,21 @@
   
         <!-- ADDRESS -->
         <div class="form-group">
-          <input formControlName="coordinates"
-            type="text" class="form-ctrl" placeholder="Street and number">
+          <div class="row">
+            <div class="col-7">
+              <input formControlName="coordinates"
+              type="text" class="form-ctrl" placeholder="Street and number">
+            </div>
+            <div class="col-5">
+              <input formControlName="distanceFromCity"
+              type="number" class="form-ctrl distance" placeholder="Distance from city">
+              
+              <span class="after-input">km</span>
+            </div>
+
+            
+          </div>
+          
         </div>
         
   
@@ -96,12 +109,13 @@
         <p class="mb-4">Which of these features does your accommodation unit have?</p>
   
         <!-- AMENITIES -->
-        <div class="amenities-checkbox">
-          <div *ngFor="let a of amenities">
+        <div class="amenities-checkbox" formArrayName="amenities" >
+          <div *ngFor="let amenity of amenities; let i = index" [formGroupName]="i"
+          >
             <label class="cb-container">
-              <input type="checkbox" formControlName="amenity{{ a.id }}" >
+              <input type="checkbox" formControlName="selected" >
               <span class="checkmark"></span>
-              <i [ngClass]="a.faIcon"></i>{{ a.name }} 
+              <i [ngClass]="amenity.faIcon"></i>{{ amenity.name }} 
             </label>
           </div>
         </div>

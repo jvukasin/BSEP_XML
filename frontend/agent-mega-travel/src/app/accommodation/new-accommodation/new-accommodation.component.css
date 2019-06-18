@@ -35,6 +35,10 @@ p {
     width: 40%;
 }
 
+.form-ctrl.distance {
+    width:80%;
+}
+
 .after-input {
     margin-left: 20px;
     font-size: 21px;
