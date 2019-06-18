@@ -1,5 +1,11 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.AccommodationUnit;
+import com.megatravel.accommodationservice.model.Amenity;
+import com.megatravel.accommodationservice.model.Image;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.megatravel.accommodationservice.model.AccommodationUnit;

@@ -28,7 +28,7 @@ public interface AccommodationUnitRepository extends JpaRepository<Accommodation
 				"	accommodation_unit join location on accommodation_unit.location_id = location.id\n" + 
 				"where\n" + 
 				"	 location.city_id = :cityId and\n" + 
-				"     capacity <= :capacity and\n" + 
+				"     capacity >= :capacity and\n" +
 				"	 not exists \n" + 
 				"		(select distinct * \n" + 
 				"		 from \n" + 

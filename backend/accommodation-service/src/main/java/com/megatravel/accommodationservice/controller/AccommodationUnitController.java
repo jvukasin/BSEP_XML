@@ -71,14 +71,14 @@ public class AccommodationUnitController
 	
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public ResponseEntity<Collection<AccommodationUnit>> search(@RequestBody ExtendedSearchDTO dto)
+	public ResponseEntity<Collection<AccommodationUnitDTO>> search(@RequestBody ExtendedSearchDTO dto)
 	{
-		if(dto.getCityID() == null || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() == -1)
+		if(dto.getCity() == null || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() < 1)
 		{
-			return new ResponseEntity<Collection<AccommodationUnit>>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Collection<AccommodationUnitDTO>>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return new ResponseEntity<Collection<AccommodationUnit>>(accommodationService.search(dto), HttpStatus.OK);
+		return new ResponseEntity<Collection<AccommodationUnitDTO>>(accommodationService.search(dto), HttpStatus.OK);
 	}
 	
 	
