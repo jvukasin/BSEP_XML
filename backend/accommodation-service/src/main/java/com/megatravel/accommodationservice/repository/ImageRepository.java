@@ -2,12 +2,9 @@ package com.megatravel.accommodationservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.megatravel.accommodationservice.model.Amenity;
+import com.megatravel.accommodationservice.model.Image;
 
-
-
-
-public interface AmenityRepository extends JpaRepository<Amenity, Long> 
+public interface ImageRepository extends JpaRepository<Image, Long> 
 {
 	  	  
 }

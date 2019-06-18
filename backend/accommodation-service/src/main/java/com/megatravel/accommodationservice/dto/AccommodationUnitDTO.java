@@ -1,6 +1,7 @@
 package com.megatravel.accommodationservice.dto;
 
 import java.util.List;
+import java.util.Set;
 
 public class AccommodationUnitDTO {
 
@@ -13,8 +14,8 @@ public class AccommodationUnitDTO {
     private double price;
     private double ratingAvg;
     private int category;
-    private List<AmenityDTO> amenities;
-    private List<ImageDTO> images;
+    private Set<AmenityDTO> amenities;
+    private Set<ImageDTO> images;
     private LocationDTO location;
     private UserInfoDTO agent;
 
@@ -22,7 +23,7 @@ public class AccommodationUnitDTO {
     }
 
     public AccommodationUnitDTO(Long id, String name, String description, String type, int capacity, int cancellationPeriod, double price,
-                                double ratingAvg, int category, List<AmenityDTO> amenities, List<ImageDTO> images, LocationDTO location,
+                                double ratingAvg, int category, Set<AmenityDTO> amenities, Set<ImageDTO> images, LocationDTO location,
                                 UserInfoDTO agent) {
         this.id = id;
         this.name = name;
@@ -103,19 +104,19 @@ public class AccommodationUnitDTO {
         this.ratingAvg = ratingAvg;
     }
 
-    public List<AmenityDTO> getAmenities() {
+    public Set<AmenityDTO> getAmenities() {
         return amenities;
     }
 
-    public void setAmenities(List<AmenityDTO> amenities) {
+    public void setAmenities(Set<AmenityDTO> amenities) {
         this.amenities = amenities;
     }
 
-    public List<ImageDTO> getImages() {
+    public Set<ImageDTO> getImages() {
         return images;
     }
 
-    public void setImages(List<ImageDTO> images) {
+    public void setImages(Set<ImageDTO> images) {
         this.images = images;
     }
 

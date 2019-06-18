@@ -97,8 +97,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		public void configure(WebSecurity web) throws Exception {
 			// TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
 			web.ignoring().antMatchers(HttpMethod.POST, "/accSecurity/setAuthentication");
-			web.ignoring().antMatchers(HttpMethod.POST, "/accommodations/search");
+			web.ignoring().antMatchers(HttpMethod.GET, "/test/authTest");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
+			
+			//coa
+			web.ignoring().antMatchers(HttpMethod.POST, "/accommodations/**");
+			web.ignoring().antMatchers(HttpMethod.GET, "/accommodations/**");
 		}
 		
 		@Bean

@@ -8,29 +8,41 @@ import com.megatravel.accommodationservice.model.Amenity;
 
 public class ExtendedSearchDTO 
 {
-	 private String city;
-	 private Date startDate;
+	 private Long cityID;
+	 
+	 private Date fromDate;
 	 private Date endDate;
-	 private Integer personCount;
-	 private Double ratingAvg;
+	 
+	 private int personCount = -1;
+	 
+	 private double ratingAvg = -1;
 	 private List<Amenity> amenities;
 	 private String type;
-	 private String category;
+	 private double distanceFromCity = -1;
 
 
 
-	public ExtendedSearchDTO(String city, Date startDate, Date endDate, Integer personCount,
-			Double ratingAvg, List<Amenity> amenities, String t, String category) {
-		this.city = city;
-		this.startDate = startDate;
+	public ExtendedSearchDTO(Long cityID, Date fromDate, Date endDate, int personCount,
+			double ratingAvg, List<Amenity> amenities, String t, double distance) {
+		super();
+		this.cityID = cityID;
+		this.fromDate = fromDate;
 		this.endDate = endDate;
 		this.personCount = personCount;
 		this.ratingAvg = ratingAvg;
 		this.amenities = amenities;
+		this.distanceFromCity = distance;
 		this.type = t;
-		this.category = category;
 	}
 	
+	public double getDistanceFromCity() {
+		return distanceFromCity;
+	}
+
+	public void setDistanceFromCity(double distanceFromCity) {
+		this.distanceFromCity = distanceFromCity;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -39,11 +51,11 @@ public class ExtendedSearchDTO
 		this.type = type;
 	}
 
-	public Double getRatingAvg() {
+	public double getRatingAvg() {
 		return ratingAvg;
 	}
 
-	public void setRatingAvg(Double ratingAvg) {
+	public void setRatingAvg(double ratingAvg) {
 		this.ratingAvg = ratingAvg;
 	}
 
@@ -59,20 +71,20 @@ public class ExtendedSearchDTO
 		super();
 	}
 
-	public String getCity() {
-		return city;
+	public Long getCityID() {
+		return cityID;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setCityID(Long cityID) {
+		this.cityID = cityID;
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public Date getFromDate() {
+		return fromDate;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
 	}
 
 	public Date getEndDate() {
@@ -83,19 +95,11 @@ public class ExtendedSearchDTO
 		this.endDate = endDate;
 	}
 
-	public Integer getPersonCount() {
+	public int getPersonCount() {
 		return personCount;
 	}
 
-	public void setPersonCount(Integer personCount) {
+	public void setPersonCount(int personCount) {
 		this.personCount = personCount;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 }
