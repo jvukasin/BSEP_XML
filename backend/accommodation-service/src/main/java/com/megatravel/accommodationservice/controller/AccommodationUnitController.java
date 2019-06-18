@@ -77,12 +77,12 @@ public class AccommodationUnitController
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<?> create(@RequestBody AccommodationUnitDTO accommodationUnit)
 	{	
-		
-		if(accommodationService.save(accommodationUnit) == true)
+		try
 		{
-			return new ResponseEntity<>(HttpStatus.CREATED);
+			Long id = accommodationService.save(accommodationUnit);
+			return new ResponseEntity<>(id,HttpStatus.CREATED);
 		}
-		else
+		catch(BusinessException e)
 		{
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}	

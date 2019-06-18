@@ -102,7 +102,7 @@ public class AccommodationUnitService
 		return list;
 	}
 	
-	public boolean save(AccommodationUnitDTO dto)
+	public Long save(AccommodationUnitDTO dto)
 	{			
 		AccommodationUnit accommodation = new AccommodationUnit();
 
@@ -114,7 +114,7 @@ public class AccommodationUnitService
 		}
 		catch(Exception e)
 		{
-			return false;
+			throw new BusinessException("An unknown agent tried to register an accommodation.");
 		}
 		
 		accommodation.setName(dto.getName());
@@ -123,8 +123,7 @@ public class AccommodationUnitService
 		
 		if(dto.getCapacity() < 1)
 		{
-			System.out.println("Izasao zbog: capacity");
-			return false;
+			throw new BusinessException("Capacity cannot be 0 or less.");
 		}
 			
 		
@@ -146,8 +145,7 @@ public class AccommodationUnitService
 				}
 				catch(NoSuchElementException e)
 				{
-					System.out.println("Izasao zbog: amenity" + amenityDTO.getId());
-					return false;
+					throw new BusinessException("Unknown amenity: " + amenityDTO.getName() + " found in request.");
 				}
 			}
 		}
@@ -181,14 +179,13 @@ public class AccommodationUnitService
 		}
 		catch(NoSuchElementException e)
 		{
-			System.out.println("Izasao zbog: city" + dto.getLocation().getCity().getId());
-			return false;
+			throw new BusinessException("Unknown city:" + dto.getLocation().getCity().getName() + " found in request.");
 		}
 
 		
 		
 		accommodationRepo.save(accommodation);
-		return true;
+		return accommodation.getId();
 	}
 
 	
