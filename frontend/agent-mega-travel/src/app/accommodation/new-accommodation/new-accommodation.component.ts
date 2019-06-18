@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccommodationService } from 'src/app/services/accommodation.service';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { LocationService } from 'src/app/services/location.service';
+import { formDirectiveProvider } from '@angular/forms/src/directives/ng_form';
 
 @Component({
   selector: 'app-new-accommodation',
@@ -18,19 +19,20 @@ export class NewAccommodationComponent implements OnInit {
 	
 
 	newAccommodationForm = this.fb.group({
-		type: ['', Validators.required],
-		capacity: ['', Validators.required],
 		name: ['', Validators.required],
 		description: ['', Validators.required],
+		type: ['', Validators.required],
+		capacity: ['', Validators.required],
+		cancellationPeriod: ['', Validators.required],
+		defaultPrice: ['', Validators.required],
 		coordinates: ['', Validators.required],
+		distanceFromCity: ['', Validators.required],
 		city: ['', Validators.required],
 		country: ['', Validators.required],
-		amenities: this.fb.array([]),
-		defaultPrice: ['', Validators.required],
-		cancellationPeriod: ['', Validators.required],
 		specificPlans: this.fb.array([]),
 		image: ['', Validators.required],
-		images: this.fb.array([])
+		images: this.fb.array([]),
+		amenities: this.fb.array
 		
 	  });
 
@@ -78,12 +80,7 @@ export class NewAccommodationComponent implements OnInit {
 		);
 	}
  
-	renderAmenities() {
-
-		this.amenities.map(a => {
-			this.newAccommodationForm.addControl("amenity" + a.id, this.fb.control(false, Validators.required));
-		});
-	}
+	
 
 	onAddPlan() {
 		(<FormArray>this.newAccommodationForm.get('specificPlans')).push(
@@ -117,8 +114,86 @@ export class NewAccommodationComponent implements OnInit {
 	
 
 	onSubmit() {
-		console.log(this.newAccommodationForm);
+
+		if (!this.validateForm()) return;
+
+		let auDTO = this.formDTO();
+
+		console.log(auDTO);
 
 	}
+
+
+	private renderAmenities() {
+
+		this.newAccommodationForm.setControl('amenities', this.mapToCheckboxArrayGroup(this.amenities));
+		
+	}
+
+	private getSelectedAmenities(amenitiesFormArray) {
+		return amenitiesFormArray.filter(a => a.selected);
+	}
+	
+	private mapToCheckboxArrayGroup(amenities) {
+		return this.fb.array(amenities.map((a) => {
+			return this.fb.group({
+			id: a.id,
+			name: a.name,
+			faIcon: a.faIcon,
+			selected: [false, Validators.required]
+			});
+		}));
+	}
+
+
+	private validateForm() {
+		return true;
+	}
+
+	private formDTO() {
+
+		return {
+			name: this.newAccommodationForm.get('name').value,
+			description: this.newAccommodationForm.get('description').value,
+			type: this.newAccommodationForm.get('type').value,
+			capacity: this.newAccommodationForm.get('capacity').value,
+			cancellationPeriod: this.newAccommodationForm.get('cancellationPeriod').value,
+			defaultPrice: this.newAccommodationForm.get('defaultPrice').value,
+			location: this.formLocationDTO( this.newAccommodationForm.get('coordinates').value,
+											this.newAccommodationForm.get('distanceFromCity').value,
+											this.newAccommodationForm.get('city').value),
+			amenities: this.getSelectedAmenities(this.newAccommodationForm.get('amenities').value),
+			specificPrices: this.newAccommodationForm.get('specificPlans').value,
+			images: this.formImagesDTO(this.newAccommodationForm.get('image').value,
+										this.newAccommodationForm.get('images').value)
+		}
+
+	}
+
+	private formLocationDTO(coordinates, distanceFromCity, cityId) {
+
+		return {
+			coordinates: coordinates,
+			distanceFromCity: distanceFromCity,
+			city: this.cities[cityId]
+		}
+	}
+
+
+	private formImagesDTO(imageUrl, images) {
+		
+		// put it inside of object (dummy)
+		let image = {
+			imageUrl: imageUrl
+		}
+
+		// add to the beggining of the array
+		images.unshift(image);
+
+		return images;
+
+	}
+
+	
 
 }
