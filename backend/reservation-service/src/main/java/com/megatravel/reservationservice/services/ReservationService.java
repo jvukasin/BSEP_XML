@@ -1,7 +1,8 @@
 package com.megatravel.reservationservice.services;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Optional;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,8 +10,11 @@ import org.springframework.stereotype.Service;
 import com.megatravel.reservationservice.dto.ReservationDTO;
 import com.megatravel.reservationservice.model.Reservation;
 import com.megatravel.reservationservice.model.TPerson;
+import com.megatravel.reservationservice.model.User;
 import com.megatravel.reservationservice.repository.ReservationRepository;
 import com.megatravel.reservationservice.repository.TPersonRepository;
+
+import exceptions.BusinessException;
 
 @Service
 public class ReservationService 
@@ -22,14 +26,29 @@ public class ReservationService
 	private TPersonRepository personRepo;
 	
 	
-	public Collection<Reservation> findAll()
+	public Collection<ReservationDTO> findAll()
 	{
-		return reservationRepo.findAll();
+		Collection<Reservation> list = reservationRepo.findAll();
+		Collection<ReservationDTO> retVal = new ArrayList<ReservationDTO>();
+		
+		for(Reservation reservation : list)
+		{
+			retVal.add(new ReservationDTO(reservation));
+		}
+		
+		return retVal;
 	}
 
-	public Optional<Reservation> findById(Long id)
+	public ReservationDTO findById(Long id)
 	{
-		return reservationRepo.findById(id);
+		try
+		{
+			return new ReservationDTO(reservationRepo.findById(id).get());
+		}
+		catch(NoSuchElementException e)
+		{	
+			throw new BusinessException("No reservation with id: " + id + " found.");
+		}
 	}
 	
 	
@@ -39,7 +58,7 @@ public class ReservationService
 	
 		if(dto.getStartDate().getTime() >= dto.getEndDate().getTime())
 		{
-			return false;
+			throw new BusinessException("Invalid start and end date input in request.");
 		}
 		
 		reservation.setStartDate(dto.getStartDate());
@@ -48,12 +67,12 @@ public class ReservationService
 		
 		try
 		{
-			TPerson reservator = personRepo.findById(dto.getReservator().getUsername()).get();
-			reservation.setReservator(reservator);
+			User reservator = (User) personRepo.findById(dto.getReservator().getUsername()).get();
+			
 		}
 		catch(Exception e)
 		{
-			return false;
+			throw new BusinessException("Invalid start and end date input in request.");
 		}
 		
 		
