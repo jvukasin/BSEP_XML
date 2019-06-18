@@ -139,7 +139,7 @@ INSERT INTO city (id, name, country_id) values
 INSERT INTO location (id, coordinates, distance_from_city, city_id) values
 (1, 'Miris ljeta 96', 3, 51),
 (2, 'Terazije 20', 7, 52),
-(3, 'St Patricks street 3', 10, 71);
+(3, 'St Patricks street 3', 10, 71),
 (4, 'Proba ulice 44', 0, 51);
 
 

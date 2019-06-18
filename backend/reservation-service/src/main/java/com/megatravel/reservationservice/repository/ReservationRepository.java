@@ -17,9 +17,9 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long>
 	Collection<Reservation> findOneByAccommodationUnit(AccommodationUnit accommodation);
 
 	@Modifying
-	@Query("UPDATE reservation \r\n" + 
+	@Query("UPDATE Reservation \r\n" + 
 			"SET is_successful = true\r\n" + 
 			"WHERE id = :reservationID")
-	void setSuccessful(@Param("reservationID") Long id);
+	void setSuccessful(@Param("reservationID") Long reservationID);
 
 }
