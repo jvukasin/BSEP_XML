@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xml.MegaTravelAgent.dto.AccommodationUnitDTO;
 
+import java.util.Collection;
 import java.util.List;
 
 
@@ -41,7 +42,20 @@ public class AccommodationUnitController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getAccommodationUnit(@PathVariable Long id)
 	{
-		return new ResponseEntity<>(HttpStatus.OK);
+		try
+		{
+			return new ResponseEntity<AccommodationUnitDTO>(auService.findById(id), HttpStatus.OK);
+
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
@@ -62,8 +76,19 @@ public class AccommodationUnitController {
 	@RequestMapping(value = "/{id}/amenities", method = RequestMethod.GET)
 	public ResponseEntity<?> getAUAmenities(@PathVariable Long id)
 	{
+		try
+		{
+			return new ResponseEntity<Collection<AmenityDTO>>(auService.findById(id).getAmenities(), HttpStatus.OK);
 
-		return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	// just for testing, treba da se prebaci u servis
