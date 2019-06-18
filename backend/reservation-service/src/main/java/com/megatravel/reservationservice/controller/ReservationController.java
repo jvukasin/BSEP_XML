@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.megatravel.reservationservice.dto.ReservationDTO;
-import com.megatravel.reservationservice.model.Reservation;
 import com.megatravel.reservationservice.services.ReservationService;
 
 import exceptions.BusinessException;
@@ -44,6 +43,11 @@ public class ReservationController
 		{
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
 	}
 	
 	
@@ -52,22 +56,60 @@ public class ReservationController
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<?> createReservation(@RequestBody ReservationDTO dto)
 	{	
-
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		try
+		{
+			return new ResponseEntity<Long>(reservationService.create(dto), HttpStatus.OK); 
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
+	
+	
 	
 	//ROLE: ulogovan
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> cancellReservation(@PathVariable Long reservationId)
 	{	
-		return new ResponseEntity<>(HttpStatus.OK);
+		try
+		{				
+			reservationService.delete(reservationId);
+			
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_MODIFIED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
+	
+	
 	
 	//ROLE: agent
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> setActive(@PathVariable Long reservationId)
+	public ResponseEntity<?> setSuccessful(@PathVariable Long reservationId)
 	{	
-		return new ResponseEntity<>(HttpStatus.OK);
+		try
+		{				
+			return new ResponseEntity<Long>(reservationService.setSuccessful(reservationId), HttpStatus.OK);
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_MODIFIED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 }

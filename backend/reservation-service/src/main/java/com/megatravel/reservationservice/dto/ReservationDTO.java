@@ -9,9 +9,9 @@ public class ReservationDTO {
     private Long id;
     private Date startDate;
     private Date endDate;
-    private double price;
     private boolean isSuccessful;
     private Long accommodationUnitId;
+    private double price;
     private UserInfoDTO reservator;
 
     public ReservationDTO() {
