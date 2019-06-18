@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.megatravel.accommodationservice.dto.LocationDTO;
+
 
 /**
  * <p>Java class for anonymous complex type.
@@ -85,6 +87,7 @@ public class Location {
     public Location() {
 		super();
 	}
+    
 
 	public AccommodationUnit getAccommodationUnit() {
 		return accommodationUnit;

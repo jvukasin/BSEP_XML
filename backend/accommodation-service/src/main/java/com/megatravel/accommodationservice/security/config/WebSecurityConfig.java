@@ -82,6 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 					.antMatchers("/accSecurity/**").permitAll()
 				.antMatchers("/h2-console/**").permitAll()
 				.antMatchers("/ws/**").permitAll()
+				.antMatchers("/accommodations/**").permitAll()
 				// svaki zahtev mora biti autorizovan
 				.anyRequest().authenticated().and()
 				// presretni svaki zahtev filterom
@@ -97,6 +98,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 			// TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
 			web.ignoring().antMatchers(HttpMethod.POST, "/accSecurity/setAuthentication");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
+			
+			//coa
+			web.ignoring().antMatchers(HttpMethod.POST, "/accommodations/**");
+			web.ignoring().antMatchers(HttpMethod.GET, "/accommodations/**");
 		}
 		
 		@Bean

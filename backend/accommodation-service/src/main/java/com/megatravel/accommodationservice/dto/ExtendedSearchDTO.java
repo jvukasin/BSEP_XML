@@ -13,16 +13,17 @@ public class ExtendedSearchDTO
 	 private Date fromDate;
 	 private Date endDate;
 	 
-	 private Integer personCount;
+	 private int personCount = -1;
 	 
-	 private Double ratingAvg;
+	 private double ratingAvg = -1;
 	 private List<Amenity> amenities;
 	 private String type;
+	 private double distanceFromCity = -1;
 
 
 
-	public ExtendedSearchDTO(Long cityID, Date fromDate, Date endDate, Integer personCount,
-			Double ratingAvg, List<Amenity> amenities, String t) {
+	public ExtendedSearchDTO(Long cityID, Date fromDate, Date endDate, int personCount,
+			double ratingAvg, List<Amenity> amenities, String t, double distance) {
 		super();
 		this.cityID = cityID;
 		this.fromDate = fromDate;
@@ -30,9 +31,18 @@ public class ExtendedSearchDTO
 		this.personCount = personCount;
 		this.ratingAvg = ratingAvg;
 		this.amenities = amenities;
+		this.distanceFromCity = distance;
 		this.type = t;
 	}
 	
+	public double getDistanceFromCity() {
+		return distanceFromCity;
+	}
+
+	public void setDistanceFromCity(double distanceFromCity) {
+		this.distanceFromCity = distanceFromCity;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -41,11 +51,11 @@ public class ExtendedSearchDTO
 		this.type = type;
 	}
 
-	public Double getRatingAvg() {
+	public double getRatingAvg() {
 		return ratingAvg;
 	}
 
-	public void setRatingAvg(Double ratingAvg) {
+	public void setRatingAvg(double ratingAvg) {
 		this.ratingAvg = ratingAvg;
 	}
 
@@ -85,11 +95,11 @@ public class ExtendedSearchDTO
 		this.endDate = endDate;
 	}
 
-	public Integer getPersonCount() {
+	public int getPersonCount() {
 		return personCount;
 	}
 
-	public void setPersonCount(Integer personCount) {
+	public void setPersonCount(int personCount) {
 		this.personCount = personCount;
 	}
 }

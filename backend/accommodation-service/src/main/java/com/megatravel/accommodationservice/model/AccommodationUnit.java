@@ -164,17 +164,17 @@ public class AccommodationUnit {
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "accommodationunit_amenity")
-    protected Set<Amenity> amenity;
+    protected Set<Amenity> amenity = new HashSet<Amenity>();
     
     
     @XmlElement(name = "Image", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
 	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    protected Set<Image> image;
+    protected Set<Image> image = new HashSet<Image>();
     
     
     @XmlElement(name = "SpecificPrice", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
 	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    protected List<SpecificPrice> specificPrice;
+    protected List<SpecificPrice> specificPrice = new ArrayList<SpecificPrice>();
     
     
     @XmlElement(name = "Location", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
@@ -193,7 +193,7 @@ public class AccommodationUnit {
 
     
 	@OneToMany(mappedBy = "accommodationUnit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Reservation> reservation;
+	private List<Reservation> reservation = new ArrayList<Reservation>();
 
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
