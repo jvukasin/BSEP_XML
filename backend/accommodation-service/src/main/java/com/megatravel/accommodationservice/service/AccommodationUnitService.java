@@ -1,6 +1,7 @@
 package com.megatravel.accommodationservice.service;
 
 import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.AmenityDTO;
 import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
 import com.megatravel.accommodationservice.model.*;
 import com.megatravel.accommodationservice.repository.*;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -65,6 +67,7 @@ public class AccommodationUnitService
 
 		return retVal;
 	}
+
 
 	public AccommodationUnit saveFromSoap(AccommodationUnit au) {
 
@@ -125,9 +128,22 @@ public class AccommodationUnitService
 		return ret;
 	}
 	
+
+	public List<Amenity> findAllAmenities() {
+		return amenityRepo.findAll();
+	}
 	
-	
-	
+	public List<AmenityDTO> findAllAmenitiesDTO() {
+
+		List<AmenityDTO> retVal = new ArrayList<>();
+
+		for (Amenity a: amenityRepo.findAll()) {
+			retVal.add(new AmenityDTO(a));
+		}
+
+		return retVal;
+
+	}
 	
 	
 	// * * * SEARCH UTILITIES * * *

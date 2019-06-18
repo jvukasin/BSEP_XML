@@ -1,5 +1,10 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.AccommodationUnit;
+import com.xml.MegaTravelAgent.model.Amenity;
+import com.xml.MegaTravelAgent.model.Image;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccommodationUnitDTO {
@@ -13,8 +18,8 @@ public class AccommodationUnitDTO {
     private double price;
     private double ratingAvg;
     private int category;
-    private List<AmenityDTO> amenities;
-    private List<ImageDTO> images;
+    private List<AmenityDTO> amenities = new ArrayList<>();
+    private List<ImageDTO> images = new ArrayList<>();
     private LocationDTO location;
     private UserInfoDTO agent;
 
@@ -37,6 +42,34 @@ public class AccommodationUnitDTO {
         this.images = images;
         this.location = location;
         this.agent = agent;
+    }
+
+    public AccommodationUnitDTO(AccommodationUnit accommodation)
+    {
+
+        id = accommodation.getId();
+        name = accommodation.getName();
+        description = accommodation.getDescription();
+        type = accommodation.getType();
+        capacity = accommodation.getCapacity();
+        cancellationPeriod = accommodation.getCancellationPeriod();
+        price = accommodation.getPrice();
+        ratingAvg = accommodation.getRatingAvg();
+        category = accommodation.getCategory();
+
+        for(Amenity amenity : accommodation.getAmenity())
+        {
+            amenities.add(new AmenityDTO(amenity));
+        }
+
+        for(Image image : accommodation.getImage())
+        {
+            images.add(new ImageDTO(image));
+        }
+
+        location = new LocationDTO(accommodation.getLocation());
+        //agent = new UserInfoDTO(accommodation.getAgent());
+
     }
 
     public Long getId() {

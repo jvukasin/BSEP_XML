@@ -40,16 +40,28 @@ public class AccommodationUnitService
 	@Autowired
 	private AccommodationUnitClient auClient;
 
-
-	public Optional<AccommodationUnit> findById(Long id)
+	public AccommodationUnitDTO findById(Long id)
 	{
-
-		return accommodationRepo.findById(id);
+		try
+		{
+			return new AccommodationUnitDTO(accommodationRepo.findById(id).get());
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new BusinessException("No accommodation unit with id: " + id + " found.");
+		}
 	}
-	
-	public Collection<AccommodationUnit> findAll()
+
+	public Collection<AccommodationUnitDTO> findAll()
 	{
-		return accommodationRepo.findAll();
+		Collection<AccommodationUnit> list = accommodationRepo.findAll();
+		Collection<AccommodationUnitDTO> retVal = new ArrayList<AccommodationUnitDTO>();
+		for(AccommodationUnit a : list)
+		{
+			retVal.add(new AccommodationUnitDTO(a));
+		}
+
+		return retVal;
 	}
 	
 	public Collection<AccommodationUnit> search(ExtendedSearchDTO dto)

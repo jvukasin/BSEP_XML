@@ -32,7 +32,7 @@ public class AccommodationUnitController {
 	IAccommodationUnitClient auClient;
 
 	@Autowired
-	AccommodationUnitService auService;
+	AccommodationUnitService accommodationService;
 
 	@Autowired
 	AmenityService amenityService;
@@ -41,7 +41,20 @@ public class AccommodationUnitController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getAccommodationUnit(@PathVariable Long id)
 	{
-		return new ResponseEntity<>(HttpStatus.OK);
+		try
+		{
+			return new ResponseEntity<AccommodationUnitDTO>(accommodationService.findById(id), HttpStatus.OK);
+
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
@@ -49,7 +62,7 @@ public class AccommodationUnitController {
 	{
 
 		try {
-			return new ResponseEntity<>(auService.save(auDTO), HttpStatus.CREATED);
+			return new ResponseEntity<>(accommodationService.save(auDTO), HttpStatus.CREATED);
 		} catch (BusinessException e) {
 			System.out.println(e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

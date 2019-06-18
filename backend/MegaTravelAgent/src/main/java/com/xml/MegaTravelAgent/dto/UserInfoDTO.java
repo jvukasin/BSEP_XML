@@ -1,5 +1,7 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.TPerson;
+
 public class UserInfoDTO {
 
     private String username;
@@ -16,6 +18,7 @@ public class UserInfoDTO {
         this.firstname = firstname;
         this.lastname = lastname;
     }
+
 
     public String getUsername() {
         return username;
