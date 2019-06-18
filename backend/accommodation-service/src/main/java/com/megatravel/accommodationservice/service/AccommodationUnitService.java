@@ -60,13 +60,9 @@ public class AccommodationUnitService
 	
 	public AccommodationUnitDTO findById(Long id)
 	{
-		System.out.println("usao u FINDBYID");
 		try
 		{
-			System.out.println("usao u TRY");
-			AccommodationUnitDTO asd = new AccommodationUnitDTO(accommodationRepo.findOneById(id));
-			System.out.println("vration ovaj acc: " + asd.getName());
-			return asd;
+			return new AccommodationUnitDTO(accommodationRepo.findOneById(id));
 		}
 		catch(NoSuchElementException e)
 		{
