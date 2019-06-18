@@ -1,7 +1,17 @@
 package com.megatravel.accommodationservice.dto;
 
+import com.megatravel.accommodationservice.model.AccommodationUnit;
+import com.megatravel.accommodationservice.model.Amenity;
+import com.megatravel.accommodationservice.model.Image;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.Set;
+
+import com.megatravel.accommodationservice.model.AccommodationUnit;
+import com.megatravel.accommodationservice.model.Amenity;
+import com.megatravel.accommodationservice.model.Image;
+
 
 public class AccommodationUnitDTO {
 
@@ -14,8 +24,8 @@ public class AccommodationUnitDTO {
     private double price;
     private double ratingAvg;
     private int category;
-    private Set<AmenityDTO> amenities;
-    private Set<ImageDTO> images;
+    private List<AmenityDTO> amenities;
+    private List<ImageDTO> images;
     private LocationDTO location;
     private UserInfoDTO agent;
 
@@ -23,7 +33,7 @@ public class AccommodationUnitDTO {
     }
 
     public AccommodationUnitDTO(Long id, String name, String description, String type, int capacity, int cancellationPeriod, double price,
-                                double ratingAvg, int category, Set<AmenityDTO> amenities, Set<ImageDTO> images, LocationDTO location,
+                                double ratingAvg, int category, List<AmenityDTO> amenities, List<ImageDTO> images, LocationDTO location,
                                 UserInfoDTO agent) {
         this.id = id;
         this.name = name;
@@ -38,6 +48,33 @@ public class AccommodationUnitDTO {
         this.images = images;
         this.location = location;
         this.agent = agent;
+    }
+    
+    public AccommodationUnitDTO(AccommodationUnit accommodation)
+    {
+    	
+    	id = accommodation.getId();
+    	name = accommodation.getName();
+    	type = accommodation.getType();
+    	capacity = accommodation.getCapacity();
+    	cancellationPeriod = accommodation.getCancellationPeriod();
+    	price = accommodation.getPrice();
+    	ratingAvg = accommodation.getRatingAvg();
+    	category = accommodation.getCategory();
+    	
+    	for(Amenity amenity : accommodation.getAmenity())
+    	{
+    		amenities.add(new AmenityDTO(amenity));
+    	}
+    	
+    	for(Image image : accommodation.getImage())
+    	{
+    		images.add(new ImageDTO(image));
+    	}
+    	
+    	location = new LocationDTO(accommodation.getLocation());
+    	agent = new UserInfoDTO(accommodation.getAgent());
+    	
     }
 
     public Long getId() {
@@ -104,19 +141,19 @@ public class AccommodationUnitDTO {
         this.ratingAvg = ratingAvg;
     }
 
-    public Set<AmenityDTO> getAmenities() {
+    public List<AmenityDTO> getAmenities() {
         return amenities;
     }
 
-    public void setAmenities(Set<AmenityDTO> amenities) {
+    public void setAmenities(List<AmenityDTO> amenities) {
         this.amenities = amenities;
     }
 
-    public Set<ImageDTO> getImages() {
+    public List<ImageDTO> getImages() {
         return images;
     }
 
-    public void setImages(Set<ImageDTO> images) {
+    public void setImages(List<ImageDTO> images) {
         this.images = images;
     }
 

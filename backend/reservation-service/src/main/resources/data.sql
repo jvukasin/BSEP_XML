@@ -140,6 +140,7 @@ INSERT INTO location (id, coordinates, distance_from_city, city_id) values
 (1, 'Miris ljeta 96', 3, 51),
 (2, 'Terazije 20', 7, 52),
 (3, 'St Patricks street 3', 10, 71);
+(4, 'Proba ulice 44', 0, 51);
 
 
 INSERT INTO accommodation_unit (id, cancellation_period, capacity, category, default_price, description, name, price, rating_avg, type, agent_username, location_id) values

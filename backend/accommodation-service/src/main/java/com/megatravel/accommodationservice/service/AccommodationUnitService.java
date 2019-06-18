@@ -1,20 +1,18 @@
 package com.megatravel.accommodationservice.service;
 
-import java.awt.peer.ScrollbarPeer;
-import java.util.*;
-
+import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
 import com.megatravel.accommodationservice.model.*;
 import com.megatravel.accommodationservice.repository.*;
+import exceptions.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.AmenityDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.dto.ImageDTO;
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class AccommodationUnitService 
@@ -44,16 +42,29 @@ public class AccommodationUnitService
 	EntityManager entityManager;
 
 	
-	public Optional<AccommodationUnit> findById(Long id)
+	public AccommodationUnitDTO findById(Long id)
 	{
-		return accommodationRepo.findById(id);
+		try
+		{
+			return new AccommodationUnitDTO(accommodationRepo.findById(id).get());
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new BusinessException("No accommodation unit with id: " + id + " found.");
+		}
 	}
 	
-	public Collection<AccommodationUnit> findAll()
+	public Collection<AccommodationUnitDTO> findAll()
 	{
-		return accommodationRepo.findAll();
-	}
+		Collection<AccommodationUnit> list = accommodationRepo.findAll();
+		Collection<AccommodationUnitDTO> retVal = new ArrayList<AccommodationUnitDTO>();
+		for(AccommodationUnit a : list)
+		{
+			retVal.add(new AccommodationUnitDTO(a));
+		}
 
+		return retVal;
+	}
 
 	public AccommodationUnit saveFromSoap(AccommodationUnit au) {
 
@@ -76,16 +87,20 @@ public class AccommodationUnitService
 
 	}
 
-	public Collection<AccommodationUnit> search(ExtendedSearchDTO dto)
-	{
-		Collection<AccommodationUnit> list = accommodationRepo.search(dto.getCityID(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
 
-		if(dto.getRatingAvg() != -1)
+	
+	public Collection<AccommodationUnitDTO> search(ExtendedSearchDTO dto)
+	{
+		City city = cityRepo.findOneByName(dto.getCity());
+
+		Collection<AccommodationUnit> list = accommodationRepo.search(city.getId(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
+		
+		if(dto.getRatingAvg() > 0)
 		{
 			list = aboveRating(list,dto.getRatingAvg());
 		}
 		
-		if(dto.getType() != null)
+		if(dto.getType() != null && dto.getType() != "")
 		{
 			list = selectType(list,dto.getType());
 		}
@@ -94,104 +109,21 @@ public class AccommodationUnitService
 		{
 			list = doesContainAmenities(list,dto.getAmenities());
 		}
-		
-		if(dto.getDistanceFromCity() != -1)
+
+		if(dto.getDistanceFromCity() >=0 )
 		{
 			list = underDistance(list,dto.getDistanceFromCity());
 		}
+
+		List<AccommodationUnitDTO> ret = new ArrayList<AccommodationUnitDTO>();
+
+		for(AccommodationUnit a : list) {
+			AccommodationUnitDTO adto = new AccommodationUnitDTO(a);
+			ret.add(adto);
+		}
 		
-		return list;
+		return ret;
 	}
-	
-	/*public boolean saveDto(AccommodationUnitDTO dto)
-	{			
-		AccommodationUnit accommodation = new AccommodationUnit();
-
-		try
-		{
-			Agent agent = (Agent) personRepo.findById(dto.getAgent().getUsername()).get();
-			accommodation.setAgent(agent);
-
-		}
-		catch(Exception e)
-		{
-			return false;
-		}
-		
-		accommodation.setName(dto.getName());
-		accommodation.setDescription(dto.getDescription());
-		accommodation.setType(dto.getType());
-		
-		if(dto.getCapacity() < 1)
-		{
-			System.out.println("Izasao zbog: capacity");
-			return false;
-		}
-			
-		
-		accommodation.setCapacity(dto.getCapacity());
-		accommodation.setCancellationPeriod(dto.getCancellationPeriod());
-		accommodation.setDefaultPrice(dto.getPrice());
-		accommodation.setRatingAvg(-1);
-		accommodation.setCategory(-1);
-		
-		accommodation.setAmenity(new HashSet<Amenity>());
-		if(dto.getAmenities() != null)
-		{
-			for(AmenityDTO amenityDTO : dto.getAmenities())
-			{
-				try
-				{
-					Amenity amenity = amenityRepo.findById(amenityDTO.getId()).get();
-					accommodation.getAmenity().add(amenity);
-				}
-				catch(NoSuchElementException e)
-				{
-					System.out.println("Izasao zbog: amenity" + amenityDTO.getId());
-					return false;
-				}
-			}
-		}
-
-		
-		accommodation.setImage(new HashSet<Image>());
-		if(dto.getImages() != null)
-		{
-			for(ImageDTO imageDTO : dto.getImages())
-			{
-					Image image = new Image();
-					image.setImageUrl(imageDTO.getImageUrl());
-					
-					accommodation.getImage().add(image);
-					imageRepo.save(image);	
-			}
-		}
-
-		
-		Location location = new Location();
-		try
-		{
-			location.setCoordinates(dto.getLocation().getCoordinates());
-			location.setDistanceFromCity(dto.getLocation().getDistanceFromCity());
-			
-			City city = cityRepo.findById(dto.getLocation().getCity().getId()).get();
-			location.setCity(city);
-			
-			accommodation.setLocation(location);
-			locationRepo.save(location);
-		}
-		catch(NoSuchElementException e)
-		{
-			System.out.println("Izasao zbog: city" + dto.getLocation().getCity().getId());
-			return false;
-		}
-
-		
-		
-		accommodationRepo.save(accommodation);
-		return true;
-	}*/
-
 	
 	
 	
@@ -260,8 +192,4 @@ public class AccommodationUnitService
 		return retVal;
 	}
 
-	public void saveLocation(Location loc) {
-
-		locationRepo.save(loc);
-	}
 }

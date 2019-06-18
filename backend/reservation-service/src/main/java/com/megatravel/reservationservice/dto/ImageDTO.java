@@ -1,5 +1,7 @@
 package com.megatravel.reservationservice.dto;
 
+import com.megatravel.reservationservice.model.Image;
+
 public class ImageDTO {
 
     private Long id;
@@ -11,6 +13,12 @@ public class ImageDTO {
     public ImageDTO(Long id, String imageUrl) {
         this.id = id;
         this.imageUrl = imageUrl;
+    }
+    
+    public ImageDTO(Image image)
+    {
+    	id = image.getId();
+    	imageUrl = image.getImageUrl();
     }
 
     public Long getId() {

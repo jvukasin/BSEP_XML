@@ -3,12 +3,13 @@ package com.megatravel.accommodationservice.dto;
 import java.util.Date;
 import java.util.List;
 
+import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.model.Amenity;
 
 
 public class ExtendedSearchDTO 
 {
-	 private Long cityID;
+	 private String city;
 	 
 	 private Date fromDate;
 	 private Date endDate;
@@ -21,11 +22,10 @@ public class ExtendedSearchDTO
 	 private double distanceFromCity = -1;
 
 
-
-	public ExtendedSearchDTO(Long cityID, Date fromDate, Date endDate, int personCount,
+	public ExtendedSearchDTO(String city, Date fromDate, Date endDate, int personCount,
 			double ratingAvg, List<Amenity> amenities, String t, double distance) {
 		super();
-		this.cityID = cityID;
+		this.city = city;
 		this.fromDate = fromDate;
 		this.endDate = endDate;
 		this.personCount = personCount;
@@ -71,12 +71,12 @@ public class ExtendedSearchDTO
 		super();
 	}
 
-	public Long getCityID() {
-		return cityID;
+	public String getCity() {
+		return city;
 	}
 
-	public void setCityID(Long cityID) {
-		this.cityID = cityID;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public Date getFromDate() {
