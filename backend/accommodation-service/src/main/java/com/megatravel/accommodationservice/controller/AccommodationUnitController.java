@@ -1,4 +1,5 @@
 package com.megatravel.accommodationservice.controller;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -55,30 +56,13 @@ public class AccommodationUnitController
 	
 	//ROLE: neulogovan i ulogovan
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public ResponseEntity<List<AccommodationUnit>> search(@RequestBody ExtendedSearchDTO dto)
+	public ResponseEntity<List<AccommodationUnitDTO>> search(@RequestBody ExtendedSearchDTO dto)
 	{
-		if(dto.getCityID() == null || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() == null)
+		if(dto.getCity() == null || dto.getEndDate() == null || dto.getStartDate() == null || dto.getPersonCount() == null || dto.getCity() == "" || dto.getEndDate().toString() == "" || dto.getStartDate().toString() == "" || dto.getPersonCount().toString() == "")
 		{
-			return new ResponseEntity<List<AccommodationUnit>>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<List<AccommodationUnitDTO>>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return new ResponseEntity<List<AccommodationUnit>>(accommodationService.search(dto), HttpStatus.OK);
-	}
-	
-	
-	//ROLE: agent i admin
-	//TODO: dto?
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> edit(@PathVariable("id") Long accommodationId)
-	{
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
-	//ROLE: agent, admin
-	//TODO: user token ili id
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<?> create(@RequestBody AccommodationUnitDTO accommodationUnit)
-	{	
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		return new ResponseEntity<List<AccommodationUnitDTO>>(accommodationService.search(dto), HttpStatus.OK);
 	}
 }

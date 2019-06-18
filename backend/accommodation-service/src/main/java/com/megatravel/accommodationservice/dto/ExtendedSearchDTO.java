@@ -8,29 +8,27 @@ import com.megatravel.accommodationservice.model.Amenity;
 
 public class ExtendedSearchDTO 
 {
-	 private Long cityID;
-	 
-	 private Date fromDate;
+	 private String city;
+	 private Date startDate;
 	 private Date endDate;
-	 
 	 private Integer personCount;
-	 
 	 private Double ratingAvg;
 	 private List<Amenity> amenities;
 	 private String type;
+	 private String category;
 
 
 
-	public ExtendedSearchDTO(Long cityID, Date fromDate, Date endDate, Integer personCount,
-			Double ratingAvg, List<Amenity> amenities, String t) {
-		super();
-		this.cityID = cityID;
-		this.fromDate = fromDate;
+	public ExtendedSearchDTO(String city, Date startDate, Date endDate, Integer personCount,
+			Double ratingAvg, List<Amenity> amenities, String t, String category) {
+		this.city = city;
+		this.startDate = startDate;
 		this.endDate = endDate;
 		this.personCount = personCount;
 		this.ratingAvg = ratingAvg;
 		this.amenities = amenities;
 		this.type = t;
+		this.category = category;
 	}
 	
 	public String getType() {
@@ -61,20 +59,20 @@ public class ExtendedSearchDTO
 		super();
 	}
 
-	public Long getCityID() {
-		return cityID;
+	public String getCity() {
+		return city;
 	}
 
-	public void setCityID(Long cityID) {
-		this.cityID = cityID;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public Date getFromDate() {
-		return fromDate;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setFromDate(Date fromDate) {
-		this.fromDate = fromDate;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
 	public Date getEndDate() {
@@ -91,5 +89,13 @@ public class ExtendedSearchDTO
 
 	public void setPersonCount(Integer personCount) {
 		this.personCount = personCount;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

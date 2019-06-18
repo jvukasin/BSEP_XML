@@ -40,14 +40,14 @@ public class AccommodationUnitService
 	{
 		return null;
 	}
-	
-	
 
-	
 
-	
-	
-	
+
+
+
+
+
+
 	private Collection<AccommodationUnit> selectType(Collection<AccommodationUnit> input, String type)
 	{
 		

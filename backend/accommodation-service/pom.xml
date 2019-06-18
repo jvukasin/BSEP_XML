@@ -75,9 +75,15 @@
 			<artifactId>spring-boot-starter-mobile</artifactId>
 			<version>1.5.18.RELEASE</version>
 		</dependency>
-		
-		
-	</dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+            <version>2.1.8.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+    </dependencies>
 	
 	<dependencyManagement>
 		<dependencies>

@@ -108,12 +108,4 @@ public class AuthController {
 
         return true;
     }
-
-//
-//    @RequestMapping(value = "/search", method = RequestMethod.POST, consumes = "application/json")
-//    public ResponseEntity<StandardSearchDTO> getSearchedHotels(@RequestBody StandardSearchDTO sDTO) {
-//        StandardSearchDTO s = sDTO;
-//        return new ResponseEntity<>(s, HttpStatus.OK);
-//    }
-
 }
