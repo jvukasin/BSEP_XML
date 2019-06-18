@@ -33,7 +33,7 @@ public class AccommodationUnitController {
 	IAccommodationUnitClient auClient;
 
 	@Autowired
-	AccommodationUnitService auService;
+	AccommodationUnitService accommodationService;
 
 	@Autowired
 	AmenityService amenityService;
@@ -44,7 +44,7 @@ public class AccommodationUnitController {
 	{
 		try
 		{
-			return new ResponseEntity<AccommodationUnitDTO>(auService.findById(id), HttpStatus.OK);
+			return new ResponseEntity<AccommodationUnitDTO>(accommodationService.findById(id), HttpStatus.OK);
 
 		}
 		catch(BusinessException e)
@@ -55,7 +55,6 @@ public class AccommodationUnitController {
 		{
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
@@ -63,7 +62,7 @@ public class AccommodationUnitController {
 	{
 
 		try {
-			return new ResponseEntity<>(auService.save(auDTO), HttpStatus.CREATED);
+			return new ResponseEntity<>(accommodationService.save(auDTO), HttpStatus.CREATED);
 		} catch (BusinessException e) {
 			System.out.println(e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -78,7 +77,7 @@ public class AccommodationUnitController {
 	{
 		try
 		{
-			return new ResponseEntity<Collection<AmenityDTO>>(auService.findById(id).getAmenities(), HttpStatus.OK);
+			return new ResponseEntity<Collection<AmenityDTO>>(accommodationService.findById(id).getAmenities(), HttpStatus.OK);
 
 		}
 		catch(BusinessException e)

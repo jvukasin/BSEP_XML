@@ -24,6 +24,14 @@ public class AmenityDTO {
     	faIcon = amenity.getFaIcon();
     }
 
+    public AmenityDTO(Amenity amenity)
+    {
+        id = amenity.getId();
+        name = amenity.getName();
+        faIcon = amenity.getFaIcon();
+    }
+
+
     public Long getId() {
         return id;
     }

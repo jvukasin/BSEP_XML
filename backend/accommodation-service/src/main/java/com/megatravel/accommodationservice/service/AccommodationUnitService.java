@@ -1,17 +1,21 @@
 package com.megatravel.accommodationservice.service;
 
+
+import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.AmenityDTO;
+import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
+import com.megatravel.accommodationservice.model.*;
+import com.megatravel.accommodationservice.repository.*;
+import exceptions.BusinessException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import javax.persistence.EntityManager;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.model.Amenity;
 import com.megatravel.accommodationservice.model.City;
@@ -25,8 +29,6 @@ import com.megatravel.accommodationservice.repository.ImageRepository;
 import com.megatravel.accommodationservice.repository.LocationRepository;
 import com.megatravel.accommodationservice.repository.SpecificPriceRepository;
 import com.megatravel.accommodationservice.repository.TPersonRepository;
-
-import exceptions.BusinessException;
 
 @Service
 public class AccommodationUnitService 
@@ -80,6 +82,7 @@ public class AccommodationUnitService
 
 		return retVal;
 	}
+
 
 	public AccommodationUnit saveFromSoap(AccommodationUnit au) {
 
@@ -140,9 +143,22 @@ public class AccommodationUnitService
 		return ret;
 	}
 	
+
+	public List<Amenity> findAllAmenities() {
+		return amenityRepo.findAll();
+	}
 	
-	
-	
+	public List<AmenityDTO> findAllAmenitiesDTO() {
+
+		List<AmenityDTO> retVal = new ArrayList<>();
+
+		for (Amenity a: amenityRepo.findAll()) {
+			retVal.add(new AmenityDTO(a));
+		}
+
+		return retVal;
+
+	}
 	
 	
 	// * * * SEARCH UTILITIES * * *

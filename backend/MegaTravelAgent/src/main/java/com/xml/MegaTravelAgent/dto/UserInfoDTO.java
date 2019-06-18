@@ -28,6 +28,7 @@ public class UserInfoDTO {
     	
     }
 
+
     public String getUsername() {
         return username;
     }

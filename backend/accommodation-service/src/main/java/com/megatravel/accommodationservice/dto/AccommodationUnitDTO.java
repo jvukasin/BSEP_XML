@@ -51,6 +51,7 @@ public class AccommodationUnitDTO {
     	
     	id = accommodation.getId();
     	name = accommodation.getName();
+    	description = accommodation.getDescription();
     	type = accommodation.getType();
     	capacity = accommodation.getCapacity();
     	cancellationPeriod = accommodation.getCancellationPeriod();
@@ -69,7 +70,7 @@ public class AccommodationUnitDTO {
     	}
     	
     	location = new LocationDTO(accommodation.getLocation());
-    	agent = new UserInfoDTO(accommodation.getAgent());
+    	//agent = new UserInfoDTO(accommodation.getAgent());
     	
     }
 

@@ -21,6 +21,12 @@ public class ImageDTO {
     	imageUrl = image.getImageUrl();
     }
 
+    public ImageDTO(Image image)
+    {
+        id = image.getId();
+        imageUrl = image.getImageUrl();
+    }
+
     public Long getId() {
         return id;
     }
