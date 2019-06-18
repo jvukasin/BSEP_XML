@@ -12,6 +12,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NewAccommodationComponent } from './accommodation/new-accommodation/new-accommodation.component';
 import { AccommodationService } from './services/accommodation.service';
+import { LocationService } from './services/location.service';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AccommodationService } from './services/accommodation.service';
   LoginComponent,
   ReservationComponent,
   NavbarComponent,
-  NewAccommodationComponent],
+  NewAccommodationComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -32,7 +34,7 @@ import { AccommodationService } from './services/accommodation.service';
     ReactiveFormsModule
   ],
   
-  providers: [ AccommodationService ],
+  providers: [ AccommodationService, LocationService ],
 
   bootstrap: [AppComponent]
 })

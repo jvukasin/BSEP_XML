@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccommodationService } from 'src/app/services/accommodation.service';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-new-accommodation',
@@ -11,6 +12,10 @@ export class NewAccommodationComponent implements OnInit {
 
 	amenities: any = [];
 	accommodationTypes: any = [];
+
+	countries: any = [];
+	cities: any = [];
+	
 
 	newAccommodationForm = this.fb.group({
 		type: ['', Validators.required],
@@ -29,10 +34,18 @@ export class NewAccommodationComponent implements OnInit {
 		
 	  });
 
-	constructor(private acService: AccommodationService, private fb: FormBuilder) {
-
+	constructor(private acService: AccommodationService, private fb: FormBuilder, private locationService: LocationService) {
 
 		
+		locationService.getCountries().subscribe(
+			payload => {
+				this.countries = payload;
+				console.log(this.countries);
+			}, error => {
+				alert("Can't fetch countries");
+			}
+
+		);
 		
 		acService.getAccommodationSettings().subscribe(
 			(data:any) => {
@@ -50,6 +63,21 @@ export class NewAccommodationComponent implements OnInit {
 	
 	}
 
+	
+	ngOnInit() {
+
+		
+	}
+
+	onChangeCountry(e) {
+		this.locationService.getCountryCities(e.target.value).subscribe(
+			payload => this.cities = payload,
+			error => alert("Cant fetch country's cities")
+				
+			
+		);
+	}
+ 
 	renderAmenities() {
 
 		this.amenities.map(a => {
@@ -85,13 +113,12 @@ export class NewAccommodationComponent implements OnInit {
 		(<FormArray>this.newAccommodationForm.get('images')).removeAt(index);
 	}
 
-	ngOnInit() {
 
-		
-	}
+	
 
 	onSubmit() {
 		console.log(this.newAccommodationForm);
+
 	}
 
 }

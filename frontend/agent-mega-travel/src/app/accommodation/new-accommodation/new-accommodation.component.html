@@ -66,28 +66,23 @@
         <!-- CITY AND COUNTRY -->
         <div class="form-group">
           <div class="row">
-            <!-- CITY -->
+            <!-- COUNTRY -->
             <div class="col-6">
-              <select class="form-ctrl" required formControlName="type">
-                <option value="">City</option>
-                <option value="1">Hotel</option>
-                <option value="2">Bed N Breakfast</option>
-                <option value="3">Studio</option>
+              <select class="form-ctrl" required formControlName="country" (change)="onChangeCountry($event)">
+                <option value="">Country</option>
+                <option *ngFor="let country of countries | keyvalue" value="{{country.key}}" >
+                  {{country.value.name}}
+                </option>
               </select>
             </div>
             
-            <!-- COUNTRY -->
+            <!-- CITY -->
             <div class="col-6">
-              <select class="form-ctrl" required formControlName="capacity">
-                <option value="">Country</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
+              <select class="form-ctrl" required formControlName="city">
+                <option value="">City</option>
+                <option *ngFor="let city of cities | keyvalue" value="{{city.key}}" >
+                  {{city.value.name}}
+                </option>
               </select>
             </div>
           </div>
