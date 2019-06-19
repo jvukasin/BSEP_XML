@@ -24,9 +24,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 
 /**
  * <p>Java class for TPerson complex type.
@@ -102,7 +99,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 @Inheritance(strategy= InheritanceType.SINGLE_TABLE) //ovom anotacijom se naglasava tip mapiranja "jedna tabela po hijerarhiji"
 @DiscriminatorColumn(name="type", discriminatorType= DiscriminatorType.STRING) //ovom anotacijom se navodi diskriminatorska kolona
-public class TPerson implements UserDetails {
+public class TPerson {
 
 	@Column(name = "name")
 	@NotNull
@@ -134,11 +131,6 @@ public class TPerson implements UserDetails {
     private String username;
 
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "username"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    protected List<Role> roles;
 
     @Column(name = "last_password_reset_date")
     private Timestamp lastPasswordResetDate;
@@ -279,13 +271,6 @@ public class TPerson implements UserDetails {
         return username;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
 
     public Timestamp getLastPasswordResetDate() {
         return lastPasswordResetDate;
@@ -295,7 +280,7 @@ public class TPerson implements UserDetails {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
 
-    @Override
+  /*  @Override
     public boolean isAccountNonExpired() {
         return true;
     }
@@ -328,6 +313,6 @@ public class TPerson implements UserDetails {
         }
         return null;
     }
-
+*/
 
 }
