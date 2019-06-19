@@ -18,10 +18,10 @@ export class AccommodationPageComponent implements OnInit {
   eDate: Date;
   guests: any;
   dayz: any = 0;
-  totalPrice: any = 0;
   amenities: any = [];
   firstIm: any;
   imagesRest: any = [];
+  totalPrice: number;
 
   constructor(private accService: AccommodationService, private srcService: SearchResultsService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(
@@ -51,8 +51,11 @@ export class AccommodationPageComponent implements OnInit {
     this.sDate = this.srcService.startDate;
     this.eDate = this.srcService.endDate;
     this.guests = this.srcService.guests;
-    
-    this.dayz = this.daydiff(this.parseDate(this.sDate), this.parseDate(this.eDate));
+    this.totalPrice = this.srcService.totalPrice;
+
+    if(this.sDate == undefined || this.eDate == undefined) {
+      this.router.navigate(['home']);
+    }
   }
 
   parseDate(str) {

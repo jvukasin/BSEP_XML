@@ -41,12 +41,11 @@
       <div class="sidebar">
         <h4 style="margin-bottom: 30px;">{{acu.name}}</h4>
         <div class="priceDate">
-          <h5>Price: ${{acu.price}}<span class="pernight">/per night</span></h5>
           <p class="guests"><i class="fa fa-user"></i> {{guests}} guests</p>
-          <p class="sel-date"><i class="fa fa-calendar-o"></i> {{sDate}} - {{eDate}}</p>
+          <p class="sel-date"><i class="fa fa-calendar-o"></i> {{sDate}} to {{eDate}}</p>
         </div>
         <div class="totalprice">
-          <h5>Total price: ${{acu.price * dayz}}</h5>
+          <h5>Total price: ${{totalPrice}}</h5>
         </div>
         <div class="book">
           <button class="btn btn-primary book-btn">Book</button>

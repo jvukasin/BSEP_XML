@@ -94,7 +94,7 @@ public class TotalPriceAccommodationDTO {
 		//incrementing for one day in milliseconds from start date, until end date
 		double retVal = 0;
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86401000L )
+		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86400000L )
 		{
 			Date currentDay = new Date(i);
 
@@ -106,6 +106,7 @@ public class TotalPriceAccommodationDTO {
 
 				if(isInSpecificPrice(currentDay,specificPrice))
 				{
+                    System.out.println("isinspecific");
 					retVal = retVal + specificPrice.getPrice();
 					found = true;
 					break;
@@ -122,14 +123,15 @@ public class TotalPriceAccommodationDTO {
 
 	private boolean isInSpecificPrice(Date currentDay, SpecificPrice specificPrice) 
 	{
-		if(currentDay.getTime() >= specificPrice.getStartDate().getTime() 
+		if(currentDay.compareTo(specificPrice.getStartDate()) >= 0
 		   && 
-		   currentDay.getTime() <= specificPrice.getEndDate().getTime())
+		   currentDay.compareTo(specificPrice.getEndDate()) <= 0)
 		{
 			return true;
 		}
 		else
 		{
+            System.out.println(currentDay.getTime() + "start: " + specificPrice.getStartDate().getTime() + " end:" + specificPrice.getEndDate().getTime());
 			return false;
 		}
 	}
