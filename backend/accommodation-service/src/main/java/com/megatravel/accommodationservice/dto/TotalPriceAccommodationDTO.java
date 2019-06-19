@@ -80,7 +80,7 @@ public class TotalPriceAccommodationDTO {
     	}
     	
     	location = new LocationDTO(accommodation.getLocation());
-    	agent = new UserInfoDTO(accommodation.getAgent());
+//    	agent = new UserInfoDTO(accommodation.getAgent());
     	startDate = start;
     	endDate = end;
     	
