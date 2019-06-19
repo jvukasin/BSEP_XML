@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccommodationService } from 'src/app/services/accommodation.service';
 
 @Component({
   selector: 'app-accommodation-list',
@@ -8,44 +9,14 @@ import { Router } from '@angular/router';
 })
 export class AccommodationListComponent implements OnInit {
 
-	accommodationUnits: any = [];
+	accommodationUnits: any = null;
 
-	constructor(private router: Router) { 
+	constructor(private router: Router, private acService: AccommodationService) { 
 
-		let mockAu = {
-			name: 'Wonderful Seaside Studio',
-			description: 'You will not regret visiting one of the most beautiful places on planet earth - town of Perast. In our accommodation you will feel seaside sensation.',
-			location: {
-				city: {
-					name: 'Perast',
-					country: {
-						name: 'Montenegro'
-					}
-				}
-			},
-			capacity: 2,
-			ratingAvg: 8.9,
-			price: 55,
-			image: {
-				imageUrl: 'https://www.i-escape.com/image/hotel/perast-boutique-apartment/overview/151352.jpg'
-			},
-			amenity: [
-				{
-					name: 'Wifi',
-					faIcon: 'fa fa-wifi'
-				},
-				{
-					name: 'Air Conditioning',
-					faIcon: 'fa fa-snowflake-o'
-				}
-
-			]
-			
-		} 
-
-		for (let i = 0; i < 5; i++) {
-			this.accommodationUnits.push(mockAu);
-		}
+		this.acService.getAllAccommodationUnits().subscribe(
+			payload => this.accommodationUnits = payload,
+			error => alert("Can't fetch accommodation units.")
+		)
 	}
 
 	ngOnInit() {
