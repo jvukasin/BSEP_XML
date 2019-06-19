@@ -111,7 +111,7 @@ public class AccommodationUnitService
 	public Collection<TotalPriceAccommodationDTO> search(ExtendedSearchDTO dto)
 	{
 		
-		if(dto.getCity() == null || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() < 1)
+		if(dto.getCity() == null || dto.getCity() == "" || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() < 1)
 		{
 			throw new BusinessException("Invalid search query.");
 		}
