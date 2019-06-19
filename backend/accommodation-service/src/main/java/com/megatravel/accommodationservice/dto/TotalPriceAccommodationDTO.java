@@ -1,5 +1,6 @@
 package com.megatravel.accommodationservice.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,7 +80,7 @@ public class TotalPriceAccommodationDTO {
     	}
     	
     	location = new LocationDTO(accommodation.getLocation());
-    	agent = new UserInfoDTO(accommodation.getAgent());
+//    	agent = new UserInfoDTO(accommodation.getAgent());
     	startDate = start;
     	endDate = end;
     	
@@ -92,16 +93,20 @@ public class TotalPriceAccommodationDTO {
 	{
 		//incrementing for one day in milliseconds from start date, until end date
 		double retVal = 0;
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86400000L )
 		{
 			Date currentDay = new Date(i);
 
-			
+			System.out.println(" * RAZMATRA: " + format.format(currentDay));
 			boolean found = false;
 			for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
 			{
+				System.out.println("gleda u special price: " + format.format(specificPrice.getStartDate()) + " - " + format.format(specificPrice.getEndDate()));
+
 				if(isInSpecificPrice(currentDay,specificPrice))
 				{
+                    System.out.println("isinspecific");
 					retVal = retVal + specificPrice.getPrice();
 					found = true;
 					break;
@@ -118,14 +123,15 @@ public class TotalPriceAccommodationDTO {
 
 	private boolean isInSpecificPrice(Date currentDay, SpecificPrice specificPrice) 
 	{
-		if(currentDay.getTime() >= specificPrice.getStartDate().getTime() 
+		if(currentDay.compareTo(specificPrice.getStartDate()) >= 0
 		   && 
-		   currentDay.getTime() <= specificPrice.getEndDate().getTime())
+		   currentDay.compareTo(specificPrice.getEndDate()) <= 0)
 		{
 			return true;
 		}
 		else
 		{
+            System.out.println(currentDay.getTime() + "start: " + specificPrice.getStartDate().getTime() + " end:" + specificPrice.getEndDate().getTime());
 			return false;
 		}
 	}

@@ -1,5 +1,6 @@
 package com.megatravel.reservationservice.services;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -166,14 +167,17 @@ public class ReservationService
 	{
 		//incrementing for one day in milliseconds from start date, until end date
 		double retVal = 0;
-		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86400000L )
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86401000L )
 		{
 			Date currentDay = new Date(i);
 
-			
+			System.out.println(" * RAZMATRA: " + format.format(currentDay));
 			boolean found = false;
 			for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
 			{
+				System.out.println("gleda u special price: " + format.format(specificPrice.getStartDate()) + " - " + format.format(specificPrice.getEndDate()));
+
 				if(isInSpecificPrice(currentDay,specificPrice))
 				{
 					retVal = retVal + specificPrice.getPrice();

@@ -159,3 +159,7 @@ INSERT INTO accommodation_unit (id, cancellation_period, capacity, category, def
 INSERT INTO image (id, image_url, accommodation_unit_id) values
 (1, 'https://www.futuremediaga.com/wp-content/uploads/2017/08/Cool-Studio-Apartment-Setup.jpg', 1),
 (2, 'http://www.hostel4me.com/images/dorm-curtains.jpg', 2);
+
+INSERT INTO specific_price (id, end_date, price, start_date, accommodation_unit_id) values
+(1, '2019-06-30', 250, '2019-06-01', 1),
+(2, '2019-07-31', 401, '2019-07-01', 1);

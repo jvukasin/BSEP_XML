@@ -27,6 +27,10 @@ export class AccommodationListComponent implements OnInit {
     
   }
 
+  AddTotalPrice(total) {
+    this.srcService.totalPrice = total;
+  }
+
   onSelectClick(sel: any) {
     if(this.accList.length > 1) {
       if(sel === 'pricehl') {
@@ -41,7 +45,6 @@ export class AccommodationListComponent implements OnInit {
         this.accList = _.orderBy(this.accList, ['ratingAvg'], ['desc']);
       }
     }
-    
   }
 
 }
