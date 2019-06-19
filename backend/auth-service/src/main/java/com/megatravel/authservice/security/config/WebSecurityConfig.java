@@ -79,11 +79,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				// svim korisnicima dopusti da pristupe putanjama /auth/** i /h2-console/**
 				// POTREBNO DA SVAKO UBACI KOJE PUTANJE SU DOSTUPNE SVIM KORISNICIMA, BEZ OBZIRA NA ULOGU
 				.authorizeRequests()
-				.antMatchers("/auth/**").permitAll()
-				.antMatchers("/h2-console/**").permitAll()
-				.antMatchers("/ws/**").permitAll()
-				// svaki zahtev mora biti autorizovan
-				.anyRequest().authenticated().and()
+					.antMatchers("/auth/**").permitAll()
+					.antMatchers("/users/**").permitAll()
+					.antMatchers("/h2-console/**").permitAll()
+					.antMatchers("/ws/**").permitAll()
+					// svaki zahtev mora biti autorizovan
+					.anyRequest().authenticated().and()
 				// presretni svaki zahtev filterom
 				.addFilterBefore(new TokenAuthenticationFilter(tokenUtils, jwtUserDetailsService), BasicAuthenticationFilter.class);
 			
@@ -96,6 +97,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		public void configure(WebSecurity web) throws Exception {
 			// TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
 			web.ignoring().antMatchers(HttpMethod.POST, "/auth/login");
+			web.ignoring().antMatchers(HttpMethod.GET, "/users/**");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
 		}
 		

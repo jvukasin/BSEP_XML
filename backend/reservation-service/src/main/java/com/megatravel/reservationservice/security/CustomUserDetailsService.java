@@ -2,9 +2,10 @@ package com.megatravel.reservationservice.security;
 
 import com.megatravel.reservationservice.model.Privilege;
 import com.megatravel.reservationservice.model.Role;
+import com.megatravel.reservationservice.model.TPerson;
 import com.megatravel.reservationservice.model.User;
 import com.megatravel.reservationservice.repository.RoleRepository;
-import com.megatravel.reservationservice.repository.UserRepository;
+import com.megatravel.reservationservice.repository.TPersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,14 +22,14 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Autowired
-	UserRepository userRepo;
+    TPersonRepository tPersonRepo;
 	
 	@Autowired
 	RoleRepository roleRepo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepo.findOneByUsername(username);
+		TPerson user = tPersonRepo.findOneByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
 		} else {
