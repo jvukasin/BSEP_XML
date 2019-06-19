@@ -27,8 +27,8 @@
             <li>
                 <a [routerLink]="" (click)="collapse()">Users</a>
                 <ul *ngIf="collapsed" class="list-unstyled" id=collapse>
-                    <li><a [routerLink]="" (click)="showUsers()">Management</a></li>
-                    <li><a href="#" (click)="showComments()">Comments</a></li>
+                    <li><a [routerLink]="" (click)="showManagement()">Management</a></li>
+                    <li><a [routerLink]="" (click)="showComments()">Comments</a></li>
                 </ul>
             </li>
             <li>
@@ -40,7 +40,8 @@
   </div>
 
   <div id="content">
-    <div *ngIf="isUsers"> <app-users></app-users> </div>
+    <div *ngIf="isManagement"> <app-users></app-users> </div>
+    <div *ngIf="isComments"> <app-comments> </app-comments> </div>
     <div *ngIf="isAgents"> </div>
     <div *ngIf="isCodeBook">  </div>
   </div>

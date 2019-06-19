@@ -81,5 +81,7 @@ public class AccommodationUnitController
 		return new ResponseEntity<Collection<AccommodationUnitDTO>>(accommodationService.search(dto), HttpStatus.OK);
 	}
 
+	// ADMIN FUNKCIJE
+
 
 }

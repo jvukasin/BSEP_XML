@@ -8,7 +8,7 @@ import com.xml.MegaTravelAgent.model.Amenity;
 import com.xml.MegaTravelAgent.service.AccommodationUnitService;
 import com.xml.MegaTravelAgent.service.AmenityService;
 import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
-import com.xml.MegaTravelAgent.soap.reqres.AccommodationType;
+import com.xml.MegaTravelAgent.model.AccommodationType;
 import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

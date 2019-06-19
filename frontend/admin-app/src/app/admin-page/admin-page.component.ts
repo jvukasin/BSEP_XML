@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AdminPageComponent implements OnInit {
 
   isCodeBook: boolean = false;
-  isUsers: boolean = false;
+  isManagement: boolean = false;
   isAgents: boolean = false;
+  isComments: boolean = false;
   collapsed: boolean = false;
   constructor() { }
 
@@ -19,20 +20,28 @@ export class AdminPageComponent implements OnInit {
   showCodeBook(){
     this.collapsed = false;
     this.isCodeBook = true;
-    this.isUsers = false;
+    this.isManagement = false;
     this.isAgents = false;
   }
 
-  showUsers(){
-    this.isUsers = true;
+  showManagement(){
+    this.isManagement = true;
     this.isAgents = false;
+    this.isComments = false;
     this.isCodeBook = false;
   }
 
   showAgents(){
     this.collapsed = false;
     this.isCodeBook = false;
-    this.isUsers = false;
+    this.isManagement = false;
+    this.isAgents = true;
+  }
+
+  showComments(){
+    this.isCodeBook = false;
+    this.isManagement = false;
+    this.isComments = true;
     this.isAgents = true;
   }
 
