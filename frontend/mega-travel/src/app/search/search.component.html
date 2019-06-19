@@ -97,7 +97,8 @@
                           <div class="select-wrap">
                               <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                               <select name="category" formControlName="category" id="category" class="form-control">
-                                <option value="1" selected>1</option>
+                                <option value="0" selected>Uncategorized</option>
+                                <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -112,7 +113,7 @@
                       <label for="distance">Distance from city</label>
                       <div class="form-field form_date">
                         <div class="icon"><i class="fa fa-stumbleupon "></i></div>
-                        <input type="number" formControlName="distance" class="form-control checkout_date" placeholder="">
+                        <input type="number" formControlName="distance" min="0" (keydown)="onKeydown($event)" class="form-control" placeholder="km">
                       </div>
                     </div>
                   </div>
@@ -139,26 +140,13 @@
 
                             <div class="mb-4">
                               
-                              <label  for="amenities">Rating</label>
-                              <div class="form-field ">
-                                <div class="icon"><i class="fa fa-stumbleupon "></i></div>
-                                <input type="number" formControlName="averageRating" class="form-control" placeholder="">
-                              </div>
-                            </div>
-
-                            <div class="mb-4">
-                              
                               <label  for="cancellationPeriod">Cancellation Period</label>
                               <div class="form-field">
                                 <div class="icon"><i class="fa fa-stumbleupon "></i></div>
-                                <input type="number" formControlName="cancellationPeriod" class="form-control" placeholder="">
+                                <input type="number" formControlName="cancellationPeriod" min="0" (keydown)="onKeydown($event)" class="form-control" placeholder="days">
                               </div>
                             </div>
                           </div>
-
-
-
-
                         </div>
                       </div>
                       

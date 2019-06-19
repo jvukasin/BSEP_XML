@@ -121,8 +121,6 @@ public class AccommodationUnitService
 			throw new BusinessException("Invalid search dates.");
 		}
 		
-		
-		
 		List<City> cities = cityRepo.findByNameContainingIgnoreCase(dto.getCity());
 
 		List<AccommodationUnit> list = new ArrayList<>();
@@ -134,7 +132,7 @@ public class AccommodationUnitService
 			{
 				list = accommodationRepo.search(city.getId(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
 
-				if(dto.getRatingAvg() > 0)
+				if(dto.getRatingAvg() >= 0)
 				{
 					list = aboveRating(list,dto.getRatingAvg());
 				}
@@ -149,7 +147,7 @@ public class AccommodationUnitService
 					list = doesContainAmenities(list,dto.getAmenities());
 				}
 
-				if(dto.getDistanceFromCity() >=0 )
+				if(dto.getDistanceFromCity() >=0)
 				{
 					list = underDistance(list,dto.getDistanceFromCity());
 				}
@@ -179,7 +177,6 @@ public class AccommodationUnitService
 		}
 
 		return retVal;
-
 	}
 	
 	

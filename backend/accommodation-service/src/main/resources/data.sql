@@ -18,13 +18,6 @@ insert into user_roles values ('tjokarda',3);
 
 insert into roles_privileges values (1,1);
 
-INSERT INTO amenity VALUES (1,'fa fa-snowflake-o','Air Conditioning');
-INSERT INTO amenity VALUES (2,'fa fa-wifi','WiFi');
-INSERT INTO amenity VALUES (3,'fa fa-television','Cable TV');
-INSERT INTO amenity VALUES (4,'fa fa-bath','Hot water');
-
-
-
 INSERT INTO country (id, name) values
 (1, 'Argentina'),
 (2, 'Bahamas'),
@@ -163,3 +156,19 @@ INSERT INTO image (id, image_url, accommodation_unit_id) values
 INSERT INTO specific_price (id, end_date, price, start_date, accommodation_unit_id) values
 (1, '2019-06-30', 250, '2019-06-01', 1),
 (2, '2019-07-31', 401, '2019-07-01', 1);
+
+INSERT INTO amenity (id, fa_icon, name) values
+(1, 'fa fa-snowflake-o', 'Air Conditioning'),
+(2, 'fa fa-wifi', 'WiFi'),
+(3, 'fa fa-television', 'Cable TV'),
+(4, 'fa fa-bath', 'Hot water'),
+(5, 'fa fa-product-hunt', 'Parking'),
+(6, 'fa fa-coffee', 'Breakfast'),
+(7, 'fa fa-circle-thin', 'Half board'),
+(8, 'fa fa-circle-o', 'Full board'),
+(9, 'fa fa-circle', 'All inclusive'),
+(10, 'fa fa-paw', 'Pet friendly'),
+(11, 'fa fa-shower', 'Private bathroom'),
+(12, 'fa fa-cutlery', 'Kitchen');
+
+

@@ -72,8 +72,7 @@ public class AccommodationUnitController
 	@RequestMapping(value = "/amenities", method = RequestMethod.GET)
 	public ResponseEntity<Collection<AmenityDTO>> getAmenities()
 	{
-		return new ResponseEntity<Collection<AmenityDTO>>( accommodationService.findAllAmenitiesDTO(),
-				HttpStatus.OK);
+		return new ResponseEntity<Collection<AmenityDTO>>(accommodationService.findAllAmenitiesDTO(), HttpStatus.OK);
 	}
 	
 	

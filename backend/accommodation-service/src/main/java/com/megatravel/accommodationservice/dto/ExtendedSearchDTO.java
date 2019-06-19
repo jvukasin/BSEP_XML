@@ -14,12 +14,12 @@ public class ExtendedSearchDTO
 	 private Date fromDate;
 	 private Date endDate;
 	 
-	 private int personCount = -1;
+	 private int personCount;
 	 
-	 private double ratingAvg = -1;
+	 private double ratingAvg;
 	 private List<Amenity> amenities;
 	 private String type;
-	 private double distanceFromCity = -1;
+	 private double distanceFromCity;
 
 
 	public ExtendedSearchDTO(String city, Date fromDate, Date endDate, int personCount,

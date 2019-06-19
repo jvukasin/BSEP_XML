@@ -64,27 +64,45 @@ export class SearchComponent implements OnInit {
 
   onSubmitSearch(form: NgForm) {
     let tempDest = this.searchForm.value.destination.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/"/g, '&#x27;');
+    let rat;
+    let can;
+    let dis;
+    if(this.searchForm.value.averageRating == "") {
+      rat = -1;
+    } else {
+      rat = this.searchForm.value.averageRating
+    }
+    if(this.searchForm.value.cancellationPeriod == "") {
+      can = -1;
+    } else {
+      can = this.searchForm.value.cancellationPeriod;
+    }
+    if(this.searchForm.value.distance == "") {
+      dis = -1;
+    } else {
+      dis = this.searchForm.value.distance;
+    }
     let src = {
       city: tempDest,
       fromDate: this.searchForm.value.startDate,
       endDate: this.searchForm.value.endDate,
       personCount: this.searchForm.value.guests,
-      ratingAvg: this.searchForm.value.averageRating,
-      cancellationPeriod: this.searchForm.value.cancellationPeriod,
+      ratingAvg: rat,
+      cancellationPeriod: can,
       amenities: this.getSelectedAmenities(this.searchForm.get('amenities').value),
       type: this.searchForm.value.accommodationType,
-      distanceFromCity: this.searchForm.value.distance
+      distanceFromCity: dis
     }
 
     console.log(src);
 
-    // this.accServise.search(src).subscribe(
-    //   (data) => {
-    //     this.srcres.accommodations = data;
-    //     this.router.navigate(['/accommodations']);
-    //   },
-    //   (error) => alert('ERROR')
-    // );
+    this.accServise.search(src).subscribe(
+      (data) => {
+        this.srcres.accommodations = data;
+        this.router.navigate(['/accommodations']);
+      },
+      (error) => alert('ERROR')
+    );
 
     this.srcres.destination = tempDest;
     this.srcres.startDate = this.searchForm.value.startDate;
@@ -145,6 +163,14 @@ export class SearchComponent implements OnInit {
 			selected: [false, Validators.required]
 			});
 		}));
-	}
+  }
+  
+  onKeydown(e) {
+    if(!((e.keyCode > 95 && e.keyCode < 106)
+      || (e.keyCode > 47 && e.keyCode < 58) 
+      || e.keyCode == 8)) {
+        return false;
+    }
+  }
 
 }
