@@ -22,7 +22,7 @@
           <span class="rating">{{ accommodationUnit.ratingAvg }}</span>
   
           <div class="amenities">
-            <span *ngFor="let amenity of accommodationUnit.amenity">
+            <span *ngFor="let amenity of accommodationUnit.amenities">
               <i [ngClass]="amenity.faIcon" title="{{amenity.name}}"></i>
             </span>
           </div>
