@@ -27,14 +27,6 @@ public class LocationDTO {
     	city = new CityDTO(location.getCity());
     }
 
-    public LocationDTO(Location location)
-    {
-        id = location.getId();
-        coordinates = location.getCoordinates();
-        distanceFromCity = location.getDistanceFromCity();
-        city = new CityDTO(location.getCity());
-    }
-
     public Long getId() {
         return id;
     }

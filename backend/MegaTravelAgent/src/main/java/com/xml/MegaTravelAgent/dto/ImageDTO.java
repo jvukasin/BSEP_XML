@@ -14,12 +14,6 @@ public class ImageDTO {
         this.id = id;
         this.imageUrl = imageUrl;
     }
-    
-    public ImageDTO(Image image)
-    {
-    	id = image.getId();
-    	imageUrl = image.getImageUrl();
-    }
 
     public ImageDTO(Image image)
     {
