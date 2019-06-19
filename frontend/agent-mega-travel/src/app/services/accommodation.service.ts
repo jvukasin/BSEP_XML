@@ -10,6 +10,10 @@ export class AccommodationService {
 
 	constructor(private http: HttpClient) { }
 
+	getAllAccommodationUnits() {
+		return this.http.get(this.ENDPOINT_URI);
+	}
+
 	getAccommodationUnit(id: number) {
 		return this.http.get(this.ENDPOINT_URI + "/" + id);
 	}

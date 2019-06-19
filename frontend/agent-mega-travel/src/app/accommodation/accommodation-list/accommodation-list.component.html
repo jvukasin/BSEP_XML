@@ -1,6 +1,10 @@
-<section class="right-to-nav appear">
+<section class="right-to-nav appear" >
 
-  <div id="accommodation">
+  
+
+  <div appLoading *ngIf="!acommodationUnits"></div>
+  
+  <div id="accommodation" *ngIf="accommodationUnits">
 
     <div class="info-bar">
         <div>You are offering 5 accommodation units.</div>
@@ -24,3 +28,4 @@
 
 
 </section>
+

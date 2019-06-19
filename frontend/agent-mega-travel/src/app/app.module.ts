@@ -14,6 +14,7 @@ import { NewAccommodationComponent } from './accommodation/new-accommodation/new
 import { AccommodationService } from './services/accommodation.service';
 import { LocationService } from './services/location.service';
 import { AccommodationUnitComponent } from './accommodation/accommodation-unit/accommodation-unit.component';
+import { LoadingDirective } from './directives/loading.directive';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AccommodationUnitComponent } from './accommodation/accommodation-unit/a
   NavbarComponent,
   NewAccommodationComponent,
   AccommodationUnitComponent,
+  LoadingDirective
   ],
   imports: [
     BrowserModule,

@@ -37,8 +37,13 @@ public class AccommodationUnitController {
 
 	@Autowired
 	AmenityService amenityService;
-	
-	
+
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ResponseEntity<Collection<AccommodationUnitDTO>> getAccommodationUnits()
+	{
+		return new ResponseEntity<Collection<AccommodationUnitDTO>>(accommodationService.findAll(),HttpStatus.OK);
+	}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getAccommodationUnit(@PathVariable Long id)
 	{
