@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
 import com.megatravel.accommodationservice.dto.AmenityDTO;
 import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.model.AccommodationUnit;
+import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
 import com.megatravel.accommodationservice.service.AccommodationUnitService;
 
 import exceptions.BusinessException;
@@ -71,14 +71,20 @@ public class AccommodationUnitController
 	
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public ResponseEntity<Collection<AccommodationUnitDTO>> search(@RequestBody ExtendedSearchDTO dto)
+	public ResponseEntity<?> search(@RequestBody ExtendedSearchDTO dto)
 	{
-		if(dto.getCity() == null || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() < 1)
+		try
 		{
-			return new ResponseEntity<Collection<AccommodationUnitDTO>>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Collection<TotalPriceAccommodationDTO>>(accommodationService.search(dto), HttpStatus.OK);
 		}
-		
-		return new ResponseEntity<Collection<AccommodationUnitDTO>>(accommodationService.search(dto), HttpStatus.OK);
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	// ADMIN FUNKCIJE

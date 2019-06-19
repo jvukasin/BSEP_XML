@@ -1,21 +1,20 @@
 package com.megatravel.accommodationservice.service;
 
 
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.AmenityDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.model.*;
-import com.megatravel.accommodationservice.repository.*;
-import exceptions.BusinessException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.AmenityDTO;
+import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
+import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.model.Amenity;
 import com.megatravel.accommodationservice.model.City;
@@ -29,6 +28,8 @@ import com.megatravel.accommodationservice.repository.ImageRepository;
 import com.megatravel.accommodationservice.repository.LocationRepository;
 import com.megatravel.accommodationservice.repository.SpecificPriceRepository;
 import com.megatravel.accommodationservice.repository.TPersonRepository;
+
+import exceptions.BusinessException;
 
 @Service
 public class AccommodationUnitService 
@@ -107,15 +108,30 @@ public class AccommodationUnitService
 
 
 	
-	public Collection<AccommodationUnitDTO> search(ExtendedSearchDTO dto)
+	public Collection<TotalPriceAccommodationDTO> search(ExtendedSearchDTO dto)
 	{
+		
+		if(dto.getCity() == null || dto.getEndDate() == null || dto.getFromDate() == null || dto.getPersonCount() < 1)
+		{
+			throw new BusinessException("Invalid search query.");
+		}
+		
+		if(dto.getFromDate().getTime() >= dto.getEndDate().getTime())
+		{
+			throw new BusinessException("Invalid search dates.");
+		}
+		
+		
+		
 		List<City> cities = cityRepo.findByNameContainingIgnoreCase(dto.getCity());
 
 		List<AccommodationUnit> list = new ArrayList<>();
-		List<AccommodationUnitDTO> ret = new ArrayList<AccommodationUnitDTO>();
+		List<TotalPriceAccommodationDTO> ret = new ArrayList<TotalPriceAccommodationDTO>();
 
-		for(City city : cities) {
-			if (city != null) {
+		for(City city : cities) 
+		{
+			if (city != null) 
+			{
 				list = accommodationRepo.search(city.getId(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
 
 				if(dto.getRatingAvg() > 0)
@@ -139,8 +155,9 @@ public class AccommodationUnitService
 				}
 			}
 
-			for(AccommodationUnit a : list) {
-				AccommodationUnitDTO adto = new AccommodationUnitDTO(a);
+			for(AccommodationUnit a : list) 
+			{	
+				TotalPriceAccommodationDTO adto = new TotalPriceAccommodationDTO(a,dto.getFromDate(), dto.getEndDate());
 				ret.add(adto);
 			}
 		}
