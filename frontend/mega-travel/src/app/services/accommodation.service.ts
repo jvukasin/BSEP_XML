@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Router } from '@angular/router';
+import { ReturnStatement } from '@angular/compiler';
 
 
 @Injectable()
@@ -14,5 +15,9 @@ export class AccommodationService {
 
     getAccUnit(id: number) {
         return this.http.get("/api/accommodationservice/accommodations/" + id);
+    }
+
+    getAllAmenities() {
+        return this.http.get("/api/accommodationservice/accommodations/amenities");
     }
 }

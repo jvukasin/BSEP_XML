@@ -68,6 +68,13 @@ public class AccommodationUnitController
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
+	@RequestMapping(value = "/amenities", method = RequestMethod.GET)
+	public ResponseEntity<Collection<AmenityDTO>> getAmenities()
+	{
+		return new ResponseEntity<Collection<AmenityDTO>>( accommodationService.findAllAmenitiesDTO(),
+				HttpStatus.OK);
+	}
 	
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)

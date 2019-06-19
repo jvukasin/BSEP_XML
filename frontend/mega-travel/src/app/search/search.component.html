@@ -1,68 +1,180 @@
 <section class="ftco-section ftco-no-pb ftco-no-pt">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="search-wrap-1  p-4">
-          <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch(f)" #f="ngForm" class="search-property-1">
-            <div class="row">
-              <div class="col-lg align-items-end">
-                <div class="form-group">
-                  <label for="#">Destination</label>
-                  <div class="form-field">
-                    <div class="icon"><span class="ion-ios-search"></span></div>
-                    <input type="text" formControlName="destination" class="form-control" placeholder="Search place">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="search-wrap-1  p-4">
+            <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch(f)" #f="ngForm" class="search-property-1">
+              <div class="row">
+                <div class="more-button align-items-center">
+                    <i class="fa fa-angle-double-down" *ngIf="!showAdvancedSearch"  (click)="onClickMore()" aria-hidden="true"></i>   
+                </div>
+                <div class="col-lg align-items-end">
+                  <div class="form-group">
+                    <label for="#">Destination</label>
+                    <div class="form-field">
+                      <div class="icon"><span class="ion-ios-search"></span></div>
+                      <input type="text" formControlName="destination" class="form-control" placeholder="Search place">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg align-items-end">
-                <div class="form-group">
-                  <label for="#">Check-in date</label>
-                  <div class="form-field">
-                    <div class="icon"><span class="ion-ios-calendar"></span></div>
-                    <input type="date" formControlName="startDate" class="form-control checkin_date" required placeholder="Check In Date">
+                <div class="col-lg align-items-end">
+                  <div class="form-group">
+                    <label for="#">Check-in date</label>
+                    <div class="form-field">
+                      <div class="icon"><span class="ion-ios-calendar"></span></div>
+                      <input type="date" formControlName="startDate" class="form-control checkin_date" required placeholder="Check In Date">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg align-items-end">
-                <div class="form-group">
-                  <label for="#">Check-out date</label>
-                  <div class="form-field form_date">
-                    <div class="icon"><span class="ion-ios-calendar"></span></div>
-                    <input type="date" formControlName="endDate" class="form-control checkout_date" required placeholder="Check Out Date">
+                <div class="col-lg align-items-end">
+                  <div class="form-group">
+                    <label for="#">Check-out date</label>
+                    <div class="form-field form_date">
+                      <div class="icon"><span class="ion-ios-calendar"></span></div>
+                      <input type="date" formControlName="endDate" class="form-control checkout_date" required placeholder="Check Out Date">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg align-items-end">
-                <div class="form-group">
-                  <label for="guests">Guests</label>
-                  <div class="form-field">
-                    <div class="select-wrap">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="guests" formControlName="guests" id="guests" class="form-control">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                      </select>
+                <div class="col-lg align-items-end">
+                  <div class="form-group">
+                    <label for="guests">Guests</label>
+                    <div class="form-field">
+                      <div class="select-wrap">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="guests" formControlName="guests" id="guests" class="form-control">
+                          <option value="1" selected>1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg align-self-end">
+                  <div class="form-group">
+                    <div class="form-field">
+                      <input type="submit" value="Search"  class="form-control btn btn-primary" [disabled]="!searchForm.valid">
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg align-self-end">
-                <div class="form-group">
-                  <div class="form-field">
-                    <input type="submit" value="Search" class="form-control btn btn-primary" [disabled]="!searchForm.valid">
+  
+              <!-- ADVANCED FIELDS -->
+              <div class="row advanced-search" *ngIf="showAdvancedSearch">
+                  <div class="more-button align-items-center">
+                  
+                      <i class="fa fa-angle-double-up"  *ngIf="showAdvancedSearch" (click)="onClickLess()" aria-hidden="true"></i>    
+                  </div>
+                  <div class="col-lg align-items-end">
+                    <div class="form-group">
+                      <label for="accommodationType">Accommodation Type</label>
+                      <div class="form-field">
+                          <div class="select-wrap">
+                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                            <select name="accommodationType" formControlName="accommodationType" id="accommodationType" class="form-control">
+                              <option value="1" selected>1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                            </select>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg align-items-end">
+                    <div class="form-group">
+                      <label for="category">Category</label>
+                      <div class="form-field">
+                          <div class="select-wrap">
+                              <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                              <select name="category" formControlName="category" id="category" class="form-control">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg align-items-end">
+                    <div class="form-group">
+                      <label for="distance">Distance from city</label>
+                      <div class="form-field form_date">
+                        <div class="icon"><i class="fa fa-stumbleupon "></i></div>
+                        <input type="number" formControlName="distance" class="form-control checkout_date" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg align-items-end">
+                    <div class="form-group">
+                      <label >More options</label>
+                      <div class="form-field">
+                        <i class="fa fa-angle-double-down expand-more" *ngIf="!showMoreBox" (click)="onClickExpandMore()" ></i>
+                        <i class="fa fa-angle-double-up expand-more" *ngIf="showMoreBox" (click)="onClickCloseMore()" ></i>
+                        <div class="more-container" *ngIf="showMoreBox">
+
+                          <div class="more-list">
+                            <div class="mb-4" formArrayName="amenities">
+                              
+                              <label  for="amenities">Amenities</label>
+                              <div class="one-amenity" *ngFor="let amenity of amenities; let i = index" [formGroupName]="i"  >
+                                <label class="cb-container">
+                                  <input type="checkbox" formControlName="selected" >
+                                  <span class="checkmark"></span>
+                                  <i [ngClass]="amenity.faIcon" class="ml-2"></i><span class="ml-1"> {{ amenity.name }} </span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="mb-4">
+                              
+                              <label  for="amenities">Rating</label>
+                              <div class="form-field ">
+                                <div class="icon"><i class="fa fa-stumbleupon "></i></div>
+                                <input type="number" formControlName="averageRating" class="form-control" placeholder="">
+                              </div>
+                            </div>
+
+                            <div class="mb-4">
+                              
+                              <label  for="cancellationPeriod">Cancellation Period</label>
+                              <div class="form-field">
+                                <div class="icon"><i class="fa fa-stumbleupon "></i></div>
+                                <input type="number" formControlName="cancellationPeriod" class="form-control" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="col-lg align-self-end">
+                    <div class="form-group">
+                      <div class="form-field">
+                       
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
