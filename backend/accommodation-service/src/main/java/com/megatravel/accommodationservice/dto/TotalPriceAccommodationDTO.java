@@ -2,7 +2,9 @@ package com.megatravel.accommodationservice.dto;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.megatravel.accommodationservice.model.AccommodationUnit;
@@ -91,15 +93,22 @@ public class TotalPriceAccommodationDTO {
     
 	public double findPrice(Date start, Date end, AccommodationUnit accommodation)
 	{
-		//incrementing for one day in milliseconds from start date, until end date
 		double retVal = 0;
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86401000L )
-		{
-			Date currentDay = new Date(i);
+		
+	    Calendar calendar = new GregorianCalendar();
+	    calendar.setTime(start); 
+	    Calendar endCalendar = new GregorianCalendar();
+	    endCalendar.setTime(end);
 
+	    
+	    while(calendar.before(endCalendar) || calendar.equals(endCalendar)) 
+	    {
+	        Date currentDay = calendar.getTime();
+	        
 			System.out.println(" * RAZMATRA: " + format.format(currentDay));
 			boolean found = false;
+			
 			for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
 			{
 				System.out.println("gleda u special price: " + format.format(specificPrice.getStartDate()) + " - " + format.format(specificPrice.getEndDate()));
@@ -116,7 +125,10 @@ public class TotalPriceAccommodationDTO {
 			{
 				retVal = retVal + accommodation.getDefaultPrice();
 			}
-		}
+	        
+	        calendar.add(Calendar.DATE, 1);
+	    }
+		
 		return retVal;
 	}
 
