@@ -19,6 +19,9 @@ export class AccommodationPageComponent implements OnInit {
   guests: any;
   dayz: any = 0;
   totalPrice: any = 0;
+  amenities: any = [];
+  firstIm: any;
+  imagesRest: any = [];
 
   constructor(private accService: AccommodationService, private srcService: SearchResultsService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(
@@ -34,6 +37,9 @@ export class AccommodationPageComponent implements OnInit {
       this.accService.getAccUnit(this.id).subscribe(
         (data) => {
           this.acu = data;
+          this.amenities = this.acu.amenities;
+          this.firstIm = this.acu.images[0];
+          this.imagesRest = this.acu.images.slice(1);
         },
         (error) => {
           alert("ERROR");

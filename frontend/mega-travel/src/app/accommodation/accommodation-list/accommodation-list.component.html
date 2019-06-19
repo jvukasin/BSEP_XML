@@ -4,11 +4,12 @@
         <h3 style="margin-bottom: 30px;">Where to stay</h3>
         <div class="right-div">
           <span>Sort by </span>
-          <select class="select-sort">
-            <option value="">Price</option>
-            <option value="">Distance from location</option>
-            <option value="">Ratings</option>
-            <option value="">Accommodation category</option>
+          <select class="select-sort" (change)="onSelectClick($event.target.value)">
+            <option value="rating">Highest rating</option>
+            <option value="pricehl">Price high to low</option>
+            <option value="pricelh">Price low to high</option>
+            <option value="distance">Closest city center distance</option>
+            <option value="category">Highest category</option>
           </select>
         </div>
       </div>

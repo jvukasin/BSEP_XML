@@ -14,10 +14,6 @@ section {
 }
 
 .acc-image {
-    background-image: url("https://www.futuremediaga.com/wp-content/uploads/2017/08/Cool-Studio-Apartment-Setup.jpg");
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: cover;
     height: 390px;
     width: 95%;
 }
