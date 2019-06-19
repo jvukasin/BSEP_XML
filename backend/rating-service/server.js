@@ -7,7 +7,7 @@ var app = express();
  var mysqlConnection = mysql.createConnection(
      {
         user: 'root',
-        password: 'root',
+        password: 'rootpass',
         database: 'rating_database',
         socketPath: '/cloudsql/xml-rating-service:us-central1:rating-database',
      }
