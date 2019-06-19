@@ -2,9 +2,10 @@ package com.megatravel.accommodationservice.security;
 
 import com.megatravel.accommodationservice.model.Privilege;
 import com.megatravel.accommodationservice.model.Role;
+import com.megatravel.accommodationservice.model.TPerson;
 import com.megatravel.accommodationservice.model.User;
 import com.megatravel.accommodationservice.repository.RoleRepository;
-import com.megatravel.accommodationservice.repository.UserRepository;
+import com.megatravel.accommodationservice.repository.TPersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,14 +22,14 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Autowired
-	UserRepository userRepo;
+	TPersonRepository tPersonRepo;
 	
 	@Autowired
 	RoleRepository roleRepo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepo.findOneByUsername(username);
+		TPerson user = tPersonRepo.findOneByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
 		} else {

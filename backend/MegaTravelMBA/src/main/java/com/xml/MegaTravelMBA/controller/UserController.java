@@ -105,16 +105,6 @@ public class UserController {
 
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// * * * UTILS * * *
 	
 	public boolean namesValid(String text) {

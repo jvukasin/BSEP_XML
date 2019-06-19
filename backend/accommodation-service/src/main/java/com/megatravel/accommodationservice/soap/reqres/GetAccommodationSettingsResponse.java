@@ -1,6 +1,7 @@
 
 package com.megatravel.accommodationservice.soap.reqres;
 
+import com.megatravel.accommodationservice.model.AccommodationType;
 import com.megatravel.accommodationservice.model.Amenity;
 
 import java.util.ArrayList;
