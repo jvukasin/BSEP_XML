@@ -96,20 +96,21 @@ public class TotalPriceAccommodationDTO {
 		{
 			Date currentDay = new Date(i);
 
-			if(accommodation.getSpecificPrice().size() == 0) {
-			    retVal += accommodation.getDefaultPrice();
-            }
-
+			
+			boolean found = false;
 			for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
 			{
 				if(isInSpecificPrice(currentDay,specificPrice))
 				{
 					retVal = retVal + specificPrice.getPrice();
+					found = true;
+					break;
 				}
-				else
-				{
-					retVal = retVal + accommodation.getDefaultPrice();
-				}
+			}
+			
+			if(!found)
+			{
+				retVal = retVal + accommodation.getDefaultPrice();
 			}
 		}
 		return retVal;

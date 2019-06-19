@@ -169,22 +169,28 @@ public class ReservationService
 		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86400000L )
 		{
 			Date currentDay = new Date(i);
+
 			
+			boolean found = false;
 			for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
 			{
 				if(isInSpecificPrice(currentDay,specificPrice))
 				{
 					retVal = retVal + specificPrice.getPrice();
+					found = true;
+					break;
 				}
-				else
-				{
-					retVal = retVal + accommodation.getDefaultPrice();
-				}
+			}
+			
+			if(!found)
+			{
+				retVal = retVal + accommodation.getDefaultPrice();
 			}
 		}
 		return retVal;
 	}
-
+	
+	
 	private boolean isInSpecificPrice(Date currentDay, SpecificPrice specificPrice) 
 	{
 		if(currentDay.getTime() >= specificPrice.getStartDate().getTime() 
