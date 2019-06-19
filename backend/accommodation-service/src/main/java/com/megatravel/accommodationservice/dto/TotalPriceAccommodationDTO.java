@@ -95,7 +95,11 @@ public class TotalPriceAccommodationDTO {
 		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86400000L )
 		{
 			Date currentDay = new Date(i);
-			
+
+			if(accommodation.getSpecificPrice().size() == 0) {
+			    retVal += accommodation.getDefaultPrice();
+            }
+
 			for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
 			{
 				if(isInSpecificPrice(currentDay,specificPrice))

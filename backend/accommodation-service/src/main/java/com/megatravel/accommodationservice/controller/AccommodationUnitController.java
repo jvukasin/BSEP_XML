@@ -83,7 +83,8 @@ public class AccommodationUnitController
 		}
 		catch(Exception e)
 		{
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
