@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UsersComponent } from './admin-page/users/users.component';
+import { CommentsComponent } from './admin-page/comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminPageComponent,
-    UsersComponent
+    UsersComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,10 @@
 
-package com.xml.MegaTravelAgent.soap.reqres;
+package com.megatravel.reservationservice.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -32,9 +31,12 @@ import javax.xml.bind.annotation.XmlType;
     "type"
 })
 @XmlRootElement(name = "AccommodationType", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_accommodation_unit")
+@Entity
 public class AccommodationType {
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_accommodation_unit", required = true)
+    @Id
+    @Column(name = "username", nullable = false)
     protected String type;
 
     /**
