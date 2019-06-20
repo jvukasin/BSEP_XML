@@ -109,6 +109,8 @@ public class UserController {
         user.setLastname(userDTO.getLastname());
         user.setEmail(userDTO.getEmail());
         user.setUsername(userDTO.getUsername());
+        user.setRole("user");
+        user.setStatus("active");
 
         // generisati salt pomocu BCrypta i uraditi hesiranje sifre
         String salt = BCrypt.gensalt();

@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
           } else if (error.status === 404) {
             Swal.fire({
               type: 'info',
-              title: 'User not found! Wrong username or password.',
+              title: 'User not found.',
               showConfirmButton: false,
               timer: 1600
             });

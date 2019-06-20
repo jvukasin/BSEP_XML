@@ -72,8 +72,7 @@ export class RegisterComponent implements OnInit {
           Swal.fire({
             type: 'error',
             title: 'Something went wrong with your registration',
-            showConfirmButton: true,
-            timer: 1600
+            showConfirmButton: true
           });
         }
       );
