@@ -70,6 +70,17 @@ a {
     text-decoration: none;
 }
 
+
+#collapseCodeBook{
+    background: #292929;
+}
+
+#collapseCodeBook li a:focus,#collapseCodeBook li a:hover, #collapseCodeBook li a:active, #collapseCodeBook li a[aria-expanded="true"]{
+    color: white !important; 
+    background: black !important;
+    text-decoration: none;
+}
+
 .link-nav{
     font-size: 20px;
     margin-left: 8px;

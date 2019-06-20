@@ -17,9 +17,14 @@
         <!-- Sidebar -->
     <nav class="navbar-dark bg-dark" id="sidebar">
         <ul class="navbar-nav">
-            <li class="active">
-                <a [routerLink]="" (click)="showCodeBook()">Code book</a>
+            <li>
+                <a [routerLink]=""  (click)="collapseCodeBook()">CodeBook</a>
+                <ul *ngIf="collapsedCodeBook" class="list-unstyled" id=collapseCodeBook>
+                    <li><a [routerLink]="" (click)="showTypes()">Manage Types</a></li>
+                    <li><a [routerLink]="" (click)="showAmenities()">Manage Amenities</a></li>
+                </ul>
             </li>
+
             <li>
                 <a [routerLink]="" (click)="collapse()">Users</a>
                 <ul *ngIf="collapsed" class="list-unstyled" id=collapse>
@@ -27,6 +32,7 @@
                     <li><a [routerLink]="" (click)="showComments()">Comments</a></li>
                 </ul>
             </li>
+
             <li>
                 <a [routerLink]="" (click)="showAgents()">Agents</a>
             </li>
@@ -34,12 +40,11 @@
     </nav>
 
     <div id="content">
-            <div *ngIf="isManagement"> <app-users></app-users> </div>
+            <div *ngIf="isManagement"> <app-users> </app-users> </div>
             <div *ngIf="isComments"> <app-comments> </app-comments> </div>
-            <div *ngIf="isAgents"> </div>
-            <div *ngIf="isCodeBook">  </div>
+            <div *ngIf="isAgents"> <app-agents> </app-agents> </div>
+            <div *ngIf="isType"> <app-types> </app-types> </div>
+            <div *ngIf="isAmenity"> <app-amenities> </app-amenities> </div>
     </div>
 
     </div>
-
-  
