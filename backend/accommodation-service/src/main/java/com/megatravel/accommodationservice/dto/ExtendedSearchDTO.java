@@ -83,16 +83,25 @@ public class ExtendedSearchDTO
 		return fromDate;
 	}
 
+	@SuppressWarnings("deprecation")
 	public void setFromDate(Date fromDate) {
 		this.fromDate = fromDate;
+		this.fromDate.setHours(0);
+		this.fromDate.setMinutes(0);
+		this.fromDate.setSeconds(0);
 	}
 
 	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	@SuppressWarnings("deprecation")
+	public void setEndDate(Date endDate) 
+	{
 		this.endDate = endDate;
+		this.endDate.setHours(0);
+		this.endDate.setMinutes(0);
+		this.endDate.setSeconds(0);
 	}
 
 	public int getPersonCount() {

@@ -44,7 +44,7 @@
                       <span>{{acc.location.distanceFromCity}}km from city center</span>
                     </div>
                     <div class="details-btn-card">
-                      <a class="btn btn-primary" [routerLink]="['/accommodations', acc.id]" id="details">See details</a>
+                      <a class="btn btn-primary" [routerLink]="['/accommodations', acc.id]" (click)="AddTotalPrice(acc.price)" id="details">See details</a>
                     </div>
                   </div> 
                 </div>

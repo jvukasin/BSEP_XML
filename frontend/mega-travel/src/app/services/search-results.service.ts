@@ -14,5 +14,6 @@ import { HttpClient } from '@angular/common/http';
     public startDate: Date;
     public endDate: Date;
     public guests: number;
+    public totalPrice: number;
   
   }

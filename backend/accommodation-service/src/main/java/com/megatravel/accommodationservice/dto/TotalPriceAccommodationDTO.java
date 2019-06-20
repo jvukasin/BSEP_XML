@@ -93,22 +93,23 @@ public class TotalPriceAccommodationDTO {
     
 	public double findPrice(Date start, Date end, AccommodationUnit accommodation)
 	{
+		
+		start.setHours(0);
+		start.setMinutes(0);
+		start.setSeconds(0);
+		end.setHours(0);
+		end.setMinutes(0);
+		end.setSeconds(0);
+		
+		//incrementing for one day in milliseconds from start date, until end date
 		double retVal = 0;
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		
-	    Calendar calendar = new GregorianCalendar();
-	    calendar.setTime(start); 
-	    Calendar endCalendar = new GregorianCalendar();
-	    endCalendar.setTime(end);
+		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86400000L )
+		{
+			Date currentDay = new Date(i);
 
-	    
-	    while(calendar.before(endCalendar) || calendar.equals(endCalendar)) 
-	    {
-	        Date currentDay = calendar.getTime();
-	        
 			System.out.println(" * RAZMATRA: " + format.format(currentDay));
 			boolean found = false;
-			
 			for(SpecificPrice specificPrice : accommodation.getSpecificPrice())
 			{
 				System.out.println("gleda u special price: " + format.format(specificPrice.getStartDate()) + " - " + format.format(specificPrice.getEndDate()));
@@ -125,18 +126,15 @@ public class TotalPriceAccommodationDTO {
 			{
 				retVal = retVal + accommodation.getDefaultPrice();
 			}
-	        
-	        calendar.add(Calendar.DATE, 1);
-	    }
-		
+		}
 		return retVal;
 	}
-
+	
 	private boolean isInSpecificPrice(Date currentDay, SpecificPrice specificPrice) 
 	{
-		if(currentDay.getTime() >= specificPrice.getStartDate().getTime() 
+		if(currentDay.getTime() >= specificPrice.getStartDate().getTime()
 		   && 
-		   currentDay.getTime() <= specificPrice.getEndDate().getTime())
+		   currentDay.getTime() <= (specificPrice.getEndDate().getTime()))
 		{
 			return true;
 		}

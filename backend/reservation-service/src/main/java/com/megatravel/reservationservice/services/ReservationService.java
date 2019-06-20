@@ -2,8 +2,10 @@ package com.megatravel.reservationservice.services;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -162,13 +164,21 @@ public class ReservationService
 	
 	
 	// * * * PRICE UNITILITES * * *
-	
+	@SuppressWarnings("deprecation")
 	public double findPrice(Date start, Date end, AccommodationUnit accommodation)
 	{
+		
+		start.setHours(0);
+		start.setMinutes(0);
+		start.setSeconds(0);
+		end.setHours(0);
+		end.setMinutes(0);
+		end.setSeconds(0);
+		
 		//incrementing for one day in milliseconds from start date, until end date
 		double retVal = 0;
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86401000L )
+		for( long i = start.getTime() ; i <= end.getTime() ; i = i + 86400000L )
 		{
 			Date currentDay = new Date(i);
 
@@ -194,12 +204,11 @@ public class ReservationService
 		return retVal;
 	}
 	
-	
 	private boolean isInSpecificPrice(Date currentDay, SpecificPrice specificPrice) 
 	{
-		if(currentDay.getTime() >= specificPrice.getStartDate().getTime() 
+		if(currentDay.getTime() >= specificPrice.getStartDate().getTime()
 		   && 
-		   currentDay.getTime() <= specificPrice.getEndDate().getTime())
+		   currentDay.getTime() <= (specificPrice.getEndDate().getTime()))
 		{
 			return true;
 		}
@@ -208,6 +217,8 @@ public class ReservationService
 			return false;
 		}
 	}
+	
+    
 	
 	
 	
