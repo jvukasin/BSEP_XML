@@ -1,10 +1,11 @@
 <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="679.799 221 572.321 77">
   <defs>
-    <style>
+    <style type="text/css">
+      
       .cls-1 {
         fill: #3a1729;
         font-size: 77px;
-        font-family: Overpass-Regular, Overpass;
+        font-family: 'Overpass', sans-serif;
         letter-spacing: -0.003em;
       }
 
@@ -15,9 +16,22 @@
       .cls-3 {
         fill: #fff;
         font-size: 44px;
-        font-family: Overpass-Bold, Overpass;
+        font-family: 'Overpass', sans-serif;
         font-weight: 700;
       }
+
+            @font-face {
+      font-family: 'Overpass';
+      font-style: normal;
+      font-weight: 400;
+      src: url('../fonts/overpass-v3-latin-regular.eot'); /* IE9 Compat Modes */
+      src: local('Overpass Regular'), local('Overpass-Regular'),
+          url('../fonts/overpass-v3-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('../fonts/overpass-v3-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+          url('../fonts/overpass-v3-latin-regular.woff') format('woff'), /* Modern Browsers */
+          url('../fonts/overpass-v3-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+          url('../fonts/overpass-v3-latin-regular.svg#Overpass') format('svg'); /* Legacy iOS */
+}
     </style>
   </defs>
   <text id="MegaTravel" class="cls-1" transform="translate(679.799 279)"><tspan x="0" y="0">MegaTravel</tspan></text>

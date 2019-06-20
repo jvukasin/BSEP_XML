@@ -122,4 +122,11 @@ div[class*="col-"] {
 
 .select-sort {
     margin-left: 5px;
+    background: white;
+    border: 1.5px solid rgb(255, 217, 0);
+    padding: 5px;
+    -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   color: #000;
 }
