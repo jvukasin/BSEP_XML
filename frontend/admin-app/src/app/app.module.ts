@@ -8,13 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UsersComponent } from './admin-page/users/users.component';
 import { CommentsComponent } from './admin-page/comments/comments.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminPageComponent,
     UsersComponent,
-    CommentsComponent
+    CommentsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
