@@ -9,11 +9,15 @@ import * as $ from 'jquery';
 
 export class AdminPageComponent implements OnInit {
 
-  isCodeBook: boolean = false;
+  isType: boolean = false;
+  isAmenity : boolean = false;
   isManagement: boolean = false;
   isAgents: boolean = false;
   isComments: boolean = false;
+
   collapsed: boolean = false;
+  collapsedCodeBook: boolean = false;
+
   
   constructor() { }
 
@@ -27,9 +31,18 @@ export class AdminPageComponent implements OnInit {
   });
   }
   
-  showCodeBook(){
+  showAmenities(){
     this.collapsed = false;
-    this.isCodeBook = true;
+    this.isType = false;
+    this.isAmenity = true;
+    this.isManagement = false;
+    this.isAgents = false;
+  }
+
+  showTypes(){
+    this.collapsed = false;
+    this.isType = true;
+    this.isAmenity = false;
     this.isManagement = false;
     this.isAgents = false;
   }
@@ -38,27 +51,46 @@ export class AdminPageComponent implements OnInit {
     this.isManagement = true;
     this.isAgents = false;
     this.isComments = false;
-    this.isCodeBook = false;
+    this.isType = false;
+    this.isAmenity = false;
+    this.collapsedCodeBook = false;
   }
 
   showAgents(){
     this.collapsed = false;
-    this.isCodeBook = false;
+    this.isType = false;
+    this.isAmenity = false;
     this.isManagement = false;
     this.isComments = false;
     this.isAgents = true;
+    this.collapsedCodeBook = false;
   }
 
   showComments(){
-    this.isCodeBook = false;
+    this.isType = false;
+    this.isAmenity = false;
     this.isManagement = false;
     this.isComments = true;
     this.isAgents = true;
+    this.collapsedCodeBook = false;
   }
+
+
+
 
   collapse(){
     this.collapsed = true;
+    this.collapsedCodeBook = false;
+
   }
+
+
+  collapseCodeBook(){
+    this.collapsedCodeBook = true;
+    this.collapsed = false;
+
+  }
+
 
   onToggle(){
   }

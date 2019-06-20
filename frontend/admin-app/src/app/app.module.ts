@@ -9,6 +9,9 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UsersComponent } from './admin-page/users/users.component';
 import { CommentsComponent } from './admin-page/comments/comments.component';
 import { LoginComponent } from './login/login.component';
+import { AmenitiesComponent } from './admin-page/amenities/amenities.component';
+import { TypesComponent } from './admin-page/types/types.component';
+import { AgentsComponent } from './admin-page/agents/agents.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { LoginComponent } from './login/login.component';
     UsersComponent,
     CommentsComponent,
     LoginComponent,
+    AmenitiesComponent,
+    TypesComponent,
+    AgentsComponent,
   ],
   imports: [
     BrowserModule,
