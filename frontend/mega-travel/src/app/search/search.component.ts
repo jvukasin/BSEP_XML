@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AccommodationService } from '../services/accommodation.service';
 import { SearchResultsService } from '../services/search-results.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search',
@@ -101,7 +102,14 @@ export class SearchComponent implements OnInit {
         this.srcres.accommodations = data;
         this.router.navigate(['/accommodations']);
       },
-      (error) => alert('ERROR')
+      (error) => {
+          Swal.fire({
+          type: 'error',
+          title: 'Something went wrong',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
     );
 
     this.srcres.destination = tempDest;
@@ -121,7 +129,14 @@ export class SearchComponent implements OnInit {
           this.amenities = payload;
           this.renderAmenities();
         },
-        error => alert("Can't get all amenities.")
+        error => {
+          Swal.fire({
+          type: 'error',
+          title: 'Cannot get all amenities.',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
       )
     }
 
@@ -137,7 +152,6 @@ export class SearchComponent implements OnInit {
   onClickExpandMore() {
     console.log('ping');
     this.showMoreBox = true;
-
   }
 
   onClickCloseMore() {
@@ -145,9 +159,7 @@ export class SearchComponent implements OnInit {
   }
 
   private renderAmenities() {
-
 		this.searchForm.setControl('amenities', this.mapToCheckboxArrayGroup(this.amenities));
-		
 	}
 
 	private getSelectedAmenities(amenitiesFormArray) {

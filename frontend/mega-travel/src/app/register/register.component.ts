@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -59,10 +60,22 @@ export class RegisterComponent implements OnInit {
     if(this.checkNames(user.firstname, user.lastname) && this.checkUsername(user.username) && this.checkMail(user.email) && this.checkPass(user.password)) {
       this.userService.registerUser(user).subscribe(
         (success) => {
-           alert("SUCCESS! User registered.");
+            Swal.fire({
+            type: 'success',
+            title: 'You registered successfully!',
+            showConfirmButton: false,
+            timer: 1600
+          });
            this.router.navigate(['/login']);
         },
-        error => console.log(error)
+        error => {
+          Swal.fire({
+            type: 'error',
+            title: 'Something went wrong with your registration',
+            showConfirmButton: true,
+            timer: 1600
+          });
+        }
       );
     }
   }
