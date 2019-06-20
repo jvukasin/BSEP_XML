@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -36,11 +37,26 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           if(error.status === 500){
-            alert("WHOOPS. Something went wrong!");
+            Swal.fire({
+              type: 'error',
+              title: 'Whoops! Something went wrong.',
+              showConfirmButton: false,
+              timer: 1600
+            });
           }else if(error.status === 401){
-            alert("Wrong username or password!");
+            Swal.fire({
+              type: 'error',
+              title: 'Wrong username or password!',
+              showConfirmButton: false,
+              timer: 1600
+            });
           } else if (error.status === 404) {
-            alert("NOT FOUND! Wrong username or password!");
+            Swal.fire({
+              type: 'info',
+              title: 'User not found! Wrong username or password.',
+              showConfirmButton: false,
+              timer: 1600
+            });
           }
         }
       );

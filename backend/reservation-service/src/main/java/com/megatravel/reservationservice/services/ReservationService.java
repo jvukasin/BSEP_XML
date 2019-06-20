@@ -91,11 +91,8 @@ public class ReservationService
 		reservation.setStartDate(dto.getStartDate());
 		reservation.setEndDate(dto.getEndDate());
 		reservation.setIsSuccessful(false);
-		
-		
 
-		
-		
+
 		double price = findPrice(dto.getStartDate(), dto.getEndDate(), reservation.getAccommodationUnit());
 		reservation.setPrice(price);
 		

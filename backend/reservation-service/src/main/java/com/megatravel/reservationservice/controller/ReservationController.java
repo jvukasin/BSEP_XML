@@ -59,7 +59,7 @@ public class ReservationController
 	{	
 		try
 		{
-			return new ResponseEntity<Long>(reservationService.create(dto), HttpStatus.OK); 
+			return new ResponseEntity<Long>(reservationService.create(dto), HttpStatus.OK);
 		}
 		catch(BusinessException e)
 		{

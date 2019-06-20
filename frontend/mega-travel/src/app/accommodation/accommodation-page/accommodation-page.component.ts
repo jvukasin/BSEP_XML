@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccommodationService } from '../../services/accommodation.service';
 import { SearchResultsService } from '../../services/search-results.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-accommodation-page',
@@ -42,7 +43,12 @@ export class AccommodationPageComponent implements OnInit {
           this.imagesRest = this.acu.images.slice(1);
         },
         (error) => {
-          alert("ERROR");
+          Swal.fire({
+            type: 'error',
+            title: 'Could not find desireable accommodation unit.',
+            showConfirmButton: false,
+            timer: 1500
+          });
           this.router.navigate(['home']);
         }
       );
