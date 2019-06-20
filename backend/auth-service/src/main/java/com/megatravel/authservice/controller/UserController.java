@@ -2,9 +2,7 @@ package com.megatravel.authservice.controller;
 
 import com.megatravel.authservice.dto.UserInfoDTO;
 import com.megatravel.authservice.dto.UserListDTO;
-import com.megatravel.authservice.model.TPerson;
-import com.megatravel.authservice.model.User;
-import com.megatravel.authservice.repository.TPersonRepository;
+import com.megatravel.authservice.security.TokenUtils;
 import com.megatravel.authservice.service.TPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -24,6 +21,9 @@ public class UserController {
 
     @Autowired
     private TPersonService tPersonService;
+
+    @Autowired
+    private TokenUtils tokenUtils;
 
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -54,7 +54,10 @@ public class UserController {
         return new ResponseEntity(users,HttpStatus.OK);
     }
 
-
-
-
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    public String getUser(HttpServletRequest request) {
+        String token = tokenUtils.getToken(request);
+        String username = tokenUtils.getUsernameFromToken(token);
+        return username;
+    }
 }

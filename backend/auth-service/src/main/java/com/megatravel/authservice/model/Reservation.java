@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -88,7 +89,6 @@ public class Reservation {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected TPerson reservator;
-
 
 
     /**

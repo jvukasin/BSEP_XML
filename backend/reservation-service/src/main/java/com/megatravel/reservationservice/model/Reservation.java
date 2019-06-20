@@ -96,10 +96,9 @@ public class Reservation {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
-
     
 	@ManyToOne(fetch = FetchType.LAZY)
-	private User reservator;
+	private TPerson reservator;
     
 	@OneToMany(mappedBy="reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Message> messages;
@@ -117,11 +116,11 @@ public class Reservation {
 		this.isSuccessful = isSuccessful;
 	}
 
-	public User getReservator() {
+	public TPerson getReservator() {
 		return reservator;
 	}
 
-	public void setReservator(User reservator) {
+	public void setReservator(TPerson reservator) {
 		this.reservator = reservator;
 	}
 

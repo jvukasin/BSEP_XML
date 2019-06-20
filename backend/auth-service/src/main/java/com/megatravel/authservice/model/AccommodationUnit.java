@@ -129,7 +129,6 @@ public class AccommodationUnit {
     protected String name;
 
     @Column(name = "description")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String description;
 
@@ -139,7 +138,6 @@ public class AccommodationUnit {
     protected int capacity;
 
     @Column(name = "cancellationPeriod")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int cancellationPeriod;
 
@@ -154,7 +152,6 @@ public class AccommodationUnit {
     protected double defaultPrice;
 
     @Column(name = "type")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String type;
 
@@ -165,7 +162,7 @@ public class AccommodationUnit {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "accommodationunit_amenity",
-            joinColumns = @JoinColumn(name = "accommodationunit_id", referencedColumnName = "id"),
+            joinColumns = @JoinColumn(name = "accommodation_unit_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "amenity_id", referencedColumnName = "id"))
     @XmlElement(name = "Amenity", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected List<Amenity> amenity;
@@ -183,7 +180,6 @@ public class AccommodationUnit {
     protected Location location;
 
     @Column(name = "category")
-    @NotNull
     @XmlAttribute(name = "category")
     protected Integer category;
 

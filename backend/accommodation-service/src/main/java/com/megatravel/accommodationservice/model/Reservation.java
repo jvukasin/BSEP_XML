@@ -96,7 +96,6 @@ public class Reservation {
     @XmlAttribute(name = "id")
     protected Long id;
 
-    
 	@ManyToOne(fetch = FetchType.LAZY)
 	private TPerson reservator;
     
