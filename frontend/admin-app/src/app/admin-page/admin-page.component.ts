@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef, Directive } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.css']
 })
+
 export class AdminPageComponent implements OnInit {
 
   isCodeBook: boolean = false;
@@ -12,9 +14,17 @@ export class AdminPageComponent implements OnInit {
   isAgents: boolean = false;
   isComments: boolean = false;
   collapsed: boolean = false;
+  
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(function () {
+
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+      });
+  
+  });
   }
   
   showCodeBook(){
@@ -35,6 +45,7 @@ export class AdminPageComponent implements OnInit {
     this.collapsed = false;
     this.isCodeBook = false;
     this.isManagement = false;
+    this.isComments = false;
     this.isAgents = true;
   }
 
@@ -48,5 +59,9 @@ export class AdminPageComponent implements OnInit {
   collapse(){
     this.collapsed = true;
   }
+
+  onToggle(){
+  }
+
 
 }

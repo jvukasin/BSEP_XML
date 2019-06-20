@@ -22,8 +22,8 @@
       <td>{{ user.lastname }}</td>
       <td>{{ user.username }}</td>
       <td>{{ user.email }}</td>
-      <td><button type="button" class="btn btn-danger" [routerLink]="" (click)="onBlock(user.username)"><span><i class="fa fa-ban" aria-hidden="true"></i></span></button></td>
-      <td><button type="button" class="btn btn-success" [routerLink]="" (click)="onActivate(user.username)"><span><i class="fa fa-check-square" aria-hidden="true"></i></span></button></td>
+      <td><button type="button" class="btn btn-danger" [disabled]="isBlocked(user.status)" [routerLink]="" (click)="onBlock(user.username)"><span><i class="fa fa-ban" aria-hidden="true"></i></span></button></td>
+      <td><button type="button" class="btn btn-success" [disabled]="isActive(user.status)" [routerLink]="" (click)="onActivate(user.username)"><span><i class="fa fa-check-square" aria-hidden="true"></i></span></button></td>
       <td><button type="button" class="btn btn-danger" [routerLink]="" (click)="onRemove(user.username)"><span><i class="fa fa-trash" aria-hidden="true"></i></span></button></td>
     </tr>
   </tbody>

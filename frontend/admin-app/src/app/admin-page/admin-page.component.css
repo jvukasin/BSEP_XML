@@ -1,19 +1,26 @@
-.wrapper {
-    display: flex;
+#topbar{
+    height: 50px;
+    width: 100%;
+}
+
+.wrapper{
+    height: 100%;
     width: 100%;
 }
 
 #sidebar {
+    position:fixed;
+    padding-top:20px;
     width: 200px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
+    height: 100%;   
     z-index: 999;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
-    margin-top: 70px;
+}
+
+#sidebar.active{
+    margin-left: -200px;
 }
 
 #sidebar a {
@@ -43,7 +50,7 @@ a {
 }
 
 #content{
-    margin-left: 200px;
+    margin-left: 130px;
 }
 
 #nav{
@@ -62,3 +69,28 @@ a {
     background: black !important;
     text-decoration: none;
 }
+
+.link-nav{
+    font-size: 20px;
+    margin-left: 8px;
+
+}
+
+.link-nav:hover{
+    color: #33b35a
+}
+
+#name{
+    margin-right:6px;
+    color:white
+}
+
+#menu{
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+#sidebarCollapse{
+    width:100px
+}
+

@@ -24,6 +24,7 @@ export class UsersComponent implements OnInit {
     this.userService.block(username).subscribe(
       (response) => {
         alert("User blocked!")
+        this.users = response;
       },
       (error) => { alert(error) }
     )
@@ -33,6 +34,7 @@ export class UsersComponent implements OnInit {
     this.userService.activate(username).subscribe(
       (response) => {
         alert("User activated!")
+        this.users = response;
       },
       (error) => { alert(error) }
     )
@@ -48,6 +50,22 @@ export class UsersComponent implements OnInit {
       },
       (error) => { alert(error) }
     )
+  }
+
+  isBlocked(status){
+    if(status === 'Blocked'){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  isActive(status){
+    if(status === 'Active'){
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }

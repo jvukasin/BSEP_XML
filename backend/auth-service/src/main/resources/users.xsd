@@ -34,7 +34,14 @@
             </xs:complexContent>
         </xs:complexType>
     </xs:element>
-    <xs:element name="Admin" type="gl:TPerson"/>
+    <xs:element name="Admin">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="gl:TPerson">
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="Agent">
         <xs:complexType>
             <xs:complexContent>

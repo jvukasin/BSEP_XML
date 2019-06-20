@@ -1,6 +1,7 @@
 package com.megatravel.authservice.controller;
 
 import com.megatravel.authservice.dto.UserInfoDTO;
+import com.megatravel.authservice.dto.UserListDTO;
 import com.megatravel.authservice.model.TPerson;
 import com.megatravel.authservice.model.User;
 import com.megatravel.authservice.repository.TPersonRepository;
@@ -27,31 +28,30 @@ public class UserController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public ResponseEntity<List<UserInfoDTO>> getAll(){
-        List<User> users = tPersonService.findAllUsers();
-        List<UserInfoDTO> usersDTO = new ArrayList<UserInfoDTO>();
-        for(User u: users){
-            usersDTO.add(new UserInfoDTO(u.getUsername(), u.getEmail(), u.getName(), u.getLastname()));
-        }
-        return new ResponseEntity(usersDTO, HttpStatus.OK);
+        List<UserListDTO> users = tPersonService.findAllUsers();
+        return new ResponseEntity(users, HttpStatus.OK);
     }
 
 
     @RequestMapping(value = "/block/{username}", method = RequestMethod.PUT)
-    public ResponseEntity<?> blockUser(@PathVariable("username") String username){
+    public ResponseEntity<List<UserListDTO>> blockUser(@PathVariable("username") String username){
         tPersonService.blokUser(username);
-        return new ResponseEntity(HttpStatus.OK);
+        List<UserListDTO> users = tPersonService.findAllUsers();
+        return new ResponseEntity(users,HttpStatus.OK);
     }
 
     @RequestMapping(value = "/activate/{username}", method = RequestMethod.PUT)
-    public ResponseEntity<?> activateUser(@PathVariable("username") String username){
+    public ResponseEntity<List<UserListDTO>> activateUser(@PathVariable("username") String username){
         tPersonService.activateUser(username);
-        return new ResponseEntity(HttpStatus.OK);
+        List<UserListDTO> users = tPersonService.findAllUsers();
+        return new ResponseEntity(users,HttpStatus.OK);
     }
 
     @RequestMapping(value = "/remove/{username}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> removeUser(@PathVariable("username") String username){
+    public ResponseEntity<List<UserListDTO>> removeUser(@PathVariable("username") String username){
         tPersonService.remove(username);
-        return new ResponseEntity(HttpStatus.OK);
+        List<UserListDTO> users = tPersonService.findAllUsers();
+        return new ResponseEntity(users,HttpStatus.OK);
     }
 
 
