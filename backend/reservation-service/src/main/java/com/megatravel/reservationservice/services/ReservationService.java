@@ -109,7 +109,7 @@ public class ReservationService
 			}
 			else
 			{
-				reservator = (User) personRepo.findById(dto.getReservator().getUsername()).get();
+				reservator = (User) personRepo.findOneByUsername(dto.getReservator().getUsername());
 			}
 			
 			reservation.setReservator(reservator);
