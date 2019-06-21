@@ -1,21 +1,11 @@
 
 package com.xml.MegaTravelAgent.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -60,10 +50,6 @@ public class User
     extends TPerson
 {
 
-    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
-    @OneToMany(mappedBy = "reservator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    protected List<Reservation> reservation;
-
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     @Column(name="status")
     @NotNull
@@ -73,6 +59,35 @@ public class User
     @XmlElement(name = "Rating", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<Rating> rating;
+
+    /**
+     * Gets the value of the reservation property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the reservation property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getReservation().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Reservation }
+     * 
+     * 
+     */
+    public List<Reservation> getReservation() {
+        if (reservation == null) {
+            reservation = new ArrayList<Reservation>();
+        }
+        return this.reservation;
+    }
 
     /**
      * Gets the value of the status property.

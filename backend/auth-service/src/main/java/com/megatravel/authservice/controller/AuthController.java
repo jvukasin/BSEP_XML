@@ -29,6 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping(value = "/auth")
 public class AuthController {
 
+    private final static String agentUri = "http://localhost:8445";
+
     @Autowired
     private RestTemplate restTemplate;
 
@@ -76,8 +78,12 @@ public class AuthController {
             System.out.println("\n\naccommodation service not up\n\n");
         }
 
+        try{
+            ResponseEntity<?> reesponseAgent = restTemplate.postForEntity( agentUri + "/agentSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+        }catch(Exception e){
+            System.out.println("\n\nagent service not up\n\n");
+        }
 
-        //ResponseEntity<?> responseAgent = restTemplate.postForEntity("", HReq, JwtAuthenticationRequest.class); -> dodati ovo kad odradis security za Agenta
         User user =  (User) authentication.getPrincipal();
 
         // VRATI DRUGI STATUS KOD
