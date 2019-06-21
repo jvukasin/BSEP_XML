@@ -9,7 +9,6 @@
 
 #main{
     width: 100%;
-    height: 100vh;
 }
 
 #side{
@@ -19,8 +18,10 @@
 
 #sidepart{
     height: 100vh;
-    width: 100%;
+    width: 21%;
     background: #343A40;
+    position: fixed;
+    padding: 0px 22px;
 }
 
 #image{
@@ -40,7 +41,7 @@
 
 label{
     color: #FFC107;
-    font-size: 30px;
+    font-size: 23px;
     font-weight: 400
 }
 
@@ -54,9 +55,26 @@ label{
     text-align: left
 }
 
-.sidebyside{
-    float:left
+.sidebyside-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;    
 }
+
+.sidebyside-left {
+    flex: 1 0 21%;
+    background: #343A40;
+    
+}
+
+.sidebyside-center {
+    flex: 1 0 58.3%;
+}
+
+.sidebyside-right {
+    flex: 1 0 20.7%;
+}
+
 
 #reservations{
     height: 100vh;
