@@ -1,21 +1,13 @@
 package com.megatravel.reservationservice.services;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.NoSuchElementException;
+import java.util.*;
 
+import com.megatravel.reservationservice.dto.*;
+import com.megatravel.reservationservice.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.megatravel.reservationservice.dto.ReservationDTO;
-import com.megatravel.reservationservice.model.AccommodationUnit;
-import com.megatravel.reservationservice.model.Reservation;
-import com.megatravel.reservationservice.model.SpecificPrice;
-import com.megatravel.reservationservice.model.User;
 import com.megatravel.reservationservice.repository.AccommodationUnitRepository;
 import com.megatravel.reservationservice.repository.ReservationRepository;
 import com.megatravel.reservationservice.repository.TPersonRepository;
@@ -156,8 +148,26 @@ public class ReservationService
 			throw new BusinessException("No reservation with id: " + id + " found.");
 		}
 	}
-	
-	
+
+	public List<UserReservationDTO> getUserReservations(String username){
+		List<Reservation> reservations = reservationRepo.getUserReservations(username);
+		List<UserReservationDTO> retVal = new ArrayList<UserReservationDTO>();
+
+		for(Reservation reservation: reservations){
+			//uzmi prvu sliku za prikaz u listi
+			Image image = reservation.getAccommodationUnit().getImage().iterator().next();
+			//konvertuj poruke u DTO objetke
+			List<MessageDTO> messages = new ArrayList<MessageDTO>();
+			for(Message m : reservation.getMessages()){
+				messages.add(new MessageDTO(m));
+			}
+
+			retVal.add(new UserReservationDTO(reservation.getStartDate(), reservation.getEndDate(), reservation.getPrice(),
+						new AccommodationInfoDTO(reservation.getAccommodationUnit().getName(), image.getImageUrl(),
+								new LocationDTO(reservation.getAccommodationUnit().getLocation()), reservation.getAccommodationUnit().getRatingAvg()), messages));
+		}
+		return retVal;
+	}
 	
 	
 	// * * * PRICE UNITILITES * * *

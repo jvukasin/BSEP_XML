@@ -83,11 +83,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 					.antMatchers("/resSecurity/**").permitAll()
 				.antMatchers("/h2-console/**").permitAll()
 				.antMatchers("/ws/**").permitAll()
-				// svaki zahtev mora biti autorizovan
+				.antMatchers("/reservations/**").permitAll()
+					// svaki zahtev mora biti autorizovan
 				.anyRequest().authenticated().and()
 				// presretni svaki zahtev filterom
 				.addFilterBefore(new TokenAuthenticationFilter(tokenUtils, jwtUserDetailsService), BasicAuthenticationFilter.class);
-			
+
 			http.headers().contentSecurityPolicy("script-src 'self' https://localhost:4200; object-src https://localhost:4200");
 		}
 		
@@ -96,31 +97,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		@Override
 		public void configure(WebSecurity web) throws Exception {
 			// TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
+			web.ignoring().antMatchers(HttpMethod.GET, "/reservations/**");
+			web.ignoring().antMatchers(HttpMethod.POST, "/reservations/**");
 			web.ignoring().antMatchers(HttpMethod.POST, "/resSecurity/setAuthentication");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
 		}
-		
-		@Bean
-		public DeviceResolverHandlerInterceptor 
-		        deviceResolverHandlerInterceptor() {
-		    return new DeviceResolverHandlerInterceptor();
-		}
 
-		@Bean
-		public DeviceHandlerMethodArgumentResolver 
-		        deviceHandlerMethodArgumentResolver() {
-		    return new DeviceHandlerMethodArgumentResolver();
-		}
+	@Bean
+	public DeviceResolverHandlerInterceptor
+	deviceResolverHandlerInterceptor() {
+		return new DeviceResolverHandlerInterceptor();
+	}
 
-		@Override
-		public void addInterceptors(InterceptorRegistry registry) {
-		    registry.addInterceptor(deviceResolverHandlerInterceptor());
-		}
+	@Bean
+	public DeviceHandlerMethodArgumentResolver
+	deviceHandlerMethodArgumentResolver() {
+		return new DeviceHandlerMethodArgumentResolver();
+	}
 
-		@Override
-		public void addArgumentResolvers(
-		        List<HandlerMethodArgumentResolver> argumentResolvers) {
-		    argumentResolvers.add(deviceHandlerMethodArgumentResolver());
-		}
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(deviceResolverHandlerInterceptor());
+	}
+
+	@Override
+	public void addArgumentResolvers(
+			List<HandlerMethodArgumentResolver> argumentResolvers) {
+		argumentResolvers.add(deviceHandlerMethodArgumentResolver());
+	}
 	
 }
