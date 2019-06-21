@@ -23,28 +23,28 @@ export class JwtInterceptor implements HttpInterceptor {
             if(currentUser.accessToken){
                 let isExpired = this.helper.isTokenExpired(currentUser.accessToken);
 
-            if(isExpired){
-                /*swal({
-                    title: "Session expired",
-                    text: "You're session is expired. You'll have to login again."
-                })
-                .then((value) => {
+                if(isExpired){
+                    /*swal({
+                        title: "Session expired",
+                        text: "You're session is expired. You'll have to login again."
+                    })
+                    .then((value) => {
+                        localStorage.removeItem('currentUser');
+                        this.router.navigate(['/login']);
+                    })*/
+                    alert("Session expired");
                     localStorage.removeItem('currentUser');
-                    this.router.navigate(['/login']);
-                })*/
-                alert("Session expired");
-                localStorage.removeItem('currentUser');
-                    this.router.navigate(['/login']);
-            }else{
-                if (currentUser && currentUser.accessToken) {
-                    request = request.clone({
-                        setHeaders: { 
-                            Authorization: `Bearer ${currentUser.accessToken}`
+                        this.router.navigate(['/login']);
+                }else{
+                    if (currentUser && currentUser.accessToken) {
+                        request = request.clone({
+                            setHeaders: { 
+                                Authorization: `Bearer ${currentUser.accessToken}`
+                            }
+                        });
                         }
-                    });
                     }
                 }
-            }
         }
         return next.handle(request);
     }

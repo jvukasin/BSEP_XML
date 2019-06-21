@@ -66,7 +66,8 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
         System.out.println("Hit postAccommodationUnit");
 
         AccommodationUnit au = request.getAccommodationUnit();
-        acService.saveFromSoap(au);
+        String agentUsername = request.getAgentUsername();
+        acService.saveFromSoap(au, agentUsername);
 
         PostAccommodationUnitResponse response = new PostAccommodationUnitResponse();
         response.setAccommodationUnit(au);

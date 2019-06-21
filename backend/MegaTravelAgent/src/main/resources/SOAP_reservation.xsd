@@ -12,7 +12,7 @@
      <xs:element name="FetchReservationsRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="agentId" type="xs:long" />
+                <xs:element name="agentUsername" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -28,7 +28,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="rs:Reservation"/>
-                <xs:element name="agentId" type="xs:long" />
+                <xs:element name="agentUsername" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -44,7 +44,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="reservationId" type="xs:long" />
-                <xs:element name="agentId" type="xs:long" />
+                <xs:element name="agentUsername" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -60,7 +60,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="reservationId" type="xs:long" />
-                <xs:element name="agentId" type="xs:long" />
+                <xs:element name="agentUsername" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>

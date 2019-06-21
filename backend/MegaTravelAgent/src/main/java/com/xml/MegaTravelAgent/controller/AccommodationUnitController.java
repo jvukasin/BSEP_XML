@@ -5,6 +5,7 @@ import com.xml.MegaTravelAgent.dto.AmenityDTO;
 import com.xml.MegaTravelAgent.dto.NewAccommodationUnitDTO;
 import com.xml.MegaTravelAgent.exceptions.BusinessException;
 import com.xml.MegaTravelAgent.model.Amenity;
+import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.service.AccommodationUnitService;
 import com.xml.MegaTravelAgent.service.AmenityService;
 import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
@@ -13,14 +14,11 @@ import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.xml.MegaTravelAgent.dto.AccommodationUnitDTO;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.List;
 
@@ -38,10 +36,21 @@ public class AccommodationUnitController {
 	@Autowired
 	AmenityService amenityService;
 
+	@Autowired
+	TokenUtils tokenUtils;
+
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<Collection<AccommodationUnitDTO>> getAccommodationUnits()
+	public ResponseEntity<Collection<AccommodationUnitDTO>> getAccommodationUnits(HttpServletRequest request)
 	{
-		return new ResponseEntity<Collection<AccommodationUnitDTO>>(accommodationService.findAll(),HttpStatus.OK);
+
+		String username = getUsernameFromRequest(request);
+
+		if (username == null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
+		return new ResponseEntity<Collection<AccommodationUnitDTO>>(accommodationService.findAllByAgentUsername(username),
+				HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -63,11 +72,18 @@ public class AccommodationUnitController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<?> create(@RequestBody NewAccommodationUnitDTO auDTO)
+	public ResponseEntity<?> create(@RequestBody NewAccommodationUnitDTO auDTO, HttpServletRequest request)
 	{
 
+
+		String username = getUsernameFromRequest(request);
+
+		if (username == null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
 		try {
-			return new ResponseEntity<>(accommodationService.save(auDTO), HttpStatus.CREATED);
+			return new ResponseEntity<>(accommodationService.save(auDTO, username), HttpStatus.CREATED);
 		} catch (BusinessException e) {
 			System.out.println(e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -120,5 +136,17 @@ public class AccommodationUnitController {
 
 
 		return new ResponseEntity<AccommodationSettingsDTO>(settingsDTO, HttpStatus.OK);
+	}
+
+	private String getUsernameFromRequest(HttpServletRequest request) {
+
+		String authToken = tokenUtils.getToken(request);
+		if (authToken == null) {
+			return null;
+		}
+
+		String username = tokenUtils.getUsernameFromToken(authToken);
+
+		return username;
 	}
 }

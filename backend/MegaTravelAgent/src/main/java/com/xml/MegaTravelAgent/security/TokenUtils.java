@@ -1,6 +1,7 @@
 package com.xml.MegaTravelAgent.security;
 
-import com.megatravel.authservice.model.TPerson;
+import com.xml.MegaTravelAgent.model.Agent;
+import com.xml.MegaTravelAgent.model.TPerson;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -96,12 +97,14 @@ public class TokenUtils {
 		// Functions for validating JWT token data
 
 		public Boolean validateToken(String token, UserDetails userDetails) {
-			TPerson user = (TPerson) userDetails;
+			Agent user = (Agent) userDetails;
 			final String username = getUsernameFromToken(token);
 			final Date created = getIssuedAtDateFromToken(token);
-			
-			return (username != null && username.equals(userDetails.getUsername())
-					&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate().getTimestamp()));
+			if(user.getLastPasswordResetDate() != null){
+				return (username != null && username.equals(userDetails.getUsername())
+						&& !isCreatedBeforeLastPasswordReset(created, user.getLastPasswordResetDate().getTimestamp()));
+			}
+			return (username != null && username.equals(userDetails.getUsername()));
 		}
 
 		private Boolean isCreatedBeforeLastPasswordReset(Date created, Date lastPasswordReset) {

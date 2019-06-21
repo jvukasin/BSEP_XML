@@ -10,16 +10,10 @@ import javax.persistence.EntityManager;
 import javax.validation.ConstraintViolationException;
 
 import com.megatravel.accommodationservice.dto.*;
+import com.megatravel.accommodationservice.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.megatravel.accommodationservice.model.AccommodationType;
-import com.megatravel.accommodationservice.model.AccommodationUnit;
-import com.megatravel.accommodationservice.model.Amenity;
-import com.megatravel.accommodationservice.model.City;
-import com.megatravel.accommodationservice.model.Image;
-import com.megatravel.accommodationservice.model.Location;
-import com.megatravel.accommodationservice.model.SpecificPrice;
 import com.megatravel.accommodationservice.repository.AccommodationTypeRepository;
 import com.megatravel.accommodationservice.repository.AccommodationUnitRepository;
 import com.megatravel.accommodationservice.repository.AmenityRepository;
@@ -53,7 +47,7 @@ public class AccommodationUnitService
 	private SpecificPriceRepository specificPriceRepo;
 	
 	@Autowired
-	private TPersonRepository personRepo;
+	private TPersonRepository tPerrsonRepo;
 	
 	@Autowired
 	private AccommodationTypeRepository typeRepo;
@@ -88,7 +82,10 @@ public class AccommodationUnitService
 	}
 
 
-	public AccommodationUnit saveFromSoap(AccommodationUnit au) {
+	public AccommodationUnit saveFromSoap(AccommodationUnit au, String agentUsername) {
+
+		Agent agent = (Agent) tPerrsonRepo.findOneByUsername(agentUsername);
+		au.setAgent(agent);
 
 		Location loc = locationRepo.save(au.getLocation());
 		au.setLocation(loc);

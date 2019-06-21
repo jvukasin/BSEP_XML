@@ -2,7 +2,6 @@ package com.xml.MegaTravelAgent.soap.config;
 
 import com.xml.MegaTravelAgent.model.AccommodationUnit;
 import com.xml.MegaTravelAgent.soap.client.ReservationClient;
-import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationUnitRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;

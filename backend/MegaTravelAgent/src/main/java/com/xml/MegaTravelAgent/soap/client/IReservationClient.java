@@ -5,11 +5,11 @@ import com.xml.MegaTravelAgent.soap.reqres.*;
 
 public interface IReservationClient {
 
-    FetchReservationsResponse fetchAgentsReservations(Long agentId);
+    FetchReservationsResponse fetchAgentsReservations(String agentUsername);
 
-    PostReservationResponse postReservation(Reservation reservation, Long agentId);
+    PostReservationResponse postReservation(Reservation reservation, String agentUsername);
 
-    SuccessReservationResponse successReservation(Long reservationId, Long agentId);
+    SuccessReservationResponse successReservation(Long reservationId, String agentUsername);
 
-    GetMessagesResponse getMessages(Long reservationId, Long agentId);
+    GetMessagesResponse getMessages(Long reservationId, String agentUsername);
 }

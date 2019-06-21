@@ -30,7 +30,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="au:AccommodationUnit"/>
-                <xs:element name="agentId" type="xs:long" />
+                <xs:element name="agentUsername" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -46,7 +46,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="au:AccommodationUnit"/>
-                <xs:element name="agentId" type="xs:long" />
+                <xs:element name="agentUsername" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -58,11 +58,28 @@
         </xs:complexType>
     </xs:element>
 
+
+    <xs:element name="GetAccommodationSettingsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="agentUsername" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAccommodationSettingsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0"  ref="au:Amenity"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0"  ref="sp:AccommodationType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="DeleteAccommodationUnitRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="accommodationUnitId" type="xs:long" />
-                <xs:element name="agentId" type="xs:long" />
+                <xs:element name="agentUsername" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -74,5 +91,13 @@
         </xs:complexType>
     </xs:element>
 
+
+    <xs:element name="AccommodationType">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="type" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
 </xs:schema>

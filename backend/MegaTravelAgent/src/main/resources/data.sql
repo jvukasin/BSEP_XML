@@ -119,16 +119,44 @@ INSERT INTO city (id, name, country_id) values
 (84, 'Hanoi', 29),
 (85, 'Harare', 30);
 
+insert into tperson values ('AGENT','laza', 'laza@gmail.com', null, 'Lazic', 'Milan', '$2a$10$lR0V0l7AMAZJHDt9/qTnWe8A5RBzL2XqQXUPlEKUgkUD4jrw1B7.m', 'rega00','','active');
+insert into tperson values ('ADMIN','dovla', 'dovla@gmail.com', null, 'Cvetanovic', 'Vladimir', '$2a$10$wYRK9iRSzBaJ.MzYhIVkxOdA5xhfRN6O7/ufSyftqFvpPnRJHxOOq', 'admin','','active');
+insert into tperson values ('AGENT','tjokarda', '123@gmail.com', null, 'Tjokic', 'Tjoki', '$2a$10$wYRK9iRSzBaJ.MzYhIVkxOdA5xhfRN6O7/ufSyftqFvpPnRJHxOOq', 'agent','rega01','active');
+INSERT INTO tperson VALUES ('AGENT','miladinovski','lazicy@gmail.com',NULL,'Lazic','Miladin','$2a$10$lQk76nAIG0IauNSBwtiePOpJOI0DM28HBPMs7.PCbcghPHdre39cu','agent','rega02','active');
+
+
+insert into role values (1, 'ROLE_ADMIN');
+insert into role values (2, 'ROLE_USER');
+insert into role values (3, 'ROLE_AGENT');
+
+
+insert into privilege values (1 , 'TEST');
+
+
+insert into user_roles values ('dovla',1);
+insert into user_roles values ('laza',3);
+insert into user_roles values ('tjokarda',3);
+insert into user_roles values ('miladinovski',3);
+
+
 INSERT INTO location (id, coordinates, distance_from_city, city_id) values
 (1, 'Miris ljeta 96', 3, 51),
 (2, 'Terazije 20', 7, 52),
 (3, 'St Patricks street 3', 10, 71),
-(4, 'Proba ulice 44', 0, 51);
+(4, 'Proba ulice 44', 0, 51),
+(5,'Carrer de Guayar 51',0.2,60);
 
 INSERT INTO accommodation_unit (id, cancellation_period, capacity, category, default_price, description, name, price, rating_avg, type, agent_username, location_id) values
 (1, 15, 4, 5, 220, 'Lovely apartment near the city center hosted by BBF Enterprise company. Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Apartment BBF', 220, 9.6, 'apartment', 'tjokarda', 1),
-(2, 20, 2, 3, 118, 'Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Hostel room', 118, 8.4, 'hostel', 'tjokarda', 4);
+(2, 20, 2, 3, 118, 'Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Hostel room', 118, 8.4, 'hostel', 'tjokarda', 4),
+(3,10,5,-1,60,'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who wants to spend great time in Madrid!','Chilare classico',0,0,'studio','laza',5);
 
 INSERT INTO image (id, image_url, accommodation_unit_id) values
 (1, 'https://www.futuremediaga.com/wp-content/uploads/2017/08/Cool-Studio-Apartment-Setup.jpg', 1),
-(2, 'http://www.hostel4me.com/images/dorm-curtains.jpg', 2);
+(2, 'http://www.hostel4me.com/images/dorm-curtains.jpg', 2),
+(3, 'http://www.hotelresb2b.com/images/hoteles/792720_image32499834_0.jpg', 3);
+
+
+INSERT INTO specific_price (id, end_date, price, start_date, accommodation_unit_id) values
+(1, '2019-06-30', 250, '2019-06-01', 1),
+(2, '2019-07-31', 401, '2019-07-01', 1);

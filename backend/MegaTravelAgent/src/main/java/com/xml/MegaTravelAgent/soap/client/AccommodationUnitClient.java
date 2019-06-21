@@ -29,14 +29,14 @@ public class AccommodationUnitClient extends WebServiceGatewaySupport implements
 
 
 	@Override
-	public PostAccommodationUnitResponse createAccommodationUnit(AccommodationUnit au, Long agentId) {
+	public PostAccommodationUnitResponse createAccommodationUnit(AccommodationUnit au, String agentUsername) {
 
 
 
 		PostAccommodationUnitRequest request = new PostAccommodationUnitRequest();
 
 		// temporary test
-		request.setAgentId(agentId);
+		request.setAgentUsername(agentUsername);
 		request.setAccommodationUnit(au);
 
 		PostAccommodationUnitResponse response = (PostAccommodationUnitResponse) getWebServiceTemplate()
@@ -46,14 +46,14 @@ public class AccommodationUnitClient extends WebServiceGatewaySupport implements
 	}
 
 	@Override
-	public EditAccommodationUnitResponse editAccommodationUnit(AccommodationUnit au, Long agentId) {
+	public EditAccommodationUnitResponse editAccommodationUnit(AccommodationUnit au, String agentUsername) {
 
 		System.out.println("editAccommodationUnit client");
 
 		PostAccommodationUnitRequest request = new PostAccommodationUnitRequest();
 
 		request.setAccommodationUnit(au);
-		request.setAgentId(agentId);
+		request.setAgentUsername(agentUsername);
 
 		EditAccommodationUnitResponse response = (EditAccommodationUnitResponse) getWebServiceTemplate()
 				.marshalSendAndReceive(ENDPOINT_URI, request);
@@ -63,14 +63,14 @@ public class AccommodationUnitClient extends WebServiceGatewaySupport implements
 	}
 
 	@Override
-	public DeleteAccommodationUnitResponse deleteAccommodationUnit(Long accommodationUnitId, Long agentId) {
+	public DeleteAccommodationUnitResponse deleteAccommodationUnit(Long accommodationUnitId, String agentUsername) {
 
 		System.out.println("editAccommodationUnit client");
 
 		DeleteAccommodationUnitRequest request = new DeleteAccommodationUnitRequest();
 
 		request.setAccommodationUnitId(accommodationUnitId);
-		request.setAgentId(agentId);
+		request.setAgentUsername(agentUsername);
 
 		DeleteAccommodationUnitResponse response = (DeleteAccommodationUnitResponse) getWebServiceTemplate()
 				.marshalSendAndReceive(ENDPOINT_URI, request);
@@ -88,7 +88,7 @@ public class AccommodationUnitClient extends WebServiceGatewaySupport implements
 		GetAccommodationSettingsRequest request = new GetAccommodationSettingsRequest();
 
 		// temporary test
-		request.setAgentId(new Long(2));
+		request.setAgentUsername("");
 
 
 		GetAccommodationSettingsResponse response = (GetAccommodationSettingsResponse) getWebServiceTemplate()

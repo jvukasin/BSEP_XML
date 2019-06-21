@@ -1,8 +1,4 @@
 <section class="right-to-nav appear" >
-
-  
-
-  <div appLoading *ngIf="!acommodationUnits"></div>
   
   <div id="accommodation" *ngIf="accommodationUnits">
 
@@ -14,7 +10,7 @@
     </div>
 
 
-    <div class="accommodation-components">
+    <div class="accommodation-components appear" *ngIf="accommodationUnits" >
       <div *ngFor="let a of accommodationUnits" >
         
         <app-accommodation-card [accommodationUnit]="a"></app-accommodation-card>

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class NewAccommodationComponent implements OnInit {
 
-	amenities: any = [];
+	amenities: any = null;
 	accommodationTypes: any = [];
 
 	countries: any = [];

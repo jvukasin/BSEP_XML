@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/reservation}Reservation"/>
- *         &lt;element name="agentId" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="agentUsername" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,15 +33,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "reservation",
-    "agentId"
+    "agentUsername"
 })
 @XmlRootElement(name = "PostReservationRequest", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
 public class PostReservationRequest {
 
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     protected Reservation reservation;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
-    protected long agentId;
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation", required = true)
+    protected String agentUsername;
 
     /**
      * Gets the value of the reservation property.
@@ -68,19 +68,27 @@ public class PostReservationRequest {
     }
 
     /**
-     * Gets the value of the agentId property.
+     * Gets the value of the agentUsername property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getAgentId() {
-        return agentId;
+    public String getAgentUsername() {
+        return agentUsername;
     }
 
     /**
-     * Sets the value of the agentId property.
+     * Sets the value of the agentUsername property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setAgentId(long value) {
-        this.agentId = value;
+    public void setAgentUsername(String value) {
+        this.agentUsername = value;
     }
 
 }

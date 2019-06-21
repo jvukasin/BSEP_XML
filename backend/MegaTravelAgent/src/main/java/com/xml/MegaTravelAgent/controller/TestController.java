@@ -1,7 +1,6 @@
 package com.xml.MegaTravelAgent.controller;
 
 import com.xml.MegaTravelAgent.dto.CityDTO;
-import com.xml.MegaTravelAgent.model.City;
 import com.xml.MegaTravelAgent.model.Reservation;
 import com.xml.MegaTravelAgent.service.CityService;
 import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/soapTest")
@@ -48,7 +46,7 @@ public class TestController {
 	public String testRes() throws IOException {
 
 
-		FetchReservationsResponse response = resClient.fetchAgentsReservations(new Long(55));
+		FetchReservationsResponse response = resClient.fetchAgentsReservations("");
 
 		List<Reservation> reservations = response.getReservation();
 

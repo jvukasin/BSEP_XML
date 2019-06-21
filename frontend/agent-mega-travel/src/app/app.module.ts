@@ -16,6 +16,7 @@ import { LocationService } from './services/location.service';
 import { AccommodationUnitComponent } from './accommodation/accommodation-unit/accommodation-unit.component';
 import { LoadingDirective } from './directives/loading.directive';
 import { JwtInterceptor } from './_helper/jwt.interceptor';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { JwtInterceptor } from './_helper/jwt.interceptor';
     ReactiveFormsModule
   ],
   
-  providers: [ AccommodationService, LocationService,
+  providers: [ AccommodationService, LocationService, AuthService,
               {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true} ],
 
   bootstrap: [AppComponent]

@@ -10,11 +10,11 @@ public class ReservationClient extends WebServiceGatewaySupport implements IRese
 
 
     @Override
-    public FetchReservationsResponse fetchAgentsReservations(Long agentId) {
+    public FetchReservationsResponse fetchAgentsReservations(String agentUsername) {
         System.out.println("fetchAgentsReservations client");
 
         FetchReservationsRequest request = new FetchReservationsRequest();
-        request.setAgentId(agentId);
+        request.setAgentUsername(agentUsername);
 
         FetchReservationsResponse response = (FetchReservationsResponse) getWebServiceTemplate()
                 .marshalSendAndReceive(ENDPOINT_URI, request);
@@ -23,21 +23,21 @@ public class ReservationClient extends WebServiceGatewaySupport implements IRese
     }
 
     @Override
-    public PostReservationResponse postReservation(Reservation reservation, Long agentId) {
+    public PostReservationResponse postReservation(Reservation reservation, String agentUsername) {
         System.out.println("postReservations client");
 
         return null;
     }
 
     @Override
-    public SuccessReservationResponse successReservation(Long reservationId, Long agentId) {
+    public SuccessReservationResponse successReservation(Long reservationId, String agentUsername) {
         System.out.println("successReservation client");
 
         return null;
     }
 
     @Override
-    public GetMessagesResponse getMessages(Long reservationId, Long agentId) {
+    public GetMessagesResponse getMessages(Long reservationId, String agentUsername) {
         System.out.println("getMessages client");
 
 

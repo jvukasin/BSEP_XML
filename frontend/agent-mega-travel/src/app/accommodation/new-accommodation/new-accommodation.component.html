@@ -109,7 +109,7 @@
         <p class="mb-4">Which of these features does your accommodation unit have?</p>
   
         <!-- AMENITIES -->
-        <div class="amenities-checkbox" formArrayName="amenities" >
+        <div class="amenities-checkbox appear" formArrayName="amenities" *ngIf="amenities" >
           <div *ngFor="let amenity of amenities; let i = index" [formGroupName]="i"
           >
             <label class="cb-container">

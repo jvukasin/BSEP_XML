@@ -1,26 +1,12 @@
 
 package com.xml.MegaTravelAgent.model;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import com.xml.MegaTravelAgent.soap.reqres.*;
 
-import com.xml.MegaTravelAgent.soap.reqres.DeleteAccommodationUnitRequest;
-import com.xml.MegaTravelAgent.soap.reqres.DeleteAccommodationUnitResponse;
-import com.xml.MegaTravelAgent.soap.reqres.EditAccommodationUnitRequest;
-import com.xml.MegaTravelAgent.soap.reqres.EditAccommodationUnitResponse;
-import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsRequest;
-import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsResponse;
-import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsRequest;
-import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
-import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationUnitRequest;
-import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationUnitResponse;
-import com.xml.MegaTravelAgent.soap.reqres.GetMessagesRequest;
-import com.xml.MegaTravelAgent.soap.reqres.GetMessagesResponse;
-import com.xml.MegaTravelAgent.soap.reqres.PostAccommodationUnitRequest;
-import com.xml.MegaTravelAgent.soap.reqres.PostAccommodationUnitResponse;
-import com.xml.MegaTravelAgent.soap.reqres.PostReservationRequest;
-import com.xml.MegaTravelAgent.soap.reqres.PostReservationResponse;
-import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationRequest;
-import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationResponse;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
+import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.namespace.QName;
 
 
 /**
@@ -40,6 +26,7 @@ import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationResponse;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Admin_QNAME = new QName("http://www.ftn.uns.ac.rs/MegaTravel/users", "Admin");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.xml.MegaTravelAgent.model
@@ -47,6 +34,7 @@ public class ObjectFactory {
      */
     public ObjectFactory() {
     }
+
 
     /**
      * Create an instance of {@link Agent }
@@ -286,6 +274,15 @@ public class ObjectFactory {
      */
     public GetAccommodationSettingsRequest createGetAccommodationSettingsRequest() {
         return new GetAccommodationSettingsRequest();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TPerson }{@code >}}
+     *
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", name = "Admin")
+    public JAXBElement<TPerson> createAdmin(TPerson value) {
+        return new JAXBElement<TPerson>(_Admin_QNAME, TPerson.class, null, value);
     }
 
 }

@@ -8,6 +8,7 @@ import java.util.NoSuchElementException;
 
 import javax.transaction.Transactional;
 
+import com.xml.MegaTravelAgent.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,15 +25,8 @@ import com.xml.MegaTravelAgent.model.City;
 import com.xml.MegaTravelAgent.model.Image;
 import com.xml.MegaTravelAgent.model.Location;
 import com.xml.MegaTravelAgent.model.SpecificPrice;
-import com.xml.MegaTravelAgent.repository.AccommodationUnitRepository;
-import com.xml.MegaTravelAgent.repository.AmenityRepository;
-import com.xml.MegaTravelAgent.repository.CityRepository;
-import com.xml.MegaTravelAgent.repository.ImageRepository;
-import com.xml.MegaTravelAgent.repository.LocationRepository;
-import com.xml.MegaTravelAgent.repository.ReservationRepository;
-import com.xml.MegaTravelAgent.repository.SpecificPriceRepository;
+import com.xml.MegaTravelAgent.model.Agent;
 import com.xml.MegaTravelAgent.soap.client.AccommodationUnitClient;
-
 
 @Service
 public class AccommodationUnitService 
@@ -61,6 +55,9 @@ public class AccommodationUnitService
 	@Autowired
 	private AccommodationUnitClient auClient;
 
+	@Autowired
+	private TPersonRepository tPersonRepository;
+
 
 	public AccommodationUnitDTO findById(Long id)
 	{
@@ -85,6 +82,18 @@ public class AccommodationUnitService
 
 		return retVal;
 	}
+
+	public Collection<AccommodationUnitDTO> findAllByAgentUsername(String username)
+	{
+		Collection<AccommodationUnit> list = accommodationRepo.findAllByAgentUsername(username);
+		Collection<AccommodationUnitDTO> retVal = new ArrayList<AccommodationUnitDTO>();
+		for(AccommodationUnit a : list)
+		{
+			retVal.add(new AccommodationUnitDTO(a));
+		}
+
+		return retVal;
+	}
 	
 	public Collection<AccommodationUnit> search(ExtendedSearchDTO dto)
 	{
@@ -93,7 +102,7 @@ public class AccommodationUnitService
 
 
  	@Transactional
-	public Long save(NewAccommodationUnitDTO dto) throws Exception {
+	public Long save(NewAccommodationUnitDTO dto, String agentUsername) throws Exception {
 
 		AccommodationUnit au = new AccommodationUnit();
 
@@ -132,7 +141,7 @@ public class AccommodationUnitService
 		au.setCapacity(dto.getCapacity());
 		au.setCancellationPeriod(dto.getCancellationPeriod());
 		au.setDefaultPrice(dto.getDefaultPrice());
-		au.setRatingAvg(-1);
+		au.setRatingAvg(0);
 		au.setCategory(-1);
 
 		au.setAmenity(new HashSet<Amenity>());
@@ -217,6 +226,14 @@ public class AccommodationUnitService
 			throw new BusinessException("Given city does not exists.", e);
 		}
 
+		try {
+			Agent agent = (Agent) tPersonRepository.findOneByUsername(agentUsername);
+			au.setAgent(agent);
+		} catch (NoSuchElementException e) {
+			throw new Exception("Can't find agent in DB.", e);
+		}
+
+
 
 		au = accommodationRepo.save(au);
 
@@ -232,7 +249,7 @@ public class AccommodationUnitService
 		imageRepo.saveAll(au.getImage());
 
 		// send to soap
-		auClient.createAccommodationUnit(au, new Long(-1));
+		auClient.createAccommodationUnit(au, agentUsername);
 
 
 		return au.getId();

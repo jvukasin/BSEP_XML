@@ -56,7 +56,7 @@ public class AccommodationUnitDTO {
         type = accommodation.getType();
         capacity = accommodation.getCapacity();
         cancellationPeriod = accommodation.getCancellationPeriod();
-        price = accommodation.getPrice();
+        price = findCurrentPrice(accommodation);
         ratingAvg = accommodation.getRatingAvg();
         category = accommodation.getCategory();
 
@@ -71,7 +71,7 @@ public class AccommodationUnitDTO {
         }
 
         location = new LocationDTO(accommodation.getLocation());
-        //agent = new UserInfoDTO(accommodation.getAgent());
+        agent = new UserInfoDTO(accommodation.getAgent());
 
     }
 

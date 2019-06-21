@@ -1,10 +1,13 @@
-package com.megatravel.authservice.controller;
+package com.xml.MegaTravelAgent.controller;
 
-import com.megatravel.authservice.model.User;
-import com.megatravel.authservice.model.UserTokenState;
-import com.megatravel.authservice.security.CustomUserDetailsService;
-import com.megatravel.authservice.security.TokenUtils;
-import com.megatravel.authservice.security.auth.JwtAuthenticationRequest;
+import com.xml.MegaTravelAgent.dto.UserInfoDTO;
+import com.xml.MegaTravelAgent.model.Agent;
+import com.xml.MegaTravelAgent.model.User;
+import com.xml.MegaTravelAgent.model.UserTokenState;
+import com.xml.MegaTravelAgent.security.CustomUserDetailsService;
+import com.xml.MegaTravelAgent.security.TokenUtils;
+import com.xml.MegaTravelAgent.security.auth.JwtAuthenticationRequest;
+import com.xml.MegaTravelAgent.service.TPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -29,10 +32,6 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping(value = "/auth")
 public class AuthController {
 
-    private final static String agentUri = "http://localhost:8445";
-
-    @Autowired
-    private RestTemplate restTemplate;
 
     @Autowired
     private TokenUtils tokenUtils;
@@ -42,6 +41,9 @@ public class AuthController {
 
     @Autowired
     private CustomUserDetailsService userDetailsService;
+
+    @Autowired
+    private TPersonService tPersonService;
 
     @RequestMapping(value="/login",method = RequestMethod.POST)
     public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device, HttpServletRequest hr){
@@ -59,38 +61,20 @@ public class AuthController {
 
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
-        headers.add("Content-Type", "application/json");
-        HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest,headers);
-        //posalji zahtev servisu da stavi u kontekst
-        try {
-            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
-        } catch (Exception e) {
-            //ovo treba u logger
-            System.out.println("\n\nreservation service not up\n\n");
-        }
-
-        try {
-            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
-        } catch (Exception e) {
-            //ovo treba u logger
-            System.out.println("\n\naccommodation service not up\n\n");
-        }
-
-        User user =  (User) authentication.getPrincipal();
+        Agent agent = (Agent) authentication.getPrincipal();
 
         // VRATI DRUGI STATUS KOD
-        if(user == null) {
+        if(agent == null) {
             // logger.logError("ULOG_FAIL. "+ authenticationRequest.getUsername() + " is not authorized.");
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
-        String jwt = tokenUtils.generateToken(user.getUsername(), device);
+        String jwt = tokenUtils.generateToken(agent.getUsername(), device);
 
         int expiresIn = 3600;
 
         // logger.logInfo("ULOG_SUCCESS");
+
 
         return ResponseEntity.ok(new UserTokenState(jwt,expiresIn));
     }
@@ -100,6 +84,22 @@ public class AuthController {
     public ResponseEntity<?> logOut(){
         SecurityContextHolder.clearContext();
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public ResponseEntity<?> getUser(HttpServletRequest request) {
+        String token = tokenUtils.getToken(request);
+        String username = tokenUtils.getUsernameFromToken(token);
+
+        if(username != "" && username != null) {
+
+            Agent a = (Agent) tPersonService.findOneByUsername(username);
+            UserInfoDTO ui = new UserInfoDTO(a.getUsername(), a.getEmail(), a.getName(), a.getLastname());
+
+            return new ResponseEntity<UserInfoDTO>(ui, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     public boolean inputValid(String text) {

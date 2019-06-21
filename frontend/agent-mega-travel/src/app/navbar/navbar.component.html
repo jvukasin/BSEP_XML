@@ -1,8 +1,8 @@
-<div id="main-navbar" class="appear">
+<div id="main-navbar" class="appear" *ngIf="isLoggedIn && userInfo">
 
 	<div class="main-navbar-heading">
 		<img src="../../assets/logo.svg" class="navbar-logo" alt="">
-		<h3 >Howdy, <strong>Milan</strong>!</h3>
+		<h3 >Howdy, <strong>{{userInfo.firstname}}</strong>!</h3>
 		
 	</div>
 
@@ -31,7 +31,7 @@
 
 
 	<div class="under-block">
-		<button class="btn btn-primary">Log out</button>
+		<button class="btn btn-primary" (click)="onLogout()">Log out</button>
 	</div>
 
 

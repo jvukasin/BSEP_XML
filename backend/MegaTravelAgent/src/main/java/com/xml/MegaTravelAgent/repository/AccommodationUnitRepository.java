@@ -14,6 +14,8 @@ import com.xml.MegaTravelAgent.model.AccommodationUnit;
 
   public interface AccommodationUnitRepository extends JpaRepository<AccommodationUnit, Long> 
   {
+
+      Collection<AccommodationUnit> findAllByAgentUsername(String username);
 	  /*
 		@Transactional
 		@Query(value = "select distinct\n" + 

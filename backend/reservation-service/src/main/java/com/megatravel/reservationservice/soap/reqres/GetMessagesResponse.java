@@ -2,7 +2,6 @@
 package com.megatravel.reservationservice.soap.reqres;
 
 import com.megatravel.reservationservice.model.Message;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;

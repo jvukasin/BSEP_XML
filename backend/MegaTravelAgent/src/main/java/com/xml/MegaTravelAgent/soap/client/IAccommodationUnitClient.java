@@ -7,11 +7,11 @@ public interface IAccommodationUnitClient {
 
     GetAccommodationUnitResponse getAccommodationUnit(Long accommodationUnitId);
 
-    PostAccommodationUnitResponse createAccommodationUnit(AccommodationUnit au, Long agentId);
+    PostAccommodationUnitResponse createAccommodationUnit(AccommodationUnit au, String agentUsername);
 
-    EditAccommodationUnitResponse editAccommodationUnit(AccommodationUnit au, Long agentId);
+    EditAccommodationUnitResponse editAccommodationUnit(AccommodationUnit au, String agentUsername);
 
-    DeleteAccommodationUnitResponse deleteAccommodationUnit(Long accommodationUnitId, Long agentId);
+    DeleteAccommodationUnitResponse deleteAccommodationUnit(Long accommodationUnitId, String agentUsername);
 
     GetAccommodationSettingsResponse getAccommodationSettings();
 }
