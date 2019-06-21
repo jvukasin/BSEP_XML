@@ -12,4 +12,9 @@ export class ReservationService {
     makeReservation(res) {
         return this.http.post("/api/reservationservice/reservations", res);
     }
+
+    getUserReservations(){
+        return this.http.get('api/reservationservice/reservations/all');
+    }
+
 }

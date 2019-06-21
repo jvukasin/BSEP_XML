@@ -1,6 +1,7 @@
 package com.megatravel.reservationservice.repository;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -21,5 +22,9 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long>
 			"SET is_successful = true\r\n" + 
 			"WHERE id = :reservationID")
 	void setSuccessful(@Param("reservationID") Long reservationID);
+
+	@Query("select reservation from Reservation reservation where reservation.reservator.username = :username")
+	List<Reservation> getUserReservations(@Param("username") String username);
+
 
 }

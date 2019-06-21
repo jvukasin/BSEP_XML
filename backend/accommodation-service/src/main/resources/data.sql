@@ -174,4 +174,6 @@ INSERT INTO amenity (id, fa_icon, name) values
 
 
 INSERT INTO accommodation_type (name) values ("hotel"), ("hostel"), ("apartment");
+insert into reservation (id, start_date, end_date, price, accommodation_unit_id, is_successful, reservator_username)
+values (1, '2019-10-10', '2019-10-20', '500', 1, false, 'laza');
 
