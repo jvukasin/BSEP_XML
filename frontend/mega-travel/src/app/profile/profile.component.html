@@ -1,0 +1,124 @@
+<div id="main">
+
+<!-- USER INFO -->
+
+<div class="sidebyside" id=side>
+
+  <div id=sidepart>
+    
+    <div id=image>
+      <img src="../../assets/images/user.png" class="user-img">
+    </div>
+
+    <div id=user>
+      <div class="row">
+        <div class="col-sm label"><label>Username</label></div>
+        <div class="col-sm info">Dovla</div>
+      </div>
+      <div class="row">
+          <div class="col-sm label"><label>Name</label></div>
+          <div class="col-sm info" >Vladimir</div>
+        </div>
+        <div class="row">
+            <div class="col-sm label"><label>Lastname</label></div>
+            <div class="col-sm info">Cvetanovic</div>
+          </div>
+          <div class="row">
+              <div class="col-sm label"><label>Email</label></div>
+              <div class="col-sm info">dovla@gmail.com</div>
+            </div>
+          <div class="wrapper">
+          <div class="row" id=agentBtn>
+            <button type="button" class="btn btn-warning">Become an agent</button>
+          </div>
+        </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- REZERVACIJE -->
+
+<div id=reservations class="sidebyside">
+  
+    <div id="reservationList">
+      <h1>Reservations</h1>
+    
+      <div class="resList">
+        <!--
+          <div class="card">
+              <div class="accommodation sidebyside">
+                  <div class="image">
+                    <img class="acc-img" src="https://hotel-vojvodina.rs/wp-content/uploads/2016/05/IMG_9753-Edit.jpg">
+                  </div>
+                  <div class="acc-info">
+                      <div class="acc-name"> Hotel Vojvodina </div>
+                    <div class="addres"> Spasoja Stejica 7 </div>
+                  </div>
+              </div>
+              
+              <div>
+                  <div class="startDate">Start date: 12.10.2019.</div>
+                  <div class="endDate">End date: 12.11.2019.</div>
+                  <div class="price"> Price: 10000$ </div>
+              </div>
+              <div class="buttons sidebyside">
+              </div>
+          
+          </div>
+
+        -->
+
+        <div class="row">
+            <div class="tile">
+              <div class="card-inside">
+                  <div class="left-part-card">
+                      <img class="image-card" alt="Hotel image" src="{{acc.images[0].imageUrl}}" width="300px" height="253px">
+                  </div>
+                  <div class="right-part-card" style="position:relative">
+                    <div class="upper-right">
+                      <h4 class="hotel-name">Hotel Vojvodina 
+                        <span *ngIf="acc.category === 5"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        <span *ngIf="acc.category === 4"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        <span *ngIf="acc.category === 3"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        <span *ngIf="acc.category === 2"><i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        <span *ngIf="acc.category === 1"><i class="fa fa-star"></i></span>
+                        <span *ngIf="acc.category === 0">Uncategorized</span>
+                      </h4> 
+                      <h6 class="hotel-address"><i class="fa fa-map-marker"></i> Spasoja Stejica br 7, Novi Sad </h6>
+                      <div class="rating">
+                        <span class="rating-round">{{acc.ratingAvg}}</span> <span class="no-revs">Based on X reviews</span>
+                      </div>
+    
+                      <div class="price">
+                        <h3>$10000</h3>
+                      </div>
+                    </div>
+                    <div class="lower-right">
+                      <div class="distance">
+                        <div class="startDate">Start date: 12.10.2019.</div>
+                        <div class="endDate">End date: 12.11.2019.</div>
+                      </div>
+                      <div class="details-btn-card">
+                        <button type="button" class="btn btn-primary"> Send message </button>
+                      </div>
+                    </div>
+                    <div style="position:absolute; top:0.45px; right: 0.31px"><button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel reservation">
+                                                                    <span><i class="fa fa-ban" aria-hidden="true"></i></span></button></div> 
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    
+
+  </div>
+
+<!-- COLLAPSE  -->
+<div class="sidebyside" id=messages>
+</div>
+
+</div>
