@@ -3,6 +3,10 @@ package com.megatravel.reservationservice.controller;
 import java.util.Collection;
 import java.util.List;
 
+import com.megatravel.reservationservice.dto.UserInfoDTO;
+import com.megatravel.reservationservice.dto.UserReservationDTO;
+import com.megatravel.reservationservice.security.TokenUtils;
+import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,20 +21,30 @@ import com.megatravel.reservationservice.services.ReservationService;
 
 import exceptions.BusinessException;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 
 @RestController
 @RequestMapping("/reservations")
 public class ReservationController 
 {
-	
+
+	@Autowired
+	private TokenUtils tokenUtils;
+
 	@Autowired
 	private ReservationService reservationService;
 	
-//
-//	@RequestMapping(value = "/all", method = RequestMethod.GET)
-//	public ResponseEntity<List<?>> getAllReservations() {
-//
-//	}
+	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllReservations(HttpServletRequest request) {
+		//String authToken = tokenUtils.getToken(request);
+		//String username = tokenUtils.getUsernameFromToken(authToken);
+
+		List<UserReservationDTO> reservations = reservationService.getUserReservations("laza");
+
+		return new ResponseEntity(reservations, HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Collection<ReservationDTO>> getReservations()

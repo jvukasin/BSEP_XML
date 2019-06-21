@@ -1,9 +1,10 @@
-package com.megatravel.reservationservice.security.config;
+package com.xml.MegaTravelAgent.security.config;
 
-import com.megatravel.reservationservice.security.CustomUserDetailsService;
-import com.megatravel.reservationservice.security.TokenUtils;
-import com.megatravel.reservationservice.security.auth.RestAuthenticationEntryPoint;
-import com.megatravel.reservationservice.security.auth.TokenAuthenticationFilter;
+
+import com.xml.MegaTravelAgent.security.CustomUserDetailsService;
+import com.xml.MegaTravelAgent.security.TokenUtils;
+import com.xml.MegaTravelAgent.security.auth.RestAuthenticationEntryPoint;
+import com.xml.MegaTravelAgent.security.auth.TokenAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -79,16 +80,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				// svim korisnicima dopusti da pristupe putanjama /auth/** i /h2-console/**
 				// POTREBNO DA SVAKO UBACI KOJE PUTANJE SU DOSTUPNE SVIM KORISNICIMA, BEZ OBZIRA NA ULOGU
 				.authorizeRequests()
-				.antMatchers("/test/**").permitAll()
-					.antMatchers("/resSecurity/**").permitAll()
-				.antMatchers("/h2-console/**").permitAll()
-				.antMatchers("/ws/**").permitAll()
-				.antMatchers("/reservations/**").permitAll()
+					.antMatchers("/accommodations/**").permitAll()
+					.antMatchers("/location/**").permitAll()
+					.antMatchers("/h2-console/**").permitAll()
+					.antMatchers("/ws/**").permitAll()
 					// svaki zahtev mora biti autorizovan
-				.anyRequest().authenticated().and()
+					.anyRequest().authenticated().and()
 				// presretni svaki zahtev filterom
 				.addFilterBefore(new TokenAuthenticationFilter(tokenUtils, jwtUserDetailsService), BasicAuthenticationFilter.class);
-
+			
 			http.headers().contentSecurityPolicy("script-src 'self' https://localhost:4200; object-src https://localhost:4200");
 		}
 		
@@ -97,33 +97,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 		@Override
 		public void configure(WebSecurity web) throws Exception {
 			// TokenAuthenticationFilter ce ignorisati sve ispod navedene putanje
-			web.ignoring().antMatchers(HttpMethod.GET, "/reservations/**");
-			web.ignoring().antMatchers(HttpMethod.POST, "/reservations/**");
-			web.ignoring().antMatchers(HttpMethod.POST, "/resSecurity/setAuthentication");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
 		}
+		
+		@Bean
+		public DeviceResolverHandlerInterceptor 
+		        deviceResolverHandlerInterceptor() {
+		    return new DeviceResolverHandlerInterceptor();
+		}
 
-	@Bean
-	public DeviceResolverHandlerInterceptor
-	deviceResolverHandlerInterceptor() {
-		return new DeviceResolverHandlerInterceptor();
-	}
+		@Bean
+		public DeviceHandlerMethodArgumentResolver 
+		        deviceHandlerMethodArgumentResolver() {
+		    return new DeviceHandlerMethodArgumentResolver();
+		}
 
-	@Bean
-	public DeviceHandlerMethodArgumentResolver
-	deviceHandlerMethodArgumentResolver() {
-		return new DeviceHandlerMethodArgumentResolver();
-	}
+		@Override
+		public void addInterceptors(InterceptorRegistry registry) {
+		    registry.addInterceptor(deviceResolverHandlerInterceptor());
+		}
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(deviceResolverHandlerInterceptor());
-	}
-
-	@Override
-	public void addArgumentResolvers(
-			List<HandlerMethodArgumentResolver> argumentResolvers) {
-		argumentResolvers.add(deviceHandlerMethodArgumentResolver());
-	}
+		@Override
+		public void addArgumentResolvers(
+		        List<HandlerMethodArgumentResolver> argumentResolvers) {
+		    argumentResolvers.add(deviceHandlerMethodArgumentResolver());
+		}
 	
 }

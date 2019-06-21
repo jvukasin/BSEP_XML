@@ -90,6 +90,8 @@ public class Reservation {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected TPerson reservator;
 
+    @OneToMany(mappedBy="reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Message> messages;
 
     /**
      * Gets the value of the startDate property.
@@ -233,5 +235,13 @@ public class Reservation {
 
     public void setReservator(TPerson reservator) {
         this.reservator = reservator;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }

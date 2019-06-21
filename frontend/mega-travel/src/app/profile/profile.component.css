@@ -9,7 +9,6 @@
 
 #main{
     width: 100%;
-    height: 100vh;
 }
 
 #side{
@@ -19,8 +18,10 @@
 
 #sidepart{
     height: 100vh;
-    width: 100%;
+    width: 21%;
     background: #343A40;
+    position: fixed;
+    padding: 0px 22px;
 }
 
 #image{
@@ -40,7 +41,7 @@
 
 label{
     color: #FFC107;
-    font-size: 30px;
+    font-size: 23px;
     font-weight: 400
 }
 
@@ -54,12 +55,28 @@ label{
     text-align: left
 }
 
-.sidebyside{
-    float:left
+.sidebyside-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;    
 }
 
-#reservations{
+.sidebyside-left {
+    flex: 1 0 21%;
+    background: #343A40;
     
+}
+
+.sidebyside-center {
+    flex: 1 0 58.3%;
+}
+
+.sidebyside-right {
+    flex: 1 0 20.7%;
+}
+
+
+#reservations{
     height: 100vh;
     width:58.3%;
 }
@@ -87,90 +104,14 @@ h1{
 }
 
 .resList{
+    padding-left:0;
+    margin-left:0;
     width: 100%;
     height: 100vh;
 }
 
 
-/* CSS ZA KARTICE 
-
-.sidebyside{
-    float:left;
-}
-
-.card-reservation{
-    margin-top: 30px;
-    background: white;
-    border: 1px solid;
-    border-radius: 10px;
-    width:750px;
-    height: 300px;
-}
-
-.accommodation{
-    width: 30%;
-    height: 100%;
-}
-
-.image{
-    width: 100%;
-    height: 67%;
-}
-
-.acc-info{
-    height: 33%;
-}
-
-.reservation-info{
-    height: 100%;
-    width: 50%;
-    border: 0.5px solid;
-}
-
-.buttons{
-    width: 20%;
-    height: 100%;
-}
-
-.image img{
-    border-top-left-radius: 10px;
-    width: 100%;
-    height: 100%;
-}
-
-.acc-name{
-    padding-left: 7px;
-    height: 50%;
-    width: 100%;
-}
-
-.addres{
-    padding-left: 7px;
-    height: 50%;
-    width: 100%;
-}
-
-.startDate{
-    padding-left: 20px;
-    padding-top: 10px;
-    width: 100%;
-    height: 33.33%;
-}
-
-.endDate{
-    padding-top: 10px;
-    padding-left: 20px;
-    width: 100%;
-    height: 33.33%;
-}
-
-.price{
-    padding-top: 10px;
-    padding-left: 20px;
-    width: 100%;
-    height: 33.33%;
-}
-*/
+/* KARTICE */
 section {
     margin-top:2%;
     margin-bottom: 100px;
@@ -180,7 +121,7 @@ section {
     border-radius: 11px;
     margin: 8px 0px;
     background-color: white;
-    width: 90%;
+    width: 100%;
     box-shadow: 0 1px 3px 0 rgba(37,32,31,.3);
     border-radius: .375rem;
     transition: 0.2s;
@@ -211,12 +152,14 @@ div[class*="col-"] {
 .image-card {
     border-top-left-radius: 9px;
     border-bottom-left-radius: 9px;
+    width: 100%;
+    height: 100%;
 }
 .left-part-card {
     float:left;
     margin-right: 20px;
-    min-width: 300px;
-    min-height: 249px;
+    width: 320px;
+    height: 310px;
 }
 
 .right-part-card {
@@ -301,4 +244,9 @@ div[class*="col-"] {
    -moz-border-radius: 5px;
    border-radius: 5px;
    color: #000;
+}
+
+.res-card{
+    margin-top:20px;
+    width: 100%;
 }

@@ -1,6 +1,7 @@
 package com.megatravel.accommodationservice.controller;
 import java.util.Collection;
 
+import com.megatravel.accommodationservice.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,10 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.AmenityDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
 import com.megatravel.accommodationservice.model.AccommodationType;
 import com.megatravel.accommodationservice.service.AccommodationUnitService;
 
@@ -101,9 +98,9 @@ public class AccommodationUnitController
 	// * * * TYPE ENDPOINTS * * *
 	
 	@RequestMapping(value = "/types", method = RequestMethod.GET)
-	public ResponseEntity<Collection<AccommodationType>> getAccommodationTypes()
+	public ResponseEntity<Collection<AccTypeDTO>> getAccommodationTypes()
 	{
-		return new ResponseEntity<Collection<AccommodationType>>(accommodationService.findAllTypes(),HttpStatus.OK);
+		return new ResponseEntity<Collection<AccTypeDTO>>(accommodationService.findAllTypes(),HttpStatus.OK);
 	}
 	
 	

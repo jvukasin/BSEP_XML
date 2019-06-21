@@ -20,4 +20,8 @@ export class AccommodationService {
     getAllAmenities() {
         return this.http.get("/api/accommodationservice/accommodations/amenities");
     }
+
+    getAccTypes() {
+        return this.http.get("/api/accommodationservice/accommodations/types");
+    }
 }

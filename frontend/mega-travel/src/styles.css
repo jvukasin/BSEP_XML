@@ -13,3 +13,8 @@
 @import url('assets/css/flaticon.css');
 @import url('assets/css/icomoon.css');
 @import url('assets/css/style.css');
+
+
+#main {
+    margin-top: -10px;
+}

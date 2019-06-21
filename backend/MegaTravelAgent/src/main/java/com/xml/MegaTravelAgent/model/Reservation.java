@@ -252,4 +252,11 @@ public class Reservation {
         this.id = value;
     }
 
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
 }

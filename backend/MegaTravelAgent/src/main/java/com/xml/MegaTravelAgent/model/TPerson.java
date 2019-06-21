@@ -1,28 +1,16 @@
 
 package com.xml.MegaTravelAgent.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.*;
 import java.security.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -88,7 +76,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.NONE)
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TPerson", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", propOrder = {
     "name",
     "lastname",
@@ -96,33 +84,38 @@ import javax.xml.bind.annotation.XmlType;
     "password",
     "role"
 })
+@XmlSeeAlso({
+    User.class,
+    Agent.class
+})
+
 @Entity
 @Inheritance(strategy= InheritanceType.SINGLE_TABLE) //ovom anotacijom se naglasava tip mapiranja "jedna tabela po hijerarhiji"
 @DiscriminatorColumn(name="type", discriminatorType= DiscriminatorType.STRING) //ovom anotacijom se navodi diskriminatorska kolona
-public class TPerson {
+public class TPerson implements UserDetails {
 
-	@Column(name = "name")
-	@NotNull
+    @Column(name="name")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String name;
-	
-	@Column(name = "lastname")
-	@NotNull
+
+    @Column(name="lastname")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String lastname;
-	
-	@Column(name = "email")
-	@NotNull
+
+    @Column(name="email")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String email;
-	
-	@Column(name = "password")
-	@NotNull
+
+    @Column(name="password")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String password;
-	
-	@Column(name = "role")
-	@NotNull
+
+    @Column(name="role")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String role;
 
@@ -130,18 +123,20 @@ public class TPerson {
     @Column(name = "username", nullable = false)
     private String username;
 
-
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "username"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    protected List<Role> roles;
 
     @Column(name = "last_password_reset_date")
     private Timestamp lastPasswordResetDate;
 
+    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
+    @OneToMany(mappedBy = "reservator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected List<Reservation> reservation;
 
-    public TPerson()
-    {
-		super();
-	}
-
-	/**
+    /**
      * Gets the value of the name property.
      * 
      * @return
@@ -213,6 +208,8 @@ public class TPerson {
         this.email = value;
     }
 
+
+
     /**
      * Gets the value of the password property.
      * 
@@ -224,8 +221,6 @@ public class TPerson {
     public String getPassword() {
         return password;
     }
-
-
 
     /**
      * Sets the value of the password property.
@@ -263,24 +258,11 @@ public class TPerson {
         this.role = value;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getUsername() {
         return username;
     }
 
-
-    public Timestamp getLastPasswordResetDate() {
-        return lastPasswordResetDate;
-    }
-
-    public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
-        this.lastPasswordResetDate = lastPasswordResetDate;
-    }
-
-  /*  @Override
+    @Override
     public boolean isAccountNonExpired() {
         return true;
     }
@@ -313,6 +295,32 @@ public class TPerson {
         }
         return null;
     }
-*/
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Timestamp getLastPasswordResetDate() {
+        return lastPasswordResetDate;
+    }
+
+    public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
+        this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
+    }
 }

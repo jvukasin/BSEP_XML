@@ -122,17 +122,17 @@
 					navbar = $('.ftco_navbar'),
 					sd = $('.js-scroll-wrap');
 
-			if (st > 150) {
+			if (st > 50) {
 				if ( !navbar.hasClass('scrolled') ) {
 					navbar.addClass('scrolled');	
 				}
 			} 
-			if (st < 150) {
+			if (st < 50) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
 				}
 			} 
-			if ( st > 350 ) {
+			if ( st > 250 ) {
 				if ( !navbar.hasClass('awake') ) {
 					navbar.addClass('awake');	
 				}
@@ -141,7 +141,7 @@
 					sd.addClass('sleep');
 				}
 			}
-			if ( st < 350 ) {
+			if ( st < 250 ) {
 				if ( navbar.hasClass('awake') ) {
 					navbar.removeClass('awake');
 					navbar.addClass('sleep');
@@ -239,29 +239,29 @@
 	contentWayPoint();
 
 
-	// navigation
-	var OnePageNav = function() {
-		$(".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#']").on('click', function(e) {
-		 	e.preventDefault();
+	// // navigation
+	// var OnePageNav = function() {
+	// 	$(".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#']").on('click', function(e) {
+	// 	 	e.preventDefault();
 
-		 	var hash = this.hash,
-		 			navToggler = $('.navbar-toggler');
-		 	$('html, body').animate({
-		    scrollTop: $(hash).offset().top
-		  }, 700, 'easeInOutExpo', function(){
-		    window.location.hash = hash;
-		  });
+	// 	 	var hash = this.hash,
+	// 	 			navToggler = $('.navbar-toggler');
+	// 	 	$('html, body').animate({
+	// 	    scrollTop: $(hash).offset().top
+	// 	  }, 700, 'easeInOutExpo', function(){
+	// 	    window.location.hash = hash;
+	// 	  });
 
 
-		  if ( navToggler.is(':visible') ) {
-		  	navToggler.click();
-		  }
-		});
-		$('body').on('activate.bs.scrollspy', function () {
-		  console.log('nice');
-		})
-	};
-	OnePageNav();
+	// 	  if ( navToggler.is(':visible') ) {
+	// 	  	navToggler.click();
+	// 	  }
+	// 	});
+	// 	$('body').on('activate.bs.scrollspy', function () {
+	// 	  console.log('nice');
+	// 	})
+	// };
+	// OnePageNav();
 
 
 	// magnific popup

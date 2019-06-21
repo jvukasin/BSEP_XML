@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccommodationComponent } from './accommodation/accommodation.component';
@@ -15,6 +15,7 @@ import { AccommodationService } from './services/accommodation.service';
 import { LocationService } from './services/location.service';
 import { AccommodationUnitComponent } from './accommodation/accommodation-unit/accommodation-unit.component';
 import { LoadingDirective } from './directives/loading.directive';
+import { JwtInterceptor } from './_helper/jwt.interceptor';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { LoadingDirective } from './directives/loading.directive';
     ReactiveFormsModule
   ],
   
-  providers: [ AccommodationService, LocationService ],
+  providers: [ AccommodationService, LocationService,
+              {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true} ],
 
   bootstrap: [AppComponent]
 })
