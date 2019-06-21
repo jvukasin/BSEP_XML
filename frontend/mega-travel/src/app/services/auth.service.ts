@@ -10,7 +10,7 @@ export class AuthService {
 	constructor(private http: HttpClient, private router: Router) { }
 
     login(user){
-        return this.http.post('api/auth/login',user)
+        return this.http.post('api/authservice/auth/login', user)
         .pipe(
             map(user => {
                 this.loggedUser = user;

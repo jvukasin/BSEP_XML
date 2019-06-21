@@ -54,7 +54,7 @@ public class TPersonService {
         tPersonRepo.deleteById(username);
     }
 
-
+    public User save(User user) { return tPersonRepo.save(user); }
 
 
 

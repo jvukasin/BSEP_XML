@@ -62,8 +62,21 @@ public class AuthController {
         headers.add("Content-Type", "application/json");
         HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest,headers);
         //posalji zahtev servisu da stavi u kontekst
-        ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
-        ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+        try {
+            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+        } catch (Exception e) {
+            //ovo treba u logger
+            System.out.println("\n\nreservation service not up\n\n");
+        }
+
+        try {
+            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+        } catch (Exception e) {
+            //ovo treba u logger
+            System.out.println("\n\naccommodation service not up\n\n");
+        }
+
+
         //ResponseEntity<?> responseAgent = restTemplate.postForEntity("", HReq, JwtAuthenticationRequest.class); -> dodati ovo kad odradis security za Agenta
         User user =  (User) authentication.getPrincipal();
 

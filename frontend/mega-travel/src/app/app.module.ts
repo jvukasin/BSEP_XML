@@ -26,6 +26,7 @@ import { AccommodationService } from './services/accommodation.service';
 import { SearchResultsService } from './services/search-results.service';
 import { AccommodationComponent } from './accommodation/accommodation.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReservationService } from './services/reservation.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule
   ],
   
-  providers: [AuthService, UserService, AccommodationService, SearchResultsService,
+  providers: [AuthService, UserService, AccommodationService, SearchResultsService, ReservationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
 
