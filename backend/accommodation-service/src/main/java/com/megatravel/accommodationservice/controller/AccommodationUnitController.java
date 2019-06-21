@@ -147,4 +147,56 @@ public class AccommodationUnitController
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	
+	
+	// * * * CATEGORY ENDPOINTS * * *
+	@RequestMapping(value = "/categories", method = RequestMethod.GET)
+	public ResponseEntity<Collection<AccommodationType>> getCategories()
+	{
+		return new ResponseEntity<Collection<AccommodationType>>(accommodationService.findAllTypes(),HttpStatus.OK);
+	}
+	
+	
+	
+	@RequestMapping(value = "/types/{type}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> removeType(@PathVariable String type)
+	{	
+		try
+		{				
+			accommodationService.deleteType(type);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_MODIFIED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "/types", method = RequestMethod.POST)
+	public ResponseEntity<?> addType(@RequestBody AccommodationType dto)
+	{
+		try
+		{
+			accommodationService.addType(dto);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 }
