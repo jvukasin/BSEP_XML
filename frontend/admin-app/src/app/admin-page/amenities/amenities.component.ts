@@ -55,8 +55,10 @@ export class AmenitiesComponent implements OnInit {
       (response) =>
       {
           console.log(response)
+          
+          var newAmenity = {id : response, name: amenity.name, faIcon: amenity.faIcon}
 
-          //dodaj stvarno u tabelu
+          this.amenities.push(newAmenity);
 
           alert("Added!");
       });

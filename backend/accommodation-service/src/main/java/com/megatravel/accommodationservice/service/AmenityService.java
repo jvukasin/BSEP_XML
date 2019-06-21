@@ -37,7 +37,7 @@ public class AmenityService
 		amenity.setFaIcon(dto.getFaIcon());
 		amenity.setId(null);
 		
-		amenityRepo.save(amenity.getFaIcon(), amenity.getName());
+		amenityRepo.save(amenity);
 		
 		return amenity.getId();
 	}
