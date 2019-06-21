@@ -83,6 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				.antMatchers("/h2-console/**").permitAll()
 				.antMatchers("/ws/**").permitAll()
 				.antMatchers("/accommodations/**").permitAll()
+				.antMatchers("/amenities/**").permitAll()
 				// svaki zahtev mora biti autorizovan
 				.anyRequest().authenticated().and()
 				// presretni svaki zahtev filterom
@@ -103,7 +104,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 			//coa
 			web.ignoring().antMatchers(HttpMethod.POST, "/accommodations/**");
 			web.ignoring().antMatchers(HttpMethod.GET, "/accommodations/**");
+			web.ignoring().antMatchers(HttpMethod.DELETE, "/accommodations/**");
+			
+			
+			web.ignoring().antMatchers(HttpMethod.POST, "/amenities/**");
+			web.ignoring().antMatchers(HttpMethod.GET, "/amenities/**");
+			web.ignoring().antMatchers(HttpMethod.DELETE, "/amenities/**");
+			
 		}
+		
 		
 		@Bean
 		public DeviceResolverHandlerInterceptor 

@@ -41,8 +41,8 @@
     <!--Table body-->
     <tbody>
       <tr *ngFor="let type of types">
-        <td>{{ type.name }} {{type.id}}</td>
-        <td><button type="button" class="btn btn-danger" [routerLink]="" (click)="onRemove(type.id)"><span><i class="fa fa-trash" aria-hidden="true"></i></span></button></td>
+        <td>{{ type.type }}</td>
+        <td><button type="button" class="btn btn-danger" [routerLink]="" (click)="onRemove(type.type)"><span><i class="fa fa-trash" aria-hidden="true"></i></span></button></td>
       </tr>
     </tbody>
     <!--Table body-->

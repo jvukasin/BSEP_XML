@@ -5,5 +5,15 @@
         "pathRewrite": {
             "^/api": ""
         }
+    },
+    
+    "/accommodation-service": 
+    {
+    "target": "http://localhost:8083",
+    "secure": false,
+    "pathRewrite": 
+        {
+        "^/accommodation-service": ""
+        }
     }
 }

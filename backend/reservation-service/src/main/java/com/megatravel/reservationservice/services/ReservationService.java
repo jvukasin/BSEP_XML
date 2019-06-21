@@ -165,12 +165,7 @@ public class ReservationService
 	public double findPrice(Date start, Date end, AccommodationUnit accommodation)
 	{
 		
-		start.setHours(0);
-		start.setMinutes(0);
-		start.setSeconds(0);
-		end.setHours(0);
-		end.setMinutes(0);
-		end.setSeconds(0);
+
 		
 		//incrementing for one day in milliseconds from start date, until end date
 		double retVal = 0;
@@ -223,6 +218,13 @@ public class ReservationService
 	
 	private boolean isOccupied(Date startDate, Date endDate, AccommodationUnit accommodationUnit)
 	{
+		startDate.setHours(0);
+		startDate.setMinutes(0);
+		startDate.setSeconds(0);
+		endDate.setHours(0);
+		endDate.setMinutes(0);
+		endDate.setSeconds(0);
+		
 		boolean retVal = false;
 		Collection<Reservation> list = reservationRepo.findOneByAccommodationUnit(accommodationUnit);
 		
