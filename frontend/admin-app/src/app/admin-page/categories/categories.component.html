@@ -1,0 +1,54 @@
+<div class="container">
+
+    <h2 class="heading"> ADD NEW CATEGORY </h2>
+
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+      <label>
+        Value:
+      </label>
+      <input type="text" formControlName="value">
+      <input type="submit" value="ADD" class="btn btn-success" id="addButton">
+
+
+      <div *ngIf="submitted && categoryForm.controls.value.errors" class="error">
+        <div *ngIf="categoryForm.controls.value.errors.required">The value is requiered.</div>  
+        <div *ngIf="categoryForm.controls.value.errors.pattern">Only numerical values allowed.</div>
+      </div>
+    
+  
+    </form>
+
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h2 class="heading"> CREATED CATEGORIES </h2>
+  <!--Table-->
+  <table class="table table-hover table-fixed" id=table>
+    <!--Table head-->
+    <thead>
+      <tr>
+        <th>Value</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <!--Table head-->
+    <!--Table body-->
+    <tbody>
+      <tr *ngFor="let category of categories">
+        <td>{{ category.value }}</td>
+        <td><button type="button" class="btn btn-danger" [routerLink]="" (click)="onRemove(category.value)"><span><i class="fa fa-trash" aria-hidden="true"></i></span></button></td>
+      </tr>
+    </tbody>
+    <!--Table body-->
+  </table>
+  
+  
+  
+  </div>

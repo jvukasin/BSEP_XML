@@ -11,9 +11,11 @@ export class AdminPageComponent implements OnInit {
 
   isType: boolean = false;
   isAmenity : boolean = false;
+  isCategory: boolean = false;
   isManagement: boolean = false;
   isAgents: boolean = false;
   isComments: boolean = false;
+
 
   collapsed: boolean = false;
   collapsedCodeBook: boolean = false;
@@ -34,6 +36,7 @@ export class AdminPageComponent implements OnInit {
   showAmenities(){
     this.collapsed = false;
     this.isType = false;
+    this.isCategory = false;
     this.isAmenity = true;
     this.isManagement = false;
     this.isAgents = false;
@@ -43,6 +46,7 @@ export class AdminPageComponent implements OnInit {
     this.collapsed = false;
     this.isType = true;
     this.isAmenity = false;
+    this.isCategory = false;
     this.isManagement = false;
     this.isAgents = false;
   }
@@ -53,6 +57,7 @@ export class AdminPageComponent implements OnInit {
     this.isComments = false;
     this.isType = false;
     this.isAmenity = false;
+    this.isCategory = false;
     this.collapsedCodeBook = false;
   }
 
@@ -60,6 +65,7 @@ export class AdminPageComponent implements OnInit {
     this.collapsed = false;
     this.isType = false;
     this.isAmenity = false;
+    this.isCategory = false;
     this.isManagement = false;
     this.isComments = false;
     this.isAgents = true;
@@ -69,11 +75,23 @@ export class AdminPageComponent implements OnInit {
   showComments(){
     this.isType = false;
     this.isAmenity = false;
+    this.isCategory = false;
     this.isManagement = false;
     this.isComments = true;
-    this.isAgents = true;
+    this.isAgents = false;
     this.collapsedCodeBook = false;
   }
+
+  showCategories(){
+    this.isType = false;
+    this.isAmenity = false;
+    this.isCategory = true;
+    this.isManagement = false;
+    this.isComments = false;
+    this.isAgents = false;
+    this.collapsedCodeBook = false;
+  }
+
 
 
 

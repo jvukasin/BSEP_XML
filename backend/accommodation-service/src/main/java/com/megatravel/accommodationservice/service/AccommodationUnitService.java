@@ -9,10 +9,16 @@ import java.util.NoSuchElementException;
 import javax.persistence.EntityManager;
 import javax.validation.ConstraintViolationException;
 
-import com.megatravel.accommodationservice.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.megatravel.accommodationservice.dto.AccTypeDTO;
+import com.megatravel.accommodationservice.dto.AccommodationCategoryDTO;
+import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.AmenityDTO;
+import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
+import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
+import com.megatravel.accommodationservice.model.AccommodationCategory;
 import com.megatravel.accommodationservice.model.AccommodationType;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.model.Amenity;
@@ -20,6 +26,7 @@ import com.megatravel.accommodationservice.model.City;
 import com.megatravel.accommodationservice.model.Image;
 import com.megatravel.accommodationservice.model.Location;
 import com.megatravel.accommodationservice.model.SpecificPrice;
+import com.megatravel.accommodationservice.repository.AccommodationCategoryRepository;
 import com.megatravel.accommodationservice.repository.AccommodationTypeRepository;
 import com.megatravel.accommodationservice.repository.AccommodationUnitRepository;
 import com.megatravel.accommodationservice.repository.AmenityRepository;
@@ -57,6 +64,9 @@ public class AccommodationUnitService
 	
 	@Autowired
 	private AccommodationTypeRepository typeRepo;
+	
+	@Autowired
+	private AccommodationCategoryRepository categoryRepo;
 
 	@Autowired
 	EntityManager entityManager;
@@ -229,6 +239,49 @@ public class AccommodationUnitService
 	
 	
 	
+	// * * * CATEGORIES * * *
+	
+	public Collection<AccommodationCategoryDTO> findAllCategories() 
+	{
+		ArrayList<AccommodationCategoryDTO> retVal = new ArrayList<AccommodationCategoryDTO>();
+
+		for (AccommodationCategory a: categoryRepo.findAll()) 
+		{
+			retVal.add(new AccommodationCategoryDTO(a));
+		}
+
+		return retVal;
+	}
+
+	public void deleteCategory(int value)
+	{
+		try
+		{			
+			categoryRepo.deleteById(value);
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new BusinessException("No category: " + value + " found.");
+		}
+	}
+	
+	public void addCategory(AccommodationCategory dto) 
+	{
+		try
+		{
+			categoryRepo.save(dto);
+		}
+		catch(ConstraintViolationException e)
+		{
+			throw new BusinessException("A new type must be unique.");
+		}
+	}
+	
+	
+	
+	
+	
+	
 	// * * * SEARCH UTILITIES * * *
 	
 	private List<AccommodationUnit> underDistance(Collection<AccommodationUnit> input, double distanceFromCity)
@@ -290,6 +343,7 @@ public class AccommodationUnitService
 		
 		return retVal;
 	}
+
 
 
 

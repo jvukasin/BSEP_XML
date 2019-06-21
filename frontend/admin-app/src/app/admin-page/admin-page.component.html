@@ -22,6 +22,7 @@
                 <ul *ngIf="collapsedCodeBook" class="list-unstyled" id=collapseCodeBook>
                     <li><a [routerLink]="" (click)="showTypes()">Manage Types</a></li>
                     <li><a [routerLink]="" (click)="showAmenities()">Manage Amenities</a></li>
+                    <li><a [routerLink]="" (click)="showCategories()">Manage Categories</a></li>
                 </ul>
             </li>
 
@@ -45,6 +46,7 @@
             <div *ngIf="isAgents"> <app-agents> </app-agents> </div>
             <div *ngIf="isType"> <app-types> </app-types> </div>
             <div *ngIf="isAmenity"> <app-amenities> </app-amenities> </div>
+            <div *ngIf="isCategory"> <app-categories> </app-categories> </div>
     </div>
 
     </div>
