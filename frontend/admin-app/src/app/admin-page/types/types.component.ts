@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { TypeService } from 'src/app/service/type.service';
 
 @Component({
   selector: 'app-types',
@@ -8,18 +9,31 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class TypesComponent implements OnInit {
 
-  types: any[] = [];
+  types: any;
   typeForm : FormGroup;
     
   submitted: boolean = false;
   success: boolean = false;
 
-  constructor(private formBuilder : FormBuilder) 
+  constructor(private formBuilder : FormBuilder, private typeService : TypeService) 
   {
       this.typeForm = this.formBuilder.group({
         name: ['', Validators.required]
       })
   }
+
+  ngOnInit()
+  {
+    this.typeService.getAllTypes().subscribe(
+      (data) =>
+      {
+        this.types = data;
+        console.log(data);
+      }
+    )
+  }
+
+
     
   onSubmit()
   {
@@ -31,30 +45,33 @@ export class TypesComponent implements OnInit {
         return;
       }
       this.success = true;
-      //send rest req
-
-      //ZAMENITI
-      var type = {id:this.types.length+1 ,name: this.typeForm.controls.name.value}
+      var type = {type: this.typeForm.controls.name.value}
       this.addToTable(type);
   }
 
   addToTable(type)
   {
-      this.types.push(type)
-  }
-
-  onRemove(typeId)
-  {
-    //rest poziv
-    this.types.forEach((t,i) => {
-      if(t.id === typeId)
+    this.typeService.addType(type).subscribe(
+      (response) =>
       {
-        this.types.splice(i,1);
-      }
-    })
+          this.types.push(type);
+          alert("Added!");
+      });
   }
 
-  ngOnInit() {
+  onRemove(type)
+  {
+    this.typeService.removeType(type).subscribe(
+      (response) =>
+      {
+        this.types.forEach((t,i) => {
+          if(t.type === type)
+          {
+            this.types.splice(i,1);
+            alert("Type: " + type + " removed.");
+          }
+        });
+      });
   }
-
+  
 }

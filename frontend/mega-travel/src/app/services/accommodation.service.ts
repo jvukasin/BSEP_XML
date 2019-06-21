@@ -22,6 +22,6 @@ export class AccommodationService {
     }
 
     getAccTypes() {
-        return this.http.get("/api/accommodationservice/accommodations/acctypes");
+        return this.http.get("/api/accommodationservice/accommodations/types");
     }
 }

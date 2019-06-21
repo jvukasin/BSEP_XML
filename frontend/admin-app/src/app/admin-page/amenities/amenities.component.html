@@ -1,3 +1,67 @@
-<p>
-  amenities works!
-</p>
+<div class="container">
+
+    <h2 class="heading"> ADD NEW AMENITY </h2>
+
+    <form [formGroup]="amenityForm" (ngSubmit)="onSubmit()">
+      <label>
+        Name:
+      </label>
+      <input type="text" formControlName="name">
+      <br>
+      <br>
+      <label>
+        Icon:
+      </label>
+      <input type="text" formControlName="icon">
+      <br>
+      <br>
+      <input type="submit" value="ADD" class="btn btn-success" id="addButton">
+
+
+      <div *ngIf="submitted && amenityForm.controls.name.errors" class="error">
+        <div *ngIf="amenityForm.controls.name.errors.required">The name is requiered.</div>  
+      </div>
+
+      <div *ngIf="submitted && amenityForm.controls.icon.errors" class="error">
+          <div *ngIf="amenityForm.controls.icon.errors.required">The icon is requiered.</div>  
+      </div>
+    
+  
+    </form>
+
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h2 class="heading"> CREATED AMENITIES </h2>
+  <!--Table-->
+  <table class="table table-hover table-fixed" id=table>
+    <!--Table head-->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Icon</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <!--Table head-->
+    <!--Table body-->
+    <tbody>
+      <tr *ngFor="let amenity of amenities">
+        <td>{{ amenity.name }}</td>
+        <td><i [ngClass]="amenity.faIcon"></i></td>
+        <td><button type="button" class="btn btn-danger" [routerLink]="" (click)="onRemove(amenity.id)"><span><i class="fa fa-trash" aria-hidden="true"></i></span></button></td>
+      </tr>
+    </tbody>
+    <!--Table body-->
+  </table>
+  
+  
+  
+  </div>

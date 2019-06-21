@@ -7,12 +7,27 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import javax.persistence.EntityManager;
+import javax.validation.ConstraintViolationException;
 
 import com.megatravel.accommodationservice.dto.*;
-import com.megatravel.accommodationservice.model.*;
-import com.megatravel.accommodationservice.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.megatravel.accommodationservice.model.AccommodationType;
+import com.megatravel.accommodationservice.model.AccommodationUnit;
+import com.megatravel.accommodationservice.model.Amenity;
+import com.megatravel.accommodationservice.model.City;
+import com.megatravel.accommodationservice.model.Image;
+import com.megatravel.accommodationservice.model.Location;
+import com.megatravel.accommodationservice.model.SpecificPrice;
+import com.megatravel.accommodationservice.repository.AccommodationTypeRepository;
+import com.megatravel.accommodationservice.repository.AccommodationUnitRepository;
+import com.megatravel.accommodationservice.repository.AmenityRepository;
+import com.megatravel.accommodationservice.repository.CityRepository;
+import com.megatravel.accommodationservice.repository.ImageRepository;
+import com.megatravel.accommodationservice.repository.LocationRepository;
+import com.megatravel.accommodationservice.repository.SpecificPriceRepository;
+import com.megatravel.accommodationservice.repository.TPersonRepository;
 
 import exceptions.BusinessException;
 
@@ -39,9 +54,9 @@ public class AccommodationUnitService
 	
 	@Autowired
 	private TPersonRepository personRepo;
-
+	
 	@Autowired
-	private AccTypeRepository accTypeRepo;
+	private AccommodationTypeRepository typeRepo;
 
 	@Autowired
 	EntityManager entityManager;
@@ -166,17 +181,52 @@ public class AccommodationUnitService
 
 		return retVal;
 	}
-
-	public List<AccTypeDTO> findAllAccTypesDTO() {
-
+	
+	
+	
+	
+	//* * * TYPES * * *
+	
+	public Collection<AccTypeDTO> findAllTypes()
+	{
 		List<AccTypeDTO> retVal = new ArrayList<>();
 
-		for (AccommodationType a : accTypeRepo.findAll()) {
+		for (AccommodationType a: typeRepo.findAll()) {
 			retVal.add(new AccTypeDTO(a));
 		}
 
 		return retVal;
 	}
+	
+	public void deleteType(String type)
+	{
+		try
+		{			
+			typeRepo.deleteById(type);
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new BusinessException("No type: " + type + " found.");
+		}
+	}
+	
+	
+	public void addType(AccommodationType dto) 
+	{
+		try
+		{
+			typeRepo.save(dto);
+		}
+		catch(ConstraintViolationException e)
+		{
+			throw new BusinessException("A new type must be unique.");
+		}
+	}
+	
+	
+	
+	
+	
 	
 	
 	// * * * SEARCH UTILITIES * * *
@@ -240,5 +290,7 @@ public class AccommodationUnitService
 		
 		return retVal;
 	}
+
+
 
 }

@@ -173,3 +173,5 @@ INSERT INTO amenity (id, fa_icon, name) values
 (12, 'fa fa-cutlery', 'Kitchen');
 
 
+INSERT INTO accommodation_type (name) values ("hotel"), ("hostel"), ("apartment");
+
