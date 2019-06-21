@@ -91,41 +91,68 @@ export class AccommodationPageComponent implements OnInit {
     this.userService.getUser().subscribe(
       (data) => {
         this.user = data;
+        this.doRes();
       }, (error) => {
         Swal.fire({
-          type: 'info',
           title: 'You need to be logged in to make a reservation.',
-          showConfirmButton: false,
-          timer: 2000
-        });
-        this.router.navigate(['login']);
+          type: 'info',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Log In now'
+        }).then((result) => {
+          if (result.value) {
+            this.router.navigate(['login']);
+          }
+        })
       }
     );
+  }
 
-    let res = {
-      startDate: this.sDate,
-      endDate: this.eDate,
-      accommodationUnitId: this.id,
-      price: this.totalPrice,
-      reservator: this.user
-    }
+  doRes() {
 
-    this.resService.makeReservation(res).subscribe(
-      (data) => {
-        Swal.fire({
-          type: 'success',
-          title: 'Your reservation was successful!',
-          showConfirmButton: false,
-          timer: 2000
-        });
-      }, (error) => {
-        Swal.fire({
-          type: 'error',
-          title: 'Something went wrong! Your reservation cannot be made.',
-          showConfirmButton: true
-        });
+    Swal.fire({
+      title: 'Confirm reservation',
+      text: 'Do you wish to confirm your reservation?',
+      html:
+        'Accommodation: ' + this.acu.name +
+        '<br>From ' + this.sDate + ' to ' + this.eDate +
+        '<br>Total price: ' + this.totalPrice,
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        'Confirm',
+      cancelButtonText:
+        'Cancel',
+    }).then((result) => {
+      if (result.value) {
+        let res = {
+          startDate: this.sDate,
+          endDate: this.eDate,
+          accommodationUnitId: this.id,
+          price: this.totalPrice,
+          reservator: this.user
+        }
+    
+        this.resService.makeReservation(res).subscribe(
+          (data) => {
+            Swal.fire({
+              type: 'success',
+              title: 'Your reservation was successful!',
+              showConfirmButton: false,
+              timer: 2000
+            });
+          }, (error) => {
+            Swal.fire({
+              type: 'error',
+              title: 'Something went wrong! Your reservation cannot be made.',
+              showConfirmButton: true
+            });
+          }
+        );
       }
-    );
+    })
   }
 
 }

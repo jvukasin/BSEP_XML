@@ -27,7 +27,7 @@ export class AuthService {
         localStorage.removeItem('currentUser');
         localStorage.removeItem('role');
         window.location.reload();
-        this.router.navigate(['/home']);
+        this.router.navigate(['login']);
     }
 
     getUser(){
