@@ -15,6 +15,7 @@ insert into user_roles values ('dovla',1);
 insert into user_roles values ('laza',2);
 insert into user_roles values ('tjokarda',3);
 
+insert into accommodation_type (name) values ('Hotel'), ('Hostel'), ('Motel'), ('BnB'), ('Apartment'), ('Studio'), ('Entire house');
 
 insert into roles_privileges values (1,1);
 

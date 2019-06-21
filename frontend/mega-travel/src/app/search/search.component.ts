@@ -30,6 +30,7 @@ export class SearchComponent implements OnInit {
   amenities: any = null;
   todDate: Date;
   tomDate: Date;
+  acctypes: any;
 
   constructor(private http: HttpClient, private router: Router,private accServise: AccommodationService, private srcres: SearchResultsService, private fb: FormBuilder) {}
 
@@ -40,6 +41,19 @@ export class SearchComponent implements OnInit {
     let tom = moment(this.tomDate).format('YYYY-MM-DD');
     this.createFormControls(tod, tom);
     this.createForm();
+
+    this.accServise.getAccTypes().subscribe(
+      (data) => {
+        this.acctypes = data;
+      }, (error) => {
+        Swal.fire({
+          type: 'error',
+          title: 'Could not fetch accommodation types',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    )
   }
 
   createFormControls(tod, tom) {

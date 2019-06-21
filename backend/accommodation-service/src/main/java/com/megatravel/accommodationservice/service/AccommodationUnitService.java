@@ -8,26 +8,11 @@ import java.util.NoSuchElementException;
 
 import javax.persistence.EntityManager;
 
+import com.megatravel.accommodationservice.dto.*;
+import com.megatravel.accommodationservice.model.*;
+import com.megatravel.accommodationservice.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.AmenityDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
-import com.megatravel.accommodationservice.model.AccommodationUnit;
-import com.megatravel.accommodationservice.model.Amenity;
-import com.megatravel.accommodationservice.model.City;
-import com.megatravel.accommodationservice.model.Image;
-import com.megatravel.accommodationservice.model.Location;
-import com.megatravel.accommodationservice.model.SpecificPrice;
-import com.megatravel.accommodationservice.repository.AccommodationUnitRepository;
-import com.megatravel.accommodationservice.repository.AmenityRepository;
-import com.megatravel.accommodationservice.repository.CityRepository;
-import com.megatravel.accommodationservice.repository.ImageRepository;
-import com.megatravel.accommodationservice.repository.LocationRepository;
-import com.megatravel.accommodationservice.repository.SpecificPriceRepository;
-import com.megatravel.accommodationservice.repository.TPersonRepository;
 
 import exceptions.BusinessException;
 
@@ -54,6 +39,9 @@ public class AccommodationUnitService
 	
 	@Autowired
 	private TPersonRepository personRepo;
+
+	@Autowired
+	private AccTypeRepository accTypeRepo;
 
 	@Autowired
 	EntityManager entityManager;
@@ -174,6 +162,17 @@ public class AccommodationUnitService
 
 		for (Amenity a: amenityRepo.findAll()) {
 			retVal.add(new AmenityDTO(a));
+		}
+
+		return retVal;
+	}
+
+	public List<AccTypeDTO> findAllAccTypesDTO() {
+
+		List<AccTypeDTO> retVal = new ArrayList<>();
+
+		for (AccommodationType a : accTypeRepo.findAll()) {
+			retVal.add(new AccTypeDTO(a));
 		}
 
 		return retVal;
