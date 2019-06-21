@@ -2,7 +2,17 @@ nav {
     height: 80px;
 }
 
+nav ul {
+    width: 70%;
+}
 .sign {
     background-color: rgb(252, 104, 90);
     margin-left: 10px;
+}
+
+.controls-container {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
 }

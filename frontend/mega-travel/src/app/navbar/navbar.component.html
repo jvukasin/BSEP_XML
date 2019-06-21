@@ -12,8 +12,18 @@
         <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
         <li class="nav-item"><a href="hotel-resto.html" class="nav-link">Hotels &amp; Restaurant</a></li>
       </ul>
-        <button class="btn btn-outline-warning" routerLink="/login">Log In</button>
-        <button class="btn sign" routerLink="/signup">Sign Up</button>
+
+      <div class="controls-container">
+        <div *ngIf="!isLoggedIn">
+          <button class="btn btn-outline-warning" routerLink="/login">Log In</button>
+          <button class="btn sign" routerLink="/signup">Sign Up</button>
+        </div>
+        <div *ngIf="isLoggedIn">
+            <button class="btn btn-primary mr-3">Profile</button>
+            <button class="btn btn-danger" >Logout</button>
+        </div>
+          
+      </div>
     </div>
   </div>
 </nav>
