@@ -70,35 +70,35 @@
 
         -->
 
-        <div class="row">
+        <div class="row res-card" *ngFor="let reservation of reservationList">
             <div class="tile">
               <div class="card-inside">
                   <div class="left-part-card">
-                      <img class="image-card" alt="Hotel image" src="{{acc.images[0].imageUrl}}" width="300px" height="253px">
+                      <img class="image-card" alt="Hotel image" src="{{ reservation.accommodation.imageUrl }}">
                   </div>
                   <div class="right-part-card" style="position:relative">
                     <div class="upper-right">
-                      <h4 class="hotel-name">Hotel Vojvodina 
-                        <span *ngIf="acc.category === 5"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                      <h4 class="hotel-name"> {{ reservation.accommodation.name }}
+                        <!--<span *ngIf="acc.category === 5"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                         <span *ngIf="acc.category === 4"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                         <span *ngIf="acc.category === 3"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                         <span *ngIf="acc.category === 2"><i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                         <span *ngIf="acc.category === 1"><i class="fa fa-star"></i></span>
-                        <span *ngIf="acc.category === 0">Uncategorized</span>
+                        <span *ngIf="acc.category === 0">Uncategorized</span> -->
                       </h4> 
-                      <h6 class="hotel-address"><i class="fa fa-map-marker"></i> Spasoja Stejica br 7, Novi Sad </h6>
+                      <h6 class="hotel-address"><i class="fa fa-map-marker"></i> {{ reservation.accommodation.location.coordinates }}, {{ reservation.accommodation.location.city.name }}, {{ reservation.accommodation.location.city.country.name }} </h6>
                       <div class="rating">
-                        <span class="rating-round">{{acc.ratingAvg}}</span> <span class="no-revs">Based on X reviews</span>
+                        <span class="rating-round">{{ reservation.accommodation.rating }}</span> <span class="no-revs">Based on X reviews</span>
                       </div>
     
                       <div class="price">
-                        <h3>$10000</h3>
+                        <h3> ${{ calculatePrice(reservation.startDate, reservation.endDate, reservation.price) }} </h3>
                       </div>
                     </div>
                     <div class="lower-right">
                       <div class="distance">
-                        <div class="startDate">Start date: 12.10.2019.</div>
-                        <div class="endDate">End date: 12.11.2019.</div>
+                        <div class="startDate">Start date: {{ reservation.startDate | date }}</div>
+                        <div class="endDate">End date: {{ reservation.endDate | date }}</div>
                       </div>
                       <div class="details-btn-card">
                         <button type="button" class="btn btn-primary"> Send message </button>

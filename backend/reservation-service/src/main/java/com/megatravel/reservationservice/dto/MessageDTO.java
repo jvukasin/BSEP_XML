@@ -1,5 +1,7 @@
 package com.megatravel.reservationservice.dto;
 
+import com.megatravel.reservationservice.model.Message;
+
 import java.util.Date;
 
 public class MessageDTO {
@@ -21,6 +23,15 @@ public class MessageDTO {
         this.date = date;
         this.sender = sender;
         this.receiver = receiver;
+    }
+
+    public MessageDTO(Message m){
+        this.id = m.getId();
+        this.content = m.getContent();
+        this.reservationId = m.getReservation().getId();
+        this.date = m.getDate();
+        this.sender = new UserInfoDTO(m.getSender());
+        this.receiver = new UserInfoDTO(m.getReceiver());
     }
 
 
