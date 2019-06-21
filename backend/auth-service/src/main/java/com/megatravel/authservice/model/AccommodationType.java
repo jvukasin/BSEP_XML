@@ -36,7 +36,7 @@ public class AccommodationType {
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_accommodation_unit", required = true)
     @Id
-    @Column(name = "username", nullable = false)
+    @Column(name = "name", nullable = false)
     protected String type;
 
     /**

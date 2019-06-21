@@ -3,6 +3,8 @@ import { AccommodationService } from '../../services/accommodation.service';
 import { SearchResultsService } from '../../services/search-results.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ReservationService } from 'src/app/services/reservation.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-accommodation-page',
@@ -23,8 +25,9 @@ export class AccommodationPageComponent implements OnInit {
   firstIm: any;
   imagesRest: any = [];
   totalPrice: number;
+  user: any;
 
-  constructor(private accService: AccommodationService, private srcService: SearchResultsService, private route: ActivatedRoute, private router: Router) {
+  constructor(private accService: AccommodationService, private srcService: SearchResultsService, private userService: UserService, private resService: ReservationService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
@@ -82,6 +85,74 @@ export class AccommodationPageComponent implements OnInit {
     } else {
       this.ShowText = "Show more"
     }
+  }
+
+  onMakeReservation() {
+    this.userService.getUser().subscribe(
+      (data) => {
+        this.user = data;
+        this.doRes();
+      }, (error) => {
+        Swal.fire({
+          title: 'You need to be logged in to make a reservation.',
+          type: 'info',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Log In now'
+        }).then((result) => {
+          if (result.value) {
+            this.router.navigate(['login']);
+          }
+        })
+      }
+    );
+  }
+
+  doRes() {
+
+    Swal.fire({
+      title: 'Confirm reservation',
+      text: 'Do you wish to confirm your reservation?',
+      html:
+        'Accommodation: ' + this.acu.name +
+        '<br>From ' + this.sDate + ' to ' + this.eDate +
+        '<br>Total price: ' + this.totalPrice,
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        'Confirm',
+      cancelButtonText:
+        'Cancel',
+    }).then((result) => {
+      if (result.value) {
+        let res = {
+          startDate: this.sDate,
+          endDate: this.eDate,
+          accommodationUnitId: this.id,
+          price: this.totalPrice,
+          reservator: this.user
+        }
+    
+        this.resService.makeReservation(res).subscribe(
+          (data) => {
+            Swal.fire({
+              type: 'success',
+              title: 'Your reservation was successful!',
+              showConfirmButton: false,
+              timer: 2000
+            });
+          }, (error) => {
+            Swal.fire({
+              type: 'error',
+              title: 'Something went wrong! Your reservation cannot be made.',
+              showConfirmButton: true
+            });
+          }
+        );
+      }
+    })
   }
 
 }

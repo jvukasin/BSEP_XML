@@ -1,0 +1,304 @@
+.user-img{
+    padding-top: 40px;
+    width: 140px;
+    height: 140x;
+}
+#image{
+    text-align: center
+}
+
+#main{
+    width: 100%;
+    height: 100vh;
+}
+
+#side{
+    height: 100vh;
+    width: 21%;
+}
+
+#sidepart{
+    height: 100vh;
+    width: 100%;
+    background: #343A40;
+}
+
+#image{
+    width: 100%;
+    height: 20%;
+}
+
+#user{
+    padding-top: 40px;
+    color:white;
+}
+
+.label{
+    text-align: center;
+    vertical-align: middle;
+}
+
+label{
+    color: #FFC107;
+    font-size: 30px;
+    font-weight: 400
+}
+
+.row{
+    margin-bottom: 10px;
+}
+
+
+.info{
+    padding-top:7px;
+    text-align: left
+}
+
+.sidebyside{
+    float:left
+}
+
+#reservations{
+    
+    height: 100vh;
+    width:58.3%;
+}
+
+h1{
+    font-weight: 340
+}
+
+.wrapper{
+    margin-top:130px;
+    text-align: center
+}
+#agentBtn{
+    display: inline-block
+}
+
+#messages{
+    width: 20.7%;
+    background: black;
+}
+
+#reservationList{
+    padding-top: 13px;
+    padding-left: 222px;
+}
+
+.resList{
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* CSS ZA KARTICE 
+
+.sidebyside{
+    float:left;
+}
+
+.card-reservation{
+    margin-top: 30px;
+    background: white;
+    border: 1px solid;
+    border-radius: 10px;
+    width:750px;
+    height: 300px;
+}
+
+.accommodation{
+    width: 30%;
+    height: 100%;
+}
+
+.image{
+    width: 100%;
+    height: 67%;
+}
+
+.acc-info{
+    height: 33%;
+}
+
+.reservation-info{
+    height: 100%;
+    width: 50%;
+    border: 0.5px solid;
+}
+
+.buttons{
+    width: 20%;
+    height: 100%;
+}
+
+.image img{
+    border-top-left-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.acc-name{
+    padding-left: 7px;
+    height: 50%;
+    width: 100%;
+}
+
+.addres{
+    padding-left: 7px;
+    height: 50%;
+    width: 100%;
+}
+
+.startDate{
+    padding-left: 20px;
+    padding-top: 10px;
+    width: 100%;
+    height: 33.33%;
+}
+
+.endDate{
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 100%;
+    height: 33.33%;
+}
+
+.price{
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 100%;
+    height: 33.33%;
+}
+*/
+section {
+    margin-top:2%;
+    margin-bottom: 100px;
+}
+.tile {
+    border: 1px solid rgb(202, 204, 202);
+    border-radius: 11px;
+    margin: 8px 0px;
+    background-color: white;
+    width: 90%;
+    box-shadow: 0 1px 3px 0 rgba(37,32,31,.3);
+    border-radius: .375rem;
+    transition: 0.2s;
+    margin-left: 3%;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.center-button {
+    margin: 10px auto;
+}
+
+.center-div {
+    margin: 0 auto;
+}
+
+div[class*="col-"] {
+    margin-right: 5px;
+}
+
+.tile:hover {
+    transition: 0.2s;
+    box-shadow: 1px 3px 6px 1px rgba(37,32,31,.3);
+}
+
+.image-card {
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+}
+.left-part-card {
+    float:left;
+    margin-right: 20px;
+    min-width: 300px;
+    min-height: 249px;
+}
+
+.right-part-card {
+    padding-top:20px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+#details {
+    margin-right:20px;
+    width: 130px;
+}
+.card-text {
+    margin-top: 25px;
+}
+
+.right-part-card {
+    position:relative;
+}
+
+.upper-right {
+    height: 170px;
+}
+
+.lower-right {
+    height: 50px;
+}
+
+.fa-star {
+    color: rgb(255, 230, 7);
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.fa-star:first-child {
+    margin-left: 5px;
+}
+
+.distance {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.details-btn-card {
+    float: right;
+}
+
+.rating-round {
+    font-size: 13px;
+    padding: 0px 5px 2px 5px;
+    border-radius: 15px;
+    color: white;
+    background-color: rgba(15, 49, 247, 0.863);
+}
+
+.price {
+    width: 90px;
+    max-width: 150px;
+    text-align: center;
+    color: white;
+    float: right;
+    max-width: 150px;
+    margin-right: 45px;
+    margin-top: 25px;
+}
+
+.no-revs {
+    margin-left: 8px;
+    font-size: 13px;
+}
+
+.right-div {
+    margin-left: 50%;
+}
+
+.select-sort {
+    margin-left: 5px;
+    background: white;
+    border: 1.5px solid rgb(255, 217, 0);
+    padding: 5px;
+    -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   color: #000;
+}

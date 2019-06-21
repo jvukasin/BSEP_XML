@@ -11,6 +11,7 @@ import { FormGroup, FormControl, NgForm } from '@angular/forms';
 export class HomepageComponent implements OnInit {
 
   isLoggedIn: boolean = false;
+  profilePage: boolean = false;
 
   constructor(private service: AuthService, private router: Router) { }
 

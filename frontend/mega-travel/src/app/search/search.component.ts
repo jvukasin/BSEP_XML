@@ -5,6 +5,7 @@ import { AccommodationService } from '../services/accommodation.service';
 import { SearchResultsService } from '../services/search-results.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-search',
@@ -27,24 +28,30 @@ export class SearchComponent implements OnInit {
   showAdvancedSearch: boolean = false;
   showMoreBox: boolean = false;
   amenities: any = null;
+  todDate: Date;
+  tomDate: Date;
 
   constructor(private http: HttpClient, private router: Router,private accServise: AccommodationService, private srcres: SearchResultsService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.createFormControls();
+    this.todDate = new Date();
+    this.tomDate = new Date(+new Date() + 86400000);
+    let tod = moment(this.todDate).format('YYYY-MM-DD');
+    let tom = moment(this.tomDate).format('YYYY-MM-DD');
+    this.createFormControls(tod, tom);
     this.createForm();
   }
 
-  createFormControls() {
+  createFormControls(tod, tom) {
     this.destination = new FormControl('', Validators.required);
-    this.startDate = new FormControl('');
-    this.endDate = new FormControl('');
-    this.guests = new FormControl('', Validators.required);
+    this.startDate = new FormControl(tod);
+    this.endDate = new FormControl(tom);
+    this.guests = new FormControl(1, Validators.required);
     this.accommodationType = new FormControl('');
     this.category = new FormControl('');
     this.distance = new FormControl('');
-    this.cancellationPeriod = new FormControl(''),
-    this.averageRating = new FormControl('')
+    this.cancellationPeriod = new FormControl('');
+    this.averageRating = new FormControl('');
   }
 
   createForm() {
