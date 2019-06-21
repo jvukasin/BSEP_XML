@@ -11,6 +11,7 @@ import com.megatravel.authservice.dto.UserListDTO;
 import com.megatravel.authservice.model.User;
 import com.megatravel.authservice.security.TokenUtils;
 import com.megatravel.authservice.service.Logging;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.megatravel.authservice.service.TPersonService;
@@ -66,10 +67,17 @@ public class UserController {
     }
 
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-    public String getUser(HttpServletRequest request) {
+    public ResponseEntity<?> getUser(HttpServletRequest request) {
         String token = tokenUtils.getToken(request);
         String username = tokenUtils.getUsernameFromToken(token);
-        return username;
+
+        if(username != "" && username != null) {
+            User u = (User) tPersonService.findOneByUsername(username);
+            UserInfoDTO ui = new UserInfoDTO(u.getUsername(), u.getEmail(), u.getName(), u.getLastname());
+            return new ResponseEntity<UserInfoDTO>(ui, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
