@@ -9,13 +9,10 @@ import java.util.NoSuchElementException;
 import javax.persistence.EntityManager;
 import javax.validation.ConstraintViolationException;
 
+import com.megatravel.accommodationservice.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.AmenityDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
 import com.megatravel.accommodationservice.model.AccommodationType;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.model.Amenity;
@@ -190,9 +187,15 @@ public class AccommodationUnitService
 	
 	//* * * TYPES * * *
 	
-	public Collection<AccommodationType> findAllTypes()
+	public Collection<AccTypeDTO> findAllTypes()
 	{
-		return typeRepo.findAll();
+		List<AccTypeDTO> retVal = new ArrayList<>();
+
+		for (AccommodationType a: typeRepo.findAll()) {
+			retVal.add(new AccTypeDTO(a));
+		}
+
+		return retVal;
 	}
 	
 	public void deleteType(String type)

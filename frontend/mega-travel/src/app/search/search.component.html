@@ -77,14 +77,7 @@
                           <div class="select-wrap">
                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                             <select name="accommodationType" formControlName="accommodationType" id="accommodationType" class="form-control">
-                              <option value="1" selected>1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
+                              <option *ngFor="let at of acctypes" [value]="at.name">{{at.name}}</option>
                             </select>
                           </div>
                       </div>

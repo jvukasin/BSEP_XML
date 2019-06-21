@@ -117,7 +117,7 @@ export class AccommodationPageComponent implements OnInit {
       html:
         'Accommodation: ' + this.acu.name +
         '<br>From ' + this.sDate + ' to ' + this.eDate +
-        '<br>Total price: ' + this.totalPrice,
+        '<br>Total price: $' + this.totalPrice,
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -143,6 +143,7 @@ export class AccommodationPageComponent implements OnInit {
               showConfirmButton: false,
               timer: 2000
             });
+            this.router.navigate(['profile']);
           }, (error) => {
             Swal.fire({
               type: 'error',
