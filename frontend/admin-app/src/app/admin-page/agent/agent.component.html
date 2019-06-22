@@ -1,0 +1,91 @@
+<div class="container">
+
+  <h2 class="heading"> ADD NEW AGENT </h2>
+
+
+  <form [formGroup]="agentForm" (ngSubmit)="onSubmit()">
+    <label>
+      Firstname:
+    </label>
+    <input type="text" formControlName="firstname">
+    <br>
+    <br>
+
+    <label>
+      Lastname:
+    </label>
+    <input type="text" formControlName="lastname">
+    <br>
+    <br>
+
+    <label>
+      Username:
+    </label>
+    <input type="text" formControlName="username">
+    <br>
+    <br>
+
+    <label>
+      Password:
+    </label>
+    <input type="password" formControlName="password">
+    <br>
+    <br>
+
+    <label>
+      Email:
+    </label>
+    <input type="email" formControlName="email">
+    <br>
+    <br>
+
+    <label>
+      Registration Code:
+    </label>
+    <input type="text" formControlName="registrationNumber">
+    <br>
+    <br>
+
+
+
+    <input type="submit" value="ADD" class="btn btn-success" id="addButton">
+
+
+
+
+    <div *ngIf="submitted && agentForm.controls.firstname.errors" class="error">
+      <div *ngIf="agentForm.controls.firstname.errors.required">Firstname is requiered.</div>  
+    </div>
+
+    <div *ngIf="submitted && agentForm.controls.lastname.errors" class="error">
+        <div *ngIf="agentForm.controls.lastname.errors.required">Lastname is requiered.</div>  
+    </div>
+
+    <div *ngIf="submitted && agentForm.controls.username.errors" class="error">
+      <div *ngIf="agentForm.controls.username.errors.required">Username is requiered.</div>  
+    </div>
+
+    <div *ngIf="submitted && agentForm.controls.password.errors" class="error">
+      <div *ngIf="agentForm.controls.password.errors.required">Password is requiered.</div>  
+    </div>
+
+    <div *ngIf="submitted && agentForm.controls.email.errors" class="error">
+      <div *ngIf="agentForm.controls.email.errors.required">Email is requiered.</div>  
+    </div>
+
+    <div *ngIf="submitted && agentForm.controls.email.errors" class="error">
+      <div *ngIf="agentForm.controls.email.errors.email">The email address must be in a correct form.</div>  
+    </div>
+  
+    <div *ngIf="submitted && agentForm.controls.registrationNumber.errors" class="error">
+      <div *ngIf="agentForm.controls.registrationNumber.errors.required">Registation code is requiered.</div>  
+    </div>
+
+    <div *ngIf="usernameTaken" class="error">
+      <div>This username has been taken.</div>  
+    </div>
+
+  </form>
+
+
+</div>

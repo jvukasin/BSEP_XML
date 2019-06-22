@@ -15,5 +15,15 @@
         {
         "^/accommodation-service": ""
         }
+    },
+    
+    "/auth-service": 
+    {
+    "target": "http://localhost:8085",
+    "secure": false,
+    "pathRewrite": 
+        {
+        "^/auth-service": ""
+        }
     }
 }
