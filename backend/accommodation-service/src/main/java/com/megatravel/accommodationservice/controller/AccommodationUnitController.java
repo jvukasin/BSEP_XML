@@ -1,7 +1,6 @@
 package com.megatravel.accommodationservice.controller;
 import java.util.Collection;
 
-import com.megatravel.accommodationservice.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.megatravel.accommodationservice.dto.AccTypeDTO;
+import com.megatravel.accommodationservice.dto.AccommodationCategoryDTO;
+import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
+import com.megatravel.accommodationservice.dto.AmenityDTO;
+import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
+import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
+import com.megatravel.accommodationservice.model.AccommodationCategory;
 import com.megatravel.accommodationservice.model.AccommodationType;
 import com.megatravel.accommodationservice.service.AccommodationUnitService;
 
@@ -144,4 +150,58 @@ public class AccommodationUnitController
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	
+	
+	
+	// * * * CATEGORY ENDPOINTS * * *
+	@RequestMapping(value = "/categories", method = RequestMethod.GET)
+	public ResponseEntity<Collection<AccommodationCategoryDTO>> getCategories()
+	{
+		return new ResponseEntity<Collection<AccommodationCategoryDTO>>(accommodationService.findAllCategories(),HttpStatus.OK);
+	}
+	
+	
+	
+	@RequestMapping(value = "/categories/{value}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> removeCategory(@PathVariable int value)
+	{	
+		try
+		{				
+			accommodationService.deleteCategory(value);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_MODIFIED);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "/categories", method = RequestMethod.POST)
+	public ResponseEntity<?> addType(@RequestBody AccommodationCategory dto)
+	{
+		try
+		{
+			accommodationService.addCategory(dto);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 }

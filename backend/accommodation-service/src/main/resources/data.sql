@@ -23,6 +23,8 @@ insert into user_roles values ('tjokarda',3);
 insert into user_roles values ('miladinovski',3);
 
 insert into accommodation_type (name) values ('Hotel'), ('Hostel'), ('Motel'), ('BnB'), ('Apartment'), ('Studio'), ('Entire house');
+insert into accommodation_category values (1), (3), (5);
+
 
 insert into roles_privileges values (1,1);
 
@@ -186,4 +188,8 @@ INSERT INTO amenity (id, fa_icon, name) values
 
 insert into reservation (id, start_date, end_date, price, accommodation_unit_id, is_successful, reservator_username)
 values (1, '2019-10-10', '2019-10-20', '500', 1, false, 'laza');
+
+
+
+
 
