@@ -26,18 +26,18 @@ public interface AccommodationUnitRepository extends JpaRepository<Accommodation
 	  
 		@Transactional
 		@Query(value = "select distinct\n" + 
-				"	accommodation_unit.*, @id\\:=accommodation_unit.id\n" +
+				"	acc.*" +
 				"from		\n" + 
-				"	accommodation_unit join location on accommodation_unit.location_id = location.id\n" + 
+				"	accommodation_unit acc join location on acc.location_id = location.id\n" +
 				"where\n" + 
 				"	 location.city_id=:cityId and\n" +
-				"     capacity>=:capacity and\n" +
+				"     capacity=:capacity and\n" +
 				"	 not exists \n" + 
 				"		(select distinct * \n" + 
 				"		 from \n" + 
 				"			reservation\n" + 
 				"		 where\n" + 
-				"			reservation.accommodation_unit_id = @id and\n" + 
+				"			reservation.accommodation_unit_id = acc.id and\n" +
 				"			(reservation.start_date<=:start and reservation.end_date>=:start) or (reservation.start_date>=:start and reservation.start_date>=:ends)\n" +
 				"		)",nativeQuery = true)
 		public List<AccommodationUnit> search(@Param("cityId") Long cityId, @Param("capacity") int capacity, @Param("start") Date start, @Param("ends") Date ends);
