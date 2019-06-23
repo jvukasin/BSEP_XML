@@ -1,8 +1,64 @@
 <div class="right-to-nav appear">
 
 	<div *ngIf="accommodationUnit">
-		<h1>{{ accommodationUnit.name }}</h1>
-		<p>{{ accommodationUnit.description }}</p>
+		<div class="au-heading">
+			<div class="au-heading-info">
+				<h1>{{ accommodationUnit.name }}</h1>
+				
+				<div class="au-info-bar">
+					<div class="type">
+						{{ accommodationUnit.type }}
+					</div>
+					<div class="category">
+						<i *ngFor="let c of category" class="fa fa-star"></i>
+					</div>
+					<span class="guests">
+						{{ accommodationUnit.capacity }} guests
+					</span>
+				</div>
+
+				<div class="rating-location">
+					<div class="rating">
+						{{ accommodationUnit.avgRating }}
+					</div>
+					<div class="location">
+						<i class="fa fa-map-marker"></i>
+						<div class="location-info">
+							<span class="address">{{ accommodationUnit.location.coordinates }}</span>
+							<span class="address">{{ accommodationUnit.location.city.name }}, {{ accommodationUnit.location.city.country.name }}</span>
+							<span>{{ accommodationUnit.location.distanceFromCity}} km from center</span>
+							
+						</div>
+					</div>
+
+				</div>
+
+				<div class="au-amenities">
+					<h3>Amenities</h3>
+				</div>
+
+			</div>
+			<div class="au-heading-img">
+				<img src="../../../assets/kafa.png">
+			</div>
+
+
+			
+
+		</div>
+		<div class="au-description">
+			{{ accommodationUnit.description }}
+
+		</div>
+
+		<div class="au-cancellation-period">
+			Cancellation period: <strong>{{ accommodationUnit.cancellationPeriod}} days</strong>
+		</div>
+
+		
+		<div class="au-price">
+				Today's price: <span class="au-price-value">{{ accommodationUnit.price}}  €</span>
+		</div>
 	</div>
 
 </div>

@@ -12,7 +12,9 @@ import { LoggedOutGuard } from './_helper/logged-out.guard';
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full'},
     { path: 'login', component: LoginComponent, canActivate: [LoggedOutGuard]},
-    { path: 'accommodation', component: AccommodationComponent, canActivate: [LoggedInGuard], canActivateChild: [LoggedInGuard], children: [
+    { path: 'accommodation', component: AccommodationComponent,
+    //  canActivateChild: [LoggedInGuard],
+      children: [
         { path: '', component: AccommodationListComponent},
         { path: 'new', component: NewAccommodationComponent},
         { path: ':id', component: AccommodationUnitComponent},
