@@ -24,7 +24,7 @@ public class ReservationEndpoint implements IReservationEndpoint {
     public FetchReservationsResponse fetchAgentsReservations(@RequestPayload FetchReservationsRequest request) {
 
         // Kada se poveze Reservation model sa bazom (dodaju anotacije) samo ce se uzeti rezervacije od agenta i ubaciti u response
-        System.out.println("Agent id: " + request.getAgentId());
+        System.out.println("Agent username: " + request.getAgentUsername());
 
         // Test
         Reservation r1 = new Reservation();
@@ -50,7 +50,7 @@ public class ReservationEndpoint implements IReservationEndpoint {
         // Ovde ce morati da se proveri da li je u medju vremenu neko iz glavne aplikacije od korisnika rezervisao
         // taj smestaj u tom periodu, u slucaju da jeste, u responsu se vraca null za rezervaciju (ili smisliti neki bolji mehanizam)
 
-        System.out.println("AgentID: " + request.getAgentId());
+        System.out.println("Agentusername: " + request.getAgentUsername());
         System.out.println("Reservation: " + request.getReservation());
 
         PostReservationResponse response = factory.createPostReservationResponse();
