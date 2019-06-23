@@ -83,6 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 					.antMatchers("/users/**").permitAll()
 					.antMatchers("/h2-console/**").permitAll()
 					.antMatchers("/ws/**").permitAll()
+					.antMatchers("/agents/**").permitAll()
 					// svaki zahtev mora biti autorizovan
 					.anyRequest().authenticated().and()
 				// presretni svaki zahtev filterom
@@ -99,6 +100,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 			web.ignoring().antMatchers(HttpMethod.POST, "/auth/login");
 			web.ignoring().antMatchers(HttpMethod.GET, "/users/**");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
+			
+			//coa
+			web.ignoring().antMatchers(HttpMethod.POST, "/agents/**");
+			web.ignoring().antMatchers(HttpMethod.GET, "/agents/**");
+
 		}
 		
 		@Bean
