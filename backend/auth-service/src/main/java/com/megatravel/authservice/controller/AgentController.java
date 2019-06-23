@@ -22,7 +22,7 @@ public class AgentController
     private TPersonService tPersonService;
     
     
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/text")
     public ResponseEntity<?> saveAgent(@RequestBody AgentDTO agentDTO) 
     {
 		try

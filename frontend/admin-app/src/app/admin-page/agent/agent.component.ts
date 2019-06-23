@@ -73,7 +73,11 @@ export class AgentComponent implements OnInit {
           this.agentService.addAgent(agent).subscribe(
             (response) =>
             {
-                alert("Agent " + response + " created.");
+              if(response.status == 201)
+              {
+                alert("Agent: " + response.body + " created.");
+                this.agentForm.reset();
+              }
             });
          }
          else
