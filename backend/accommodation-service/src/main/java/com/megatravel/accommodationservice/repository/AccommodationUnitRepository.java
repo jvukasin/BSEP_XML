@@ -38,7 +38,7 @@ public interface AccommodationUnitRepository extends JpaRepository<Accommodation
 				"			reservation\n" + 
 				"		 where\n" + 
 				"			reservation.accommodation_unit_id = acc.id and\n" +
-				"			(reservation.start_date<=:start and reservation.end_date>=:start) or (reservation.start_date>=:start and reservation.start_date>=:ends)\n" +
+				"			(reservation.start_date<=:start and reservation.end_date>=:start) or (reservation.start_date>=:start and reservation.start_date<=:ends)\n" +
 				"		)",nativeQuery = true)
 		public List<AccommodationUnit> search(@Param("cityId") Long cityId, @Param("capacity") int capacity, @Param("start") Date start, @Param("ends") Date ends);
 		

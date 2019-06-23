@@ -169,7 +169,8 @@ INSERT INTO image (id, image_url, accommodation_unit_id) values
 (1, 'https://www.futuremediaga.com/wp-content/uploads/2017/08/Cool-Studio-Apartment-Setup.jpg', 1),
 (2, 'http://www.hostel4me.com/images/dorm-curtains.jpg', 2),
 (3, 'https://amp.businessinsider.com/images/59fb8dd04d05ac26008b5f64-750-563.jpg', 1),
-(4, 'http://www.hotelresb2b.com/images/hoteles/792720_image32499834_0.jpg', 3);
+(4, 'http://www.hotelresb2b.com/images/hoteles/792720_image32499834_0.jpg', 3),
+(5, 'https://media-cdn.tripadvisor.com/media/photo-s/0c/0f/da/a3/3-star-hotel-room-pictures.jpg', 4);
 
 
 INSERT INTO specific_price (id, end_date, price, start_date, accommodation_unit_id) values

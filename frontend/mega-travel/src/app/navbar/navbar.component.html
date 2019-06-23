@@ -19,7 +19,7 @@
           <button class="btn sign" routerLink="/signup">Sign Up</button>
         </div>
         <div *ngIf="isLoggedIn">
-            <button class="btn btn-primary mr-3">Profile</button>
+            <button class="btn btn-primary mr-3" routerLink="/profile">Profile</button>
             <button class="btn btn-danger" (click)="LogOut()">Logout</button>
         </div>
           

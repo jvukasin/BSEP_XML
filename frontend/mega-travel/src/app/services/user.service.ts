@@ -15,7 +15,5 @@ export class UserService {
         return this.http.post("/api/authservice/users", user);
     }
 
-    
-
 }
 

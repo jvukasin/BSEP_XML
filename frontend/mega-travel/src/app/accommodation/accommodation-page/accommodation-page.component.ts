@@ -149,7 +149,7 @@ export class AccommodationPageComponent implements OnInit {
       html:
         '<b>Accommodation:</b> ' + this.acu.name +
         '<br><b>From</b> ' + this.sDate + ' <b>to</b> ' + this.eDate +
-        '<br><b>Cancellation period:</b> ' + this.acu.cancellationPeriod +
+        '<br><b>Cancellation period:</b> ' + this.acu.cancellationPeriod + ' days' +
         '<br><b>Total price:</b> $' + this.totalPrice,
       showCloseButton: true,
       showCancelButton: true,
