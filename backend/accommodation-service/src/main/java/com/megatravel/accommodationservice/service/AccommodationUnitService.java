@@ -141,9 +141,9 @@ public class AccommodationUnitService
 			{
 				list = accommodationRepo.search(city.getId(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
 
-				if(dto.getRatingAvg() >= 0)
+				if(dto.getCancellationPeriod() >= 0)
 				{
-					list = aboveRating(list,dto.getRatingAvg());
+					list = cancellationPer(list,dto.getCancellationPeriod());
 				}
 
 				if(dto.getType() != null && dto.getType() != "")
@@ -154,6 +154,10 @@ public class AccommodationUnitService
 				if(dto.getAmenities().size() != 0 && dto.getAmenities() != null)
 				{
 					list = doesContainAmenities(list,dto.getAmenities());
+				}
+
+				if(dto.getCategory() != null && dto.getCategory() != "") {
+					list = isCategory(list,dto.getCategory());
 				}
 
 				if(dto.getDistanceFromCity() >=0)
@@ -326,12 +330,12 @@ public class AccommodationUnitService
 		
 		return retVal;
 	}
-	private List<AccommodationUnit> aboveRating(Collection<AccommodationUnit> input, double rating)
+	private List<AccommodationUnit> cancellationPer(Collection<AccommodationUnit> input, int cancel)
 	{
 		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
 		for(AccommodationUnit au : input)
 		{
-			if(au.getRatingAvg() >= rating)
+			if(au.getCancellationPeriod() <= cancel)
 			{
 				retVal.add(au);
 			}
@@ -340,7 +344,20 @@ public class AccommodationUnitService
 		return retVal;
 	}
 
+	private List<AccommodationUnit> isCategory(Collection<AccommodationUnit> input, String cat) {
 
+		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
+		int ctg = Integer.parseInt(cat);
+		for(AccommodationUnit au : input)
+		{
+			if(au.getCategory() == ctg)
+			{
+				retVal.add(au);
+			}
+		}
+
+		return retVal;
+	}
 
 
 }

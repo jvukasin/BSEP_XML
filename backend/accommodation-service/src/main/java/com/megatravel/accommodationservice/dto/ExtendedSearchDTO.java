@@ -20,10 +20,12 @@ public class ExtendedSearchDTO
 	 private List<Amenity> amenities;
 	 private String type;
 	 private double distanceFromCity;
+	 private int cancellationPeriod;
+	 private String category;
 
 
 	public ExtendedSearchDTO(String city, Date fromDate, Date endDate, int personCount,
-			double ratingAvg, List<Amenity> amenities, String t, double distance) {
+			double ratingAvg, List<Amenity> amenities, String t, double distance, int cancel, String category) {
 		super();
 		this.city = city;
 		this.fromDate = fromDate;
@@ -33,6 +35,8 @@ public class ExtendedSearchDTO
 		this.amenities = amenities;
 		this.distanceFromCity = distance;
 		this.type = t;
+		this.cancellationPeriod = cancel;
+		this.category = category;
 	}
 	
 	public double getDistanceFromCity() {
@@ -110,5 +114,21 @@ public class ExtendedSearchDTO
 
 	public void setPersonCount(int personCount) {
 		this.personCount = personCount;
+	}
+
+	public int getCancellationPeriod() {
+		return cancellationPeriod;
+	}
+
+	public void setCancellationPeriod(int cancellationPeriod) {
+		this.cancellationPeriod = cancellationPeriod;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

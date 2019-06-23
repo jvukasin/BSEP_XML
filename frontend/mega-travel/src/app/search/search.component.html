@@ -90,12 +90,7 @@
                           <div class="select-wrap">
                               <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                               <select name="category" formControlName="category" id="category" class="form-control">
-                                <option value="0" selected>Uncategorized</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option *ngFor="let cat of acccategories" [value]="cat.value">{{cat.value}}</option>
                               </select>
                             </div>
                       </div>
@@ -106,7 +101,7 @@
                       <label for="distance">Distance from city</label>
                       <div class="form-field form_date">
                         <div class="icon"><i class="fa fa-stumbleupon "></i></div>
-                        <input type="number" formControlName="distance" min="0" (keydown)="onKeydown($event)" class="form-control" placeholder="km">
+                        <input type="text" formControlName="distance" (keydown)="onKeydown($event)" class="form-control" placeholder="km">
                       </div>
                     </div>
                   </div>
@@ -136,7 +131,7 @@
                               <label  for="cancellationPeriod">Cancellation Period</label>
                               <div class="form-field">
                                 <div class="icon"><i class="fa fa-stumbleupon "></i></div>
-                                <input type="number" formControlName="cancellationPeriod" min="0" (keydown)="onKeydown($event)" class="form-control" placeholder="days">
+                                <input type="text" formControlName="cancellationPeriod" (keydown)="onKeydown($event)" class="form-control" placeholder="days">
                               </div>
                             </div>
                           </div>

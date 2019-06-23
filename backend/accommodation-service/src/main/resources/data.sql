@@ -157,14 +157,15 @@ INSERT INTO location (id, coordinates, distance_from_city, city_id) values
 (5,'Carrer de Guayar 51',0.2,60);
 
 INSERT INTO accommodation_unit (id, cancellation_period, capacity, category, default_price, description, name, price, rating_avg, type, agent_username, location_id) values
-(1, 15, 4, 5, 220, 'Lovely apartment near the city center hosted by BBF Enterprise company. Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Apartment BBF', 220, 9.6, 'apartment', 'tjokarda', 1),
-(2, 20, 2, 3, 118, 'Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Hostel room', 118, 8.4, 'hostel', 'tjokarda', 4),
-(3,10,5,-1,60,'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who wants to spend great time in Madrid!','Chilare classico',0,0,'studio','laza',5);
+(1, 15, 4, 5, 220, 'Lovely apartment near the city center hosted by BBF Enterprise company. Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Apartment BBF', 220, 9.6, 'Apartment', 'tjokarda', 1),
+(2, 20, 2, 3, 118, 'Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Hostel room', 118, 8.4, 'Hostel', 'tjokarda', 4),
+(3,10,5,-1,60,'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who wants to spend great time in Madrid!','Chilare classico',0,0,'Studio','laza',5);
 
 INSERT INTO image (id, image_url, accommodation_unit_id) values
 (1, 'https://www.futuremediaga.com/wp-content/uploads/2017/08/Cool-Studio-Apartment-Setup.jpg', 1),
 (2, 'http://www.hostel4me.com/images/dorm-curtains.jpg', 2),
-(3, 'http://www.hotelresb2b.com/images/hoteles/792720_image32499834_0.jpg', 3);
+(3, 'https://amp.businessinsider.com/images/59fb8dd04d05ac26008b5f64-750-563.jpg', 1),
+(4, 'http://www.hotelresb2b.com/images/hoteles/792720_image32499834_0.jpg', 3);
 
 
 INSERT INTO specific_price (id, end_date, price, start_date, accommodation_unit_id) values
@@ -185,9 +186,8 @@ INSERT INTO amenity (id, fa_icon, name) values
 (11, 'fa fa-shower', 'Private bathroom'),
 (12, 'fa fa-cutlery', 'Kitchen');
 
-
-insert into reservation (id, start_date, end_date, price, accommodation_unit_id, is_successful, reservator_username)
-values (1, '2019-10-10', '2019-10-20', '500', 1, false, 'laza');
+insert into accommodationunit_amenity (amenity_id, accommodation_unit_id) values
+(1, 1), (2, 1), (3, 1), (5, 1), (4, 1), (12, 1), (4, 2), (6, 2), (10, 2);
 
 
 
