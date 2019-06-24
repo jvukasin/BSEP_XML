@@ -1,0 +1,34 @@
+<section class="right-to-nav appear" >
+  
+    <div id="reservation-list" *ngIf="reservations" class="appear">
+  
+      <div class="info-bar">
+          <div>
+            <span *ngIf="reservations.length > 0"> You have {{reservations.length}} reservations.</span>
+            <span *ngIf="reservations.length === 0">You still do not have any reservation.</span>
+          
+          </div>
+          <div>
+              <button class="btn btn-secondary" (click)="onFetchReservations()">
+               {{ isFetching ? 'Fetching...' : 'Fetch Reservations' }} 
+              </button>
+          </div>
+      </div>
+  
+  
+      <div class="reservation-components appear" *ngIf="reservations" >
+        <div *ngFor="let r of reservations" >
+          
+          <app-reservation-card [reservation]="r"></app-reservation-card>
+        </div>
+  
+  
+      </div>
+  
+  
+    </div>
+  
+  
+  </section>
+  
+  

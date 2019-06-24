@@ -12,19 +12,20 @@ public class ReservationDTO {
     private double price;
     private boolean isSuccessful;
     private Long accommodationUnitId;
+    private String accommodationUnitName;
     private String usernameReservator;
 
     public ReservationDTO() {
     }
 
-    public ReservationDTO(Long id, Date startDate, Date endDate, double price, boolean isSuccessful,
-                          Long accommodationUnitId, String usernameReservator) {
+    public ReservationDTO(Long id, Date startDate, Date endDate, double price, boolean isSuccessful, Long accommodationUnitId, String accommodationUnitName, String usernameReservator) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.price = price;
         this.isSuccessful = isSuccessful;
         this.accommodationUnitId = accommodationUnitId;
+        this.accommodationUnitName = accommodationUnitName;
         this.usernameReservator = usernameReservator;
     }
 
@@ -35,6 +36,7 @@ public class ReservationDTO {
         this.price = r.getPrice();
         this.isSuccessful = r.isSuccessful();
         this.accommodationUnitId = r.getAccommodationUnit().getId();
+        this.accommodationUnitName = r.getAccommodationUnit().getName();
         this.usernameReservator = r.getUsernameReservator();
     }
 
@@ -93,5 +95,13 @@ public class ReservationDTO {
 
     public void setUsernameReservator(String usernameReservator) {
         this.usernameReservator = usernameReservator;
+    }
+
+    public String getAccommodationUnitName() {
+        return accommodationUnitName;
+    }
+
+    public void setAccommodationUnitName(String accommodationUnitName) {
+        this.accommodationUnitName = accommodationUnitName;
     }
 }

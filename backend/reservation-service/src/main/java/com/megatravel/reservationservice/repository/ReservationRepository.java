@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.megatravel.reservationservice.model.AccommodationUnit;
 import com.megatravel.reservationservice.model.Reservation;
+import org.springframework.transaction.annotation.Transactional;
 
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> 
@@ -17,6 +18,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long>
 
 	Collection<Reservation> findOneByAccommodationUnit(AccommodationUnit accommodation);
 
+	@Transactional
 	@Modifying
 	@Query("UPDATE Reservation \r\n" + 
 			"SET is_successful = true\r\n" + 

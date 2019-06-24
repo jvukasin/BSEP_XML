@@ -1,0 +1,32 @@
+<div class="reservation-card-container">
+	<div class="rc-heading">
+		<h2>Reservation #{{reservation.id}}</h2>
+
+		<button class="btn btn-primary" *ngIf="!reservation.successful" (click)="onMarkSuccessful()">MARK SUCCESSFUL</button>
+		
+		<button class="btn btn-primary successful" *ngIf="reservation.successful" >succesfull <i class="fa fa-check"></i></button>
+	</div>
+	<div class="rc-info">
+		<h4><span class="light-font">at </span> <a routerLink="/accommodation/{{reservation.accommodationUnitId}}">{{reservation.accommodationUnitName}}</a></h4>
+
+		<span class="rc-dates">
+			<span class="light-font">from </span>
+			<span class="rc-date">{{reservation.startDate}}</span>
+			<span class="light-font"> to </span>
+			<span class="rc-date">{{reservation.endDate}}</span>
+
+		</span>
+
+		<span class="rc-price-row">
+			price: <span class="rc-price">{{reservation.price}} €</span>
+		</span>
+
+		<div class="rc-msg-row">
+			<span class="rc-label">guest:</span> <span class="rc-guest"> {{reservation.usernameReservator}}</span> <i class="fa fa-envelope"></i>
+		</div>
+
+
+	</div>
+
+
+</div>

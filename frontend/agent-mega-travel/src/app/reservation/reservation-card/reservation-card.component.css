@@ -1,0 +1,121 @@
+.reservation-card-container {
+    padding: 30px;
+    background-color: white;
+    margin-bottom: 30px;
+    transition: all 0.2s;
+    border-bottom: 3px solid white;
+}
+
+.reservation-card-container:hover {
+    box-shadow: 0px 3px 9px 5px rgba(0, 0, 0, 0.04);
+    transform: translateX(6px);
+    
+    border-bottom: 3px solid var(--rosa);
+    transition: all 0.3s;
+    
+    box-sizing: border-box;
+}
+
+
+.rc-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-primary {
+    font-size: 15.5px;
+    line-height: 1;
+    padding: 10px 13px 9px 13px;
+}
+
+.btn.btn-primary.successful {
+    border-color: green;
+    color: green;
+    cursor: default;
+}
+
+.btn.btn-primary.successful:hover {
+    border-color: green;
+    color: green;
+    transform: translateY(0px);
+    background-color: #fff;
+    box-shadow: none;
+}
+
+h2 {
+    line-height: 1;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+.rc-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 19px;
+    font-weight: 200;
+}
+
+.rc-dates .light-font {
+}
+
+.rc-dates {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.rc-date {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.rc-price-row {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;   
+
+}
+
+.rc-price-row > * {
+    line-height: 1;
+}
+
+.rc-price {
+    margin-left: 5px;
+    font-size: 23px;
+    font-weight: 600;
+    color: green;
+}
+
+.rc-msg-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.rc-label {
+    margin-right: 5px;
+}
+
+.rc-guest {
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+.rc-msg-row .fa {
+    font-size: 27px;
+    color: var(--rosa);
+    margin-left: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.rc-msg-row .fa:hover {
+    color: black;
+    transition: all 0.4s;
+}

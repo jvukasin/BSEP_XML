@@ -5,6 +5,7 @@ import com.megatravel.reservationservice.model.ObjectFactory;
 import com.megatravel.reservationservice.model.Reservation;
 import com.megatravel.reservationservice.services.ReservationService;
 import com.megatravel.reservationservice.soap.reqres.*;
+import exceptions.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -38,11 +39,9 @@ public class ReservationEndpoint implements IReservationEndpoint {
         FetchReservationsResponse response = factory.createFetchReservationsResponse();
 
         for (Reservation r: reservations) {
-
-            Long auId = r.getAccommodationUnit().getId();
             AccommodationUnit au = new AccommodationUnit();
-            au.setId(auId);
-
+            au.setId(r.getAccommodationUnit().getId());
+            au.setName(r.getAccommodationUnit().getName());
             r.setAccommodationUnit(au);
             r.setUsernameReservator(r.getReservator().getUsername());
 
@@ -76,10 +75,16 @@ public class ReservationEndpoint implements IReservationEndpoint {
 
         System.out.println(request.getReservationId());
 
-        // ovde se setuje rezervacija na success
 
         SuccessReservationResponse response = factory.createSuccessReservationResponse();
-        response.setResponseInfo("success");
+
+        try {
+            reservationService.setSuccessful(request.getReservationId());
+            response.setResponseInfo("success");
+        } catch (BusinessException e) {
+            response.setResponseInfo(e.getMessage());
+        }
+
 
         return response;
     }

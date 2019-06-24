@@ -8,6 +8,7 @@ import { AccommodationListComponent } from './accommodation/accommodation-list/a
 import { AccommodationUnitComponent } from './accommodation/accommodation-unit/accommodation-unit.component';
 import { LoggedInGuard } from './_helper/logged-in.guard';
 import { LoggedOutGuard } from './_helper/logged-out.guard';
+import { ReservationListComponent } from './reservation/reservation-list/reservation-list.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -17,9 +18,13 @@ const appRoutes: Routes = [
     children: [
       { path: '', component: AccommodationListComponent},
       { path: 'new', component: NewAccommodationComponent},
-      { path: ':id', component: AccommodationUnitComponent},
+      { path: ':id', component: AccommodationUnitComponent}
   ]},
-  { path: 'reservation', canActivate: [LoggedInGuard], canActivateChild: [LoggedInGuard], component: ReservationComponent}
+  { path: 'reservation', component: ReservationComponent, canActivate: [LoggedInGuard],
+   canActivateChild: [LoggedInGuard],
+   children: [
+    { path: '', component: ReservationListComponent},
+   ]}
 	]
 
 @NgModule({

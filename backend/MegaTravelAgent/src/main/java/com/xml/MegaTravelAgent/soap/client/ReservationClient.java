@@ -31,9 +31,16 @@ public class ReservationClient extends WebServiceGatewaySupport implements IRese
 
     @Override
     public SuccessReservationResponse successReservation(Long reservationId, String agentUsername) {
-        System.out.println("successReservation client");
 
-        return null;
+
+        SuccessReservationRequest request = new SuccessReservationRequest();
+        request.setAgentUsername(agentUsername);
+        request.setReservationId(reservationId);
+
+        SuccessReservationResponse response = (SuccessReservationResponse) getWebServiceTemplate()
+                .marshalSendAndReceive(ENDPOINT_URI, request);
+
+        return response;
     }
 
     @Override

@@ -41,6 +41,10 @@ strong {
     font-weight: 700 !important;   
 }
 
+.light-font {
+    font-weight: 200;
+}
+
 .form-group {
     margin: 20px 0;
 }

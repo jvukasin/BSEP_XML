@@ -6,9 +6,12 @@ import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.service.ReservationService;
 import com.xml.MegaTravelAgent.soap.client.ReservationClient;
 import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsResponse;
+import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationRequest;
+import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +53,31 @@ public class ReservationController {
         return new ResponseEntity<Collection<ReservationDTO>>(reservationDTOs,
                 HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/{id}/success", method = RequestMethod.PUT)
+    public ResponseEntity<String> successReservation(@PathVariable Long id,
+                                                                         HttpServletRequest request)
+    {
+
+        String username = getUsernameFromRequest(request);
+
+        if (username == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+        SuccessReservationResponse response = reservationClient.successReservation(id, username);
+
+        String responseInfo = response.getResponseInfo();
+
+        if (responseInfo.equals("success")) {
+            reservationService.setSuccessful(id);
+        }
+
+        return new ResponseEntity<>(responseInfo,
+                HttpStatus.OK);
+    }
+
+
 
     private String getUsernameFromRequest(HttpServletRequest request) {
 

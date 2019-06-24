@@ -18,6 +18,8 @@ import { LoadingDirective } from './directives/loading.directive';
 import { JwtInterceptor } from './_helper/jwt.interceptor';
 import { AuthService } from './services/auth.service';
 import { ReservationService } from './services/reservation.service';
+import { ReservationListComponent } from './reservation/reservation-list/reservation-list.component';
+import { ReservationCardComponent } from './reservation/reservation-card/reservation-card.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ReservationService } from './services/reservation.service';
   NavbarComponent,
   NewAccommodationComponent,
   AccommodationUnitComponent,
-  LoadingDirective
+  LoadingDirective,
+  ReservationListComponent,
+  ReservationCardComponent
   ],
   imports: [
     BrowserModule,

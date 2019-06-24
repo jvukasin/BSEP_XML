@@ -98,7 +98,6 @@ public class Reservation {
     protected String usernameReservator;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
 

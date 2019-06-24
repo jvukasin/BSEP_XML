@@ -1,6 +1,7 @@
 package com.xml.MegaTravelAgent.service;
 
 import com.xml.MegaTravelAgent.dto.ReservationDTO;
+import com.xml.MegaTravelAgent.exceptions.BusinessException;
 import com.xml.MegaTravelAgent.model.Reservation;
 import com.xml.MegaTravelAgent.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,23 @@ public class ReservationService {
 
         return reservationDTOs;
 
+    }
+
+    public Long setSuccessful(Long id)
+    {
+        try
+        {
+            Reservation reservation = reservationRepo.findById(id).get();
+
+            reservation.setIsSuccessful(true);
+
+            reservationRepo.setSuccessful(id);
+
+            return id;
+        }
+        catch(NoSuchElementException e)
+        {
+            throw new BusinessException("No reservation with id: " + id + " found.");
+        }
     }
 }
