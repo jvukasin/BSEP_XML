@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../services/reservation.service';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -34,13 +35,64 @@ export class ProfileComponent implements OnInit {
       },
       (error) => { alert(error.message) }
     )
-    
   }
 
-  calculatePrice(startDate,endDate, price){
-    var start = moment(startDate);
-    var end = moment(endDate);
-    return end.diff(start,'days') * price;
+  canCanel(res) {
+    let todDate = new Date();
+    let tod = moment(todDate).format('YYYY-MM-DD');
+    let start = moment(res.startDate).format('YYYY-MM-DD');
+    let dayz = this.daydiff(this.parseDate(tod), this.parseDate(start));
+    if(dayz >= res.accommodation.cancelPeriod) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  parseDate(str) {
+    var mdy = str.split('-');
+    let aa = new Date();
+    let dd = new Date(mdy[0], mdy[1]-1, mdy[2]);
+    return dd;
+  }
+
+  daydiff(first, second) {
+    return Math.round((second-first)/(1000*60*60*24));
+  }
+
+  cancelReservation(name, id) {
+    Swal.fire({
+      title: 'Confirm cancellation',
+      text: 'Do you wish to cancel your reservation at ' + name + '?',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        'Confirm',
+      cancelButtonText:
+        'Cancel',
+    }).then((result) => {
+      if (result.value) {
+        this.reservationService.cancelReservation(id).subscribe(
+          (data) => {
+            Swal.fire({
+              type: 'success',
+              title: 'Your reservation is canceled!',
+              showConfirmButton: false,
+              timer: 2000
+            });
+            let i = this.reservationList.findIndex(reservation => reservation.id === id);
+              this.reservationList.splice(i, 1);
+          }, (error) => {
+          Swal.fire({
+            type: 'error',
+            title: 'Something went wrong! Your reservation cannot be canceled.',
+            showConfirmButton: true
+          });
+        }
+        );
+      }
+    });
   }
 
 
