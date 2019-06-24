@@ -17,4 +17,8 @@ export class ReservationService {
         return this.http.get('/api/reservationservice/reservations/all');
     }
 
+    cancelReservation(id) {
+        return this.http.delete('/api/reservationservice/reservations/' + id);
+    }
+
 }

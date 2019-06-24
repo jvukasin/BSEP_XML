@@ -162,9 +162,10 @@ public class ReservationService
 				messages.add(new MessageDTO(m));
 			}
 
-			retVal.add(new UserReservationDTO(reservation.getStartDate(), reservation.getEndDate(), reservation.getPrice(),
-						new AccommodationInfoDTO(reservation.getAccommodationUnit().getName(), image.getImageUrl(),
-								new LocationDTO(reservation.getAccommodationUnit().getLocation()), reservation.getAccommodationUnit().getRatingAvg()), messages));
+			retVal.add(new UserReservationDTO(reservation.getId(), reservation.getStartDate(), reservation.getEndDate(), reservation.getPrice(),
+					new AccommodationInfoDTO(reservation.getAccommodationUnit().getName(), image.getImageUrl(),
+							new LocationDTO(reservation.getAccommodationUnit().getLocation()), reservation.getAccommodationUnit().getRatingAvg(),
+							reservation.getAccommodationUnit().getCancellationPeriod(), reservation.getAccommodationUnit().getCategory()), messages));
 		}
 		return retVal;
 	}

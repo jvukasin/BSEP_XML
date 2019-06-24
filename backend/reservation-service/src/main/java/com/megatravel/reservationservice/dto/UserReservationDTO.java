@@ -7,21 +7,32 @@ import java.util.List;
 
 public class UserReservationDTO {
 
+    private Long id;
     private Date startDate;
     private Date endDate;
     private double price;
     private AccommodationInfoDTO accommodation;
     private List<MessageDTO> messages;
 
+
     public UserReservationDTO() {
     }
 
-    public UserReservationDTO(Date startDate, Date endDate, double price, AccommodationInfoDTO accommodation, List<MessageDTO> messages) {
+    public UserReservationDTO(Long id, Date startDate, Date endDate, double price, AccommodationInfoDTO accommodation, List<MessageDTO> messages) {
+        this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.price = price;
         this.accommodation = accommodation;
         this.messages = messages;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Date getStartDate() {

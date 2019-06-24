@@ -98,8 +98,8 @@ public class ReservationController
 	
 	
 	//ROLE: ulogovan
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> cancellReservation(@PathVariable Long reservationId)
+	@RequestMapping(value = "/{reservationId}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> cancelReservation(@PathVariable Long reservationId)
 	{	
 		try
 		{				

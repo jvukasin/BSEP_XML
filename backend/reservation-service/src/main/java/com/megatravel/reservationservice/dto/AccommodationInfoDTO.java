@@ -6,17 +6,19 @@ public class AccommodationInfoDTO {
     private String imageUrl;
     private LocationDTO location;
     private double rating;
-    //dodati kategoriju kad se sredi kao posebna klasa
-
+    private int cancelPeriod;
+    private int category;
 
     public AccommodationInfoDTO() {
     }
 
-    public AccommodationInfoDTO(String name, String imageUrl, LocationDTO location, double rating) {
+    public AccommodationInfoDTO(String name, String imageUrl, LocationDTO location, double rating, int cancelPeriod, int category) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.location = location;
         this.rating = rating;
+        this.cancelPeriod = cancelPeriod;
+        this.category = category;
     }
 
     public String getName() {
@@ -49,5 +51,21 @@ public class AccommodationInfoDTO {
 
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    public int getCancelPeriod() {
+        return cancelPeriod;
+    }
+
+    public void setCancelPeriod(int cancelPeriod) {
+        this.cancelPeriod = cancelPeriod;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
     }
 }
