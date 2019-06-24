@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationService } from '../services/reservation.service';
 
 @Component({
   selector: 'app-reservation',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationComponent implements OnInit {
 
-  constructor() { }
+	constructor(private reservationService: ReservationService) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
+
+	onFetchReservations() {
+		console.log('ping');
+		this.reservationService.fetchReservations().subscribe(
+			payload => console.log(payload),
+			error => console.log(error)
+		);
+
+	}
 
 }

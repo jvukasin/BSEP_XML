@@ -81,6 +81,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 				// POTREBNO DA SVAKO UBACI KOJE PUTANJE SU DOSTUPNE SVIM KORISNICIMA, BEZ OBZIRA NA ULOGU
 				.authorizeRequests()
 					.antMatchers("/accommodations/**").permitAll()
+					.antMatchers("/reservations/**").permitAll()
 					.antMatchers("/location/**").permitAll()
 					.antMatchers("/h2-console/**").permitAll()
 					.antMatchers("/ws/**").permitAll()
@@ -100,6 +101,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
 			web.ignoring().antMatchers(HttpMethod.POST, "/auth/login");
 			web.ignoring().antMatchers(HttpMethod.GET, "/auth/agents");
+
 
 		}
 		

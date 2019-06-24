@@ -214,3 +214,5 @@ insert into accommodationunit_amenity (amenity_id, accommodation_unit_id) values
 (1, 1), (2, 1), (3, 1), (5, 1), (4, 1), (12, 1), (4, 2), (6, 2), (10, 2);
 
 
+INSERT INTO reservation (id, end_date, is_successful , price , start_date , accommodation_unit_id , reservator_username )
+VALUES (1,'2019-06-27 00:00:00',false,559,'2019-06-24 00:00:00',14,'vule');

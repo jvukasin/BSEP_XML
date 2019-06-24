@@ -168,6 +168,15 @@ public class ReservationService
 		}
 		return retVal;
 	}
+
+
+	public List<Reservation> getAgentReservations(String username){
+		List<Reservation> reservations = reservationRepo.getAgentReservations(username);
+
+		// todo messages
+
+		return reservations;
+	}
 	
 	
 	// * * * PRICE UNITILITES * * *

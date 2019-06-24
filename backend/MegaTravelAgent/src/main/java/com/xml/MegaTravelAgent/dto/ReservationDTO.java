@@ -1,5 +1,7 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.Reservation;
+
 import java.util.Date;
 
 public class ReservationDTO {
@@ -23,6 +25,16 @@ public class ReservationDTO {
         this.isSuccessful = isSuccessful;
         this.accommodationUnitId = accommodationUnitId;
         this.reservator = reservator;
+    }
+
+    public ReservationDTO(Reservation r) {
+        this.id = r.getId();
+        this.startDate = r.getStartDate();
+        this.endDate = r.getEndDate();
+        this.price = r.getPrice();
+        this.isSuccessful = r.isSuccessful();
+        this.accommodationUnitId = r.getAccommodationUnit().getId();
+        //this.reservator = new UserInfoDTO((r.getReservator()));
     }
 
 

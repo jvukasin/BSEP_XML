@@ -2,12 +2,15 @@ package com.megatravel.reservationservice.soap.endpoints;
 
 import com.megatravel.reservationservice.model.ObjectFactory;
 import com.megatravel.reservationservice.model.Reservation;
+import com.megatravel.reservationservice.services.ReservationService;
 import com.megatravel.reservationservice.soap.reqres.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
+import java.util.List;
 
 @Endpoint
 public class ReservationEndpoint implements IReservationEndpoint {
@@ -18,6 +21,9 @@ public class ReservationEndpoint implements IReservationEndpoint {
     @Autowired
     private ObjectFactory factory;
 
+    @Autowired
+    private ReservationService reservationService;
+
     @Override
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "FetchReservationsRequest")
     @ResponsePayload
@@ -26,18 +32,13 @@ public class ReservationEndpoint implements IReservationEndpoint {
         // Kada se poveze Reservation model sa bazom (dodaju anotacije) samo ce se uzeti rezervacije od agenta i ubaciti u response
         System.out.println("Agent username: " + request.getAgentUsername());
 
-        // Test
-        Reservation r1 = new Reservation();
-        r1.setPrice(300);
-        r1.setId(new Long(1));
-
-        Reservation r2 = new Reservation();
-        r2.setPrice(450);
-        r2.setId(new Long(2));
+        List<Reservation> reservations = reservationService.getAgentReservations(request.getAgentUsername());
 
         FetchReservationsResponse response = factory.createFetchReservationsResponse();
-        response.getReservation().add((r1));
-        response.getReservation().add((r2));
+
+        for (Reservation r: reservations) {
+            response.getReservation().add((r));
+        }
 
         return response;
     }
