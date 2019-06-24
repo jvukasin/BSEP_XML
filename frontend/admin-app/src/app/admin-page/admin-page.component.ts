@@ -40,6 +40,8 @@ export class AdminPageComponent implements OnInit {
     this.isAmenity = true;
     this.isManagement = false;
     this.isAgents = false;
+    this.isComments = false;
+
   }
 
   showTypes(){
@@ -49,6 +51,8 @@ export class AdminPageComponent implements OnInit {
     this.isCategory = false;
     this.isManagement = false;
     this.isAgents = false;
+    this.isComments = false;
+
   }
 
   showManagement(){

@@ -38,12 +38,16 @@ public class ReservationController
 	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllReservations(HttpServletRequest request) {
-		//String authToken = tokenUtils.getToken(request);
-		//String username = tokenUtils.getUsernameFromToken(authToken);
+		String authToken = tokenUtils.getToken(request);
+		String username = tokenUtils.getUsernameFromToken(authToken);
 
-		List<UserReservationDTO> reservations = reservationService.getUserReservations("laza");
+		if(username != "" && username != null) {
+			List<UserReservationDTO> reservations = reservationService.getUserReservations(username);
 
-		return new ResponseEntity(reservations, HttpStatus.OK);
+			return new ResponseEntity(reservations, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)

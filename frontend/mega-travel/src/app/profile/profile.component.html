@@ -10,22 +10,22 @@
           <img src="../../assets/images/user.png" class="user-img">
         </div>
 
-        <div id=user>
+        <div id=user *ngIf="user != null">
           <div class="row">
             <div class="col-sm info">Username</div>
-            <div class="col-sm label"><label>Dovla</label></div>
+            <div class="col-sm label"><label>{{user.username}}</label></div>
           </div>
           <div class="row">
             <div class="col-sm info" >Name</div>
-            <div class="col-sm label"><label>Vladimir</label></div>
+            <div class="col-sm label"><label>{{user.firstname}}</label></div>
             </div>
             <div class="row">
               <div class="col-sm info">Lastname</div>
-              <div class="col-sm label"><label>Cvetanovic</label></div>
+              <div class="col-sm label"><label>{{user.lastname}}</label></div>
               </div>
               <div class="row">
                 <div class="col-sm info">Email</div>
-                <div class="col-sm label"><label>dovla@gmail.com</label></div>
+                <div class="col-sm label"><label>{{user.email}}</label></div>
                 </div>
               <div class="wrapper">
               <div class="row" id=agentBtn>
@@ -91,7 +91,7 @@
                         </div>
       
                         <div class="price">
-                          <h3> ${{ calculatePrice(reservation.startDate, reservation.endDate, reservation.price) }} </h3>
+                          <h3> ${{ reservation.price}} </h3>
                         </div>
                       </div>
                       <div class="lower-right">

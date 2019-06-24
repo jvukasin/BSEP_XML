@@ -31,6 +31,7 @@ export class SearchComponent implements OnInit {
   todDate: Date;
   tomDate: Date;
   acctypes: any;
+  acccategories: any;
 
   constructor(private http: HttpClient, private router: Router,private accServise: AccommodationService, private srcres: SearchResultsService, private fb: FormBuilder) {}
 
@@ -53,7 +54,20 @@ export class SearchComponent implements OnInit {
           timer: 1500
         });
       }
-    )
+    );
+
+    this.accServise.getAccCategories().subscribe(
+      (data) => {
+        this.acccategories = data;
+      }, (error) => {
+        Swal.fire({
+          type: 'error',
+          title: 'Could not fetch accommodation categories',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    );
   }
 
   createFormControls(tod, tom) {
@@ -75,12 +89,11 @@ export class SearchComponent implements OnInit {
       endDate: this.endDate,
       guests: this.guests,
       accommodationType: this.accommodationType,
-      category: this.category,
       distance: this.distance,
       amenities: new FormArray([]),
       cancellationPeriod: this.cancellationPeriod,
-      averageRating: this.averageRating
-
+      averageRating: this.averageRating,
+      category: this.category
     });
   }
 
@@ -113,7 +126,8 @@ export class SearchComponent implements OnInit {
       cancellationPeriod: can,
       amenities: this.getSelectedAmenities(this.searchForm.get('amenities').value),
       type: this.searchForm.value.accommodationType,
-      distanceFromCity: dis
+      distanceFromCity: dis,
+      category : this.searchForm.value.category
     }
 
     console.log(src);

@@ -1,9 +1,9 @@
 package com.megatravel.accommodationservice.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.model.Amenity;
 
 
@@ -16,14 +16,16 @@ public class ExtendedSearchDTO
 	 
 	 private int personCount;
 	 
-	 private double ratingAvg;
-	 private List<Amenity> amenities;
+	 private double ratingAvg = -1;
+	 private List<Amenity> amenities = new ArrayList<Amenity>();
 	 private String type;
-	 private double distanceFromCity;
+	 private double distanceFromCity = -1;
+	 private int cancellationPeriod;
+	 private String category;
 
 
 	public ExtendedSearchDTO(String city, Date fromDate, Date endDate, int personCount,
-			double ratingAvg, List<Amenity> amenities, String t, double distance) {
+			double ratingAvg, List<Amenity> amenities, String t, double distance, int cancel, String category) {
 		super();
 		this.city = city;
 		this.fromDate = fromDate;
@@ -33,6 +35,8 @@ public class ExtendedSearchDTO
 		this.amenities = amenities;
 		this.distanceFromCity = distance;
 		this.type = t;
+		this.cancellationPeriod = cancel;
+		this.category = category;
 	}
 	
 	public double getDistanceFromCity() {
@@ -110,5 +114,21 @@ public class ExtendedSearchDTO
 
 	public void setPersonCount(int personCount) {
 		this.personCount = personCount;
+	}
+
+	public int getCancellationPeriod() {
+		return cancellationPeriod;
+	}
+
+	public void setCancellationPeriod(int cancellationPeriod) {
+		this.cancellationPeriod = cancellationPeriod;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

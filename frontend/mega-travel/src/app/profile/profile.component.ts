@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../services/reservation.service';
 import * as moment from 'moment';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,10 +11,19 @@ import * as moment from 'moment';
 export class ProfileComponent implements OnInit {
 
   reservationList: any;
+  user: any = null;
 
-  constructor(private reservationService: ReservationService) { }
+  constructor(private reservationService: ReservationService, private userService: UserService) { }
 
   ngOnInit() {
+
+    this.userService.getUser().subscribe(
+      (data) => {
+        this.user = data;
+      }, (error) => {
+        alert("No user loged in");
+      }
+    );
 
     this.reservationService.getUserReservations().subscribe(
       (data) => {

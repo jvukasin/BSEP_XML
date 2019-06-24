@@ -149,4 +149,21 @@ public class Amenity {
         this.id = value;
     }
 
+    @Override
+    public boolean equals(Object obj){
+        Amenity a = (Amenity) obj;
+        if (a.id == this.id)
+            return true;
+        else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
+        result = 31 * result + (this.faIcon != null ? this.faIcon.hashCode() : 0);
+        return result;
+    }
+
 }

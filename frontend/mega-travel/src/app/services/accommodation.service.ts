@@ -24,4 +24,8 @@ export class AccommodationService {
     getAccTypes() {
         return this.http.get("/api/accommodationservice/accommodations/types");
     }
+
+    getAccCategories() {
+        return this.http.get("/api/accommodationservice/accommodations/categories");
+    }
 }

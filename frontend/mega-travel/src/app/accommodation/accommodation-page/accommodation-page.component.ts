@@ -27,6 +27,9 @@ export class AccommodationPageComponent implements OnInit {
   totalPrice: number;
   user: any;
 
+  ratingText: String;
+  ratingColor: {};
+
   constructor(private accService: AccommodationService, private srcService: SearchResultsService, private userService: UserService, private resService: ReservationService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(
       (params: Params) => {
@@ -42,6 +45,7 @@ export class AccommodationPageComponent implements OnInit {
         (data) => {
           this.acu = data;
           this.amenities = this.acu.amenities;
+          this.parseRatingTextAndColor(this.acu.ratingAvg);
           this.firstIm = this.acu.images[0];
           this.imagesRest = this.acu.images.slice(1);
         },
@@ -64,6 +68,34 @@ export class AccommodationPageComponent implements OnInit {
 
     if(this.sDate == undefined || this.eDate == undefined) {
       this.router.navigate(['home']);
+    }
+  }
+
+  parseRatingTextAndColor(rating) {
+    if(rating >= 9.0) {
+      this.ratingText = "Excellent";
+      this.ratingColor = { 'background-color': 'rgb(66, 94, 250)'};
+    } else if (rating >= 8.0 && rating < 9.0) {
+      this.ratingText = "Very good";
+      this.ratingColor = { 'background-color': 'rgb(36, 163, 36)'};
+    } else if (rating >= 7.0 && rating < 8.0) {
+      this.ratingText = "Good";
+      this.ratingColor = { 'background-color': 'rgb(180, 245, 30)'};
+    } else if (rating >= 6.0 && rating < 7.0) {
+      this.ratingText = "Satisfactory";
+      this.ratingColor = { 'background-color': 'rgb(241, 245, 30)'};
+    } else if (rating >= 5.0 && rating < 6.0) {
+      this.ratingText = "Poor";
+      this.ratingColor = { 'background-color': 'rgb(245, 206, 30)'};
+    } else if (rating >= 4.0 && rating < 5.0) {
+      this.ratingText = "Very Poor";
+      this.ratingColor = { 'background-color': 'rgb(36, 163, 36)'};
+    } else if (rating >= 3.0 && rating < 4.0) {
+      this.ratingText = "Bad";
+      this.ratingColor = { 'background-color': 'rgb(231, 115, 37)'};
+    } else {
+      this.ratingText = "Very Bad";
+      this.ratingColor = { 'background-color': 'rgb(241, 33, 33)'};
     }
   }
 
@@ -115,9 +147,10 @@ export class AccommodationPageComponent implements OnInit {
       title: 'Confirm reservation',
       text: 'Do you wish to confirm your reservation?',
       html:
-        'Accommodation: ' + this.acu.name +
-        '<br>From ' + this.sDate + ' to ' + this.eDate +
-        '<br>Total price: $' + this.totalPrice,
+        '<b>Accommodation:</b> ' + this.acu.name +
+        '<br><b>From</b> ' + this.sDate + ' <b>to</b> ' + this.eDate +
+        '<br><b>Cancellation period:</b> ' + this.acu.cancellationPeriod + ' days' +
+        '<br><b>Total price:</b> $' + this.totalPrice,
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,

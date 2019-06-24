@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
       addAgent(agentDTO)
       {
-        return this.http.post('auth-service/agents/', agentDTO);
+        return this.http.post('auth-service/agents/', agentDTO, {responseType : "text", observe: 'response'});
       }
 
       checkIfUsernameIsValid(username)
