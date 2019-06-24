@@ -98,7 +98,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmitSearch(form: NgForm) {
-    let tempDest = this.searchForm.value.destination.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/"/g, '&#x27;');
+    let tempDest = this.searchForm.value.destination.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
     let rat;
     let can;
     let dis;

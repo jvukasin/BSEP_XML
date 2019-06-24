@@ -122,8 +122,12 @@ public class ReservationService
 		try
 		{
 			Reservation reservation = reservationRepo.findById(id).get();
-			
-			reservationRepo.delete(reservation);
+			int dayz = calcDayDiff(reservation.getStartDate());
+			if(dayz >= reservation.getAccommodationUnit().getCancellationPeriod()) {
+				reservationRepo.delete(reservation);
+			} else {
+				throw new BusinessException("Cannot cancel reservation after cancellation period has passed.");
+			}
 		}
 		catch(NoSuchElementException e)
 		{	
@@ -271,6 +275,13 @@ public class ReservationService
 		}
 		
 		return false;
+	}
+
+	private int calcDayDiff(Date start) {
+		Date today = new Date();
+		long dei = Math.abs(start.getTime() - today.getTime());
+		int days = (int) (dei / (1000*60*60*24));
+		return days;
 	}
 	
 }
