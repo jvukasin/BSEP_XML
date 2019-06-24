@@ -1,9 +1,9 @@
 package com.megatravel.accommodationservice.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.model.Amenity;
 
 
@@ -16,10 +16,10 @@ public class ExtendedSearchDTO
 	 
 	 private int personCount;
 	 
-	 private double ratingAvg;
-	 private List<Amenity> amenities;
+	 private double ratingAvg = -1;
+	 private List<Amenity> amenities = new ArrayList<Amenity>();
 	 private String type;
-	 private double distanceFromCity;
+	 private double distanceFromCity = -1;
 
 
 	public ExtendedSearchDTO(String city, Date fromDate, Date endDate, int personCount,

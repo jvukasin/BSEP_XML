@@ -3,13 +3,13 @@ package com.megatravel.accommodationservice.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 import javax.persistence.EntityManager;
 import javax.validation.ConstraintViolationException;
 
-import com.megatravel.accommodationservice.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +19,16 @@ import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
 import com.megatravel.accommodationservice.dto.AmenityDTO;
 import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
 import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
+import com.megatravel.accommodationservice.model.AccommodationCategory;
+import com.megatravel.accommodationservice.model.AccommodationType;
+import com.megatravel.accommodationservice.model.AccommodationUnit;
+import com.megatravel.accommodationservice.model.Agent;
+import com.megatravel.accommodationservice.model.Amenity;
+import com.megatravel.accommodationservice.model.City;
+import com.megatravel.accommodationservice.model.Image;
+import com.megatravel.accommodationservice.model.Location;
+import com.megatravel.accommodationservice.model.Reservation;
+import com.megatravel.accommodationservice.model.SpecificPrice;
 import com.megatravel.accommodationservice.repository.AccommodationCategoryRepository;
 import com.megatravel.accommodationservice.repository.AccommodationTypeRepository;
 import com.megatravel.accommodationservice.repository.AccommodationUnitRepository;
@@ -26,6 +36,7 @@ import com.megatravel.accommodationservice.repository.AmenityRepository;
 import com.megatravel.accommodationservice.repository.CityRepository;
 import com.megatravel.accommodationservice.repository.ImageRepository;
 import com.megatravel.accommodationservice.repository.LocationRepository;
+import com.megatravel.accommodationservice.repository.ReservationRepository;
 import com.megatravel.accommodationservice.repository.SpecificPriceRepository;
 import com.megatravel.accommodationservice.repository.TPersonRepository;
 
@@ -48,6 +59,9 @@ public class AccommodationUnitService
 
 	@Autowired
 	private LocationRepository locationRepo;
+	
+	@Autowired
+	private ReservationRepository reservationRepo;
 
 	@Autowired
 	private SpecificPriceRepository specificPriceRepo;
@@ -139,8 +153,9 @@ public class AccommodationUnitService
 		{
 			if (city != null) 
 			{
-				list = accommodationRepo.search(city.getId(), dto.getPersonCount(), dto.getFromDate(), dto.getEndDate());
-
+				list = accommodationRepo.search(city.getId(), dto.getPersonCount());
+				list = excludeReserved(list, dto.getFromDate(), dto.getEndDate());
+					
 				if(dto.getRatingAvg() >= 0)
 				{
 					list = aboveRating(list,dto.getRatingAvg());
@@ -172,6 +187,8 @@ public class AccommodationUnitService
 		return ret;
 	}
 	
+
+
 
 	public List<Amenity> findAllAmenities() {
 		return amenityRepo.findAll();
@@ -279,6 +296,41 @@ public class AccommodationUnitService
 	
 	
 	// * * * SEARCH UTILITIES * * *
+	
+	private List<AccommodationUnit> excludeReserved(List<AccommodationUnit> list, Date fromDate, Date endDate)
+	{
+		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
+		boolean found;
+
+		for(AccommodationUnit accommodation : list)
+		{
+			
+			found = false;
+			for(Reservation r : reservationRepo.findAll())
+			{
+				if(r.getAccommodationUnit().getId() == accommodation.getId())
+				{
+					if(
+						(r.getStartDate().getTime() <= fromDate.getTime() && r.getEndDate().getTime() >= fromDate.getTime())
+						||
+						(r.getStartDate().getTime() >= fromDate.getTime() && r.getStartDate().getTime() <= endDate.getTime())
+					   )
+						
+					{
+						found = true;
+					}
+				}
+			}
+			
+			if(!found)
+			{
+				retVal.add(accommodation);
+			}
+			
+		}
+		
+		return retVal;
+	}
 	
 	private List<AccommodationUnit> underDistance(Collection<AccommodationUnit> input, double distanceFromCity)
 	{
