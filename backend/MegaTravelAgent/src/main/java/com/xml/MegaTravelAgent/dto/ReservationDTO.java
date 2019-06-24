@@ -12,19 +12,20 @@ public class ReservationDTO {
     private double price;
     private boolean isSuccessful;
     private Long accommodationUnitId;
-    private UserInfoDTO reservator;
+    private String usernameReservator;
 
     public ReservationDTO() {
     }
 
-    public ReservationDTO(Long id, Date startDate, Date endDate, double price, boolean isSuccessful, Long accommodationUnitId, UserInfoDTO reservator) {
+    public ReservationDTO(Long id, Date startDate, Date endDate, double price, boolean isSuccessful,
+                          Long accommodationUnitId, String usernameReservator) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.price = price;
         this.isSuccessful = isSuccessful;
         this.accommodationUnitId = accommodationUnitId;
-        this.reservator = reservator;
+        this.usernameReservator = usernameReservator;
     }
 
     public ReservationDTO(Reservation r) {
@@ -34,7 +35,7 @@ public class ReservationDTO {
         this.price = r.getPrice();
         this.isSuccessful = r.isSuccessful();
         this.accommodationUnitId = r.getAccommodationUnit().getId();
-        //this.reservator = new UserInfoDTO((r.getReservator()));
+        this.usernameReservator = r.getUsernameReservator();
     }
 
 
@@ -86,11 +87,11 @@ public class ReservationDTO {
         this.accommodationUnitId = accommodationUnitId;
     }
 
-    public UserInfoDTO getReservator() {
-        return reservator;
+    public String getUsernameReservator() {
+        return usernameReservator;
     }
 
-    public void setReservator(UserInfoDTO reservator) {
-        this.reservator = reservator;
+    public void setUsernameReservator(String usernameReservator) {
+        this.usernameReservator = usernameReservator;
     }
 }

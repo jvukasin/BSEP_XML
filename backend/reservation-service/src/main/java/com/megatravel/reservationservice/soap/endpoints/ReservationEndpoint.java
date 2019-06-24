@@ -1,5 +1,6 @@
 package com.megatravel.reservationservice.soap.endpoints;
 
+import com.megatravel.reservationservice.model.AccommodationUnit;
 import com.megatravel.reservationservice.model.ObjectFactory;
 import com.megatravel.reservationservice.model.Reservation;
 import com.megatravel.reservationservice.services.ReservationService;
@@ -37,6 +38,14 @@ public class ReservationEndpoint implements IReservationEndpoint {
         FetchReservationsResponse response = factory.createFetchReservationsResponse();
 
         for (Reservation r: reservations) {
+
+            Long auId = r.getAccommodationUnit().getId();
+            AccommodationUnit au = new AccommodationUnit();
+            au.setId(auId);
+
+            r.setAccommodationUnit(au);
+            r.setUsernameReservator(r.getReservator().getUsername());
+
             response.getReservation().add((r));
         }
 

@@ -1,9 +1,9 @@
 package com.xml.MegaTravelAgent.controller;
 
-import com.xml.MegaTravelAgent.dto.AccommodationUnitDTO;
 import com.xml.MegaTravelAgent.dto.ReservationDTO;
 import com.xml.MegaTravelAgent.model.Reservation;
 import com.xml.MegaTravelAgent.security.TokenUtils;
+import com.xml.MegaTravelAgent.service.ReservationService;
 import com.xml.MegaTravelAgent.soap.client.ReservationClient;
 import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/reservations")
 public class ReservationController {
 
+    @Autowired
+    ReservationService reservationService;
 
     @Autowired
     TokenUtils tokenUtils;
@@ -41,14 +44,10 @@ public class ReservationController {
 
         FetchReservationsResponse response = reservationClient.fetchAgentsReservations(username);
 
-        Collection<ReservationDTO> reservations = new ArrayList<>();
+        List<ReservationDTO> reservationDTOs = reservationService.updateReservations(response.getReservation(),
+                username);
 
-        for (Reservation r: response.getReservation()) {
-            reservations.add(new ReservationDTO(r));
-
-        }
-
-        return new ResponseEntity<Collection<ReservationDTO>>(reservations,
+        return new ResponseEntity<Collection<ReservationDTO>>(reservationDTOs,
                 HttpStatus.OK);
     }
 

@@ -1,18 +1,9 @@
-
 package com.megatravel.reservationservice.model;
 
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -26,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -51,86 +42,91 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
-    "startDate",
-    "endDate",
-    "price",
-    "accommodationUnit",
-    "isSuccessful"
+        "startDate",
+        "endDate",
+        "price",
+        "accommodationUnit",
+        "isSuccessful",
+        "usernameReservator"
 })
 @Entity
 @XmlRootElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
 public class Reservation {
 
-	@Column(name = "startDate")
-	@NotNull
+    @Column(name = "startDate")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
     protected Date startDate;
-	
-	@Column(name = "endDate")
-	@NotNull
+
+    @Column(name = "endDate")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     @XmlSchemaType(name = "date")
     protected Date endDate;
-	
-	@Column(name = "price")
-	@NotNull
+
+    @Column(name = "price")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
     protected double price;
-	
+
     @ManyToOne(fetch = FetchType.EAGER)
     @XmlElement(name = "AccommodationUnit", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected AccommodationUnit accommodationUnit;
-    
+
     @Column(name = "isSuccessful")
-	@NotNull
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", defaultValue = "false")
     protected boolean isSuccessful;
-    
+
+    @Transient
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
+    protected String usernameReservator;
+
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
-    
-	@ManyToOne(fetch = FetchType.LAZY)
-	private TPerson reservator;
-    
-	@OneToMany(mappedBy="reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Message> messages;
-	
-	
-	public Reservation() {
-		super();
-	}
 
-	public boolean isSuccessful() {
-		return isSuccessful;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    private TPerson reservator;
 
-	public void setSuccessful(boolean isSuccessful) {
-		this.isSuccessful = isSuccessful;
-	}
+    @OneToMany(mappedBy="reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Message> messages;
 
-	public TPerson getReservator() {
-		return reservator;
-	}
 
-	public void setReservator(TPerson reservator) {
-		this.reservator = reservator;
-	}
+    public Reservation() {
+        super();
+    }
 
-	/**
+    public boolean isSuccessful() {
+        return isSuccessful;
+    }
+
+    public void setSuccessful(boolean isSuccessful) {
+        this.isSuccessful = isSuccessful;
+    }
+
+    public TPerson getReservator() {
+        return reservator;
+    }
+
+    public void setReservator(TPerson reservator) {
+        this.reservator = reservator;
+    }
+
+    /**
      * Gets the value of the startDate property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Date }
-     *     
+     *
      */
     public Date getStartDate() {
         return startDate;
@@ -138,11 +134,11 @@ public class Reservation {
 
     /**
      * Sets the value of the startDate property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Date }
-     *     
+     *
      */
     public void setStartDate(Date value) {
         this.startDate = value;
@@ -150,11 +146,11 @@ public class Reservation {
 
     /**
      * Gets the value of the endDate property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Date }
-     *     
+     *
      */
     public Date getEndDate() {
         return endDate;
@@ -162,11 +158,11 @@ public class Reservation {
 
     /**
      * Sets the value of the endDate property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Date }
-     *     
+     *
      */
     public void setEndDate(Date value) {
         this.endDate = value;
@@ -174,7 +170,7 @@ public class Reservation {
 
     /**
      * Gets the value of the price property.
-     * 
+     *
      */
     public double getPrice() {
         return price;
@@ -182,7 +178,7 @@ public class Reservation {
 
     /**
      * Sets the value of the price property.
-     * 
+     *
      */
     public void setPrice(double value) {
         this.price = value;
@@ -190,11 +186,11 @@ public class Reservation {
 
     /**
      * Gets the value of the accommodationUnit property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link AccommodationUnit }
-     *     
+     *
      */
     public AccommodationUnit getAccommodationUnit() {
         return accommodationUnit;
@@ -202,11 +198,11 @@ public class Reservation {
 
     /**
      * Sets the value of the accommodationUnit property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link AccommodationUnit }
-     *     
+     *
      */
     public void setAccommodationUnit(AccommodationUnit value) {
         this.accommodationUnit = value;
@@ -214,7 +210,7 @@ public class Reservation {
 
     /**
      * Gets the value of the isSuccessful property.
-     * 
+     *
      */
     public boolean isIsSuccessful() {
         return isSuccessful;
@@ -222,19 +218,43 @@ public class Reservation {
 
     /**
      * Sets the value of the isSuccessful property.
-     * 
+     *
      */
     public void setIsSuccessful(boolean value) {
         this.isSuccessful = value;
     }
 
     /**
+     * Gets the value of the usernameReservator property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getUsernameReservator() {
+        return usernameReservator;
+    }
+
+    /**
+     * Sets the value of the usernameReservator property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setUsernameReservator(String value) {
+        this.usernameReservator = value;
+    }
+
+    /**
      * Gets the value of the id property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Long }
-     *     
+     *
      */
     public Long getId() {
         return id;
@@ -242,11 +262,11 @@ public class Reservation {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Long }
-     *     
+     *
      */
     public void setId(Long value) {
         this.id = value;

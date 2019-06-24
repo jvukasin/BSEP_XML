@@ -1,16 +1,11 @@
 
-package com.megatravel.reservationservice.model;
+package com.megatravel.reservationservice.soap.temp;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.*;
-import java.security.Timestamp;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -84,54 +79,20 @@ import java.util.List;
     "password",
     "role"
 })
-@XmlSeeAlso({
-    User.class,
-    Agent.class
-})
+public abstract class TPerson {
 
-@Entity
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE) //ovom anotacijom se naglasava tip mapiranja "jedna tabela po hijerarhiji"
-@DiscriminatorColumn(name="type", discriminatorType= DiscriminatorType.STRING) //ovom anotacijom se navodi diskriminatorska kolona
-public class TPerson implements UserDetails {
-
-    @Column(name="name")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String name;
-
-    @Column(name="lastname")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String lastname;
-
-    @Column(name="email")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String email;
-
-    @Column(name="password")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String password;
-
-    @Column(name="role")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String role;
-
-    @Id
-    @Column(name = "username", nullable = false)
-    private String username;
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "username"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    protected List<Role> roles;
-
-    @Column(name = "last_password_reset_date")
-    private Timestamp lastPasswordResetDate;
-
+    @XmlAttribute(name = "id")
+    protected Long id;
 
     /**
      * Gets the value of the name property.
@@ -205,8 +166,6 @@ public class TPerson implements UserDetails {
         this.email = value;
     }
 
-
-
     /**
      * Gets the value of the password property.
      * 
@@ -255,61 +214,28 @@ public class TPerson implements UserDetails {
         this.role = value;
     }
 
-    public String getUsername() {
-        return username;
+    /**
+     * Gets the value of the id property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    public Long getId() {
+        return id;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
+    /**
+     * Sets the value of the id property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setId(Long value) {
+        this.id = value;
     }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        // uvek ima samo jednu rolu - uzmi privilegije i vrati
-        if(!this.roles.isEmpty()){
-            Role r = roles.iterator().next();
-            List<Privilege> privileges = new ArrayList<Privilege>();
-            for(Privilege p : r.getPrivileges()){
-                privileges.add(p);
-            }
-            return privileges;
-        }
-        return null;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
-    public Timestamp getLastPasswordResetDate() {
-        return lastPasswordResetDate;
-    }
-
-    public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
-        this.lastPasswordResetDate = lastPasswordResetDate;
-    }
 }

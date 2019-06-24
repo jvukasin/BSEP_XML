@@ -37,7 +37,7 @@ import java.util.List;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "status",
     "rating"
@@ -49,6 +49,9 @@ import java.util.List;
 public class User
     extends TPerson
 {
+
+    @OneToMany(mappedBy = "reservator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected List<Reservation> reservation;
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     @Column(name="status")

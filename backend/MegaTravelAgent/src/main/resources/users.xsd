@@ -18,7 +18,6 @@
             <xs:complexContent>
                 <xs:extension base="gl:TPerson">
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="rs:Reservation"/>
                         <xs:element name="status">
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">

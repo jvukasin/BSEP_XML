@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/reservation"
-    xmlns:au="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
-    xmlns:rs="http://www.ftn.uns.ac.rs/MegaTravel/reservation">
+           targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/reservation"
+           xmlns:au="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
+           xmlns:rs="http://www.ftn.uns.ac.rs/MegaTravel/reservation">
 
     <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit"
-        schemaLocation="accommodation_unit.xsd"/>
+               schemaLocation="accommodation_unit.xsd"/>
     <xs:element name="Reservation">
         <xs:complexType>
             <xs:sequence>
@@ -20,6 +20,7 @@
                 </xs:element>
                 <xs:element ref="au:AccommodationUnit"/>
                 <xs:element default="false" name="isSuccessful" type="xs:boolean"/>
+                <xs:element name="usernameReservator" type="xs:string"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:long"> </xs:attribute>
         </xs:complexType>

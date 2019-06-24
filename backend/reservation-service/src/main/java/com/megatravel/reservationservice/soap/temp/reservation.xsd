@@ -20,7 +20,7 @@
                 </xs:element>
                 <xs:element ref="au:AccommodationUnit"/>
                 <xs:element default="false" name="isSuccessful" type="xs:boolean"/>
-                <xs:element name="usernameReservator" type="xs:string"/>
+                <xs:element name="reservatorUsername" type="xs:string"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:long"> </xs:attribute>
         </xs:complexType>
