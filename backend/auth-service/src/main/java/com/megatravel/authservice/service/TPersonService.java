@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import com.megatravel.authservice.soap.reqres.AgentSOAP;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.megatravel.authservice.dto.AgentDTO;
@@ -42,6 +44,31 @@ public class TPersonService {
         }
         return retVal;
     }
+
+	// vraca listu agenta, koristi se za SOAP
+	public List<AgentSOAP> findAllAgentsSOAP() {
+
+		List<TPerson> persons = tPersonRepo.findAll();
+		List<AgentSOAP> retVal = new ArrayList<>();
+
+		for (TPerson person : persons) {
+			if (person instanceof Agent) {
+
+				Agent agent = (Agent) person;
+				AgentSOAP a = new AgentSOAP();
+
+				a.setFirstname(person.getName());
+				a.setLastname(person.getLastname());
+				a.setEmail(person.getEmail());
+				a.setUsername(person.getUsername());
+				a.setPassword(person.getPassword());
+				a.setRegistrationNumber(((Agent) person).getRegistrationNumber());
+
+				retVal.add(a);
+			}
+		}
+		return retVal;
+	}
 
     public void blokUser(String username) {
         User user = (User) tPersonRepo.findOneByUsername(username);
@@ -112,10 +139,14 @@ public class TPersonService {
     	agent.setLastname(agentDTO.getLastname());
     	agent.setEmail(agentDTO.getEmail());
     	agent.setUsername(agentDTO.getUsername());
-    	agent.setPassword(agentDTO.getPassword());
     	agent.setRegistrationNumber(agentDTO.getRegistrationNumber());
     	agent.setRole("agent");
-    	
+
+		String salt = BCrypt.gensalt();
+		String hashedPass = BCrypt.hashpw(agentDTO.getPassword(), salt);
+
+		agent.setPassword(hashedPass);
+
     	tPersonRepo.save(agent);
     	return agent.getUsername();
     }

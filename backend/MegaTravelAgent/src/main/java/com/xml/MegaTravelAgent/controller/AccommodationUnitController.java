@@ -1,9 +1,8 @@
 package com.xml.MegaTravelAgent.controller;
 
-import com.xml.MegaTravelAgent.dto.AccommodationSettingsDTO;
-import com.xml.MegaTravelAgent.dto.AmenityDTO;
-import com.xml.MegaTravelAgent.dto.NewAccommodationUnitDTO;
+import com.xml.MegaTravelAgent.dto.*;
 import com.xml.MegaTravelAgent.exceptions.BusinessException;
+import com.xml.MegaTravelAgent.model.AccommodationUnit;
 import com.xml.MegaTravelAgent.model.Amenity;
 import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.service.AccommodationUnitService;
@@ -15,8 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import com.xml.MegaTravelAgent.dto.AccommodationUnitDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
@@ -83,7 +80,11 @@ public class AccommodationUnitController {
 		}
 
 		try {
-			return new ResponseEntity<>(accommodationService.save(auDTO, username), HttpStatus.CREATED);
+			AccommodationUnit au = accommodationService.save(auDTO, username);
+			// send to soap
+			auClient.createAccommodationUnit(au, username);
+
+			return new ResponseEntity<>(au.getId(), HttpStatus.CREATED);
 		} catch (BusinessException e) {
 			System.out.println(e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -111,7 +112,25 @@ public class AccommodationUnitController {
 		}
 	}
 
-	// just for testing, treba da se prebaci u servis
+	@RequestMapping(value = "/{id}/priceplan", method = RequestMethod.GET)
+	public ResponseEntity<?> getAUPricePlan(@PathVariable Long id)
+	{
+		try
+		{
+			return new ResponseEntity<PricePlanDTO>(accommodationService.getPricePlan(id),
+					HttpStatus.OK);
+
+		}
+		catch(BusinessException e)
+		{
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 	@RequestMapping(value = "/settings", method = RequestMethod.GET)
 	public ResponseEntity<AccommodationSettingsDTO> getAUSettings()
 	{

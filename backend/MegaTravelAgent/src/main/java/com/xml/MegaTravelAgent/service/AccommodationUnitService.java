@@ -1,5 +1,6 @@
 package com.xml.MegaTravelAgent.service;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -8,16 +9,12 @@ import java.util.NoSuchElementException;
 
 import javax.transaction.Transactional;
 
+import com.xml.MegaTravelAgent.dto.*;
 import com.xml.MegaTravelAgent.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.xml.MegaTravelAgent.dto.AccommodationUnitDTO;
-import com.xml.MegaTravelAgent.dto.AmenityDTO;
-import com.xml.MegaTravelAgent.dto.ExtendedSearchDTO;
-import com.xml.MegaTravelAgent.dto.ImageDTO;
-import com.xml.MegaTravelAgent.dto.NewAccommodationUnitDTO;
-import com.xml.MegaTravelAgent.dto.SpecificPriceDTO;
 import com.xml.MegaTravelAgent.exceptions.BusinessException;
 import com.xml.MegaTravelAgent.model.AccommodationUnit;
 import com.xml.MegaTravelAgent.model.Amenity;
@@ -102,7 +99,7 @@ public class AccommodationUnitService
 
 
  	@Transactional
-	public Long save(NewAccommodationUnitDTO dto, String agentUsername) throws Exception {
+	public AccommodationUnit save(NewAccommodationUnitDTO dto, String agentUsername) throws Exception {
 
 		AccommodationUnit au = new AccommodationUnit();
 
@@ -219,7 +216,8 @@ public class AccommodationUnitService
 			location.setCity(city);
 
 			au.setLocation(location);
-			locationRepo.save(location);
+
+
 		}
 		catch(NoSuchElementException e)
 		{
@@ -234,8 +232,11 @@ public class AccommodationUnitService
 		}
 
 
-
-		au = accommodationRepo.save(au);
+		try {
+			au = accommodationRepo.save(au);
+		} catch (DataIntegrityViolationException e) {
+			throw e;
+		}
 
 		for (SpecificPrice sp: au.getSpecificPrice()) {
 			sp.setAccommodationUnit(au);
@@ -247,15 +248,25 @@ public class AccommodationUnitService
 
 		specificPriceRepo.saveAll(au.getSpecificPrice());
 		imageRepo.saveAll(au.getImage());
-
-		// send to soap
-		auClient.createAccommodationUnit(au, agentUsername);
+		locationRepo.save(location);
 
 
-		return au.getId();
+		return au;
 	}
 
-	
+	public PricePlanDTO getPricePlan(Long id) {
+
+		Collection<SpecificPriceDTO> specificPrices = new ArrayList<>();
+
+		for (SpecificPrice sp: specificPriceRepo.findAllByAccommodationUnitId(id)) {
+			specificPrices.add(new SpecificPriceDTO(sp));
+		}
+
+		double defaultPrice = accommodationRepo.findById(id).get().getDefaultPrice();
+		PricePlanDTO pp = new PricePlanDTO(specificPrices, defaultPrice);
+
+		return pp;
+	}
 	
 	
 	private Collection<AccommodationUnit> selectType(Collection<AccommodationUnit> input, String type)
@@ -304,5 +315,5 @@ public class AccommodationUnitService
 	}
 
 
-	
+
 }

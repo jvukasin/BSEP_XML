@@ -34,8 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
-    "registrationNumber",
-    "accommodationUnit"
+    "registrationNumber"
 })
 @XmlRootElement(name = "Agent", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
 @Entity

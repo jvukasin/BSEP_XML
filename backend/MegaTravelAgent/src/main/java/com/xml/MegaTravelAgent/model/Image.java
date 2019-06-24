@@ -45,7 +45,7 @@ public class Image {
     protected String imageUrl;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @XmlAttribute(name = "id")
     protected Long id;
 	

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/soap_agent"
+           xmlns:ag="http://www.ftn.uns.ac.rs/MegaTravel/soap_agent">
+
+
+    <xs:element name="FetchAgentsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="requestMessage" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+     <xs:element name="FetchAgentsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="ag:AgentSOAP" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AgentSOAP">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="firstname" type="xs:string"/>
+                <xs:element name="lastname" type="xs:string"/>
+                <xs:element name="email" type="xs:string"/>
+                <xs:element name="username" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+                <xs:element name="registrationNumber" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -69,7 +69,7 @@ public class SpecificPrice {
     protected Date endDate;
     
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@XmlAttribute(name = "id")
     protected Long id;
 

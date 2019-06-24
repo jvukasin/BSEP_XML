@@ -1,6 +1,9 @@
 
 package com.megatravel.authservice.model;
 
+import com.megatravel.authservice.soap.reqres.FetchAgentsRequest;
+import com.megatravel.authservice.soap.reqres.FetchAgentsResponse;
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -129,6 +132,21 @@ public class ObjectFactory {
         return new Comment();
     }
 
+    /**
+     * Create an instance of {@link FetchAgentsRequest }
+     *
+     */
+    public FetchAgentsRequest createFetchAgentsRequest() {
+        return new FetchAgentsRequest();
+    }
+
+    /**
+     * Create an instance of {@link FetchAgentsResponse }
+     *
+     */
+    public FetchAgentsResponse createFetchAgentsResponse() {
+        return new FetchAgentsResponse();
+    }
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TPerson }{@code >}}
      * 

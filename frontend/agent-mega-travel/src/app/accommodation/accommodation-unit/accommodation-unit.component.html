@@ -1,8 +1,108 @@
 <div class="right-to-nav appear">
 
-	<div *ngIf="accommodationUnit">
-		<h1>{{ accommodationUnit.name }}</h1>
-		<p>{{ accommodationUnit.description }}</p>
+	<div *ngIf="accommodationUnit" class="appear">
+		<div class="au-content">
+			<div class="au-heading">
+				<div class="au-heading-info">
+					<h1>{{ accommodationUnit.name }}</h1>
+					
+					<div class="au-info-bar">
+						<div class="type">
+							{{ accommodationUnit.type }}
+						</div>
+						<div class="category">
+							<span  *ngIf="accommodationUnit.category <= 0">uncategorized</span>
+							<div *ngIf="accommodationUnit.category > 0">
+								<i *ngFor="let c of category" class="fa fa-star"></i>
+							</div>
+						</div>
+						<span class="guests">
+							{{ accommodationUnit.capacity }} guests
+						</span>
+					</div>
+
+					<div class="rating-location">
+						<div class="rating">
+							{{ accommodationUnit.ratingAvg }}
+						</div>
+						<div class="location">
+							<i class="fa fa-map-marker"></i>
+							<div class="location-info">
+								<span class="address">{{ accommodationUnit.location.coordinates }}</span>
+								<span class="address">{{ accommodationUnit.location.city.name }}, {{ accommodationUnit.location.city.country.name }}</span>
+								<span>{{ accommodationUnit.location.distanceFromCity}} km from center</span>
+								
+							</div>
+						</div>
+
+					</div>
+
+					<div class="au-amenities">
+						<h3>Amenities</h3>
+						<div class="au-amenities-list" *ngIf="accommodationUnit.amenities.length > 0">
+							<div class="au-amenity" *ngFor="let amenity of accommodationUnit.amenities">
+								<i [ngClass]="amenity.faIcon"></i> <span class="au-amenity-name">{{ amenity.name }}</span>
+								
+							</div>
+						</div>
+						<span *ngIf="accommodationUnit.amenities.length == 0">There are no specified amenities.</span>
+					</div>
+
+					
+
+				</div>
+				<div class="au-heading-img">
+					<img [src]="accommodationUnit.images[0].imageUrl">
+				</div>
+
+
+			</div>
+
+			<div class="au-description">{{ accommodationUnit.description }}</div>
+
+			<div class="au-cancellation-period">
+					Cancellation period: <strong>{{ accommodationUnit.cancellationPeriod}} days</strong>
+			</div>
+		
+				
+			<div class="au-price">
+					Today's price: <span class="au-price-value">{{ accommodationUnit.price}}  €</span>
+					 <div *ngIf="!pricePlan" class="see" (click)="onSeeFullPricePlan()"> see full pricing plan <i class="fa fa-angle-down"></i></div>
+			</div>
+
+			<div class="au-sp-container appear" *ngIf="pricePlan" >
+				<table>
+					<thead>
+						<tr>
+
+							<th>From</th>
+							<th>To</th>
+							<th class="sp-price">Price (€ / night)</th>
+						</tr>
+					</thead>
+					<tbody>
+					<tr  *ngFor="let sp of pricePlan.specificPrices">
+						<td>{{ sp.startDate }}</td>
+						<td> {{ sp.endDate }}</td>
+						<td class="sp-price"> {{ sp.price}}</td>
+					</tr>
+					<tr class="separator">
+
+					</tr>
+					<tr>
+						<td>Default price</td>
+						<td></td>
+						<td class="sp-price">{{ pricePlan.defaultPrice }}</td>
+					</tr>
+
+						
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+		
 	</div>
 
 </div>

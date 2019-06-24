@@ -277,6 +277,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link FetchAgentsRequest }
+     *
+     */
+    public FetchAgentsRequest createFetchAgentsRequest() {
+        return new FetchAgentsRequest();
+    }
+
+    /**
+     * Create an instance of {@link FetchAgentsResponse }
+     *
+     */
+    public FetchAgentsResponse createFetchAgentsResponse() {
+        return new FetchAgentsResponse();
+    }
+
+    /**
+     * Create an instance of {@link AgentSOAP }
+     *
+     */
+    public AgentSOAP createAgentSOAP() {
+        return new AgentSOAP();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TPerson }{@code >}}
      *
      */
