@@ -8,12 +8,16 @@ import com.xml.MegaTravelAgent.security.CustomUserDetailsService;
 import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.security.auth.JwtAuthenticationRequest;
 import com.xml.MegaTravelAgent.service.TPersonService;
+import com.xml.MegaTravelAgent.soap.client.AuthClient;
+import com.xml.MegaTravelAgent.soap.client.IAuthClient;
+import com.xml.MegaTravelAgent.soap.reqres.FetchAgentsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mobile.device.Device;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -45,6 +49,9 @@ public class AuthController {
     @Autowired
     private TPersonService tPersonService;
 
+    @Autowired
+    private IAuthClient authClient;
+
     @RequestMapping(value="/login",method = RequestMethod.POST)
     public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device, HttpServletRequest hr){
 
@@ -56,8 +63,15 @@ public class AuthController {
         }
 
 
-        final Authentication authentication = manager
+        Authentication authentication;
+        try {
+            authentication = manager
                 .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
+        } catch (BadCredentialsException e) {
+            System.out.println("Bad credentials!");
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+
+        }
 
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -85,6 +99,18 @@ public class AuthController {
         SecurityContextHolder.clearContext();
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @RequestMapping(value="/agents", method = RequestMethod.GET)
+    public ResponseEntity<?> fetchAgents(){
+
+        FetchAgentsResponse response = authClient.fetchAgents();
+
+        tPersonService.updateAgents(response.getAgentSOAP());
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<?> getUser(HttpServletRequest request) {

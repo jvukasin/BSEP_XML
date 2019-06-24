@@ -73,7 +73,7 @@ public class Location {
     protected City city;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @XmlAttribute(name = "id")
     protected Long id;
 	

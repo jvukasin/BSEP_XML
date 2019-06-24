@@ -6,17 +6,24 @@ h1 {
 
 h3 {
     font-weight: 400;
+    color: var(--rosa);
+}
+
+.au-content {
+    padding: 50px;
+    background: white;
 }
 
 .au-heading {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    
 }
 
 
 .au-heading-info {
-    flex: 1 0 60%;
+    flex: 1 1 60%;
 }
 
 .au-heading-info > *:not(:last-child) {
@@ -24,16 +31,28 @@ h3 {
 }
 
 .au-heading-img {
-    flex: 0 0 40%;
+    box-sizing: border-box;
+    flex: 0 0 380px;
+    height: 280px;
     display: flex;
     justify-content: flex-end;
+    overflow: hidden;
+    border-bottom: 5px solid var(--rosa);
 }
 
 .au-heading-img img {
-    height: 300px;
-    width: 300px;
-    border-radius: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.10);
+    transition: transform 0.4s ease-in;
+
 }
+
+.au-heading-img img:hover {
+    transform: scale(1);
+    transition: transform 0.2s ease-in;
+}
+
 
 .au-info-bar {
     display: flex;
@@ -112,10 +131,10 @@ h3 {
 }
 
 .au-description {
-    margin-top: 100px;
-    font-size: 19px;
+    margin-top: 70px;
+    font-size: 20px;
     font-style: italic;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .au-cancellation-period {
@@ -127,7 +146,7 @@ h3 {
 .au-price {
     font-weight: 300;
     font-size: 34px;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .au-price-value {
@@ -135,3 +154,75 @@ h3 {
     color: green;
 }
 
+.au-amenities-list {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    flex-wrap: wrap;
+    margin-top: 17px;
+    font-weight: 200;
+    
+}
+
+.au-amenity i {
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.au-amenity-name {
+    font-size: 20px;
+}
+
+.see {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--rosa);
+    margin-left: 15px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.3s;
+}
+
+.see:hover {
+    text-decoration: underline;
+    color: black;
+    transform: translateX(5px);
+    transition: all 0.5s;
+
+}
+
+
+.au-sp-container {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+
+}
+
+table {
+    width: 100%;
+    font-size: 20px;
+}
+
+th {
+    border-bottom: 3px solid var(--rosa);
+    
+}
+
+
+
+td, th {
+    padding: 15px;
+}
+
+.sp-price {
+    text-align: right;
+}
+
+td.sp-price {
+    color: green;
+    font-weight: 600;
+    
+    font-size: 22px;
+}

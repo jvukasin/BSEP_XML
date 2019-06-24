@@ -81,13 +81,14 @@ import java.util.List;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "TPerson", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", propOrder = {
     "name",
     "lastname",
     "email",
     "password",
-    "role"
+    "role",
+    "username"
 })
 @XmlSeeAlso({
     User.class,

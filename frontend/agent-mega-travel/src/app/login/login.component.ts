@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 	  });
 
 	constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
-
+		this.authService.fetchAgents().subscribe();
 
 	}
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 				this.router.navigate(['/accommodation']);
 
 			},
-			error => alert('Something went wrong.')
+			error => alert('Bad credentials.')
 		);
 
 	}

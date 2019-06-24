@@ -2,6 +2,7 @@
 package com.megatravel.authservice.model;
 
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -26,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @Entity
+@DiscriminatorValue("ADMIN")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "Admin", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")

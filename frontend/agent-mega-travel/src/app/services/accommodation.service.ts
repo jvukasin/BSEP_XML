@@ -18,6 +18,10 @@ export class AccommodationService {
 		return this.http.get(this.ENDPOINT_URI + "/" + id);
 	}
 
+	getPricePlan(id: number) {
+		return this.http.get(this.ENDPOINT_URI + "/" + id + "/priceplan");
+	}
+
 	getAccommodationSettings() {
 		return this.http.get(this.ENDPOINT_URI + "/settings");
 	}

@@ -11,6 +11,10 @@ export class AuthService {
     loggedUser: any;
     constructor(private http: HttpClient, private router: Router) { }
 
+    fetchAgents() {
+        return this.http.get('api/auth/agents');
+    }
+
     login(user){
         return this.http.post('api/auth/login',user)
         .pipe(

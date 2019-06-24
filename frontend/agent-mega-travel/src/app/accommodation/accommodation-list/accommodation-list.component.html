@@ -3,7 +3,11 @@
   <div id="accommodation" *ngIf="accommodationUnits">
 
     <div class="info-bar">
-        <div>You are offering 5 accommodation units.</div>
+        <div>
+          <span *ngIf="accommodationUnits.length > 0"> You are offering {{accommodationUnits.length}} accommodation units.</span>
+          <span *ngIf="accommodationUnits.length === 0">You have are not offering any accommodation unit.</span>
+        
+        </div>
         <div>
           <button (click)="onAddAccommodationUnit()" type="button" class="btn btn-secondary">Add accommodation unit</button>
         </div>

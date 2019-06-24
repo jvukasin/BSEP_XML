@@ -1,6 +1,8 @@
 package com.xml.MegaTravelAgent.dto;
 
 
+import com.xml.MegaTravelAgent.model.SpecificPrice;
+
 import java.util.Date;
 
 public class SpecificPriceDTO {
@@ -18,6 +20,13 @@ public class SpecificPriceDTO {
         this.price = price;
         this.startDate = startDate;
         this.endDate = endDate;
+    }
+
+    public SpecificPriceDTO(SpecificPrice sp) {
+        this.id = sp.getId();
+        this.price = sp.getPrice();
+        this.startDate = sp.getStartDate();
+        this.endDate = sp.getEndDate();
     }
 
     public Long getId() {
