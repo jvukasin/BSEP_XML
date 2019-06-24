@@ -10,10 +10,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
 import com.megatravel.accommodationservice.model.AccommodationUnit;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+
 
 import java.util.List;
 
@@ -25,15 +23,15 @@ public interface AccommodationUnitRepository extends JpaRepository<Accommodation
 	  
 	  
 		@Transactional
-		@Query(value = 
-				"select distinct\n" + 
+		@Query(value = "select distinct\n" + 
 				"	acc.*" +
 				"from		\n" + 
 				"	accommodation_unit acc join location on acc.location_id = location.id\n" +
 				"where\n" + 
 				"	 location.city_id=:cityId and\n" +
-				"    capacity >= :capacity",nativeQuery = true)
+				"    capacity = :capacity",nativeQuery = true)
 		public List<AccommodationUnit> search(@Param("cityId") Long cityId, @Param("capacity") int capacity);
+
 		
 		
   }

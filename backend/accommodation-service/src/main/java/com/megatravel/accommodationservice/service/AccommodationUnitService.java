@@ -155,25 +155,37 @@ public class AccommodationUnitService
 			{
 				list = accommodationRepo.search(city.getId(), dto.getPersonCount());
 				list = excludeReserved(list, dto.getFromDate(), dto.getEndDate());
+				
+				
 					
-				if(dto.getRatingAvg() >= 0)
+				if(dto.getCancellationPeriod() >= 0)
 				{
-					list = aboveRating(list,dto.getRatingAvg());
+					list = cancellationPer(list,dto.getCancellationPeriod());
+					System.out.println("upao1");
 				}
 
 				if(dto.getType() != null && dto.getType() != "")
 				{
 					list = selectType(list,dto.getType());
+					System.out.println("upao2");
 				}
 
 				if(dto.getAmenities().size() != 0 && dto.getAmenities() != null)
 				{
 					list = doesContainAmenities(list,dto.getAmenities());
+					System.out.println("upao3");
+				}
+
+				if(dto.getCategory() != null && dto.getCategory() != "") 
+				{
+					list = isCategory(list,dto.getCategory());
+					System.out.println("upao4");
 				}
 
 				if(dto.getDistanceFromCity() >=0)
 				{
 					list = underDistance(list,dto.getDistanceFromCity());
+					System.out.println("upao5");
 				}
 			}
 
@@ -378,12 +390,12 @@ public class AccommodationUnitService
 		
 		return retVal;
 	}
-	private List<AccommodationUnit> aboveRating(Collection<AccommodationUnit> input, double rating)
+	private List<AccommodationUnit> cancellationPer(Collection<AccommodationUnit> input, int cancel)
 	{
 		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
 		for(AccommodationUnit au : input)
 		{
-			if(au.getRatingAvg() >= rating)
+			if(au.getCancellationPeriod() <= cancel)
 			{
 				retVal.add(au);
 			}
@@ -392,7 +404,20 @@ public class AccommodationUnitService
 		return retVal;
 	}
 
+	private List<AccommodationUnit> isCategory(Collection<AccommodationUnit> input, String cat) {
 
+		ArrayList<AccommodationUnit> retVal = new ArrayList<AccommodationUnit>();
+		int ctg = Integer.parseInt(cat);
+		for(AccommodationUnit au : input)
+		{
+			if(au.getCategory() == ctg)
+			{
+				retVal.add(au);
+			}
+		}
+
+		return retVal;
+	}
 
 
 }

@@ -3,10 +3,11 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 
 
-insert into tperson values ('AGENT','laza', 'laza@gmail.com', null, 'Lazic', 'Milan', '$2a$10$lR0V0l7AMAZJHDt9/qTnWe8A5RBzL2XqQXUPlEKUgkUD4jrw1B7.m', 'rega00','','active');
+insert into tperson values ('AGENT','laza', 'laza@gmail.com', null, 'Lazic', 'Milan', '$2a$10$lR0V0l7AMAZJHDt9/qTnWe8A5RBzL2XqQXUPlEKUgkUD4jrw1B7.m', 'agent','rega00','active');
 insert into tperson values ('ADMIN','dovla', 'dovla@gmail.com', null, 'Cvetanovic', 'Vladimir', '$2a$10$wYRK9iRSzBaJ.MzYhIVkxOdA5xhfRN6O7/ufSyftqFvpPnRJHxOOq', 'admin','','active');
 insert into tperson values ('AGENT','tjokarda', '123@gmail.com', null, 'Tjokic', 'Tjoki', '$2a$10$wYRK9iRSzBaJ.MzYhIVkxOdA5xhfRN6O7/ufSyftqFvpPnRJHxOOq', 'agent','rega01','active');
 INSERT INTO tperson VALUES ('AGENT','miladinovski','lazicy@gmail.com',NULL,'Lazic','Miladin','$2a$10$lQk76nAIG0IauNSBwtiePOpJOI0DM28HBPMs7.PCbcghPHdre39cu','agent','rega02','active');
+insert into tperson values ('USER','vule', 'vule@gmail.com', null, 'Jovic', 'Vukasin', '$2a$10$iOZf9I4olwlzBruCnSNxUuV5T5MilF7WYsppxAwFXKFRp/VLdfGVO', 'user','','active');
 
 
 insert into role values (1, 'ROLE_ADMIN');
@@ -154,17 +155,23 @@ INSERT INTO location (id, coordinates, distance_from_city, city_id) values
 (2, 'Terazije 20', 7, 52),
 (3, 'St Patricks street 3', 10, 71),
 (4, 'Proba ulice 44', 0, 51),
-(5,'Carrer de Guayar 51',0.2,60);
+(5,'Carrer de Guayar 51',0.2,60),
+(6, 'Lasla Gala 13', 0.8, 51);
 
 INSERT INTO accommodation_unit (id, cancellation_period, capacity, category, default_price, description, name, price, rating_avg, type, agent_username, location_id) values
+
 (1, 15, 2, 5, 220, 'Lovely apartment near the city center hosted by BBF Enterprise company. Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Apartment BBF', 220, 9.6, 'apartment', 'tjokarda', 1),
 (2, 20, 2, 3, 118, 'Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Hostel room', 118, 8.4, 'hostel', 'tjokarda', 4),
-(3,10,2,-1,60,'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who wants to spend great time in Madrid!','Chilare classico',0,0,'studio','laza',5);
+(3,10,2,-1,60,'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who wants to spend great time in Madrid!','Chilare classico',0,0,'studio','laza',5),
+(4, 18, 4, 3, 176, 'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who want to spend great time in Novi Sad!', 'Hotel Gajic', 176, 9.0, 'Hotel', 'tjokarda', 6);
+
 
 INSERT INTO image (id, image_url, accommodation_unit_id) values
 (1, 'https://www.futuremediaga.com/wp-content/uploads/2017/08/Cool-Studio-Apartment-Setup.jpg', 1),
 (2, 'http://www.hostel4me.com/images/dorm-curtains.jpg', 2),
-(3, 'http://www.hotelresb2b.com/images/hoteles/792720_image32499834_0.jpg', 3);
+(3, 'https://amp.businessinsider.com/images/59fb8dd04d05ac26008b5f64-750-563.jpg', 1),
+(4, 'http://www.hotelresb2b.com/images/hoteles/792720_image32499834_0.jpg', 3),
+(5, 'https://media-cdn.tripadvisor.com/media/photo-s/0c/0f/da/a3/3-star-hotel-room-pictures.jpg', 4);
 
 
 INSERT INTO specific_price (id, end_date, price, start_date, accommodation_unit_id) values
@@ -188,6 +195,9 @@ INSERT INTO amenity (id, fa_icon, name) values
 
 insert into reservation (id, start_date, end_date, price, accommodation_unit_id, is_successful, reservator_username)
 values (1, '2019-06-25', '2019-06-27', '500', 1, false, 'laza');
+
+insert into accommodationunit_amenity (amenity_id, accommodation_unit_id) values
+(1, 1), (2, 1), (3, 1), (5, 1), (4, 1), (12, 1), (4, 2), (6, 2), (10, 2);
 
 
 

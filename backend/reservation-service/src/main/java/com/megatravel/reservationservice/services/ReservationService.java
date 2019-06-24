@@ -92,7 +92,7 @@ public class ReservationService
 		
 		try
 		{
-			User reservator;
+			TPerson reservator;
 			
 			//if the reservation request is coming form an agent who own the accommodation, reservator field is null
 			if(dto.getReservator().getUsername().equals(reservation.getAccommodationUnit().getAgent().getUsername()))
@@ -101,7 +101,7 @@ public class ReservationService
 			}
 			else
 			{
-				reservator = (User) personRepo.findOneByUsername(dto.getReservator().getUsername());
+				reservator = personRepo.findOneByUsername(dto.getReservator().getUsername());
 			}
 			
 			reservation.setReservator(reservator);

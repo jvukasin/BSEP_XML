@@ -39,7 +39,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 .advanced-search  {
-    animation: drop 0.6s;
+    animation: drop 0.7s;
     margin-top: 30px;
 }
 

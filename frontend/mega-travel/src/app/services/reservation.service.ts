@@ -14,7 +14,7 @@ export class ReservationService {
     }
 
     getUserReservations(){
-        return this.http.get('api/reservationservice/reservations/all');
+        return this.http.get('/api/reservationservice/reservations/all');
     }
 
 }

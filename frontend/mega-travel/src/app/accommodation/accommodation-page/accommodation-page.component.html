@@ -71,18 +71,11 @@
           <h4>Rating:</h4>
           <div class="rating-content">
             <div class="rate-div">
-              <span class="rate-circle">{{acu.ratingAvg}}</span>
+              <span [ngStyle]="ratingColor" class="rate-circle">{{acu.ratingAvg}}</span>
             </div>
             <div class="rate-div">
               <p class="rate-text">
-                <span *ngIf="acu.ratingAvg >= 9.0">Excellent</span>
-                <span *ngIf="acu.ratingAvg >= 8.0 && acu.ratinAvg < 9.0">Excellent</span>
-                <span *ngIf="acu.ratingAvg >= 7.0 && acu.ratinAvg < 8.0">Very good</span>
-                <span *ngIf="acu.ratingAvg >= 6.0 && acu.ratinAvg < 7.0">Good</span>
-                <span *ngIf="acu.ratingAvg >= 5.0 && acu.ratinAvg < 6.0">Satisfactory</span>
-                <span *ngIf="acu.ratingAvg >= 4.0 && acu.ratinAvg < 5.0">Poor</span>
-                <span *ngIf="acu.ratingAvg >= 3.0 && acu.ratinAvg < 4.0">Bad</span>
-                <span *ngIf="acu.ratinAvg < 3.0">Very Bad</span>
+                {{ratingText}}
               </p>
             </div>
           </div>
