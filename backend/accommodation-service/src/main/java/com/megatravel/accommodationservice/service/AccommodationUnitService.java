@@ -78,6 +78,8 @@ public class AccommodationUnitService
 	@Autowired
 	EntityManager entityManager;
 
+	private Logging logger = new Logging(this);
+
 	
 	public AccommodationUnitDTO findById(Long id)
 	{
