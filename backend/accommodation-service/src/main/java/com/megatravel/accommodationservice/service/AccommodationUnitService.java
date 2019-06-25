@@ -144,7 +144,7 @@ public class AccommodationUnitService
 			throw new BusinessException("Invalid search dates.");
 		}
 		String cty = dto.getCity().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;").replace("\'", "&#x27;");
-		List<City> cities = cityRepo.findByNameContainingIgnoreCase(dto.getCity());
+		List<City> cities = cityRepo.findByNameContainingIgnoreCase(cty);
 
 		List<AccommodationUnit> list = new ArrayList<>();
 		List<TotalPriceAccommodationDTO> ret = new ArrayList<TotalPriceAccommodationDTO>();
