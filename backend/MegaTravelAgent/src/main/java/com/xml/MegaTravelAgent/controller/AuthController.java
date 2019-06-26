@@ -7,6 +7,7 @@ import com.xml.MegaTravelAgent.model.UserTokenState;
 import com.xml.MegaTravelAgent.security.CustomUserDetailsService;
 import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.security.auth.JwtAuthenticationRequest;
+import com.xml.MegaTravelAgent.service.Logging;
 import com.xml.MegaTravelAgent.service.TPersonService;
 import com.xml.MegaTravelAgent.soap.client.AuthClient;
 import com.xml.MegaTravelAgent.soap.client.IAuthClient;
@@ -52,13 +53,16 @@ public class AuthController {
     @Autowired
     private IAuthClient authClient;
 
+    private Logging logger = new Logging(this);
+
+
     @RequestMapping(value="/login",method = RequestMethod.POST)
     public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device, HttpServletRequest hr){
 
-        // logger.logInfo("ULOG. Username: " + authenticationRequest.getUsername() + ", IP ADDRESS: " + hr.getRemoteAddr());
+         logger.logInfo("ULOG. Username: " + authenticationRequest.getUsername() + ", IP ADDRESS: " + hr.getRemoteAddr());
 
         if(!inputValid(authenticationRequest.getUsername())) {
-            // logger.logError("ULOG_UNAME_ERR. Username: " + authenticationRequest.getUsername());
+             logger.logError("ULOG_UNAME_ERR. Username: " + authenticationRequest.getUsername());
             return new ResponseEntity<>(new UserTokenState("error",0), HttpStatus.NOT_FOUND);
         }
 
@@ -68,7 +72,7 @@ public class AuthController {
             authentication = manager
                 .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
         } catch (BadCredentialsException e) {
-            System.out.println("Bad credentials!");
+            logger.logError("ULOG_BAD_CRED_WARN. Username: " + authenticationRequest.getUsername());
             return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
 
         }
@@ -79,7 +83,7 @@ public class AuthController {
 
         // VRATI DRUGI STATUS KOD
         if(agent == null) {
-            // logger.logError("ULOG_FAIL. "+ authenticationRequest.getUsername() + " is not authorized.");
+             logger.logError("ULOG_FAIL. "+ authenticationRequest.getUsername() + " is not authorized.");
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -87,7 +91,7 @@ public class AuthController {
 
         int expiresIn = 3600;
 
-        // logger.logInfo("ULOG_SUCCESS");
+         logger.logInfo("ULOG_SUCCESS");
 
 
         return ResponseEntity.ok(new UserTokenState(jwt,expiresIn));
@@ -124,6 +128,7 @@ public class AuthController {
 
             return new ResponseEntity<UserInfoDTO>(ui, HttpStatus.OK);
         } else {
+            logger.logError("USR_GET");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

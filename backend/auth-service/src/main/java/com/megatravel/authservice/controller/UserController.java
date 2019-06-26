@@ -37,7 +37,7 @@ public class UserController {
     @Autowired
     private TokenUtils tokenUtils;
 
-//    private Logging logger = new Logging(this);
+    private Logging logger = new Logging(this);
 
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -89,32 +89,32 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<UserDTO> saveUser(@Valid @RequestBody UserDTO userDTO) {
-//        logger.logInfo("UREG");
+        logger.logInfo("UREG");
         User exists = (User) tPersonService.findOneByUsername(Encode.forHtml(userDTO.getUsername()));
 
         if(!mailValid(userDTO.getEmail())) {
-//            logger.logError("UREG_MAIL_ERR");
-//            logger.logError("UREG_FAIL");
+            logger.logError("UREG_MAIL_ERR");
+            logger.logError("UREG_FAIL");
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         } else if (!namesValid(userDTO.getFirstname())) {
-//            logger.logError("UREG_FIRSTNAME_ERR");
-//            logger.logError("UREG_FAIL");
+            logger.logError("UREG_FIRSTNAME_ERR");
+            logger.logError("UREG_FAIL");
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         } else if (!namesValid(userDTO.getLastname())) {
-//            logger.logError("UREG_LASTNAME_ERR");
-//            logger.logError("UREG_FAIL");
+            logger.logError("UREG_LASTNAME_ERR");
+            logger.logError("UREG_FAIL");
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         } else if (!usernameValid(userDTO.getUsername())) {
-//            logger.logError("UREG_UNAME_ERR");
-//            logger.logError("UREG_FAIL");
+            logger.logError("UREG_UNAME_ERR");
+            logger.logError("UREG_FAIL");
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         } else if (!passValid(userDTO.getPassword())) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
 
         if(exists != null) {
-//            logger.logError("UREG_UNAME_EXISTS_ERR");
-//            logger.logError("UREG_FAIL");
+            logger.logError("UREG_UNAME_EXISTS_ERR");
+            logger.logError("UREG_FAIL");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
@@ -134,7 +134,7 @@ public class UserController {
 
         user = tPersonService.save(user);
 
-//        logger.logInfo("UREG_SUCCESS");
+        logger.logInfo("UREG_SUCCESS");
         return new ResponseEntity<>(new UserDTO(), HttpStatus.CREATED);
 
     }

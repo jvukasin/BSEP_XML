@@ -178,11 +178,20 @@ export class AccommodationPageComponent implements OnInit {
             });
             this.router.navigate(['profile']);
           }, (error) => {
-            Swal.fire({
-              type: 'error',
-              title: 'Something went wrong! Your reservation cannot be made.',
-              showConfirmButton: true
-            });
+            if(error.status === 406) {
+              Swal.fire({
+                type: 'error',
+                title: 'Unfortunately, someone has booked this accommodation in the meantime.',
+                showConfirmButton: true
+              });
+              this.router.navigate(['home']);
+            } else {
+              Swal.fire({
+                type: 'error',
+                title: 'Something went wrong! Your reservation cannot be made.',
+                showConfirmButton: true
+              });
+            }
           }
         );
       }

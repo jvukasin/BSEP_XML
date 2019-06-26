@@ -7,6 +7,7 @@ import com.xml.MegaTravelAgent.exceptions.BusinessException;
 import com.xml.MegaTravelAgent.model.Message;
 import com.xml.MegaTravelAgent.model.Reservation;
 import com.xml.MegaTravelAgent.security.TokenUtils;
+import com.xml.MegaTravelAgent.service.Logging;
 import com.xml.MegaTravelAgent.service.ReservationService;
 import com.xml.MegaTravelAgent.soap.client.ReservationClient;
 import com.xml.MegaTravelAgent.soap.reqres.*;
@@ -34,6 +35,8 @@ public class ReservationController {
     @Autowired
     ReservationClient reservationClient;
 
+    private Logging logger = new Logging(this);
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<Collection<ReservationDTO>> getReservations(HttpServletRequest request)
     {
@@ -41,6 +44,7 @@ public class ReservationController {
         String username = getUsernameFromRequest(request);
 
         if (username == null) {
+            logger.logError("RES_GET_USRERR; IP: " + request.getRemoteAddr());
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -84,9 +88,11 @@ public class ReservationController {
     public ResponseEntity<?> createReservation(@RequestBody ReservationDTO reservationDTO,
                                                                         HttpServletRequest request) {
 
+        logger.logInfo("RES_CREATE");
         String username = getUsernameFromRequest(request);
 
         if (username == null) {
+            logger.logError("RES_CREATE_USRERR; IP: " + request.getRemoteAddr());
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -99,11 +105,12 @@ public class ReservationController {
             PostReservationResponse response = reservationClient.postReservation(r, username);
         } catch (Exception e) {
             e.printStackTrace();
+            logger.logError("RES_CREATE_ERR: " + e.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
 
         // todo insert maybe
-
+        logger.logInfo("RES_CREATE_SUCCESS");
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
@@ -112,10 +119,11 @@ public class ReservationController {
     public ResponseEntity<String> successReservation(@PathVariable Long id,
                                                                          HttpServletRequest request)
     {
-
+        logger.logInfo("RES_ACTIVE");
         String username = getUsernameFromRequest(request);
 
         if (username == null) {
+            logger.logError("RES_ACTIVE_USRERR; IP: " + request.getRemoteAddr());
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -126,7 +134,7 @@ public class ReservationController {
         if (responseInfo.equals("success")) {
             reservationService.setSuccessful(id);
         }
-
+        logger.logInfo("RES_ACTIVE_SUCCESS");
         return new ResponseEntity<>(responseInfo,
                 HttpStatus.OK);
     }
