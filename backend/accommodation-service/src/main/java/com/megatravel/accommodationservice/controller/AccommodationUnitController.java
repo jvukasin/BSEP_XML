@@ -1,6 +1,7 @@
 package com.megatravel.accommodationservice.controller;
 import java.util.Collection;
 
+import com.megatravel.accommodationservice.service.Logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,10 @@ import exceptions.BusinessException;
 @RestController
 @RequestMapping("/accommodations")
 public class AccommodationUnitController
-{	
-	
+{
+
+	private Logging logger = new Logging(this);
+
 	@Autowired
 	AccommodationUnitService accommodationService;
 	
@@ -83,24 +86,26 @@ public class AccommodationUnitController
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public ResponseEntity<?> search(@RequestBody ExtendedSearchDTO dto)
 	{
+		logger.logInfo("AU_SEARCH");
 		try
 		{
-			return new ResponseEntity<Collection<TotalPriceAccommodationDTO>>(accommodationService.search(dto), HttpStatus.OK);
+			Collection<TotalPriceAccommodationDTO> result = accommodationService.search(dto);
+			logger.logInfo("AU_SEARCH_SUCCESS");
+			return new ResponseEntity<Collection<TotalPriceAccommodationDTO>>(result, HttpStatus.OK);
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("AU_SEARCH_ERR: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		catch(Exception e)
 		{
+			logger.logError("AU_SEARCH_ERR: " + e.getMessage());
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
-
-	
-	
 	// * * * TYPE ENDPOINTS * * *
 	
 	@RequestMapping(value = "/types", method = RequestMethod.GET)
@@ -109,50 +114,52 @@ public class AccommodationUnitController
 		return new ResponseEntity<Collection<AccTypeDTO>>(accommodationService.findAllTypesDTO(),HttpStatus.OK);
 	}
 	
-	
-	
 	@RequestMapping(value = "/types/{type}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> removeType(@PathVariable String type)
-	{	
+	{
+		logger.logInfo("DELETE_AU_TYPE");
 		try
 		{				
 			accommodationService.deleteType(type);
+			logger.logInfo("DELETE_AU_TYPE_SUCCESS");
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("DELETE_AU_TYPE_ERR: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_MODIFIED);
 		}
 		catch(Exception e)
 		{
+			logger.logError("DELETE_AU_TYPE_ERR: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	
-	
+
 	
 	@RequestMapping(value = "/types", method = RequestMethod.POST)
 	public ResponseEntity<?> addType(@RequestBody AccommodationType dto)
 	{
+		logger.logError("AU_TYPE");
 		try
 		{
 			accommodationService.addType(dto);
+			logger.logInfo("AU_TYPE_SUCCESS");
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("AU_TYPE_ERR: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
 		}
 		catch(Exception e)
 		{
+			logger.logError("AU_TYPE_ERR: " + e.getMessage());
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	
-	
+
 	
 	// * * * CATEGORY ENDPOINTS * * *
 	@RequestMapping(value = "/categories", method = RequestMethod.GET)
@@ -161,45 +168,50 @@ public class AccommodationUnitController
 		return new ResponseEntity<Collection<AccommodationCategoryDTO>>(accommodationService.findAllCategories(),HttpStatus.OK);
 	}
 	
-	
-	
+
 	@RequestMapping(value = "/categories/{value}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> removeCategory(@PathVariable int value)
-	{	
+	{
+		logger.logInfo("DELETE_AU_CATEGORY");
 		try
 		{				
 			accommodationService.deleteCategory(value);
+			logger.logInfo("DELETE_AU_CATEGORY_SUCCESS");
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("DELETE_AU_CATEGORY_ERR: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_MODIFIED);
 		}
 		catch(Exception e)
 		{
+			logger.logError("DELETE_AU_CATEGORY_ERR: " + e.getMessage());
 			e.printStackTrace();
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
 	
-	
-	
 	@RequestMapping(value = "/categories", method = RequestMethod.POST)
-	public ResponseEntity<?> addType(@RequestBody AccommodationCategory dto)
+	public ResponseEntity<?> addCategory(@RequestBody AccommodationCategory dto)
 	{
+		logger.logInfo("AU_CATEGORY");
 		try
 		{
 			accommodationService.addCategory(dto);
+			logger.logInfo("AU_CATEGORY_SUCCESS");
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("AU_CATEGORY_ERR: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
+			logger.logError("AU_CATEGORY_ERR: " + e.getMessage());
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
