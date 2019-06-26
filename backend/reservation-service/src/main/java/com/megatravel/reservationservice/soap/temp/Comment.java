@@ -5,7 +5,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -19,6 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="approved" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="postingDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *         &lt;element name="text">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -38,6 +41,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "approved",
+    "postingDate",
     "text"
 })
 @XmlRootElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
@@ -45,6 +49,9 @@ public class Comment {
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", defaultValue = "false")
     protected boolean approved;
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar postingDate;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String text;
 
@@ -62,6 +69,30 @@ public class Comment {
      */
     public void setApproved(boolean value) {
         this.approved = value;
+    }
+
+    /**
+     * Gets the value of the postingDate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getPostingDate() {
+        return postingDate;
+    }
+
+    /**
+     * Sets the value of the postingDate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setPostingDate(XMLGregorianCalendar value) {
+        this.postingDate = value;
     }
 
     /**

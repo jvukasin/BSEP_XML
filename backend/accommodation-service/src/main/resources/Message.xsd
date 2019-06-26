@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/Message"
-    xmlns:gl="http://www.ftn.uns.ac.rs/MegaTravel/global"
-    xmlns:rs="http://www.ftn.uns.ac.rs/MegaTravel/reservation">
-    <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/global" schemaLocation="global.xsd"/>
-     <xs:import namespace="http://www.ftn.uns.ac.rs/MegaTravel/reservation" schemaLocation="reservation.xsd"/>
+    targetNamespace="http://www.ftn.uns.ac.rs/MegaTravel/Message">
 
     <xs:element name="Message">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="rs:Reservation"/>
-                <xs:element name="sender" type="gl:TPerson"/>
+                <xs:element name="idReservation" type="xs:long"/>
                 <xs:element name="content" type="xs:string"/>
                 <xs:element name="date" type="xs:dateTime"/>
-                <xs:element name="receiver" type="gl:TPerson"/>
+                <xs:element name="usernameSender" type="xs:string"/>
+                <xs:element name="usernameReceiver" type="xs:string"/>
             </xs:sequence>
 
             <xs:attribute name="id" type="xs:long"/>

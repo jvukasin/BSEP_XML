@@ -43,6 +43,8 @@ export class MessagesComponent implements OnInit {
 		this.messages.push(message1);
 		this.messages.push(message2);
 		this.messages.push(message3);
+		this.messages.push(message3);
+		
 		
 		this.messages.push(message2);
 		this.messages.push(message4);

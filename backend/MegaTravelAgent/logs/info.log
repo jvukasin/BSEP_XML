@@ -60,3 +60,29 @@
 2019-06-26 13:47:15,304 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
 2019-06-26 13:47:18,335 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 10.218 seconds (JVM running for 11.201)
 2019-06-26 13:47:18,885 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 5.838 seconds (JVM running for 6.766)
+2019-06-26 13:56:21,326 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 13:56:25,529 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 13:56:26,099 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 5.834 seconds (JVM running for 6.671)
+2019-06-26 13:56:28,666 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 13:56:30,726 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 6.627 seconds (JVM running for 7.575)
+2019-06-26 13:56:31,256 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 13:56:38,099 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 8.173 seconds (JVM running for 9.075)
+2019-06-26 13:56:58,416 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 13:57:04,740 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 7.48 seconds (JVM running for 8.289)
+2019-06-26 13:57:05,227 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 13:57:09,486 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on Milan with PID 8260 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent)
+2019-06-26 13:57:09,490 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-26 13:57:09,490 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 13:57:11,286 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 13:57:11,935 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 7.905 seconds (JVM running for 8.86)
+2019-06-26 13:57:14,984 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 5.858 seconds (JVM running for 6.718)
+2019-06-26 14:27:39,788 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 14:30:23,857 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 14:36:19,889 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 14:36:24,778 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 5.95 seconds (JVM running for 6.652)
+2019-06-26 14:36:47,149 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 14:36:53,773 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 7.679 seconds (JVM running for 8.409)
+2019-06-26 14:39:31,102 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 14:39:36,328 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 14:39:38,999 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 8.977 seconds (JVM running for 9.727)
+2019-06-26 14:39:41,578 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 6.521 seconds (JVM running for 7.361)
