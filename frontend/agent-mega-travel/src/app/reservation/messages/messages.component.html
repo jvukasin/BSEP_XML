@@ -1,0 +1,22 @@
+<section class="right-to-nav appear">
+
+	<div  #messagesContainer class="messages-container">
+
+		<div class="message-box" *ngFor="let m of messages" [ngClass]="{'self-message' : m.self, 'guest-message' : !m.self}">
+			
+			<div class="message-content" [ngClass]="{'self-message-content' : m.self, 'guest-message-content' : !m.self}">
+				{{ m.content }}
+			</div>
+			<div class="message-info">
+				sent by {{ m.sender }} on {{ m.date }}
+			</div>
+
+		</div>
+
+	</div>
+	<div class="new-message-container">
+		<textarea class="form-ctrl" rows="3"></textarea>
+		<button class="btn btn-secondary">send</button>
+	</div>
+
+</section>

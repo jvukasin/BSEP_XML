@@ -9,10 +9,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @Endpoint
@@ -115,25 +112,15 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
         GetAccommodationSettingsResponse response = factory.createGetAccommodationSettingsResponse();
 
         List<Amenity> amenities = acService.findAllAmenities();
+        Collection<AccommodationType> types = acService.findAllTypes();
 
         for (Amenity a: amenities) {
             response.getAmenity().add(a);
         }
 
-        AccommodationType t1 = new AccommodationType();
-        t1.setType("hotel");
-        AccommodationType t2 = new AccommodationType();
-        t2.setType("bnb");
-        AccommodationType t3 = new AccommodationType();
-        t3.setType("studio");
-        AccommodationType t4 = new AccommodationType();
-        t4.setType("entire house");
-
-        response.getAccommodationType().add(t1);
-        response.getAccommodationType().add(t2);
-        response.getAccommodationType().add(t3);
-        response.getAccommodationType().add(t4);
-
+        for (AccommodationType t: types) {
+            response.getAccommodationType().add(t);
+        }
 
         return response;
     }

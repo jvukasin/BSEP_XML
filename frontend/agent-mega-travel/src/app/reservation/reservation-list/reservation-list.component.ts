@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-reservation-list',
@@ -18,12 +19,13 @@ export class ReservationListComponent implements OnInit {
 	}
 
 	onFetchReservations() {
-		console.log('ping');
 		this.isFetching = true;
 		this.reservationService.fetchReservations().subscribe(
-			payload => {
+			(payload: any[]) => {
 				this.reservations = payload;
+				this.reservations = this.reservations.sort((r1: any, r2: any) => r2.endDate - r1.endDate);
 				this.isFetching = false;
+	
 			},
 			error => console.log(error)
 		);

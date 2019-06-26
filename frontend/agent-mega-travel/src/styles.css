@@ -59,7 +59,13 @@ strong {
     font-size: 19px;
     font-family: 'Overpass', sans-serif;
     width: 100%;
+    border: 1px solid rgba(0,0,0,0.17);
        
+}
+
+.error-label {
+    color: red;
+    font-weight: 600;
 }
 
 .form-ctrl::placeholder {

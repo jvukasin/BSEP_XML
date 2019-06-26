@@ -78,6 +78,8 @@ public class AccommodationUnitService
 	@Autowired
 	EntityManager entityManager;
 
+	private Logging logger = new Logging(this);
+
 	
 	public AccommodationUnitDTO findById(Long id)
 	{
@@ -144,7 +146,7 @@ public class AccommodationUnitService
 			throw new BusinessException("Invalid search dates.");
 		}
 		String cty = dto.getCity().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;").replace("\'", "&#x27;");
-		List<City> cities = cityRepo.findByNameContainingIgnoreCase(dto.getCity());
+		List<City> cities = cityRepo.findByNameContainingIgnoreCase(cty);
 
 		List<AccommodationUnit> list = new ArrayList<>();
 		List<TotalPriceAccommodationDTO> ret = new ArrayList<TotalPriceAccommodationDTO>();
@@ -221,8 +223,13 @@ public class AccommodationUnitService
 	
 	
 	//* * * TYPES * * *
+
+	public Collection<AccommodationType> findAllTypes() {
+		return typeRepo.findAll();
+	}
+
 	
-	public Collection<AccTypeDTO> findAllTypes()
+	public Collection<AccTypeDTO> findAllTypesDTO()
 	{
 		List<AccTypeDTO> retVal = new ArrayList<>();
 

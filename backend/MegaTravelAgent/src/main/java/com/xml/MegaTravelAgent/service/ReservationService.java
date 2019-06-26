@@ -2,6 +2,7 @@ package com.xml.MegaTravelAgent.service;
 
 import com.xml.MegaTravelAgent.dto.ReservationDTO;
 import com.xml.MegaTravelAgent.exceptions.BusinessException;
+import com.xml.MegaTravelAgent.model.AccommodationUnit;
 import com.xml.MegaTravelAgent.model.Reservation;
 import com.xml.MegaTravelAgent.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,13 @@ public class ReservationService {
             try {
                 oldReservation = reservationRepo.findById(newReservation.getId()).get();
             } catch (NoSuchElementException e) {
+
+                if (newReservation.getUsernameReservator().equals(agentUsername)) {
+                    newReservation.setSelfReserved(true);
+                } else {
+                    newReservation.setSelfReserved(false);
+                }
+
                 oldReservation = reservationRepo.save(newReservation);
             }
 
@@ -71,5 +79,21 @@ public class ReservationService {
         {
             throw new BusinessException("No reservation with id: " + id + " found.");
         }
+    }
+
+    public Reservation formReservationForSOAP(ReservationDTO reservationDTO, String usernameAgent) {
+
+        AccommodationUnit au = new AccommodationUnit();
+        au.setId(reservationDTO.getAccommodationUnitId());
+
+        Reservation r = new Reservation();
+
+        r.setAccommodationUnit(au);
+        r.setStartDate(reservationDTO.getStartDate());
+        r.setEndDate(reservationDTO.getEndDate());
+        r.setUsernameReservator(usernameAgent);
+
+        return r;
+
     }
 }

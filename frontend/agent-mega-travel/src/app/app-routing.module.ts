@@ -9,6 +9,7 @@ import { AccommodationUnitComponent } from './accommodation/accommodation-unit/a
 import { LoggedInGuard } from './_helper/logged-in.guard';
 import { LoggedOutGuard } from './_helper/logged-out.guard';
 import { ReservationListComponent } from './reservation/reservation-list/reservation-list.component';
+import { MessagesComponent } from './reservation/messages/messages.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
    canActivateChild: [LoggedInGuard],
    children: [
     { path: '', component: ReservationListComponent},
+    { path: ':id/messages', component: MessagesComponent}
    ]}
 	]
 

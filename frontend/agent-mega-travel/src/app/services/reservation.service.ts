@@ -14,6 +14,10 @@ export class ReservationService {
 	fetchReservations() {
 		return this.http.get(this.ENDPOINT_URI);
 	}
+
+	postReservation(reservation: any) {
+		return this.http.post(this.ENDPOINT_URI, reservation);
+	}
 	
 	setSuccessful(id: any) {
 		console.log('ping');

@@ -9,6 +9,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
 })
 export class ReservationCardComponent implements OnInit {
 	
+	isMsgHovered: boolean = false;
 	@Input() reservation;
 
 	constructor(private reservationService: ReservationService) { }
@@ -31,5 +32,14 @@ export class ReservationCardComponent implements OnInit {
 			}
 		)
 	}
+
+	onMessageOver() {
+		this.isMsgHovered = true;
+	}
+	
+	onMessageOut() {
+		this.isMsgHovered = false;
+	}
+	
 
 }
