@@ -6,6 +6,7 @@ import com.megatravel.authservice.model.UserTokenState;
 import com.megatravel.authservice.security.CustomUserDetailsService;
 import com.megatravel.authservice.security.TokenUtils;
 import com.megatravel.authservice.security.auth.JwtAuthenticationRequest;
+import com.megatravel.authservice.service.Logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -45,13 +46,15 @@ public class AuthController {
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
+    private Logging logger = new Logging(this);
+
     @RequestMapping(value="/login",method = RequestMethod.POST)
     public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device, HttpServletRequest hr){
 
-        // logger.logInfo("ULOG. Username: " + authenticationRequest.getUsername() + ", IP ADDRESS: " + hr.getRemoteAddr());
+         logger.logInfo("ULOG. Username: " + authenticationRequest.getUsername() + ", IP ADDRESS: " + hr.getRemoteAddr());
 
         if(!inputValid(authenticationRequest.getUsername())) {
-            // logger.logError("ULOG_UNAME_ERR. Username: " + authenticationRequest.getUsername());
+             logger.logError("ULOG_UNAME_ERR. Username: " + authenticationRequest.getUsername());
             return new ResponseEntity<>(new UserTokenState("error",0), HttpStatus.NOT_FOUND);
         }
 
@@ -69,21 +72,19 @@ public class AuthController {
         try {
             ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
         } catch (Exception e) {
-            //ovo treba u logger
-            System.out.println("\n\nreservation service not up\n\n");
+            logger.logWarning("RES_SER_DOWN");
         }
 
         try {
             ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
         } catch (Exception e) {
-            //ovo treba u logger
-            System.out.println("\n\naccommodation service not up\n\n");
+            logger.logWarning("ACC_SER_DOWN");
         }
 
         TPerson user =  (TPerson) authentication.getPrincipal();
         // VRATI DRUGI STATUS KOD
         if(user == null) {
-            // logger.logError("ULOG_FAIL. "+ authenticationRequest.getUsername() + " is not authorized.");
+             logger.logError("ULOG_FAIL. "+ authenticationRequest.getUsername() + " is not authorized.");
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
 
@@ -91,7 +92,7 @@ public class AuthController {
 
         int expiresIn = 3600;
 
-        // logger.logInfo("ULOG_SUCCESS");
+         logger.logInfo("ULOG_SUCCESS");
 
         return ResponseEntity.ok(new UserTokenState(jwt,expiresIn));
     }
@@ -103,21 +104,19 @@ public class AuthController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null)
             new SecurityContextLogoutHandler().logout(request, response, authentication);
-
+        logger.logInfo("ULOG_OUT");
         //poslati svima zahtev da izbrisu kontekst
         try {
             ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/logout", null, null);
         } catch (Exception e) {
-            //ovo treba u logger
             e.printStackTrace();
-            System.out.println("\n\nreservation service not up\n\n");
+            logger.logWarning("RES_SER_DOWN");
         }
         try {
             ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/logout", null, null);
         } catch (Exception e) {
-            //ovo treba u logger
             e.printStackTrace();
-            System.out.println("\n\naccommodation service not up\n\n");
+            logger.logWarning("ACC_SER_DOWN");
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }

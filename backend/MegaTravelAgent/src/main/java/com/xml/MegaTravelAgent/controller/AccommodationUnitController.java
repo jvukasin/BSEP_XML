@@ -7,6 +7,7 @@ import com.xml.MegaTravelAgent.model.Amenity;
 import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.service.AccommodationUnitService;
 import com.xml.MegaTravelAgent.service.AmenityService;
+import com.xml.MegaTravelAgent.service.Logging;
 import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
 import com.xml.MegaTravelAgent.model.AccommodationType;
 import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
@@ -36,6 +37,8 @@ public class AccommodationUnitController {
 	@Autowired
 	TokenUtils tokenUtils;
 
+	private Logging logger = new Logging(this);
+
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Collection<AccommodationUnitDTO>> getAccommodationUnits(HttpServletRequest request)
 	{
@@ -43,6 +46,7 @@ public class AccommodationUnitController {
 		String username = getUsernameFromRequest(request);
 
 		if (username == null) {
+			logger.logError("AU_GET_USRERR; IP: " + request.getRemoteAddr());
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 
@@ -60,10 +64,12 @@ public class AccommodationUnitController {
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("AU_GET_ERR: " + e.getMessage());
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		catch(Exception e)
 		{
+			logger.logError("AU_GET_ERR: " + e.getMessage());
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -71,11 +77,12 @@ public class AccommodationUnitController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<?> create(@RequestBody NewAccommodationUnitDTO auDTO, HttpServletRequest request)
 	{
-
+		logger.logInfo("AU_CREATE");
 
 		String username = getUsernameFromRequest(request);
 
 		if (username == null) {
+			logger.logError("AU_CREATE_USRERR; IP: " + request.getRemoteAddr());
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 
@@ -83,13 +90,14 @@ public class AccommodationUnitController {
 			AccommodationUnit au = accommodationService.save(auDTO, username);
 			// send to soap
 			auClient.createAccommodationUnit(au, username);
-
+			logger.logInfo("AU_CREATE_SUCCESS");
 			return new ResponseEntity<>(au.getId(), HttpStatus.CREATED);
 		} catch (BusinessException e) {
-			System.out.println(e.getMessage());
+			logger.logError("AU_CREATE_ERR: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.logError("AU_CREATE_ERR: " + e.getMessage());
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -104,10 +112,12 @@ public class AccommodationUnitController {
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("AU_AM_GET_ERR: " + e.getMessage());
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		catch(Exception e)
 		{
+			logger.logError("AU_AM_GET_ERR: " + e.getMessage());
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -123,10 +133,12 @@ public class AccommodationUnitController {
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("AU_PP_GET_ERR: " + e.getMessage());
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		catch(Exception e)
 		{
+			logger.logError("AU_PP_GET_ERR: " + e.getMessage());
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

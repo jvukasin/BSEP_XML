@@ -1,5 +1,6 @@
 package com.megatravel.authservice.controller;
 
+import com.megatravel.authservice.service.Logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,22 +21,27 @@ public class AgentController
 {
     @Autowired
     private TPersonService tPersonService;
-    
+
+	private Logging logger = new Logging(this);
     
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/text")
     public ResponseEntity<?> saveAgent(@RequestBody AgentDTO agentDTO) 
     {
+		logger.logInfo("AG_REG");
 		try
 		{
+			logger.logInfo("AG_REG_SUCCESS");
 			return new ResponseEntity<String>(tPersonService.addAgent(agentDTO), HttpStatus.CREATED);
 		}
 		catch(BusinessException e)
 		{
+			logger.logError("AG_REG_ERR: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
+			logger.logError("AG_REG_ERR: " + e.getMessage());
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
     }
@@ -46,11 +52,12 @@ public class AgentController
     {
     	if(!tPersonService.isUsernameTaken(username))
     	{
+    		logger.logInfo("AG_REG_USR");
 			return new ResponseEntity<>(HttpStatus.OK);
     	}
     	else
     	{
-    		System.out.println("ma jok");
+			logger.logWarning("AG_REG_USR_TAKEN");
 			return new ResponseEntity<>(HttpStatus.IM_USED);
     	}
  
