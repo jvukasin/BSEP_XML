@@ -64,7 +64,6 @@ label{
 .sidebyside-left {
     flex: 1 0 21%;
     background: #343A40;
-    
 }
 
 .sidebyside-center {
@@ -73,8 +72,8 @@ label{
 
 .sidebyside-right {
     flex: 1 0 20.7%;
+    transition: all 0.3s;
 }
-
 
 #reservations{
     height: 100vh;
@@ -93,10 +92,6 @@ h1{
     display: inline-block
 }
 
-#messages{
-    width: 20.7%;
-    background: black;
-}
 
 #reservationList{
     padding-top: 13px;
@@ -250,3 +245,4 @@ div[class*="col-"] {
     margin-top:20px;
     width: 100%;
 }
+

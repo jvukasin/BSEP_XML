@@ -3,6 +3,8 @@ import { ReservationService } from '../services/reservation.service';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-profile',

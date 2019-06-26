@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, Renderer2, ElementRef, Directive } from '@angular/core';
 import * as $ from 'jquery';
+import { UserService } from '../service/user.service';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
@@ -15,22 +18,32 @@ export class AdminPageComponent implements OnInit {
   isManagement: boolean = false;
   isAgents: boolean = false;
   isComments: boolean = false;
-
+  admin: any;
+  isLogged: boolean = false;
 
   collapsed: boolean = false;
   collapsedCodeBook: boolean = false;
 
   
-  constructor() { }
+  constructor(private router: Router,private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
+    if(!this.authService.isLoggedIn()){
+      this.router.navigate(['/login']);
+    }
+    
     $(document).ready(function () {
-
       $('#sidebarCollapse').on('click', function () {
           $('#sidebar').toggleClass('active');
       });
-  
   });
+
+    this.userService.getUser().subscribe(
+      (user) => {
+        this.admin = user;
+        this.isLogged = true;
+      }
+    )
   }
   
   showAmenities(){
@@ -115,6 +128,10 @@ export class AdminPageComponent implements OnInit {
 
 
   onToggle(){
+  }
+
+  logOut(){
+    this.authService.logout();
   }
 
 

@@ -101,6 +101,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 			web.ignoring().antMatchers(HttpMethod.POST, "/reservations/**");
 			web.ignoring().antMatchers(HttpMethod.DELETE, "/reservations/**");
 			web.ignoring().antMatchers(HttpMethod.POST, "/resSecurity/setAuthentication");
+			web.ignoring().antMatchers(HttpMethod.POST, "/resSecurity/logout");
 			web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
 		}
 

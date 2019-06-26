@@ -3,6 +3,8 @@ package com.megatravel.authservice.controller;
 
 import javax.validation.Valid;
 
+import com.megatravel.authservice.model.Admin;
+import com.megatravel.authservice.model.TPerson;
 import org.owasp.encoder.Encode;
 
 import com.megatravel.authservice.dto.UserDTO;
@@ -72,7 +74,12 @@ public class UserController {
         String username = tokenUtils.getUsernameFromToken(token);
 
         if(username != "" && username != null) {
-            User u = (User) tPersonService.findOneByUsername(username);
+            TPerson u = (TPerson) tPersonService.findOneByUsername(username);
+            if(u instanceof User){
+                u = (User) u;
+            }else if(u instanceof Admin){
+                u = (Admin) u;
+            }
             UserInfoDTO ui = new UserInfoDTO(u.getUsername(), u.getEmail(), u.getName(), u.getLastname());
             return new ResponseEntity<UserInfoDTO>(ui, HttpStatus.OK);
         } else {

@@ -100,7 +100,7 @@
                           <div class="endDate">End date: {{ reservation.endDate | date }}</div>
                         </div>
                         <div class="details-btn-card">
-                          <button type="button" class="btn btn-primary"> Send message </button>
+                          <button type="button" class="btn btn-primary sendMessage"> Send message </button>
                         </div>
                       </div>
                       <div style="position:absolute; top:0.45px; right: 0.31px" *ngIf="canCanel(reservation)"><button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel reservation" (click)="cancelReservation(reservation.accommodation.name, reservation.id)">
@@ -117,7 +117,7 @@
     </div>
 
     <!-- COLLAPSE  -->
-    <div class="sidebyside-right" >
+    <div class="sidebyside-right">
     </div>
 
   </div>

@@ -44,7 +44,6 @@ export class AuthService {
 
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-        
         if(currentUser != null) {
             if(currentUser.accessToken){
                 let isExpired = helper.isTokenExpired(currentUser.accessToken);
