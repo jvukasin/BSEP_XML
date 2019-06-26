@@ -1,0 +1,30 @@
+2019-06-26 08:40:14,315 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on Milan with PID 8148 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent)
+2019-06-26 08:40:14,315 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-26 08:40:14,315 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 08:40:16,881 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 08:40:22,987 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 9.174 seconds (JVM running for 10.259)
+2019-06-26 08:43:25,131 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on Milan with PID 1704 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent)
+2019-06-26 08:43:25,131 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-26 08:43:25,131 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 08:43:26,532 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 08:43:30,322 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 5.474 seconds (JVM running for 6.089)
+2019-06-26 08:45:43,288 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on Milan with PID 11672 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent)
+2019-06-26 08:45:43,292 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-26 08:45:43,292 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 08:45:44,765 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 08:45:48,383 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 5.39 seconds (JVM running for 6.041)
+2019-06-26 09:02:05,630 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on Milan with PID 9444 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent)
+2019-06-26 09:02:05,634 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-26 09:02:05,635 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 09:02:07,018 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 09:02:10,634 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 5.299 seconds (JVM running for 5.909)
+2019-06-26 09:02:51,830 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on Milan with PID 552 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent)
+2019-06-26 09:02:51,833 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-26 09:02:51,834 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 09:02:53,285 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 09:02:56,938 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 5.387 seconds (JVM running for 5.986)
+2019-06-26 09:04:46,340 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on Milan with PID 12180 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelAgent)
+2019-06-26 09:04:46,342 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-26 09:04:46,343 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 09:04:47,726 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 09:04:51,415 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 5.352 seconds (JVM running for 5.957)

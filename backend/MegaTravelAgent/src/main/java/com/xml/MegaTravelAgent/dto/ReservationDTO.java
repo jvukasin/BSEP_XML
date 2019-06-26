@@ -14,11 +14,12 @@ public class ReservationDTO {
     private Long accommodationUnitId;
     private String accommodationUnitName;
     private String usernameReservator;
+    private boolean isSelfReserved;
 
     public ReservationDTO() {
     }
 
-    public ReservationDTO(Long id, Date startDate, Date endDate, double price, boolean isSuccessful, Long accommodationUnitId, String accommodationUnitName, String usernameReservator) {
+    public ReservationDTO(Long id, Date startDate, Date endDate, double price, boolean isSuccessful, Long accommodationUnitId, String accommodationUnitName, String usernameReservator, boolean isSelfReserved) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -27,6 +28,7 @@ public class ReservationDTO {
         this.accommodationUnitId = accommodationUnitId;
         this.accommodationUnitName = accommodationUnitName;
         this.usernameReservator = usernameReservator;
+        this.isSelfReserved = isSelfReserved;
     }
 
     public ReservationDTO(Reservation r) {
@@ -38,6 +40,7 @@ public class ReservationDTO {
         this.accommodationUnitId = r.getAccommodationUnit().getId();
         this.accommodationUnitName = r.getAccommodationUnit().getName();
         this.usernameReservator = r.getUsernameReservator();
+        this.isSelfReserved = r.isSelfReserved();
     }
 
 
@@ -103,5 +106,13 @@ public class ReservationDTO {
 
     public void setAccommodationUnitName(String accommodationUnitName) {
         this.accommodationUnitName = accommodationUnitName;
+    }
+
+    public boolean isSelfReserved() {
+        return isSelfReserved;
+    }
+
+    public void setSelfReserved(boolean selfReserved) {
+        isSelfReserved = selfReserved;
     }
 }

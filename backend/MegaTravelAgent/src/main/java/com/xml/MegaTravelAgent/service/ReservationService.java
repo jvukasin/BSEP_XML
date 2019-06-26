@@ -48,7 +48,9 @@ public class ReservationService {
             } catch (NoSuchElementException e) {
 
                 if (newReservation.getUsernameReservator().equals(agentUsername)) {
-                    newReservation.setUsernameReservator("*self:" + agentUsername);
+                    newReservation.setSelfReserved(true);
+                } else {
+                    newReservation.setSelfReserved(false);
                 }
 
                 oldReservation = reservationRepo.save(newReservation);

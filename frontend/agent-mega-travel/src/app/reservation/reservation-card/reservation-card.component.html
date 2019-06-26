@@ -21,14 +21,14 @@
 			price: <span class="rc-price">{{reservation.price}} €</span>
 		</span>
 
-		<div class="rc-msg-row" *ngIf="!reservation.isSelfReserved">
+		<div class="rc-msg-row" *ngIf="!reservation.selfReserved">
 			<span class="rc-label appear" *ngIf="isMsgHovered">conversation with:</span> 
 			<span class="rc-label appear" *ngIf="!isMsgHovered">guest:</span> 
 			<span class="rc-guest"> {{reservation.usernameReservator}}</span>
 			<i class="fa fa-envelope" (mouseover)="onMessageOver()" (mouseout)="onMessageOut()"></i>
 		</div>
 
-		<div class="rc-msg-row" *ngIf="reservation.isSelfReserved">
+		<div class="rc-msg-row" *ngIf="reservation.selfReserved">
 			<span class="rc-guest">self reserved</span>
 		</div>
 

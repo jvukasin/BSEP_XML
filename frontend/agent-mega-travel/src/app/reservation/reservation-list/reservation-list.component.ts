@@ -22,13 +22,7 @@ export class ReservationListComponent implements OnInit {
 		this.isFetching = true;
 		this.reservationService.fetchReservations().subscribe(
 			(payload: any[]) => {
-				this.reservations = payload.map(r => {
-					if (r.usernameReservator.includes("*self:")) {
-						r.isSelfReserved = true;
-					}
-					return r;
-				});
-
+				this.reservations = payload;
 				this.reservations = this.reservations.sort((r1: any, r2: any) => r2.endDate - r1.endDate);
 				this.isFetching = false;
 	
