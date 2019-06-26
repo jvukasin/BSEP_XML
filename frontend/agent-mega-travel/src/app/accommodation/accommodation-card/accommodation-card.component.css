@@ -70,7 +70,7 @@ a {
 .ac-other .other-info {
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    width: 500px;
 }
 
 .amenities .fa {

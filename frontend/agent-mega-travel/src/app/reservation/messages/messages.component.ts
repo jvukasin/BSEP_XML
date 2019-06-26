@@ -33,7 +33,7 @@ export class MessagesComponent implements OnInit, OnDestroy {
 				this.id = +params['id'];
 
 				this.fetchMessages();
-				this.refreshInterval = setInterval(() => this.fetchMessages(), 3000);
+				this.refreshInterval = setInterval(() => this.fetchMessages(), 6000);
 			}
 		);
 
