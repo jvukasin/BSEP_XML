@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
 import { ReservationService } from 'src/app/services/reservation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation-card',
@@ -12,7 +13,7 @@ export class ReservationCardComponent implements OnInit {
 	isMsgHovered: boolean = false;
 	@Input() reservation;
 
-	constructor(private reservationService: ReservationService) { }
+	constructor(private reservationService: ReservationService, private router: Router) { }
 
 	ngOnInit() {
 
@@ -31,6 +32,10 @@ export class ReservationCardComponent implements OnInit {
 				}
 			}
 		)
+	}
+
+	onClickMessage() {
+		this.router.navigate(['/reservation/' + this.reservation.id]);
 	}
 
 	onMessageOver() {

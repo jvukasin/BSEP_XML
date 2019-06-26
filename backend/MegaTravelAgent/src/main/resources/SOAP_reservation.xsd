@@ -56,6 +56,22 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="PostMessageRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="ms:Message"/>
+                <xs:element name="agentUsername" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PostMessageResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="ms:Message" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="GetMessagesRequest">
         <xs:complexType>
             <xs:sequence>

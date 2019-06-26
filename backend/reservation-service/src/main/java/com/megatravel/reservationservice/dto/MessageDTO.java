@@ -12,6 +12,9 @@ public class MessageDTO {
     private Date date;
     private String senderUsername;
     private String receiverUsername;
+    private boolean isUsersMessage;
+    private boolean isAgentsMessage;
+
 
     public MessageDTO() {
     }
@@ -29,8 +32,12 @@ public class MessageDTO {
         this.id = m.getId();
         this.content = m.getContent();
         this.date = m.getDate();
-        this.senderUsername = m.getUsernameSender();
-        this.receiverUsername = m.getUsernameReceiver();
+        this.senderUsername = m.getSender().getUsername();
+        this.receiverUsername = m.getReceiver().getUsername();
+        this.reservationId = m.getReservation().getId();
+        this.isAgentsMessage = m.isIsAgentsMessage();
+        this.isUsersMessage = m.isIsUsersMessage();
+
     }
 
 
@@ -80,5 +87,21 @@ public class MessageDTO {
 
     public void setReceiverUsername(String receiverUsername) {
         this.receiverUsername = receiverUsername;
+    }
+
+    public boolean isIsUsersMessage() {
+        return isUsersMessage;
+    }
+
+    public void setIsUsersMessage(boolean usersMessage) {
+        isUsersMessage = usersMessage;
+    }
+
+    public boolean isIsAgentsMessage() {
+        return isAgentsMessage;
+    }
+
+    public void setIsAgentsMessage(boolean agentsMessage) {
+        isAgentsMessage = agentsMessage;
     }
 }

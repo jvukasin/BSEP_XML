@@ -5,23 +5,34 @@ import java.util.List;
 
 public class ChatDTO {
 
-    String senderUsername;
+    String agentUsername;
+    String userUsername;
     List<MessageDTO> Messages = new ArrayList<>();
 
     public ChatDTO() {
     }
 
-    public ChatDTO(String senderUsername, List<MessageDTO> messages) {
-        this.senderUsername = senderUsername;
+
+    public ChatDTO(String agentUsername, String userUsername, List<MessageDTO> messages) {
+        this.agentUsername = agentUsername;
+        this.userUsername = userUsername;
         Messages = messages;
     }
 
-    public String getSenderUsername() {
-        return senderUsername;
+    public String getAgentUsername() {
+        return agentUsername;
     }
 
-    public void setSenderUsername(String senderUsername) {
-        this.senderUsername = senderUsername;
+    public void setAgentUsername(String agentUsername) {
+        this.agentUsername = agentUsername;
+    }
+
+    public String getUserUsername() {
+        return userUsername;
+    }
+
+    public void setUserUsername(String userUsername) {
+        this.userUsername = userUsername;
     }
 
     public List<MessageDTO> getMessages() {

@@ -25,7 +25,7 @@
 			<span class="rc-label appear" *ngIf="isMsgHovered">conversation with:</span> 
 			<span class="rc-label appear" *ngIf="!isMsgHovered">guest:</span> 
 			<span class="rc-guest"> {{reservation.usernameReservator}}</span>
-			<i class="fa fa-envelope" (mouseover)="onMessageOver()" (mouseout)="onMessageOut()"></i>
+			<i class="fa fa-envelope" (click)="onClickMessage()" (mouseover)="onMessageOver()" (mouseout)="onMessageOut()"></i>
 		</div>
 
 		<div class="rc-msg-row" *ngIf="reservation.selfReserved">

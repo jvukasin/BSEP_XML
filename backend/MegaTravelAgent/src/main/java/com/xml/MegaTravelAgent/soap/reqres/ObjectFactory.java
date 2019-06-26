@@ -2,7 +2,6 @@
 package com.xml.MegaTravelAgent.soap.reqres;
 
 import com.xml.MegaTravelAgent.model.*;
-import com.xml.MegaTravelAgent.soap.reqres.*;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -208,10 +207,6 @@ public class ObjectFactory {
         return new PostReservationRequest();
     }
 
-    /**
-     * Create an instance of {@link Comment }
-     *
-     */
 
     /**
      * Create an instance of {@link Comment }
@@ -268,6 +263,22 @@ public class ObjectFactory {
      */
     public AgentSOAP createAgentSOAP() {
         return new AgentSOAP();
+    }
+
+    /**
+     * Create an instance of {@link PostMessageRequest }
+     *
+     */
+    public PostMessageRequest createPostMessageRequest() {
+        return new PostMessageRequest();
+    }
+
+    /**
+     * Create an instance of {@link PostMessageResponse }
+     *
+     */
+    public PostMessageResponse createPostMessageResponse() {
+        return new PostMessageResponse();
     }
 
 }

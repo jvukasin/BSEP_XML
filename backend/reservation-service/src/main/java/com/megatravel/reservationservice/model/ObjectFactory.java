@@ -193,4 +193,20 @@ public class ObjectFactory {
         return new Rating();
     }
 
+    /**
+     * Create an instance of {@link PostMessageRequest }
+     *
+     */
+    public PostMessageRequest createPostMessageRequest() {
+        return new PostMessageRequest();
+    }
+
+    /**
+     * Create an instance of {@link PostMessageResponse }
+     *
+     */
+    public PostMessageResponse createPostMessageResponse() {
+        return new PostMessageResponse();
+    }
+
 }

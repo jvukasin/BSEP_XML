@@ -21,4 +21,13 @@ export class ReservationService {
         return this.http.delete('/api/reservationservice/reservations/' + id);
     }
 
+
+    postMessage(id:number, message: any) {
+		return this.http.post('/api/reservationservice/reservations/' + id + '/messages', message);
+    }
+    
+    getChat(id:number) {
+        return this.http.get('/api/reservationservice/reservations/' + id + '/messages');
+    }
+
 }

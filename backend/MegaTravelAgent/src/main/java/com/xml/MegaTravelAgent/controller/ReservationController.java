@@ -1,14 +1,15 @@
 package com.xml.MegaTravelAgent.controller;
 
+import com.xml.MegaTravelAgent.dto.ChatDTO;
+import com.xml.MegaTravelAgent.dto.MessageDTO;
 import com.xml.MegaTravelAgent.dto.ReservationDTO;
+import com.xml.MegaTravelAgent.exceptions.BusinessException;
+import com.xml.MegaTravelAgent.model.Message;
 import com.xml.MegaTravelAgent.model.Reservation;
 import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.service.ReservationService;
 import com.xml.MegaTravelAgent.soap.client.ReservationClient;
-import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsResponse;
-import com.xml.MegaTravelAgent.soap.reqres.PostReservationResponse;
-import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationRequest;
-import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationResponse;
+import com.xml.MegaTravelAgent.soap.reqres.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,6 +52,32 @@ public class ReservationController {
 
         return new ResponseEntity<Collection<ReservationDTO>>(reservationDTOs,
                 HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getReservations(@PathVariable Long id, HttpServletRequest request)
+    {
+
+        String username = getUsernameFromRequest(request);
+
+        if (username == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+        try
+        {
+            return new ResponseEntity<ReservationDTO>(reservationService.findById(id, username), HttpStatus.OK);
+        }
+        catch(BusinessException e)
+        {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
@@ -103,6 +130,53 @@ public class ReservationController {
         return new ResponseEntity<>(responseInfo,
                 HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/{id}/messages", method = RequestMethod.GET)
+    public ResponseEntity<?> getReservationMessages(@PathVariable Long id, HttpServletRequest request)
+    {
+
+        String username = getUsernameFromRequest(request);
+
+        if (username == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+        GetMessagesResponse response = reservationClient.getMessages(id, username);
+
+        reservationService.updateMessages(response.getMessage());
+
+        ChatDTO chat = reservationService.getChat(id, username);
+
+
+        return new ResponseEntity<>(chat, HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/{id}/messages", method = RequestMethod.POST)
+    public ResponseEntity<?> postMessage(@PathVariable Long id, @RequestBody MessageDTO messageDTO,
+                                                     HttpServletRequest request)
+    {
+
+        String username = getUsernameFromRequest(request);
+
+        if (username == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+//        Message m = reservationService.postMesage(messageDTO, username);
+
+        Message m = reservationService.formMessageForSOAP(messageDTO, username);
+
+        PostMessageResponse response = reservationClient.postMessage(m, username);
+
+        reservationService.updateMessages(response.getMessage());
+
+
+
+        return new ResponseEntity<>(reservationService.getChat(id, username),
+                HttpStatus.OK);
+    }
+
 
 
 

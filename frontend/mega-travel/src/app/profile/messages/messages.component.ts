@@ -1,59 +1,75 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input, OnDestroy } from '@angular/core';
 import * as moment from 'moment';
+import { ReservationService } from 'src/app/services/reservation.service';
+import { Validators, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.css']
 })
-export class MessagesComponent implements OnInit {
+export class MessagesComponent implements OnInit, OnDestroy {
+	
   
+
+	@Input() reservation;
   @Output() hideEvent = new EventEmitter<boolean>();
+  
   @ViewChild('messagesContainer') private messagesContainer: ElementRef;
-  messages: any[] = [];
+	
+	messages: any[] = null;
+	
+	userUsername: string = null;
+	agentUsername: string = null;
 
-  constructor() {
-    let message1 = {
-			content: "Quos corporis et quibusdam incidunt perspiciatis asperiores consequatur a, quae repellat laborum architecto veniam voluptatibus, deserunt, iusto maiores nisi fuga necessitatibus? Nesciunt?",
-			self: false,
-			sender: 'vule',
-			date: moment().format('MMMM Do YYYY, h:mm:ss a')
-		}
+	messageForm = this.fb.group({
+		message: ['', Validators.required]
+	});
 
-		let message2 = {
-			content: "Wrspiciatis nihil laudantium nulla odio recusandae asperiores doloribus impedit deleniti adipisci alias sed accusamus molestiae odit harum suscipit quae qui!",
-			self: true,
-			sender: 'laza',
-			date: moment().format('MMMM Do YYYY, h:mm:ss a')
-		}
+	refreshInterval;
 
-		let message3 = {
-			content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta blanditiis!",
-			self: false,
-			sender: 'vule',
-			date: moment().format('MMMM Do YYYY, h:mm:ss a')
-		}
-
-		let message4 = {
-			content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta blanditiis!",
-			self: false,
-			sender: 'vule',
-			date: moment().format('MMMM Do YYYY, h:mm:ss a')
-		}
-
-		this.messages.push(message1);
-		this.messages.push(message2);
-		this.messages.push(message3);
-		this.messages.push(message3);
+  constructor(private reservationService: ReservationService, private fb: FormBuilder) {
+    
 		
 		
-		this.messages.push(message2);
-		this.messages.push(message4);
-		
-		
-   }
+	}
 
- 	ngOnInit() { 
+ngOnInit() { 
+	this.fetchMessages();
+	
+	this.refreshInterval = setInterval(() => this.fetchMessages(), 5000);
+
     this.scrollToBottom();
+}
+
+ngOnDestroy(): void {
+	console.log('destroyed');
+	clearInterval(this.refreshInterval);
+}
+
+fetchMessages() {
+	this.reservationService.getChat(this.reservation.id).subscribe(
+		(payload: any) => {
+			this.messages = payload.messages;
+			this.agentUsername = payload.agentUsername;
+			this.userUsername = payload.userUsername;
+		}, error => alert('error')
+	);
+}
+
+onSubmitMessage() {
+	const dto = {
+		content: this.messageForm.get('message').value,
+		reservationId: this.reservation.id,
+		receiverUsername: this.reservation.usernameReservator 
+	}
+
+	this.reservationService.postMessage(this.reservation.id, dto).subscribe(
+		payload => {
+			this.messages.push(payload);
+			this.messageForm.patchValue({'message': ''});
+		},
+		error => console.log(error)
+	);
 }
 
 ngAfterViewChecked() {        
@@ -63,8 +79,6 @@ ngAfterViewChecked() {
 scrollToBottom(): void {
     try {
   this.messagesContainer.nativeElement.scrollTop = this.messagesContainer.nativeElement.scrollHeight;
-  console.log(this.messagesContainer.nativeElement.scrollHeight);
-  console.log(this.messagesContainer.nativeElement.scrollTop);
   
     } catch(err) {
   console.log(err);

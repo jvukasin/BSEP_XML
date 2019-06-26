@@ -25,7 +25,7 @@ const appRoutes: Routes = [
    canActivateChild: [LoggedInGuard],
    children: [
     { path: '', component: ReservationListComponent},
-    { path: ':id/messages', component: MessagesComponent}
+    { path: ':id', component: MessagesComponent}
    ]}
 	]
 

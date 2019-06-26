@@ -3,8 +3,7 @@ package com.megatravel.reservationservice.controller;
 import java.util.Collection;
 import java.util.List;
 
-import com.megatravel.reservationservice.dto.UserInfoDTO;
-import com.megatravel.reservationservice.dto.UserReservationDTO;
+import com.megatravel.reservationservice.dto.*;
 import com.megatravel.reservationservice.security.TokenUtils;
 import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.megatravel.reservationservice.dto.ReservationDTO;
 import com.megatravel.reservationservice.services.ReservationService;
 
 import exceptions.BusinessException;
@@ -57,11 +55,19 @@ public class ReservationController
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getReservation(@PathVariable Long id)
-	{	
+	public ResponseEntity<?> getReservation(@PathVariable Long id, HttpServletRequest request)
+	{
+
+		String username = getUsernameFromRequest(request);
+
+		if (username == null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
+
 		try
 		{
-			return new ResponseEntity<ReservationDTO>(reservationService.findById(id), HttpStatus.OK);
+			return new ResponseEntity<ReservationDTO>(reservationService.findById(id, username), HttpStatus.OK);
 		}
 		catch(BusinessException e)
 		{
@@ -74,6 +80,41 @@ public class ReservationController
 		}
 		
 	}
+
+
+	@RequestMapping(value = "/{id}/messages", method = RequestMethod.GET)
+	public ResponseEntity<?> getReservationMessages(@PathVariable Long id, HttpServletRequest request)
+	{
+
+		String username = getUsernameFromRequest(request);
+
+		if (username == null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
+		ChatDTO chat = reservationService.getChat(id, username);
+
+
+		return new ResponseEntity<>(chat, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/{id}/messages", method = RequestMethod.POST)
+	public ResponseEntity<?> postReservationMessages(@PathVariable Long id,
+													@RequestBody MessageDTO messageDTO, HttpServletRequest request)
+	{
+
+		String username = getUsernameFromRequest(request);
+
+		if (username == null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
+		MessageDTO retVal = reservationService.postMesage(messageDTO, username);
+
+
+		return new ResponseEntity<>(retVal, HttpStatus.OK);
+	}
+
 	
 	
 	
@@ -135,6 +176,18 @@ public class ReservationController
 		{
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	private String getUsernameFromRequest(HttpServletRequest request) {
+
+		String authToken = tokenUtils.getToken(request);
+		if (authToken == null) {
+			return null;
+		}
+
+		String username = tokenUtils.getUsernameFromToken(authToken);
+
+		return username;
 	}
 	
 }

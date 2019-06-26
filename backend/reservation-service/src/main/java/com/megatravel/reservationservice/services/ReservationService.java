@@ -5,6 +5,7 @@ import java.util.*;
 
 import com.megatravel.reservationservice.dto.*;
 import com.megatravel.reservationservice.model.*;
+import com.megatravel.reservationservice.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,9 @@ public class ReservationService
 	
 	@Autowired
 	private AccommodationUnitRepository accommodationRepo;
+
+	@Autowired
+	private MessageRepository messageRepository;
 	
 	public Collection<ReservationDTO> findAll()
 	{
@@ -39,11 +43,15 @@ public class ReservationService
 		return retVal;
 	}
 
-	public ReservationDTO findById(Long id)
+	public ReservationDTO findById(Long id, String username)
 	{
 		try
 		{
-			return new ReservationDTO(reservationRepo.findById(id).get());
+			Reservation r = reservationRepo.findById(id).get();
+			if (!r.getReservator().getUsername().equals(username)) {
+				throw new BusinessException("You can access only your reservations.");
+			}
+			return new ReservationDTO(r);
 		}
 		catch(NoSuchElementException e)
 		{	
@@ -195,9 +203,9 @@ public class ReservationService
 			Image image = reservation.getAccommodationUnit().getImage().iterator().next();
 			//konvertuj poruke u DTO objetke
 			List<MessageDTO> messages = new ArrayList<MessageDTO>();
-			for(Message m : reservation.getMessages()){
+			/*for(Message m : reservation.getMessages()){
 				messages.add(new MessageDTO(m));
-			}
+			}*/
 
 			retVal.add(new UserReservationDTO(reservation.getId(), reservation.getStartDate(), reservation.getEndDate(), reservation.getPrice(),
 					new AccommodationInfoDTO(reservation.getAccommodationUnit().getName(), image.getImageUrl(),
@@ -214,6 +222,71 @@ public class ReservationService
 		// todo messages
 
 		return reservations;
+	}
+
+
+	public ChatDTO getChat(Long id, String username) {
+
+		Reservation r = reservationRepo.findById(id).get();
+
+		if (!r.getReservator().getUsername().equals(username)) {
+
+			throw new BusinessException("You can access only your messages.");
+		}
+
+		List<Message> messages = messageRepository.findAllByReservationId(id);
+
+		ChatDTO chatDTO = new ChatDTO();
+
+		chatDTO.setAgentUsername(r.getAccommodationUnit().getAgent().getUsername());
+		chatDTO.setUserUsername(username);
+
+		for (Message m: messages) {
+			chatDTO.getMessages().add(new MessageDTO(m));
+		}
+
+		return chatDTO;
+
+	}
+
+	public MessageDTO postMesage(MessageDTO messageDTO, String username) {
+
+		Message m = new Message();
+
+		if (!messageDTO.getContent().equals("")) {
+			m.setContent(messageDTO.getContent());
+		} else {
+			throw new BusinessException("Message content can not be empty.");
+		}
+
+		m.setDate(new Date(System.currentTimeMillis()));
+
+		try {
+			Reservation r = reservationRepo.findById(messageDTO.getReservationId()).get();
+			m.setReservation(r);
+			m.setIdReservation(r.getId());
+
+			Agent a = r.getAccommodationUnit().getAgent();
+
+			m.setReceiver(a);
+			m.setUsernameReceiver(a.getUsername());
+
+		} catch (NoSuchElementException e) {
+			throw new BusinessException("Reservation with given id does not exist.");
+		}
+
+
+		TPerson u = personRepo.findOneByUsername(username);
+
+		m.setSender(u);
+		m.setUsernameSender(u.getUsername());
+
+		m.setIsAgentsMessage(false);
+		m.setIsUsersMessage(true);
+
+		m = messageRepository.save(m);
+
+		return new MessageDTO(m);
 	}
 	
 	
@@ -316,5 +389,35 @@ public class ReservationService
 		int days = (int) (dei / (1000*60*60*24));
 		return days;
 	}
-	
+
+    public Message postMessageFromSOAP(Message message, String agentUsername) {
+
+
+
+		TPerson sender = personRepo.findOneByUsername(agentUsername);
+		message.setSender(sender);
+
+		Reservation r = reservationRepo.findById(message.getIdReservation()).get();
+		message.setReservation(r);
+
+		TPerson receiver = personRepo.findOneByUsername(r.getReservator().getUsername());
+		message.setReceiver(receiver);
+
+		message.setIsAgentsMessage(true);
+
+		return messageRepository.save(message);
+
+	}
+
+	public List<Message> getAllMessagesByReservationId(Long id) {
+		List<Message> messages = messageRepository.findAllByReservationId(id);
+
+		for (Message m: messages) {
+			m.setUsernameSender(m.getSender().getUsername());
+			m.setUsernameReceiver(m.getReceiver().getUsername());
+			m.setIdReservation(m.getReservation().getId());
+		}
+
+		return messages;
+	}
 }

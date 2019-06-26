@@ -4,21 +4,23 @@
 
 	<div  #messagesContainer class="messages-container">
 
-		<div class="message-box" *ngFor="let m of messages" [ngClass]="{'self-message' : m.self, 'guest-message' : !m.self}">
+		<div class="message-box" *ngFor="let m of messages" [ngClass]="{'self-message' : m.isUsersMessage, 'guest-message' : m.isAgentsMessage}">
 			
-			<div class="message-content" [ngClass]="{'self-message-content' : m.self, 'guest-message-content' : !m.self}">
+			<div class="message-content" [ngClass]="{'self-message-content' : m.isUsersMessage, 'guest-message-content' : m.isAgentsMessage}">
 				{{ m.content }}
 			</div>
 			<div class="message-info">
-				sent by {{ m.sender }} on {{ m.date }}
+				sent by {{ m.isAgentsMessage ? agentUsername : userUsername }} on {{ m.date | date:'medium' }}
 			</div>
 
 		</div>
 
 	</div>
-	<div class="new-message-container">
-		<textarea class="form-ctrl" rows="4"></textarea>
-		<button class="btn btn-secondary">send</button>
-	</div>
+	<form [formGroup]="messageForm" (ngSubmit)="onSubmitMessage()">
+		<div class="new-message-container">
+				<textarea class="form-ctrl" rows="3" formControlName="message"></textarea>
+				<button type="submit" class="btn btn-secondary" [disabled]="!messageForm.valid">send</button>
+			</div>
+		</form>
 
 </section>
