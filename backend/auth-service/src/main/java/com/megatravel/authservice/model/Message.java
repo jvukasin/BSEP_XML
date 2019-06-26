@@ -32,25 +32,18 @@ import java.util.Date;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
-    "reservation",
-    "sender",
+    "idReservation",
     "content",
     "date",
-    "receiver"
+    "usernameSender",
+    "usernameReceiver"
 })
 @Entity
 @XmlRootElement(name = "Message", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message")
 public class Message {
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
-    protected Reservation reservation;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
-    protected TPerson sender;
-	
-	@Column(name = "content")
+
+    @Column(name = "content")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
     protected String content;
 	
@@ -58,77 +51,41 @@ public class Message {
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
     @XmlSchemaType(name = "dateTime")
     protected Date date;
-	
-    @ManyToOne(fetch = FetchType.EAGER)
+
+	@Transient
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
-    protected TPerson receiver;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    protected String usernameSender;
+
+    @Transient
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
+    protected String usernameReceiver;
+
+    @Transient
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message")
+    protected long idReservation;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @XmlAttribute(name = "id")
     protected Long id;
+	
+    @ManyToOne(fetch = FetchType.EAGER)
+    protected TPerson receiver;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    protected Reservation reservation;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    protected TPerson sender;
+
 
 	
     public Message() {
 		super();
 	}
 
-	/**
-     * Gets the value of the reservation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Reservation }
-     *     
-     */
-    public Reservation getReservation() {
-        return reservation;
-    }
 
-    /**
-     * Sets the value of the reservation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Reservation }
-     *     
-     */
-    public void setReservation(Reservation value) {
-        this.reservation = value;
-    }
 
-    /**
-     * Gets the value of the sender property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TPerson }
-     *     
-     */
-    public TPerson getSender() {
-        return sender;
-    }
-
-    /**
-     * Sets the value of the sender property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TPerson }
-     *     
-     */
-    public void setSender(TPerson value) {
-        this.sender = value;
-    }
-
-    /**
-     * Gets the value of the content property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
     public String getContent() {
         return content;
     }
@@ -169,37 +126,14 @@ public class Message {
         this.date = value;
     }
 
-    /**
-     * Gets the value of the receiver property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TPerson }
-     *     
-     */
-    public TPerson getReceiver() {
-        return receiver;
-    }
-
-    /**
-     * Sets the value of the receiver property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TPerson }
-     *     
-     */
-    public void setReceiver(TPerson value) {
-        this.receiver = value;
-    }
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Long }
-     *     
+     *
      */
     public Long getId() {
         return id;
@@ -216,5 +150,78 @@ public class Message {
     public void setId(Long value) {
         this.id = value;
     }
+
+    /**
+     * Gets the value of the idReservation  property.
+     *
+     */
+    public long getIdReservation() {
+        return idReservation;
+    }
+
+    /**
+     * Sets the value of the idReservation property.
+     *
+     */
+    public void setIdReservation(long value) {
+        this.idReservation = value;
+    }
+
+    /**
+     * Gets the value of the usernameSender property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getUsernameSender() {
+        return usernameSender;
+    }
+
+    /**
+     * Sets the value of the usernameSender property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setUsernameSender(String value) {
+        this.usernameSender = value;
+    }
+
+    /**
+     * Gets the value of the usernameReceiver property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getUsernameReceiver() {
+        return usernameReceiver;
+    }
+
+    /**
+     * Sets the value of the usernameReceiver property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setUsernameReceiver(String value) {
+        this.usernameReceiver = value;
+    }
+
+    /**
+     * Gets the value of the id property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *
+     */
 
 }

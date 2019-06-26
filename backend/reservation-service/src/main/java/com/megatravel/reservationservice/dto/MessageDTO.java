@@ -10,28 +10,27 @@ public class MessageDTO {
     private String content;
     private Long reservationId;
     private Date date;
-    private UserInfoDTO sender;
-    private UserInfoDTO receiver;
+    private String senderUsername;
+    private String receiverUsername;
 
     public MessageDTO() {
     }
 
-    public MessageDTO(Long id, String content, Long reservationId, Date date, UserInfoDTO sender, UserInfoDTO receiver) {
+    public MessageDTO(Long id, String content, long reservationId, Date date, String sender, String receiver) {
         this.id = id;
         this.content = content;
         this.reservationId = reservationId;
         this.date = date;
-        this.sender = sender;
-        this.receiver = receiver;
+        this.senderUsername = sender;
+        this.receiverUsername = receiver;
     }
 
-    public MessageDTO(Message m){
+    public MessageDTO(Message m) {
         this.id = m.getId();
         this.content = m.getContent();
-        this.reservationId = m.getReservation().getId();
         this.date = m.getDate();
-        this.sender = new UserInfoDTO(m.getSender());
-        this.receiver = new UserInfoDTO(m.getReceiver());
+        this.senderUsername = m.getUsernameSender();
+        this.receiverUsername = m.getUsernameReceiver();
     }
 
 
@@ -67,21 +66,19 @@ public class MessageDTO {
         this.date = date;
     }
 
-    public UserInfoDTO getSender() {
-        return sender;
+    public String getSenderUsername() {
+        return senderUsername;
     }
 
-    public void setSender(UserInfoDTO sender) {
-        this.sender = sender;
+    public void setSenderUsername(String senderUsername) {
+        this.senderUsername = senderUsername;
     }
 
-    public UserInfoDTO getReceiver() {
-        return receiver;
+    public String getReceiverUsername() {
+        return receiverUsername;
     }
 
-    public void setReceiver(UserInfoDTO receiver) {
-        this.receiver = receiver;
+    public void setReceiverUsername(String receiverUsername) {
+        this.receiverUsername = receiverUsername;
     }
 }
-
-

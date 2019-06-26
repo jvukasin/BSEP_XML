@@ -1,0 +1,7 @@
+backend/MegaTravelAgent/logs
+backend/accommodation-service/logs
+backend/reservation-service/logs
+backend/auth-service/logs
+backend/discovery-service/logs
+backend/api-gateway/logs
+backend/rating-service/logs

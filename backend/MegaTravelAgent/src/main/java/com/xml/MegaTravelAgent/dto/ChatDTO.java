@@ -1,17 +1,19 @@
 package com.xml.MegaTravelAgent.dto;
 
-import com.xml.MegaTravelAgent.model.Message;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChatDTO {
 
     String senderUsername;
-    List<MessageDTO> senderMessages = new ArrayList<>();
-    List<MessageDTO> receiverMessages = new ArrayList<>();
+    List<MessageDTO> Messages = new ArrayList<>();
 
     public ChatDTO() {
+    }
+
+    public ChatDTO(String senderUsername, List<MessageDTO> messages) {
+        this.senderUsername = senderUsername;
+        Messages = messages;
     }
 
     public String getSenderUsername() {
@@ -22,19 +24,12 @@ public class ChatDTO {
         this.senderUsername = senderUsername;
     }
 
-    public List<MessageDTO> getSenderMessages() {
-        return senderMessages;
+    public List<MessageDTO> getMessages() {
+        return Messages;
     }
 
-    public void setSenderMessages(List<MessageDTO> senderMessages) {
-        this.senderMessages = senderMessages;
-    }
-
-    public List<MessageDTO> getReceiverMessages() {
-        return receiverMessages;
-    }
-
-    public void setReceiverMessages(List<MessageDTO> receiverMessages) {
-        this.receiverMessages = receiverMessages;
+    public void setMessages(List<MessageDTO> messages) {
+        Messages = messages;
     }
 }
+

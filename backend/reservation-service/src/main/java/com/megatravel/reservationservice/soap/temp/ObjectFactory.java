@@ -30,70 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Reservation }
-     * 
-     */
-    public Reservation createReservation() {
-        return new Reservation();
-    }
-
-    /**
-     * Create an instance of {@link AccommodationUnit }
-     * 
-     */
-    public AccommodationUnit createAccommodationUnit() {
-        return new AccommodationUnit();
-    }
-
-    /**
-     * Create an instance of {@link Amenity }
-     * 
-     */
-    public Amenity createAmenity() {
-        return new Amenity();
-    }
-
-    /**
-     * Create an instance of {@link Image }
-     * 
-     */
-    public Image createImage() {
-        return new Image();
-    }
-
-    /**
-     * Create an instance of {@link SpecificPrice }
-     * 
-     */
-    public SpecificPrice createSpecificPrice() {
-        return new SpecificPrice();
-    }
-
-    /**
-     * Create an instance of {@link Location }
-     * 
-     */
-    public Location createLocation() {
-        return new Location();
-    }
-
-    /**
-     * Create an instance of {@link City }
-     * 
-     */
-    public City createCity() {
-        return new City();
-    }
-
-    /**
-     * Create an instance of {@link Country }
-     * 
-     */
-    public Country createCountry() {
-        return new Country();
-    }
-
-    /**
      * Create an instance of {@link Comment }
      * 
      */
@@ -107,6 +43,30 @@ public class ObjectFactory {
      */
     public Rating createRating() {
         return new Rating();
+    }
+
+    /**
+     * Create an instance of {@link Country }
+     * 
+     */
+    public Country createCountry() {
+        return new Country();
+    }
+
+    /**
+     * Create an instance of {@link City }
+     * 
+     */
+    public City createCity() {
+        return new City();
+    }
+
+    /**
+     * Create an instance of {@link Location }
+     * 
+     */
+    public Location createLocation() {
+        return new Location();
     }
 
 }

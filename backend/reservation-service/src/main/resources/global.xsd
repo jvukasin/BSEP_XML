@@ -117,6 +117,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element default="false" name="approved" type="xs:boolean"/>
+                <xs:element name="postingDate" type="xs:dateTime"/>
                 <xs:element name="text">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">

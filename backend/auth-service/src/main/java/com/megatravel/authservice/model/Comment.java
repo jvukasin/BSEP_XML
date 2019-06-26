@@ -3,11 +3,8 @@ package com.megatravel.authservice.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+import java.util.Date;
 
 
 /**
@@ -40,13 +37,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "approved",
-    "text"
+    "text",
+    "postingDate"
 })
 @Entity
 @XmlRootElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Comment {
 
-    @Column(name = "approved")
+	@Column(name = "approved")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", defaultValue = "false")
     protected boolean approved;
 
@@ -54,6 +52,10 @@ public class Comment {
     @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String text;
+
+    @Column(name = "postingDate")
+    @XmlSchemaType(name = "dateTime")
+    protected Date postingDate;
 
     @OneToOne(fetch = FetchType.LAZY, optional = true)
     protected Rating rating;
@@ -98,6 +100,32 @@ public class Comment {
      *     {@link String }
      *     
      */
+
+    /**
+     * Gets the value of the postingDate property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Date }
+     *
+     */
+    public Date getPostingDate() {
+        return postingDate;
+    }
+
+    /**
+     * Sets the value of the postingDate property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link Date }
+     *
+     */
+
+    public void setPostingDate(Date value) {
+        this.postingDate = value;
+    }
+
     public void setText(String value) {
         this.text = value;
     }
