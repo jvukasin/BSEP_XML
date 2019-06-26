@@ -8,8 +8,10 @@ import com.megatravel.reservationservice.dto.UserReservationDTO;
 import com.megatravel.reservationservice.security.TokenUtils;
 import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,6 +90,10 @@ public class ReservationController
 		catch(BusinessException e)
 		{
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		catch (OptimisticLockingFailureException e)
+		{
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 		catch(Exception e)
 		{

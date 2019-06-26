@@ -6,6 +6,7 @@ import java.util.*;
 import com.megatravel.reservationservice.dto.*;
 import com.megatravel.reservationservice.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
 import com.megatravel.reservationservice.repository.AccommodationUnitRepository;
@@ -13,6 +14,9 @@ import com.megatravel.reservationservice.repository.ReservationRepository;
 import com.megatravel.reservationservice.repository.TPersonRepository;
 
 import exceptions.BusinessException;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 public class ReservationService 
@@ -50,8 +54,8 @@ public class ReservationService
 			throw new BusinessException("No reservation with id: " + id + " found.");
 		}
 	}
-	
-	
+
+	@Transactional(isolation = Isolation.REPEATABLE_READ)
 	public Long create(ReservationDTO dto)
 	{
 		Reservation reservation = new Reservation();
@@ -65,10 +69,7 @@ public class ReservationService
 		{
 			throw new BusinessException("An Unknow accommodation appeared in request.");
 		}
-		
-		
-		
-		
+
 		if(dto.getStartDate().getTime() >= dto.getEndDate().getTime())
 		{
 			throw new BusinessException("Invalid start and end date input in request.");
@@ -76,7 +77,7 @@ public class ReservationService
 		
 		if(isOccupied(dto.getStartDate(), dto.getEndDate(), reservation.getAccommodationUnit()))
 		{
-			throw new BusinessException("The accommodation is occupied during the selected dates.");
+			throw new OptimisticLockingFailureException("The accommodation is occupied during the selected dates.");
 		}
 		
 		

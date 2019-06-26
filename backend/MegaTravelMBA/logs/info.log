@@ -1,0 +1,38 @@
+2019-06-26 21:24:33,689 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:24:45,193 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:24:49,258 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 24.448 seconds (JVM running for 31.911)
+2019-06-26 21:24:52,139 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 21:24:56,021 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 16.51 seconds (JVM running for 23.284)
+2019-06-26 21:25:19,452 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:25:24,009 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-26 21:25:27,027 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 13.104 seconds (JVM running for 16.824)
+2019-06-26 21:26:45,910 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:27:05,686 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 36.563 seconds (JVM running for 39.729)
+2019-06-26 21:33:03,165 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:33:17,371 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 19.866 seconds (JVM running for 24.381)
+2019-06-26 21:37:52,154 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:38:07,943 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 21.615 seconds (JVM running for 25.525)
+2019-06-26 21:50:29,331 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:50:45,677 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 24.082 seconds (JVM running for 31.677)
+2019-06-26 21:51:42,194 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:51:53,566 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 15.955 seconds (JVM running for 18.468)
+2019-06-26 21:52:41,906 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 21:52:58,395 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 24.381 seconds (JVM running for 28.016)
+2019-06-26 21:59:51,160 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:00:03,951 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 17.203 seconds (JVM running for 19.728)
+2019-06-26 22:00:43,636 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:00:55,161 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 16.2 seconds (JVM running for 18.713)
+2019-06-26 22:01:16,807 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:01:27,735 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 15.234 seconds (JVM running for 18.037)
+2019-06-26 22:36:25,386 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:36:41,086 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 20.499 seconds (JVM running for 23.861)
+2019-06-26 22:38:04,972 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:38:16,604 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 15.694 seconds (JVM running for 18.009)
+2019-06-26 22:38:46,772 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:39:00,373 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 18.899 seconds (JVM running for 22.08)
+2019-06-26 22:43:20,870 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:43:36,222 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 20.688 seconds (JVM running for 23.645)
+2019-06-26 22:45:01,367 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:45:15,983 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 19.26 seconds (JVM running for 22.961)
+2019-06-26 22:45:56,432 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-26 22:46:07,146 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 14.809 seconds (JVM running for 17.251)
