@@ -34,7 +34,7 @@ import java.util.Date;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "approved",
     "text",

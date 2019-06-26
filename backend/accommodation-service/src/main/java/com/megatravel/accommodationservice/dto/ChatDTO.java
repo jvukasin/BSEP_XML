@@ -1,4 +1,4 @@
-package com.megatravel.reservationservice.dto;
+package com.megatravel.accommodationservice.dto;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,18 +1,10 @@
 
 package com.xml.MegaTravelAgent.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.*;
+import java.util.Date;
 
 
 /**
@@ -45,27 +37,32 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
     "approved",
-    "text"
+    "text",
+    "postingDate"
 })
-
 @Entity
 @XmlRootElement(name = "Comment", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
 public class Comment {
-	
-    @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected boolean id;
-	
+
 	@Column(name = "approved")
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", defaultValue = "false")
     protected boolean approved;
-	
-	@Column(name = "text")
+
+    @Column(name ="text")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String text;
-	
-	@OneToOne(fetch = FetchType.LAZY)
-	protected Rating rating;
+
+    @Column(name = "postingDate")
+    @XmlSchemaType(name = "dateTime")
+    protected Date postingDate;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
+    protected Rating rating;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id;
 
     /**
      * Gets the value of the approved property.
@@ -75,15 +72,7 @@ public class Comment {
         return approved;
     }
 
-    public Rating getRating() {
-		return rating;
-	}
-
-	public void setRating(Rating rating) {
-		this.rating = rating;
-	}
-
-	/**
+    /**
      * Sets the value of the approved property.
      * 
      */
@@ -111,13 +100,49 @@ public class Comment {
      *     {@link String }
      *     
      */
+
+    /**
+     * Gets the value of the postingDate property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Date }
+     *
+     */
+    public Date getPostingDate() {
+        return postingDate;
+    }
+
+    /**
+     * Sets the value of the postingDate property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link Date }
+     *
+     */
+
+    public void setPostingDate(Date value) {
+        this.postingDate = value;
+    }
+
     public void setText(String value) {
         this.text = value;
     }
 
-	public Comment() {
-		super();
-	}
+    public Rating getRating() {
+        return rating;
+    }
 
-    
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

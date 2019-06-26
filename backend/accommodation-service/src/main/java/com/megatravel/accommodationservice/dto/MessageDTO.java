@@ -1,6 +1,7 @@
 package com.megatravel.accommodationservice.dto;
 
 import com.megatravel.accommodationservice.model.Message;
+
 import java.util.Date;
 
 public class MessageDTO {
