@@ -40,34 +40,12 @@
 
     <!-- REZERVACIJE -->
     <div  class="sidebyside-center">
-  
-    <div id="reservationList">
+    <div id="reservationList" *ngIf="isMessages"> <app-messages (hideEvent)="hideMessages($event)"></app-messages> </div>
+    
+    <div id="reservationList" *ngIf="!isMessages">
       <h1>Reservations</h1>
     
       <div class="resList">
-        <!--
-          <div class="card">
-              <div class="accommodation sidebyside">
-                  <div class="image">
-                    <img class="acc-img" src="https://hotel-vojvodina.rs/wp-content/uploads/2016/05/IMG_9753-Edit.jpg">
-                  </div>
-                  <div class="acc-info">
-                      <div class="acc-name"> Hotel Vojvodina </div>
-                    <div class="addres"> Spasoja Stejica 7 </div>
-                  </div>
-              </div>
-              
-              <div>
-                  <div class="startDate">Start date: 12.10.2019.</div>
-                  <div class="endDate">End date: 12.11.2019.</div>
-                  <div class="price"> Price: 10000$ </div>
-              </div>
-              <div class="buttons sidebyside">
-              </div>
-          
-          </div>
-
-        -->
 
           <div class="row res-card" *ngFor="let reservation of reservationList">
               <div class="tile">
@@ -100,7 +78,7 @@
                           <div class="endDate">End date: {{ reservation.endDate | date }}</div>
                         </div>
                         <div class="details-btn-card">
-                          <button type="button" class="btn btn-primary sendMessage"> Send message </button>
+                          <button type="button" class="btn btn-primary sendMessage" (click)="showMessages()"> Send message </button>
                         </div>
                       </div>
                       <div style="position:absolute; top:0.45px; right: 0.31px" *ngIf="canCanel(reservation)"><button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel reservation" (click)="cancelReservation(reservation.accommodation.name, reservation.id)">
@@ -116,9 +94,6 @@
 
     </div>
 
-    <!-- COLLAPSE  -->
-    <div class="sidebyside-right">
-    </div>
 
   </div>
 </div>

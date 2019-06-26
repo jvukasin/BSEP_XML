@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
 
   reservationList: any;
   user: any = null;
+  isMessages: boolean = false;
 
   constructor(private reservationService: ReservationService, private userService: UserService) { }
 
@@ -97,5 +98,13 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+
+  showMessages(){
+    this.isMessages = true;
+  }
+
+  hideMessages($event){
+    this.isMessages = $event;
+  }
 
 }

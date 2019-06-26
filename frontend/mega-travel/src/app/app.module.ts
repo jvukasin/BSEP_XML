@@ -27,6 +27,7 @@ import { SearchResultsService } from './services/search-results.service';
 import { AccommodationComponent } from './accommodation/accommodation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReservationService } from './services/reservation.service';
+import { MessagesComponent } from './profile/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ReservationService } from './services/reservation.service';
     AboutUsComponent,
     AccommodationListComponent,
     AccommodationComponent,
-    ProfileComponent
+    ProfileComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
