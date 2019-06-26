@@ -1,5 +1,6 @@
 package com.megatravel.authservice.controller;
 
+import com.megatravel.authservice.model.TPerson;
 import com.megatravel.authservice.model.User;
 import com.megatravel.authservice.model.UserTokenState;
 import com.megatravel.authservice.security.CustomUserDetailsService;
@@ -14,6 +15,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -78,8 +80,7 @@ public class AuthController {
             System.out.println("\n\naccommodation service not up\n\n");
         }
 
-        User user =  (User) authentication.getPrincipal();
-
+        TPerson user =  (TPerson) authentication.getPrincipal();
         // VRATI DRUGI STATUS KOD
         if(user == null) {
             // logger.logError("ULOG_FAIL. "+ authenticationRequest.getUsername() + " is not authorized.");
@@ -95,10 +96,29 @@ public class AuthController {
         return ResponseEntity.ok(new UserTokenState(jwt,expiresIn));
     }
 
+
     // proveriti jos da li je ovako dobro - istrazi
-    @RequestMapping(value="/logout", method = RequestMethod.GET)
-    public ResponseEntity<?> logOut(){
-        SecurityContextHolder.clearContext();
+    @RequestMapping(value="/logout", method = RequestMethod.POST)
+    public ResponseEntity<?> logOut(HttpServletRequest request, HttpServletResponse response){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null)
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
+
+        //poslati svima zahtev da izbrisu kontekst
+        try {
+            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/logout", null, null);
+        } catch (Exception e) {
+            //ovo treba u logger
+            e.printStackTrace();
+            System.out.println("\n\nreservation service not up\n\n");
+        }
+        try {
+            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/logout", null, null);
+        } catch (Exception e) {
+            //ovo treba u logger
+            e.printStackTrace();
+            System.out.println("\n\naccommodation service not up\n\n");
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

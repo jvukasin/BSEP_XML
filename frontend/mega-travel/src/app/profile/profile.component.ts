@@ -3,6 +3,8 @@ import { ReservationService } from '../services/reservation.service';
 import * as moment from 'moment';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +15,7 @@ export class ProfileComponent implements OnInit {
 
   reservationList: any;
   user: any = null;
+  isMessages: boolean = false;
 
   constructor(private reservationService: ReservationService, private userService: UserService) { }
 
@@ -95,5 +98,13 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+
+  showMessages(){
+    this.isMessages = true;
+  }
+
+  hideMessages($event){
+    this.isMessages = $event;
+  }
 
 }

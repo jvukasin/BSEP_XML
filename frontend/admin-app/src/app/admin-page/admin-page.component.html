@@ -4,9 +4,12 @@
         <a href="#" (click)="collapseSideBar()" id="sidebarCollapse"><i class="fa fa-bars" aria-hidden="true"></i> Menu</a>
         <ul class="navbar-nav ml-auto ml-md-0 d-flex justify-content-end" id=nav>
             <li>
-            <span id="name"><i class="fa fa-user" aria-hidden="true"></i>Milan Lazic</span>
-            <a class="link-nav" routerLink="/login">
+            <span *ngIf="isLogged" id="name"><i class="fa fa-user" aria-hidden="true" style="margin-right:5px"></i>{{ admin.firstname }} {{ admin.lastname }} </span>
+            <a *ngIf="!isLogged" class="link-nav" routerLink="/login">
                 Login<span><i class="fa fa-sign-in" aria-hidden="true" style="margin-left:3px"></i></span>
+            </a>
+            <a *ngIf="isLogged" class="link-nav" [routerLink]="" (click)="logOut()">
+                Logout<span><i class="fa fa-sign-in" aria-hidden="true" style="margin-left:3px"></i></span>
             </a>
         </li>
     </ul>

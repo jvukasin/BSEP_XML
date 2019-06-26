@@ -23,4 +23,9 @@ import { HttpClient } from '@angular/common/http';
       remove(username){
         return this.http.delete('/api/authservice/remove/' + username);
       }
+
+      getUser(){
+        return this.http.get('api/authservice/users/getUser');
+      }
+
   }

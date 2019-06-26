@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,13 @@ import { AmenitiesComponent } from './admin-page/amenities/amenities.component';
 import { TypesComponent } from './admin-page/types/types.component';
 import { AgentComponent } from './admin-page/agent/agent.component';
 import { CategoriesComponent } from './admin-page/categories/categories.component';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { AuthService } from './service/auth.service';
+import { UserService } from './service/user.service';
+import { AmenityService } from './service/amenity.service';
+import { AgentService } from './service/agent.service';
+import { TypeService } from './service/type.service';
+import { CategoryService } from './service/categories.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +41,8 @@ import { CategoriesComponent } from './admin-page/categories/categories.componen
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ AuthService, UserService, AmenityService, AgentService, TypeService, CategoryService,
+              {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 package com.megatravel.accommodationservice.security;
 
+import com.megatravel.accommodationservice.model.TPerson;
 import com.megatravel.accommodationservice.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -96,7 +97,7 @@ public class TokenUtils {
 		// Functions for validating JWT token data
 
 		public Boolean validateToken(String token, UserDetails userDetails) {
-			User user = (User) userDetails;
+			TPerson user = (User) userDetails;
 			final String username = getUsernameFromToken(token);
 			final Date created = getIssuedAtDateFromToken(token);
 			if(user.getLastPasswordResetDate() != null){

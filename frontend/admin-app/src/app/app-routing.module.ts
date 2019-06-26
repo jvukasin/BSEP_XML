@@ -6,7 +6,6 @@ import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
 	{path: '', component: AdminPageComponent},
-	{path: 'users', component: UsersComponent},
 	{path: 'login', component: LoginComponent}
 	]
 
