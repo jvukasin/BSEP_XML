@@ -1,8 +1,6 @@
 package com.megatravel.reservationservice.soap.endpoints;
 
-import com.megatravel.reservationservice.model.AccommodationUnit;
-import com.megatravel.reservationservice.model.ObjectFactory;
-import com.megatravel.reservationservice.model.Reservation;
+import com.megatravel.reservationservice.model.*;
 import com.megatravel.reservationservice.services.ReservationService;
 import com.megatravel.reservationservice.soap.reqres.*;
 import exceptions.BusinessException;
@@ -43,7 +41,12 @@ public class ReservationEndpoint implements IReservationEndpoint {
             au.setId(r.getAccommodationUnit().getId());
             au.setName(r.getAccommodationUnit().getName());
             r.setAccommodationUnit(au);
-            r.setUsernameReservator(r.getReservator().getUsername());
+
+            if (r.getReservator() != null) {
+                r.setUsernameReservator(r.getReservator().getUsername());
+            } else {
+                r.setUsernameReservator(request.getAgentUsername());
+            }
 
             response.getReservation().add((r));
         }
@@ -59,11 +62,12 @@ public class ReservationEndpoint implements IReservationEndpoint {
         // Ovde ce morati da se proveri da li je u medju vremenu neko iz glavne aplikacije od korisnika rezervisao
         // taj smestaj u tom periodu, u slucaju da jeste, u responsu se vraca null za rezervaciju (ili smisliti neki bolji mehanizam)
 
-        System.out.println("Agentusername: " + request.getAgentUsername());
-        System.out.println("Reservation: " + request.getReservation());
+        Reservation reservation = request.getReservation();
+
+        reservation = reservationService.createFromSOAP(reservation);
 
         PostReservationResponse response = factory.createPostReservationResponse();
-        response.setReservation(null);
+        response.setReservation(reservation);
 
         return response;
     }

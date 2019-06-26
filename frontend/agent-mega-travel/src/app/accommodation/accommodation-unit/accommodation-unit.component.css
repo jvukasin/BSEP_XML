@@ -9,6 +9,21 @@ h3 {
     color: var(--rosa);
 }
 
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    flex: 0 1 30%;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.form-group input {
+    flex: 1 0 60%;
+}
+
 .au-content {
     padding: 50px;
     background: white;
@@ -28,6 +43,10 @@ h3 {
 
 .au-heading-info > *:not(:last-child) {
     margin-bottom: 30px;
+}
+
+.au-heading-right {
+    flex: 0 0 0;
 }
 
 .au-heading-img {
@@ -157,7 +176,6 @@ h3 {
 .au-amenities-list {
     display: flex;
     flex-direction: column;
-    height: 100px;
     flex-wrap: wrap;
     margin-top: 17px;
     font-weight: 200;
@@ -225,4 +243,12 @@ td.sp-price {
     font-weight: 600;
     
     font-size: 22px;
+}
+
+.au-heading-ctrl {
+    margin-top: 30px;
+}
+
+.btn.reserve {
+    width: 100%;
 }

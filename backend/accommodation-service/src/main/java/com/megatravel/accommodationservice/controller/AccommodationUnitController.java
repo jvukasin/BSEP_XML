@@ -106,7 +106,7 @@ public class AccommodationUnitController
 	@RequestMapping(value = "/types", method = RequestMethod.GET)
 	public ResponseEntity<Collection<AccTypeDTO>> getAccommodationTypes()
 	{
-		return new ResponseEntity<Collection<AccTypeDTO>>(accommodationService.findAllTypes(),HttpStatus.OK);
+		return new ResponseEntity<Collection<AccTypeDTO>>(accommodationService.findAllTypesDTO(),HttpStatus.OK);
 	}
 	
 	

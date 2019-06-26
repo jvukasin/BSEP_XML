@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-reservation-list',
@@ -18,12 +19,19 @@ export class ReservationListComponent implements OnInit {
 	}
 
 	onFetchReservations() {
-		console.log('ping');
 		this.isFetching = true;
 		this.reservationService.fetchReservations().subscribe(
-			payload => {
-				this.reservations = payload;
+			(payload: any[]) => {
+				this.reservations = payload.map(r => {
+					if (r.usernameReservator.includes("*self:")) {
+						r.isSelfReserved = true;
+					}
+					return r;
+				});
+
+				this.reservations = this.reservations.sort((r1: any, r2: any) => r2.endDate - r1.endDate);
 				this.isFetching = false;
+	
 			},
 			error => console.log(error)
 		);

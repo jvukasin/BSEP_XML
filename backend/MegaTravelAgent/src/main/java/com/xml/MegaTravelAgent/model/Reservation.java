@@ -97,6 +97,7 @@ public class Reservation {
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
     protected String usernameReservator;
 
+
     @Id
     @XmlAttribute(name = "id")
     protected Long id;

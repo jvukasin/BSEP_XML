@@ -51,8 +51,36 @@
 					
 
 				</div>
-				<div class="au-heading-img">
-					<img [src]="accommodationUnit.images[0].imageUrl">
+				<div class="au-heading-right">
+					<div class="au-heading-img">
+						<img [src]="accommodationUnit.images[0].imageUrl">
+					</div>
+					<form [formGroup]="reservationForm" (ngSubmit)="onSubmitReservation()">
+						<div class="au-heading-ctrl appear" *ngIf="showReservationForm">
+
+							<div class="form-group">
+								<label for="startDate">Start date</label>
+								<input type="date" class="form-ctrl" placeholder="start date" formControlName="startDate"
+								 (input)="onChangeStartDate()" min="{{today|date:'yyyy-MM-dd'}}">
+							</div>
+							<div class="form-group">
+								<label for="startDate">End date</label>
+								<input type="date" class="form-ctrl" placeholder="start date" formControlName="endDate" 
+								(input)="onChangeEndDate()" min="{{endDateConstraint|date:'yyyy-MM-dd'}}">
+							</div>
+						</div>
+						
+						<div class="au-heading-ctrl">
+							<button type="submit" class="btn btn-secondary reserve" *ngIf="showReservationForm" [disabled]="!reservationForm.valid">
+								submit reservation
+							</button>
+							<button type="button" class="btn btn-primary reserve" *ngIf="!showReservationForm" (click)="onClickReserve()">reserve</button>
+						</div>
+						
+						<div class="au-heading-ctrl">
+							<span class="error-label" *ngIf="showErrorLabel">This accommodation is already reserved in that period. Please try again with different dates.</span>
+						</div>
+					</form>
 				</div>
 
 

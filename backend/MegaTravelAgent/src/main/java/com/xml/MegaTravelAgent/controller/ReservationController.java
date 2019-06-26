@@ -6,15 +6,14 @@ import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.service.ReservationService;
 import com.xml.MegaTravelAgent.soap.client.ReservationClient;
 import com.xml.MegaTravelAgent.soap.reqres.FetchReservationsResponse;
+import com.xml.MegaTravelAgent.soap.reqres.PostReservationResponse;
 import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationRequest;
 import com.xml.MegaTravelAgent.soap.reqres.SuccessReservationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -52,6 +51,34 @@ public class ReservationController {
 
         return new ResponseEntity<Collection<ReservationDTO>>(reservationDTOs,
                 HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public ResponseEntity<?> createReservation(@RequestBody ReservationDTO reservationDTO,
+                                                                        HttpServletRequest request) {
+
+        String username = getUsernameFromRequest(request);
+
+        if (username == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+
+
+        Reservation r = reservationService.formReservationForSOAP(reservationDTO, username);
+
+
+        try {
+            PostReservationResponse response = reservationClient.postReservation(r, username);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
+
+        // todo insert maybe
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
     }
 
     @RequestMapping(value = "/{id}/success", method = RequestMethod.PUT)

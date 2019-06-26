@@ -115,6 +115,39 @@ public class ReservationService
 		reservationRepo.save(reservation);
 		return reservation.getId();
 	}
+
+	public Reservation createFromSOAP(Reservation r) {
+
+		try
+		{
+			AccommodationUnit accommodation = accommodationRepo.findById(r.getAccommodationUnit().getId()).get();
+			r.setAccommodationUnit(accommodation);
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new BusinessException("An Unknow accommodation appeared in request.");
+		}
+
+
+		if(r.getStartDate().getTime() >= r.getEndDate().getTime())
+		{
+			throw new BusinessException("Invalid start and end date input in request.");
+		}
+
+		if(isOccupied(r.getStartDate(), r.getEndDate(), r.getAccommodationUnit()))
+		{
+			throw new BusinessException("The accommodation is occupied during the selected dates.");
+		}
+
+		double price = findPrice(r.getStartDate(), r.getEndDate(), r.getAccommodationUnit());
+		r.setPrice(price);
+
+
+
+		return reservationRepo.save(r);
+
+
+	}
 	
 	
 	public void delete(Long id)

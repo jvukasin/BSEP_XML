@@ -26,7 +26,16 @@ public class ReservationClient extends WebServiceGatewaySupport implements IRese
     public PostReservationResponse postReservation(Reservation reservation, String agentUsername) {
         System.out.println("postReservations client");
 
-        return null;
+        PostReservationRequest request = new PostReservationRequest();
+        request.setReservation(reservation);
+        request.setAgentUsername(agentUsername);
+
+
+
+        PostReservationResponse response = (PostReservationResponse) getWebServiceTemplate()
+                .marshalSendAndReceive(ENDPOINT_URI, request);
+
+        return response;
     }
 
     @Override

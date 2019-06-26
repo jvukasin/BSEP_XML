@@ -221,8 +221,13 @@ public class AccommodationUnitService
 	
 	
 	//* * * TYPES * * *
+
+	public Collection<AccommodationType> findAllTypes() {
+		return typeRepo.findAll();
+	}
+
 	
-	public Collection<AccTypeDTO> findAllTypes()
+	public Collection<AccTypeDTO> findAllTypesDTO()
 	{
 		List<AccTypeDTO> retVal = new ArrayList<>();
 
