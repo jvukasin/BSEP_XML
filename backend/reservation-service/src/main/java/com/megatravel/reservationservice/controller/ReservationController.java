@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -126,8 +127,8 @@ public class ReservationController
 	
 	
 	
-	//ROLE: ulogovan, agnet
 	@RequestMapping(value = "", method = RequestMethod.POST)
+	@PreAuthorize("hasAuthority('CREATE_RESERVATION')")
 	public ResponseEntity<?> createReservation(@RequestBody ReservationDTO dto)
 	{
 		logger.logInfo("RES_CREATE");

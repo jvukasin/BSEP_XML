@@ -13,6 +13,7 @@ import com.megatravel.authservice.dto.UserListDTO;
 import com.megatravel.authservice.model.User;
 import com.megatravel.authservice.security.TokenUtils;
 import com.megatravel.authservice.service.Logging;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -56,6 +57,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/block/{username}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAuthority('BLOCK_USER')")
     public ResponseEntity<List<UserListDTO>> blockUser(@PathVariable("username") String username){
         tPersonService.blokUser(username);
         List<UserListDTO> users = tPersonService.findAllUsers();
@@ -63,6 +65,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/activate/{username}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAuthority('ACTIVATE_USER')")
     public ResponseEntity<List<UserListDTO>> activateUser(@PathVariable("username") String username){
         tPersonService.activateUser(username);
         List<UserListDTO> users = tPersonService.findAllUsers();
@@ -70,6 +73,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/remove/{username}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasAuthority('REMOVE_USER')")
     public ResponseEntity<List<UserListDTO>> removeUser(@PathVariable("username") String username){
         tPersonService.remove(username);
         List<UserListDTO> users = tPersonService.findAllUsers();

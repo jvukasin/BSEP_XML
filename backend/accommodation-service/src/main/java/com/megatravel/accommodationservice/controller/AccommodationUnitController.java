@@ -5,6 +5,7 @@ import com.megatravel.accommodationservice.service.Logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -115,6 +116,7 @@ public class AccommodationUnitController
 	}
 	
 	@RequestMapping(value = "/types/{type}", method = RequestMethod.DELETE)
+	@PreAuthorize("hasAuthority('REMOVE_AU_TYPE')")
 	public ResponseEntity<?> removeType(@PathVariable String type)
 	{
 		logger.logInfo("DELETE_AU_TYPE");
@@ -138,6 +140,7 @@ public class AccommodationUnitController
 
 	
 	@RequestMapping(value = "/types", method = RequestMethod.POST)
+	@PreAuthorize("hasAuthority('ADD_AU_TYPE')")
 	public ResponseEntity<?> addType(@RequestBody AccommodationType dto)
 	{
 		logger.logError("AU_TYPE");
@@ -170,6 +173,7 @@ public class AccommodationUnitController
 	
 
 	@RequestMapping(value = "/categories/{value}", method = RequestMethod.DELETE)
+	@PreAuthorize("hasAuthority('REMOVE_AU_CATEGORY')")
 	public ResponseEntity<?> removeCategory(@PathVariable int value)
 	{
 		logger.logInfo("DELETE_AU_CATEGORY");
@@ -194,6 +198,7 @@ public class AccommodationUnitController
 	
 	
 	@RequestMapping(value = "/categories", method = RequestMethod.POST)
+	@PreAuthorize("hasAuthority('ADD_AU_CATEGORY')")
 	public ResponseEntity<?> addCategory(@RequestBody AccommodationCategory dto)
 	{
 		logger.logInfo("AU_CATEGORY");

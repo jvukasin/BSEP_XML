@@ -32,6 +32,7 @@ export class AdminPageComponent implements OnInit {
   constructor(private router: Router,private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
+    //localStorage.removeItem('currentUser');
     if(!this.authService.isLoggedIn()){
       this.router.navigate(['/login']);
     }
@@ -122,14 +123,14 @@ export class AdminPageComponent implements OnInit {
 
 
   collapse(){
-    this.collapsed = true;
+    this.collapsed = !this.collapsed;
     this.collapsedCodeBook = false;
     this.collapsedAgents = false;
   }
 
 
   collapseCodeBook(){
-    this.collapsedCodeBook = true;
+    this.collapsedCodeBook = !this.collapsedCodeBook;
     this.collapsed = false;
     this.collapsedAgents = false;
   }
@@ -137,7 +138,7 @@ export class AdminPageComponent implements OnInit {
   collapseAgents(){
     this.collapsedCodeBook = false;
     this.collapsed = false;
-    this.collapsedAgents = true;
+    this.collapsedAgents = !this.collapsedAgents;
   }
 
 
