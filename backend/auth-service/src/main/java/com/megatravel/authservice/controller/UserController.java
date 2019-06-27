@@ -4,7 +4,10 @@ package com.megatravel.authservice.controller;
 import javax.validation.Valid;
 
 import com.megatravel.authservice.model.Admin;
+import com.megatravel.authservice.model.Role;
 import com.megatravel.authservice.model.TPerson;
+import com.megatravel.authservice.repository.RoleRepository;
+import com.megatravel.authservice.service.RoleService;
 import org.owasp.encoder.Encode;
 
 import com.megatravel.authservice.dto.UserDTO;
@@ -24,6 +27,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,6 +41,9 @@ public class UserController {
 
     @Autowired
     private TokenUtils tokenUtils;
+
+    @Autowired
+    public RoleService roleService;
 
     private Logging logger = new Logging(this);
 
@@ -139,10 +146,18 @@ public class UserController {
         user.setRole("user");
         user.setStatus("active");
 
+
         // generisati salt pomocu BCrypta i uraditi hesiranje sifre
         String salt = BCrypt.gensalt();
         String hashedPass = BCrypt.hashpw(userDTO.getPassword(), salt);
         user.setPassword(hashedPass);
+
+        // izvuci User rolu iz baze i dodeli korisniku
+        Long id = new Long(2);
+        Role role = roleService.findOneById(id);
+        List<Role> roles = new ArrayList<Role>();
+        roles.add(role);
+        user.setRoles(roles);
 
         user = tPersonService.save(user);
 
