@@ -1,5 +1,8 @@
 package com.megatravel.authservice.controller;
 
+import com.megatravel.authservice.model.Agent;
+import com.megatravel.authservice.model.User;
+import com.megatravel.authservice.security.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +17,17 @@ import com.megatravel.authservice.service.TPersonService;
 
 import exceptions.BusinessException;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping(value = "/agents")
 public class AgentController 
 {
     @Autowired
     private TPersonService tPersonService;
-    
+
+    @Autowired
+	TokenUtils tokenUtils;
     
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/text")
     public ResponseEntity<?> saveAgent(@RequestBody AgentDTO agentDTO) 
@@ -39,7 +46,23 @@ public class AgentController
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
     }
-    
+
+    @RequestMapping(value = "/approve",method = RequestMethod.POST)
+	public ResponseEntity<String> approveAgent(@RequestBody String username){
+		Agent agent = tPersonService.approveAgent(username);
+		return new ResponseEntity(username,HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "/upgrade", method = RequestMethod.PUT)
+	public ResponseEntity<?> upgrade(HttpServletRequest request){
+		String authToken = tokenUtils.getToken(request);
+		String username = tokenUtils.getUsernameFromToken(authToken);
+		User user = (User) tPersonService.findOneByUsername(username);
+		user.setStatus("Blocked");
+		user = tPersonService.save(user);
+		return new ResponseEntity(HttpStatus.OK);
+	}
+
     
     @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public ResponseEntity<?> checkIsOccupied(@PathVariable String username) 

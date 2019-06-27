@@ -1,2 +1,18 @@
 2019-06-26 11:30:55,969 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
 2019-06-26 11:31:11,525 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 17.865 seconds (JVM running for 19.504)
+2019-06-27 01:44:15,853 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 01:44:29,851 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 16.39 seconds (JVM running for 18.529)
+2019-06-27 01:56:39,477 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 01:56:58,219 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 21.354 seconds (JVM running for 23.311)
+2019-06-27 02:18:29,383 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 02:18:43,764 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 16.907 seconds (JVM running for 19.087)
+2019-06-27 02:22:43,560 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 02:23:00,269 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 18.897 seconds (JVM running for 20.398)
+2019-06-27 02:28:22,329 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 02:28:50,985 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 31.382 seconds (JVM running for 33.63)
+2019-06-27 02:34:04,683 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 02:34:22,494 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 20.446 seconds (JVM running for 22.2)
+2019-06-27 02:36:57,633 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 02:37:11,368 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 15.813 seconds (JVM running for 17.552)
+2019-06-27 02:46:12,933 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 02:46:26,903 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplicationTests in 16.751 seconds (JVM running for 18.755)

@@ -8,7 +8,8 @@ insert into tperson values ('ADMIN','dovla', 'dovla@gmail.com', null, 'Cvetanovi
 insert into tperson values ('AGENT','tjokarda', '123@gmail.com', null, 'Tjokic', 'Tjoki', '$2a$10$wYRK9iRSzBaJ.MzYhIVkxOdA5xhfRN6O7/ufSyftqFvpPnRJHxOOq', 'agent','rega01','active');
 INSERT INTO tperson VALUES ('AGENT','miladinovski','lazicy@gmail.com',NULL,'Lazic','Miladin','$2a$10$lQk76nAIG0IauNSBwtiePOpJOI0DM28HBPMs7.PCbcghPHdre39cu','agent','rega02','active');
 insert into tperson values ('USER','vule', 'vule@gmail.com', null, 'Jovic', 'Vukasin', '$2a$10$iOZf9I4olwlzBruCnSNxUuV5T5MilF7WYsppxAwFXKFRp/VLdfGVO', 'user','','active');
-insert into tperson values ('USER','mare', 'mare@gmail.com', null, 'Stevanov', 'Marko', '$2a$10$Fg1COHYp62aIB13w95QWZuyFc2FdwUOj37TfDOGQ7F1VHyJi1vsUq', 'user','','active');
+insert into tperson values ('USER','mare', 'mare@gmail.com', null, 'Stevanov', 'Marko', '$2a$10$Fg1COHYp62aIB13w95QWZuyFc2FdwUOj37TfDOGQ7F1VHyJi1vsUq', 'user','','Blocked');
+
 
 insert into role values (1, 'ROLE_ADMIN');
 insert into role values (2, 'ROLE_USER');
@@ -22,6 +23,7 @@ insert into user_roles values ('dovla',1);
 insert into user_roles values ('laza',3);
 insert into user_roles values ('tjokarda',3);
 insert into user_roles values ('miladinovski',3);
+insert into user_roles values ('mare', 2);
 
 insert into accommodation_type (name) values ('Hotel'), ('Hostel'), ('Motel'), ('BnB'), ('Apartment'), ('Studio'), ('Entire house');
 insert into accommodation_category values (1), (3), (5);

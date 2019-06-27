@@ -2,7 +2,6 @@
 package com.megatravel.reservationservice.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +9,9 @@ import java.util.List;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -25,23 +24,22 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = {
-    "registrationNumber",
-    "accommodationUnit"
+        "registrationNumber",
+        "accommodationUnit"
 })
 @XmlRootElement(name = "Agent", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
 @Entity
 @DiscriminatorValue("AGENT")
 public class Agent
-    extends TPerson
+        extends TPerson
 {
 
     @Column(name="registrationNumber")
-    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     protected String registrationNumber;
 
@@ -51,11 +49,11 @@ public class Agent
 
     /**
      * Gets the value of the registrationNumber property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getRegistrationNumber() {
         return registrationNumber;
@@ -63,11 +61,11 @@ public class Agent
 
     /**
      * Sets the value of the registrationNumber property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setRegistrationNumber(String value) {
         this.registrationNumber = value;
@@ -75,25 +73,25 @@ public class Agent
 
     /**
      * Gets the value of the accommodationUnit property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the accommodationUnit property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAccommodationUnit().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AccommodationUnit }
-     * 
-     * 
+     *
+     *
      */
     public List<AccommodationUnit> getAccommodationUnit() {
         if (accommodationUnit == null) {

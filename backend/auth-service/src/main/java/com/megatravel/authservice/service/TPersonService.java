@@ -45,6 +45,22 @@ public class TPersonService {
         return retVal;
     }
 
+	//vraca listu blokiranih korisnika (kad su blokirani znaci da imaju zahtev da postanu agenti)
+	public List<UserListDTO> findAllBlocked() {
+		List<TPerson> users = tPersonRepo.findAll();
+		List<UserListDTO> retVal = new ArrayList<UserListDTO>();
+		for (TPerson person : users) {
+			if (person instanceof User) {
+				User user = (User) person;
+				if(user.getStatus().equals("Blocked")){
+					retVal.add(new UserListDTO(user.getUsername(),user.getEmail(),user.getName(), user.getLastname(), user.getStatus()));
+				}
+
+			}
+		}
+		return retVal;
+	}
+
 	// vraca listu agenta, koristi se za SOAP
 	public List<AgentSOAP> findAllAgentsSOAP() {
 
@@ -88,12 +104,22 @@ public class TPersonService {
     }
 
     public User save(User user) { return tPersonRepo.save(user); }
-    
-    
-    
-    
-    
-    
+
+    public Agent approveAgent(String username){
+    	User user = (User) tPersonRepo.findOneByUsername(username);
+    	tPersonRepo.deleteById(username);
+		Agent agent = new Agent();
+		agent.setUsername(user.getUsername());
+		agent.setName(user.getName());
+		agent.setEmail(user.getEmail());
+		agent.setPassword(user.getPassword());
+		agent.setLastname(user.getLastname());
+		agent.setRole("agent");
+		//postaviti jos odgovarajuce role i privilegije
+		agent = tPersonRepo.save(agent);
+		return agent;
+	}
+
     //* * * AGENT STUFF * * * ;)
     
     public String addAgent(AgentDTO agentDTO)

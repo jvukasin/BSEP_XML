@@ -4,6 +4,8 @@ import * as moment from 'moment';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
+import { AgentService } from '../services/agent.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class ProfileComponent implements OnInit {
   user: any = null;
   isMessages: boolean = false;
 
-  constructor(private reservationService: ReservationService, private userService: UserService) { }
+  constructor(private reservationService: ReservationService, private userService: UserService, private agentService: AgentService, private authService: AuthService) { }
 
   ngOnInit() {
 
@@ -105,6 +107,16 @@ export class ProfileComponent implements OnInit {
 
   hideMessages($event){
     this.isMessages = $event;
+  }
+
+  becomeAgent(){
+    this.agentService.upgrade().subscribe(
+      (response) => {
+        alert("You sent the request")
+        this.authService.logout();
+      },
+      (error) => { alert(error) }
+    )
   }
 
 }

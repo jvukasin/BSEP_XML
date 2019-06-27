@@ -46,6 +46,14 @@ public class UserController {
         return new ResponseEntity(users, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/blocked", method = RequestMethod.GET)
+    public ResponseEntity<List<UserInfoDTO>> getAllBlocked(){
+        List<UserListDTO> users = tPersonService.findAllBlocked();
+        return new ResponseEntity(users, HttpStatus.OK);
+    }
+
+
+
 
     @RequestMapping(value = "/block/{username}", method = RequestMethod.PUT)
     public ResponseEntity<List<UserListDTO>> blockUser(@PathVariable("username") String username){

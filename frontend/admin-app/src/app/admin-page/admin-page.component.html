@@ -22,7 +22,7 @@
         <ul class="navbar-nav">
             <li>
                 <a [routerLink]=""  (click)="collapseCodeBook()">CodeBook</a>
-                <ul *ngIf="collapsedCodeBook" class="list-unstyled" id=collapseCodeBook>
+                <ul *ngIf="collapsedCodeBook" class="list-unstyled collapsed-items" id=collapseCodeBook>
                     <li><a [routerLink]="" (click)="showTypes()">Manage Types</a></li>
                     <li><a [routerLink]="" (click)="showAmenities()">Manage Amenities</a></li>
                     <li><a [routerLink]="" (click)="showCategories()">Manage Categories</a></li>
@@ -31,14 +31,18 @@
 
             <li>
                 <a [routerLink]="" (click)="collapse()">Users</a>
-                <ul *ngIf="collapsed" class="list-unstyled" id=collapse>
+                <ul *ngIf="collapsed" class="list-unstyled collapsed-items" id=collapse>
                     <li><a [routerLink]="" (click)="showManagement()">Management</a></li>
                     <li><a [routerLink]="" (click)="showComments()">Comments</a></li>
                 </ul>
             </li>
 
             <li>
-                <a [routerLink]="" (click)="showAgents()">Agents</a>
+                <a [routerLink]="" (click)="collapseAgents()">Agents</a>
+                <ul *ngIf="collapsedAgents" class="list-unstyled collapsed-items" id=collapseAgents>
+                    <li><a [routerLink]="" (click)="showAgents()">New agent</a></li>
+                    <li><a [routerLink]="" (click)="showApproveAgents()">Approve agent</a></li>
+                </ul>
             </li>
         </ul>
     </nav>
@@ -50,6 +54,7 @@
             <div *ngIf="isType"> <app-types> </app-types> </div>
             <div *ngIf="isAmenity"> <app-amenities> </app-amenities> </div>
             <div *ngIf="isCategory"> <app-categories> </app-categories> </div>
+            <div *ngIf="isApproveAgents"> <app-approve-agent> </app-approve-agent> </div>
     </div>
 
     </div>

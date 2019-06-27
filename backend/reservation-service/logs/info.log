@@ -1,2 +1,8 @@
 2019-06-26 11:33:18,331 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
 2019-06-26 11:33:35,221 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplicationTests in 19.498 seconds (JVM running for 21.407)
+2019-06-27 01:47:12,943 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 01:47:27,749 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplicationTests in 18.246 seconds (JVM running for 20.688)
+2019-06-27 01:54:54,787 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 01:55:16,871 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplicationTests in 25.264 seconds (JVM running for 27.593)
+2019-06-27 02:17:22,996 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-27 02:17:37,963 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplicationTests in 17.106 seconds (JVM running for 18.638)

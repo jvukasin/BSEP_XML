@@ -20,6 +20,7 @@ import { AmenityService } from './service/amenity.service';
 import { AgentService } from './service/agent.service';
 import { TypeService } from './service/type.service';
 import { CategoryService } from './service/categories.service';
+import { ApproveAgentComponent } from './admin-page/approve-agent/approve-agent.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CategoryService } from './service/categories.service';
     AgentComponent,
     CategoriesComponent,
     AgentComponent,
+    ApproveAgentComponent,
   ],
   imports: [
     BrowserModule,

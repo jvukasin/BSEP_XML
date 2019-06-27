@@ -129,7 +129,7 @@ public class TPerson implements UserDetails {
     @Column(name = "username", nullable = false)
     private String username;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade =  {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "username"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))

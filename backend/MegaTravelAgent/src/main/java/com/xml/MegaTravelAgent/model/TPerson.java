@@ -82,7 +82,8 @@ import java.util.List;
     "lastname",
     "email",
     "password",
-    "role"
+    "role",
+    "username"
 })
 @XmlSeeAlso({
     User.class,
@@ -123,7 +124,7 @@ public class TPerson implements UserDetails {
     @Column(name = "username", nullable = false)
     private String username;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade =  {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "username"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
@@ -131,6 +132,10 @@ public class TPerson implements UserDetails {
 
     @Column(name = "last_password_reset_date")
     private Timestamp lastPasswordResetDate;
+
+    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
+    @OneToMany(mappedBy = "reservator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    protected List<Reservation> reservation;
 
     /**
      * Gets the value of the name property.
@@ -312,4 +317,11 @@ public class TPerson implements UserDetails {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
 
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
+    }
 }

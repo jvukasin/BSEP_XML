@@ -15,7 +15,7 @@ public class Privilege implements GrantedAuthority{
     @Column(name = "name")
     private String name;
  
-    @ManyToMany(mappedBy = "privileges")
+    @ManyToMany(mappedBy = "privileges", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Role> roles;
     
 	public Long getId() {

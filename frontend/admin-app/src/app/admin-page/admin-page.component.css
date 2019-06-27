@@ -60,26 +60,26 @@ a {
     margin-right: 5px;
 }
 
-#collapse{
+.collapsed-items{
     background: #292929;
 }
 
-#collapse li a:focus,#collapse li a:hover, #collapse li a:active, #collapse li a[aria-expanded="true"]{
+.collapsed-items li a:focus,.collapsed-items li a:hover, .collapsed-items li a:active, .collapsed-items li a[aria-expanded="true"]{
     color: white !important; 
     background: black !important;
     text-decoration: none;
 }
 
-
-#collapseCodeBook{
+/* 
+.collapsed-itemsCodeBook{
     background: #292929;
 }
 
-#collapseCodeBook li a:focus,#collapseCodeBook li a:hover, #collapseCodeBook li a:active, #collapseCodeBook li a[aria-expanded="true"]{
+.collapsed-itemsCodeBook li a:focus,.collapsed-itemsCodeBook li a:hover, .collapsed-itemsCodeBook li a:active, .collapsed-itemsCodeBook li a[aria-expanded="true"]{
     color: white !important; 
     background: black !important;
     text-decoration: none;
-}
+} */
 
 .link-nav{
     font-size: 20px;

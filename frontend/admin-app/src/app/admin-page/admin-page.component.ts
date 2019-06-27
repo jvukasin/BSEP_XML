@@ -18,12 +18,16 @@ export class AdminPageComponent implements OnInit {
   isManagement: boolean = false;
   isAgents: boolean = false;
   isComments: boolean = false;
+  isApproveAgents: boolean = false;
+  
   admin: any;
   isLogged: boolean = false;
+  
+
 
   collapsed: boolean = false;
   collapsedCodeBook: boolean = false;
-
+  collapsedAgents: boolean = false;
   
   constructor(private router: Router,private userService: UserService, private authService: AuthService) { }
 
@@ -47,46 +51,43 @@ export class AdminPageComponent implements OnInit {
   }
   
   showAmenities(){
-    this.collapsed = false;
     this.isType = false;
     this.isCategory = false;
     this.isAmenity = true;
     this.isManagement = false;
     this.isAgents = false;
     this.isComments = false;
-
+    this.isApproveAgents = false;
   }
 
   showTypes(){
-    this.collapsed = false;
     this.isType = true;
     this.isAmenity = false;
     this.isCategory = false;
     this.isManagement = false;
     this.isAgents = false;
     this.isComments = false;
-
+    this.isApproveAgents = false;
   }
 
   showManagement(){
     this.isManagement = true;
     this.isAgents = false;
+    this.isApproveAgents = false;
     this.isComments = false;
     this.isType = false;
     this.isAmenity = false;
     this.isCategory = false;
-    this.collapsedCodeBook = false;
   }
 
   showAgents(){
-    this.collapsed = false;
+    this.isApproveAgents = false;
     this.isType = false;
     this.isAmenity = false;
     this.isCategory = false;
     this.isManagement = false;
     this.isComments = false;
     this.isAgents = true;
-    this.collapsedCodeBook = false;
   }
 
   showComments(){
@@ -96,7 +97,7 @@ export class AdminPageComponent implements OnInit {
     this.isManagement = false;
     this.isComments = true;
     this.isAgents = false;
-    this.collapsedCodeBook = false;
+    this.isApproveAgents = false;
   }
 
   showCategories(){
@@ -105,25 +106,38 @@ export class AdminPageComponent implements OnInit {
     this.isCategory = true;
     this.isManagement = false;
     this.isComments = false;
+    this.isApproveAgents = false;
     this.isAgents = false;
-    this.collapsedCodeBook = false;
   }
 
-
-
+  showApproveAgents(){
+    this.isApproveAgents = true;
+    this.isType = false;
+    this.isAgents = false;
+    this.isAmenity = false;
+    this.isCategory = false;
+    this.isManagement = false;
+    this.isComments = false;
+  }
 
 
   collapse(){
     this.collapsed = true;
     this.collapsedCodeBook = false;
-
+    this.collapsedAgents = false;
   }
 
 
   collapseCodeBook(){
     this.collapsedCodeBook = true;
     this.collapsed = false;
+    this.collapsedAgents = false;
+  }
 
+  collapseAgents(){
+    this.collapsedCodeBook = false;
+    this.collapsed = false;
+    this.collapsedAgents = true;
   }
 
 
