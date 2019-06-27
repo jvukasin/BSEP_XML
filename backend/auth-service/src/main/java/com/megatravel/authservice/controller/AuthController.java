@@ -63,19 +63,16 @@ public class AuthController {
 
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
-        headers.add("Content-Type", "application/json");
-        HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest,headers);
+        HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest);
         //posalji zahtev servisu da stavi u kontekst
         try {
-            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, ResponseEntity.class);
         } catch (Exception e) {
             logger.logWarning("RES_SER_DOWN");
         }
 
         try {
-            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, ResponseEntity.class);
         } catch (Exception e) {
             logger.logWarning("ACC_SER_DOWN");
         }
