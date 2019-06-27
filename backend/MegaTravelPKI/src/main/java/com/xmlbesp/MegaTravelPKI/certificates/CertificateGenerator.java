@@ -1,11 +1,16 @@
 package com.xmlbesp.MegaTravelPKI.certificates;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.Security;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.security.cert.X509Extension;
 
+import org.bouncycastle.asn1.x509.GeneralName;
+import org.bouncycastle.asn1.x509.GeneralNames;
+import org.bouncycastle.asn1.x509.X509Extensions;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.cert.X509v3CertificateBuilder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
@@ -18,7 +23,6 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 
 import com.xmlbesp.MegaTravelPKI.model.IssuerData;
 import com.xmlbesp.MegaTravelPKI.model.SubjectData;
-
 
 
 //metodu ove klase potrebno upotrebiti kao servis u nasem resenju za registraciju soft komponenata/korisnika
@@ -47,6 +51,9 @@ public class CertificateGenerator {
 					subjectData.getEndDate(),
 					subjectData.getX500name(),
 					subjectData.getPublicKey());
+
+			GeneralNames subjectAltNames = new GeneralNames(new GeneralName(GeneralName.dNSName, "localhost"));
+			certGen.addExtension(X509Extensions.SubjectAlternativeName, false, subjectAltNames);
 			
 			//Generise se sertifikat
 			X509CertificateHolder certHolder = certGen.build(contentSigner);
@@ -66,6 +73,8 @@ public class CertificateGenerator {
 		} catch (OperatorCreationException e) {
 			e.printStackTrace();
 		} catch (CertificateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return null;

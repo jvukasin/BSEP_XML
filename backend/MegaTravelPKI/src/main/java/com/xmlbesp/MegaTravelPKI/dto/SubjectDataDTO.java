@@ -5,7 +5,7 @@ import java.util.Date;
 public class SubjectDataDTO {
 	
 	
-	private String companyName;
+	private String commonName;
 	private String organisation;
 	private String organisationUnit;
 	private String countryCode;
@@ -15,15 +15,14 @@ public class SubjectDataDTO {
 	public SubjectDataDTO() {
 		
 	}
-	
 
 
-	public String getCompanyName() {
-		return companyName;
+	public String getCommonName() {
+		return commonName;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCommonName(String commonName) {
+		this.commonName = commonName;
 	}
 
 	public String getOrganisation() {

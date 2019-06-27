@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/location")
-public class LocationController {
+public class    LocationController {
 
     @Autowired
     CityService cityService;

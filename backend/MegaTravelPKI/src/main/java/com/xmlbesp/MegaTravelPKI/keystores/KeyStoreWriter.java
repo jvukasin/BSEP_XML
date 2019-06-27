@@ -22,7 +22,7 @@ public class KeyStoreWriter {
 	
 	public KeyStoreWriter() {
 		try {
-			keyStore = KeyStore.getInstance("PKCS12");
+			keyStore = KeyStore.getInstance("JKS");
 		} catch (KeyStoreException e) {
 			e.printStackTrace();
 		}

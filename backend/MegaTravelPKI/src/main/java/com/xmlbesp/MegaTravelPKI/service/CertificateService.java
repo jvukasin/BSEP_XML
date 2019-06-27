@@ -54,7 +54,7 @@ public class CertificateService {
 	private String validationApi = "https://localhost:8443/certificate/validateCertificate/";
 	
 	private String keyStorePassword = "mnogodobrasifra";
-	private String rootCertificateAlias = "bbf";
+	private String rootCertificateAlias = "megatravel_root";
 	
 	@PostConstruct
 	public void init() throws ParseException {
@@ -67,14 +67,29 @@ public class CertificateService {
 		if (loadExistingRootKeyStore) {
 			logger.logInfo("KS_INIT_EXISTING");
 			
-			keyStoreWriter.loadKeyStore(formFileName(rootCertificateAlias), keyStorePassword.toCharArray());
-			
-			/*
-			 * // PRIVREMENO - dok je hibernate postavljen na create-drop if
-			 * (!selfSignedExists()) {
-			 * 
-			 * }
-			 */
+			keyStoreWriter.loadKeyStore("megatravel_root.jks", keyStorePassword.toCharArray());
+
+			Certificate certificate = new Certificate();
+
+			String pattern = "yyyy-MM-dd";
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+			Date startDate = simpleDateFormat.parse("2019-06-27");
+			Date endDate = simpleDateFormat.parse("2019-09-25");
+
+			certificate.setAlias(this.rootCertificateAlias);
+			certificate.setCa(true);
+			certificate.setStartDate(startDate);
+			certificate.setEndDate(endDate);
+			certificate.setRevoked(false);
+			certificate.setReasonForRevocation("");
+
+			// cuvamo kako bi dobili ID
+			certificate = certRepo.save(certificate);
+
+			certificate.setIdIssuer(certificate.getId());
+			certificate.setValidationApi(validationApi + certificate.getId());
+			certificate = certRepo.save(certificate);
+
 			
 		} else {
 
@@ -94,9 +109,10 @@ public class CertificateService {
 		logger.logInfo("KS_INIT_SUCCESS.");
 		
 	}
-	
+
+
 	public Certificate generateSelfSignedCertificate(Date startDate, Date endDate) {
-		
+
 		logger.logInfo("SS_CERT_CREATE");
 		// pravimo Certificate objekat sa informacijama koje za sada imamo, kada se upisemo, dobijamo njegov id koji ce biti
 		// u ovom slucaju i issuerId jer je selfSigned, za sve ostalo issuerId ce biti onaj parent cert u lancu koji ga potpisuje
@@ -107,36 +123,36 @@ public class CertificateService {
 		cert.setEndDate(endDate);
 		cert.setRevoked(false);
 		cert.setReasonForRevocation("");
-		
+
 		// cuvamo kako bi dobili ID
 		cert = certRepo.save(cert);
 
 		cert.setIdIssuer(cert.getId());
 		cert.setValidationApi(validationApi + cert.getId());
 		cert = certRepo.save(cert);
-		
+
 		this.keyPairIssuer = generateKeyPair();
-		 
+
 		SubjectData subject = generateRootSubjectData(cert.getId(), startDate, endDate);
 		IssuerData issuer = generateRootIssuerData(keyPairIssuer.getPrivate());
-		
+
 		subject.setPublicKey(keyPairIssuer.getPublic());
 		subject.setPrivateKey(keyPairIssuer.getPrivate());
-		
+
 		CertificateGenerator cg = new CertificateGenerator();
-		
+
 		try {
 			X509Certificate certificate = cg.generateCertificate(subject, issuer);
 			keyStoreWriter.write(this.rootCertificateAlias, keyPairIssuer.getPrivate(), this.keyStorePassword.toCharArray(), certificate);
 
 			logger.logInfo("SS_CERT_CREATE_SUCCESS");
 			return cert;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		}
-		
+
 		logger.logError("SS_CERT_CREATE_FAIL");
 		return null;
 	}
@@ -222,7 +238,7 @@ public class CertificateService {
 	{
 		logger.logInfo("IS_GEN");
 		// ovde treba proveriti i validnost issuera
-		Certificate parentCertificate = certRepo.getOne(certInfoDTO.getIssuerId());
+		Certificate parentCertificate = certRepo.findOneById(certInfoDTO.getIssuerId());
 		
 		if (parentCertificate == null || !parentCertificate.isCa()) {
 			logger.logError("IS_GEN_FAIL");
@@ -259,7 +275,7 @@ public class CertificateService {
 		
 		keyStoreWriter.write(certInfoDTO.getAlias(), subjectData.getPrivateKey(), keyStorePassword.toCharArray(), certificate);
 
-        keyStoreWriter.saveKeyStore(formFileName(certInfoDTO.getAlias()), keyStorePassword.toCharArray());
+        keyStoreWriter.saveKeyStore(formFileNameJKS(certInfoDTO.getAlias()), keyStorePassword.toCharArray());
 		
 		
 //		
@@ -347,7 +363,7 @@ public class CertificateService {
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-	    String name = formFileName(parentCertificate.getAlias());
+	    String name = formFileNameJKS(parentCertificate.getAlias());
 	
 	    KeyStoreReader keyStoreReader = new KeyStoreReader();
 	    IssuerData issuerData = keyStoreReader.readIssuerFromStore(name,
@@ -378,7 +394,7 @@ public class CertificateService {
 		
 		X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
 
-		builder.addRDN(BCStyle.CN, subjectDataDTO.getCompanyName());
+		builder.addRDN(BCStyle.CN, subjectDataDTO.getCommonName());
 	    builder.addRDN(BCStyle.O, subjectDataDTO.getOrganisation());
 	    builder.addRDN(BCStyle.OU, subjectDataDTO.getOrganisationUnit());
 	    builder.addRDN(BCStyle.C, subjectDataDTO.getCountryCode());
@@ -478,4 +494,8 @@ public class CertificateService {
 		return "ks_" + alias.replace(" ", "") + ".p12";
 	}
 
+
+	private String formFileNameJKS(String alias) {
+		return alias.replace(" ", "") + ".jks";
+	}
 }
