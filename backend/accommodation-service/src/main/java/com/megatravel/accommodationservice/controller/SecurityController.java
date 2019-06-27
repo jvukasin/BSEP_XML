@@ -1,5 +1,6 @@
 package com.megatravel.accommodationservice.controller;
 
+import com.megatravel.accommodationservice.model.TPerson;
 import com.megatravel.accommodationservice.security.auth.JwtAuthenticationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SecurityController {
 
     @Autowired
-    private AuthenticationManager manager;
+    public AuthenticationManager manager;
 
     @RequestMapping(value = "/setAuthentication", method = RequestMethod.POST)
     public ResponseEntity<?> setAuth(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device, HttpServletRequest hr){
@@ -32,7 +33,11 @@ public class SecurityController {
         final Authentication authentication = manager
                 .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
 
+        System.out.println("DODAJE U KONTEKST : " + authenticationRequest.getUsername());
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        TPerson user = (TPerson) authentication.getPrincipal();
+        System.out.println("DODAO U KONTEKST: " + user.getUsername());
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

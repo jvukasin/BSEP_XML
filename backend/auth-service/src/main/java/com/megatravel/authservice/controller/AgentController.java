@@ -7,6 +7,7 @@ import com.megatravel.authservice.service.Logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,7 @@ public class AgentController
 	private Logging logger = new Logging(this);
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/text")
+	@PreAuthorize("hasAuthority('ADD_AGENT')")
     public ResponseEntity<?> saveAgent(@RequestBody AgentDTO agentDTO) 
     {
 		logger.logInfo("AG_REG");
@@ -55,6 +57,7 @@ public class AgentController
     }
 
     @RequestMapping(value = "/approve",method = RequestMethod.POST)
+	@PreAuthorize("hasAuthority('APPROVE_AGENT')")
 	public ResponseEntity<String> approveAgent(@RequestBody String username){
 		Agent agent = tPersonService.approveAgent(username);
 		return new ResponseEntity(username,HttpStatus.CREATED);

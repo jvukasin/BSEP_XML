@@ -97,7 +97,7 @@ public class TokenUtils {
 		// Functions for validating JWT token data
 
 		public Boolean validateToken(String token, UserDetails userDetails) {
-			TPerson user = (User) userDetails;
+			TPerson user = (TPerson) userDetails;
 			final String username = getUsernameFromToken(token);
 			final Date created = getIssuedAtDateFromToken(token);
 			if(user.getLastPasswordResetDate() != null){
