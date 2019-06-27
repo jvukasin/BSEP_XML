@@ -1,0 +1,16 @@
+language: node_js
+
+node_js:
+  - "4"
+  - "6"
+  - "7"
+
+env:
+  - GCLOUD_PROJECT=0
+
+before_script:
+  - export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/test/fixtures/stub_cert.json
+  - echo $GOOGLE_APPLICATION_CREDENTIALS
+
+script:
+  - npm run-script coveralls
