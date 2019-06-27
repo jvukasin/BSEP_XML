@@ -1,5 +1,7 @@
 package com.xml.MegaTravelAgent.dto;
 
+import com.xml.MegaTravelAgent.model.Message;
+
 import java.util.Date;
 
 public class MessageDTO {
@@ -8,19 +10,41 @@ public class MessageDTO {
     private String content;
     private Long reservationId;
     private Date date;
-    private UserInfoDTO sender;
-    private UserInfoDTO receiver;
+    private String senderUsername;
+    private String receiverUsername;
+    private boolean isUsersMessage;
+    private boolean isAgentsMessage;
+
 
     public MessageDTO() {
     }
 
-    public MessageDTO(Long id, String content, Long reservationId, Date date, UserInfoDTO sender, UserInfoDTO receiver) {
+    public MessageDTO(Long id, String content, long reservationId, Date date, String sender, String receiver) {
         this.id = id;
         this.content = content;
         this.reservationId = reservationId;
         this.date = date;
-        this.sender = sender;
-        this.receiver = receiver;
+        this.senderUsername = sender;
+        this.receiverUsername = receiver;
+    }
+
+    public MessageDTO(Message m, String userUsername) {
+        this.id = m.getId();
+        this.content = m.getContent();
+        this.date = m.getDate();
+
+        if (m.isIsAgentsMessage()) {
+            this.senderUsername = m.getSender().getUsername();
+            this.receiverUsername = userUsername;
+        } else {
+            this.receiverUsername = m.getReceiver().getUsername();
+            this.senderUsername = userUsername;
+        }
+
+        this.reservationId = m.getReservation().getId();
+        this.isAgentsMessage = m.isIsAgentsMessage();
+        this.isUsersMessage = m.isIsUsersMessage();
+
     }
 
 
@@ -56,21 +80,35 @@ public class MessageDTO {
         this.date = date;
     }
 
-    public UserInfoDTO getSender() {
-        return sender;
+    public String getSenderUsername() {
+        return senderUsername;
     }
 
-    public void setSender(UserInfoDTO sender) {
-        this.sender = sender;
+    public void setSenderUsername(String senderUsername) {
+        this.senderUsername = senderUsername;
     }
 
-    public UserInfoDTO getReceiver() {
-        return receiver;
+    public String getReceiverUsername() {
+        return receiverUsername;
     }
 
-    public void setReceiver(UserInfoDTO receiver) {
-        this.receiver = receiver;
+    public void setReceiverUsername(String receiverUsername) {
+        this.receiverUsername = receiverUsername;
+    }
+
+    public boolean isIsUsersMessage() {
+        return isUsersMessage;
+    }
+
+    public void setIsUsersMessage(boolean usersMessage) {
+        isUsersMessage = usersMessage;
+    }
+
+    public boolean isIsAgentsMessage() {
+        return isAgentsMessage;
+    }
+
+    public void setIsAgentsMessage(boolean agentsMessage) {
+        isAgentsMessage = agentsMessage;
     }
 }
-
-

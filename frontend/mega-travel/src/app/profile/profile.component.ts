@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   reservationList: any;
   user: any = null;
   isMessages: boolean = false;
+  reservationForMessages = null;
 
   constructor(private reservationService: ReservationService, private userService: UserService, private agentService: AgentService, private authService: AuthService) { }
 
@@ -101,8 +102,10 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  showMessages(){
+  showMessages(reservation){
     this.isMessages = true;
+    this.reservationForMessages = reservation;
+    
   }
 
   hideMessages($event){

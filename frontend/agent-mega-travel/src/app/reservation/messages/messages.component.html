@@ -1,22 +1,31 @@
 <section class="right-to-nav appear">
+	<div class="messages-heading">
+			<button type="button" (click)="onClickBack()" class="btn btn-primary">Back</button>
+			<h3>conversation with <strong>{{ userUsername }}</strong></h3>
+	</div>
+	<div  #messagesContainer class="messages-container appear" *ngIf="messages.length > 0">
 
-	<div  #messagesContainer class="messages-container">
+		
 
-		<div class="message-box" *ngFor="let m of messages" [ngClass]="{'self-message' : m.self, 'guest-message' : !m.self}">
+		<div class="message-box" *ngFor="let m of messages" 
+		[ngClass]="{'self-message' : m.isAgentsMessage, 'guest-message' : m.isUsersMessage}">
 			
-			<div class="message-content" [ngClass]="{'self-message-content' : m.self, 'guest-message-content' : !m.self}">
+			<div class="message-content" [ngClass]="{'self-message-content' : m.isAgentsMessage, 'guest-message-content' : m.isUsersMessage}">
 				{{ m.content }}
 			</div>
 			<div class="message-info">
-				sent by {{ m.sender }} on {{ m.date }}
+				sent by {{ m.isAgentsMessage ? agentUsername : userUsername }} on {{ m.date | date:'medium'}}
 			</div>
 
 		</div>
 
 	</div>
+	<div class="message-box" *ngIf="messages.length === 0"><h4>Start a conversation with <strong>{{ userUsername }}</strong></h4></div>
+	<form [formGroup]="messageForm" (ngSubmit)="onSubmitMessage()">
 	<div class="new-message-container">
-		<textarea class="form-ctrl" rows="3"></textarea>
-		<button class="btn btn-secondary">send</button>
-	</div>
+			<textarea class="form-ctrl" rows="3" formControlName="message"></textarea>
+			<button type="submit" class="btn btn-secondary" [disabled]="!messageForm.valid">send</button>
+		</div>
+	</form>
 
 </section>

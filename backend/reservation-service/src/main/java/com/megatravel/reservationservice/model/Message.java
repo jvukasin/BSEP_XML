@@ -1,4 +1,3 @@
-
 package com.megatravel.reservationservice.model;
 
 import javax.persistence.*;
@@ -36,7 +35,9 @@ import java.util.Date;
     "content",
     "date",
     "usernameSender",
-    "usernameReceiver"
+    "usernameReceiver",
+    "isAgentsMessage",
+    "isUsersMessage"
 })
 @Entity
 @XmlRootElement(name = "Message", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message")
@@ -78,8 +79,16 @@ public class Message {
     @ManyToOne(fetch = FetchType.EAGER)
     protected TPerson sender;
 
+    @Column(name = "isUsersMessage")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message")
+    protected boolean isUsersMessage;
 
-	
+    @Column(name = "isAgentsMessage")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message")
+    protected boolean isAgentsMessage;
+
+
+
     public Message() {
 		super();
 	}
@@ -224,4 +233,59 @@ public class Message {
      *
      */
 
+    public TPerson getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(TPerson receiver) {
+        this.receiver = receiver;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
+
+    public TPerson getSender() {
+        return sender;
+    }
+
+    public void setSender(TPerson sender) {
+        this.sender = sender;
+    }
+
+    /**
+     * Gets the value of the isAgentsMessage property.
+     *
+     */
+    public boolean isIsAgentsMessage() {
+        return isAgentsMessage;
+    }
+
+    /**
+     * Sets the value of the isAgentsMessage property.
+     *
+     */
+    public void setIsAgentsMessage(boolean value) {
+        this.isAgentsMessage = value;
+    }
+
+    /**
+     * Gets the value of the isUsersMessage property.
+     *
+     */
+    public boolean isIsUsersMessage() {
+        return isUsersMessage;
+    }
+
+    /**
+     * Sets the value of the isUsersMessage property.
+     *
+     */
+    public void setIsUsersMessage(boolean value) {
+        this.isUsersMessage = value;
+    }
 }

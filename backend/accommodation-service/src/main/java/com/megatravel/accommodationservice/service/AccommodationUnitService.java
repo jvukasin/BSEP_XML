@@ -163,31 +163,26 @@ public class AccommodationUnitService
 				if(dto.getCancellationPeriod() >= 0)
 				{
 					list = cancellationPer(list,dto.getCancellationPeriod());
-					System.out.println("upao1");
 				}
 
 				if(dto.getType() != null && dto.getType() != "")
 				{
 					list = selectType(list,dto.getType());
-					System.out.println("upao2");
 				}
 
 				if(dto.getAmenities().size() != 0 && dto.getAmenities() != null)
 				{
 					list = doesContainAmenities(list,dto.getAmenities());
-					System.out.println("upao3");
 				}
 
 				if(dto.getCategory() != null && dto.getCategory() != "") 
 				{
 					list = isCategory(list,dto.getCategory());
-					System.out.println("upao4");
 				}
 
 				if(dto.getDistanceFromCity() >=0)
 				{
 					list = underDistance(list,dto.getDistanceFromCity());
-					System.out.println("upao5");
 				}
 			}
 

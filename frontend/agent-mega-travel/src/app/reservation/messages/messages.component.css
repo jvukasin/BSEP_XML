@@ -1,8 +1,31 @@
 .messages-container {
     display: flex;
     flex-direction: column;
-    height: 60vh;
+    height: 50vh;
     overflow: auto;
+}
+
+.messages-heading {
+    display: flex;
+    margin-bottom: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.messages-heading strong {
+    color: var(--rosa);
+}
+
+.message-content h3 {
+    line-height: 1;
+}
+
+.messages-heading .btn {
+    margin-right: 20px;
+}
+
+.messages-container::-webkit-scrollbar {
+    width: 0 !important;
 }
 
 .message-box {

@@ -94,14 +94,37 @@ public class ReservationEndpoint implements IReservationEndpoint {
     }
 
     @Override
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "PostMessageRequest")
+    @ResponsePayload
+    public PostMessageResponse postMessage(@RequestPayload PostMessageRequest request) {
+
+        System.out.println("Hit postMessage endpoint");
+
+        reservationService.postMessageFromSOAP(request.getMessage(), request.getAgentUsername());
+
+        PostMessageResponse response = factory.createPostMessageResponse();
+
+        for (Message m: reservationService.getAllMessagesByReservationId(request.getMessage().getIdReservation())) {
+            response.getMessage().add(m);
+        }
+
+        return response;
+
+    }
+
+    @Override
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetMessagesRequest")
     @ResponsePayload
-    public GetMessagesResponse getMessages(GetMessagesRequest request) {
+    public GetMessagesResponse getMessages(@RequestPayload GetMessagesRequest request) {
 
         System.out.println("Hit getMessages endpoint");
 
         GetMessagesResponse response = factory.createGetMessagesResponse();
 
-        return null;
+        for (Message m: reservationService.getAllMessagesByReservationId(request.getReservationId())) {
+            response.getMessage().add(m);
+        }
+
+        return response;
     }
 }

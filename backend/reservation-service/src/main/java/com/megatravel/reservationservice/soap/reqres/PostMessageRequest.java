@@ -1,8 +1,7 @@
 
-package com.xml.MegaTravelAgent.soap.reqres;
+package com.megatravel.reservationservice.soap.reqres;
 
-import com.xml.MegaTravelAgent.model.Reservation;
-
+import com.megatravel.reservationservice.model.Message;
 import javax.xml.bind.annotation.*;
 
 
@@ -16,7 +15,7 @@ import javax.xml.bind.annotation.*;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/reservation}Reservation"/>
+ *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/Message}Message"/>
  *         &lt;element name="agentUsername" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -28,39 +27,39 @@ import javax.xml.bind.annotation.*;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "reservation",
+    "message",
     "agentUsername"
 })
-@XmlRootElement(name = "PostReservationRequest", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
-public class PostReservationRequest {
+@XmlRootElement(name = "PostMessageRequest", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation")
+public class PostMessageRequest {
 
-    @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation", required = true)
-    protected Reservation reservation;
+    @XmlElement(name = "Message", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/Message", required = true)
+    protected Message message;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_reservation", required = true)
     protected String agentUsername;
 
     /**
-     * Gets the value of the reservation property.
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
-     *     {@link Reservation }
+     *     {@link Message }
      *     
      */
-    public Reservation getReservation() {
-        return reservation;
+    public Message getMessage() {
+        return message;
     }
 
     /**
-     * Sets the value of the reservation property.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Reservation }
+     *     {@link Message }
      *     
      */
-    public void setReservation(Reservation value) {
-        this.reservation = value;
+    public void setMessage(Message value) {
+        this.message = value;
     }
 
     /**

@@ -10,6 +10,8 @@
                 <xs:element name="date" type="xs:dateTime"/>
                 <xs:element name="usernameSender" type="xs:string"/>
                 <xs:element name="usernameReceiver" type="xs:string"/>
+                <xs:element name="isAgentsMessage" type="xs:boolean"/>
+                <xs:element name="isUsersMessage" type="xs:boolean"/>
             </xs:sequence>
 
             <xs:attribute name="id" type="xs:long"/>
