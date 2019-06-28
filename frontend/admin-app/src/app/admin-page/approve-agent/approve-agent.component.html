@@ -1,0 +1,35 @@
+<div class="container">
+  <!--Table-->
+  <table class="table table-hover table-fixed" id=table>
+  
+    <!--Table head-->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>username</th>
+        <th>Email</th>
+        <th>Approve</th>
+      </tr>
+    </thead>
+    <!--Table head-->
+    <!--Table body-->
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td><button type="button" class="btn btn-success"  [routerLink]="" (click)="onApprove(user.username)"><span><i class="fa fa-check-square" aria-hidden="true"></i></span></button></td>
+      </tr>
+    </tbody>
+    <!--Table body-->
+  </table>
+  <!--Table-->
+  <div>
+  
+  </div>
+  
+  
+  
+  </div>

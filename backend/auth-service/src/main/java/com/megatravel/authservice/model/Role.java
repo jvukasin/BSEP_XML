@@ -2,15 +2,7 @@ package com.megatravel.authservice.model;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 import com.megatravel.authservice.model.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,10 +17,10 @@ public class Role{
 	@Column(name = "name")
     private String name;
     
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<User> users;
     
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER,  cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
         name = "roles_privileges", 
         joinColumns = @JoinColumn(

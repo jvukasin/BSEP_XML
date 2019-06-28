@@ -4,7 +4,10 @@ package com.megatravel.authservice.controller;
 import javax.validation.Valid;
 
 import com.megatravel.authservice.model.Admin;
+import com.megatravel.authservice.model.Role;
 import com.megatravel.authservice.model.TPerson;
+import com.megatravel.authservice.repository.RoleRepository;
+import com.megatravel.authservice.service.RoleService;
 import org.owasp.encoder.Encode;
 
 import com.megatravel.authservice.dto.UserDTO;
@@ -13,6 +16,7 @@ import com.megatravel.authservice.dto.UserListDTO;
 import com.megatravel.authservice.model.User;
 import com.megatravel.authservice.security.TokenUtils;
 import com.megatravel.authservice.service.Logging;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +27,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,6 +42,9 @@ public class UserController {
     @Autowired
     private TokenUtils tokenUtils;
 
+    @Autowired
+    public RoleService roleService;
+
     private Logging logger = new Logging(this);
 
 
@@ -46,8 +54,17 @@ public class UserController {
         return new ResponseEntity(users, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/blocked", method = RequestMethod.GET)
+    public ResponseEntity<List<UserInfoDTO>> getAllBlocked(){
+        List<UserListDTO> users = tPersonService.findAllBlocked();
+        return new ResponseEntity(users, HttpStatus.OK);
+    }
+
+
+
 
     @RequestMapping(value = "/block/{username}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAuthority('BLOCK_USER')")
     public ResponseEntity<List<UserListDTO>> blockUser(@PathVariable("username") String username){
         tPersonService.blokUser(username);
         List<UserListDTO> users = tPersonService.findAllUsers();
@@ -55,6 +72,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/activate/{username}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAuthority('ACTIVATE_USER')")
     public ResponseEntity<List<UserListDTO>> activateUser(@PathVariable("username") String username){
         tPersonService.activateUser(username);
         List<UserListDTO> users = tPersonService.findAllUsers();
@@ -62,6 +80,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/remove/{username}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasAuthority('REMOVE_USER')")
     public ResponseEntity<List<UserListDTO>> removeUser(@PathVariable("username") String username){
         tPersonService.remove(username);
         List<UserListDTO> users = tPersonService.findAllUsers();
@@ -127,10 +146,18 @@ public class UserController {
         user.setRole("user");
         user.setStatus("active");
 
+
         // generisati salt pomocu BCrypta i uraditi hesiranje sifre
         String salt = BCrypt.gensalt();
         String hashedPass = BCrypt.hashpw(userDTO.getPassword(), salt);
         user.setPassword(hashedPass);
+
+        // izvuci User rolu iz baze i dodeli korisniku
+        Long id = new Long(2);
+        Role role = roleService.findOneById(id);
+        List<Role> roles = new ArrayList<Role>();
+        roles.add(role);
+        user.setRoles(roles);
 
         user = tPersonService.save(user);
 

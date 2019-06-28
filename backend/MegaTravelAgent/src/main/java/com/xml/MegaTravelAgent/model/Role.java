@@ -13,10 +13,10 @@ public class Role{
 	@Column(name = "name")
     private String name;
     
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<User> users;
     
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER,  cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
         name = "roles_privileges", 
         joinColumns = @JoinColumn(

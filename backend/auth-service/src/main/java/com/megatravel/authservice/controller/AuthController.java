@@ -32,21 +32,20 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping(value = "/auth")
 public class AuthController {
 
-    private final static String agentUri = "http://localhost:8445";
 
     @Autowired
-    private RestTemplate restTemplate;
+    public RestTemplate restTemplate;
 
     @Autowired
-    private TokenUtils tokenUtils;
+    public TokenUtils tokenUtils;
 
     @Autowired
-    private AuthenticationManager manager;
+    public AuthenticationManager manager;
 
     @Autowired
-    private CustomUserDetailsService userDetailsService;
+    public CustomUserDetailsService userDetailsService;
 
-    private Logging logger = new Logging(this);
+    public Logging logger = new Logging(this);
 
     @RequestMapping(value="/login",method = RequestMethod.POST)
     public ResponseEntity<?> loginUser(@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response, Device device, HttpServletRequest hr){
@@ -58,30 +57,28 @@ public class AuthController {
             return new ResponseEntity<>(new UserTokenState("error",0), HttpStatus.NOT_FOUND);
         }
 
-
+        System.out.println("DODAJE U KONTEKST: " + authenticationRequest.getUsername());
         final Authentication authentication = manager
                 .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
 
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
-        headers.add("Content-Type", "application/json");
-        HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest,headers);
+        HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest);
         //posalji zahtev servisu da stavi u kontekst
         try {
-            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, ResponseEntity.class);
         } catch (Exception e) {
             logger.logWarning("RES_SER_DOWN");
         }
 
         try {
-            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, JwtAuthenticationRequest.class);
+            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, ResponseEntity.class);
         } catch (Exception e) {
             logger.logWarning("ACC_SER_DOWN");
         }
 
         TPerson user =  (TPerson) authentication.getPrincipal();
+        System.out.println("DODAO: " + user.getUsername());
         // VRATI DRUGI STATUS KOD
         if(user == null) {
              logger.logError("ULOG_FAIL. "+ authenticationRequest.getUsername() + " is not authorized.");

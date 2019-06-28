@@ -2,13 +2,7 @@ package com.megatravel.authservice.model;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -24,7 +18,7 @@ public class Privilege implements GrantedAuthority{
     @Column(name = "name")
     private String name;
  
-    @ManyToMany(mappedBy = "privileges")
+    @ManyToMany(mappedBy = "privileges", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Collection<Role> roles;
     
 	public Long getId() {

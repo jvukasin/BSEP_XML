@@ -19,4 +19,8 @@ import { HttpClient } from '@angular/common/http';
         return this.http.get('auth-service/agents/' + username, {observe: 'response'});
       }
 
+      approveAgent(username){
+        return this.http.post('api/authservice/agents/approve', username);
+      }
+
   }
