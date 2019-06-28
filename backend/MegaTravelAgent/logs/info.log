@@ -757,3 +757,7 @@
 2019-06-28 17:46:41,615 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG_SUCCESS
 2019-06-28 17:47:22,866 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] AGENT_APPROVE
 2019-06-28 17:47:23,041 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] AGENT_APPROVE_SUCCESS
+2019-06-28 19:44:50,788 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplicationTests on DESKTOP-7EFKHD1 with PID 6948 (started by Vladimir in C:\GITHUB\BSEP_XML\backend\MegaTravelAgent)
+2019-06-28 19:44:50,788 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-28 19:44:50,794 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 19:45:02,925 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplicationTests in 12.551 seconds (JVM running for 14.078)
