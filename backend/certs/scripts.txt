@@ -1,6 +1,0 @@
-keytool -export -alias agentlh -file agentlh_certificate.crt -keystore ks_agentlh.p12
-keytool -export -alias mbalh -file mbalh_certificate.crt -keystore ks_mbalh.p12
-
-
-keytool -import -alias agentlh -keystore cacerts -file agentlh_certificate.crt
-keytool -import -alias mbalh -keystore cacerts -file mbalh_certificate.crt
