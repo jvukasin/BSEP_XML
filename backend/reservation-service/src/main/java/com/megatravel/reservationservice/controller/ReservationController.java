@@ -91,6 +91,7 @@ public class ReservationController
 
 
 	@RequestMapping(value = "/{id}/messages", method = RequestMethod.GET)
+	@PreAuthorize("hasAuthority('GET_MESSAGES')")
 	public ResponseEntity<?> getReservationMessages(@PathVariable Long id, HttpServletRequest request)
 	{
 
@@ -107,6 +108,7 @@ public class ReservationController
 	}
 
 	@RequestMapping(value = "/{id}/messages", method = RequestMethod.POST)
+	@PreAuthorize("hasAuthority('POST_MESSAGE')")
 	public ResponseEntity<?> postReservationMessages(@PathVariable Long id,
 													@RequestBody MessageDTO messageDTO, HttpServletRequest request)
 	{
@@ -154,9 +156,8 @@ public class ReservationController
 	}
 	
 	
-	
-	//ROLE: ulogovan
 	@RequestMapping(value = "/{reservationId}", method = RequestMethod.DELETE)
+	@PreAuthorize("hasAuthority('CANCEL_RESERVATION')")
 	public ResponseEntity<?> cancelReservation(@PathVariable Long reservationId)
 	{
 		logger.logInfo("RES_CANCEL");
