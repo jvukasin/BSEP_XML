@@ -101,3 +101,25 @@
 2019-06-28 22:14:54,850 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-6] ULOG_SUCCESS
 2019-06-28 22:27:03,912 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_CATEGORY
 2019-06-28 22:27:04,038 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_CATEGORY_SUCCESS
+2019-06-29 00:53:25,743 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:53:35,553 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 20.945 seconds (JVM running for 28.423)
+2019-06-29 00:54:22,643 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:54:27,813 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 00:54:31,693 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 13.448 seconds (JVM running for 16.551)
+2019-06-29 00:55:04,483 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:55:19,903 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 20.48 seconds (JVM running for 23.211)
+2019-06-29 00:56:47,953 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:57:00,613 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 17.017 seconds (JVM running for 20.47)
+2019-06-29 00:58:09,613 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:58:22,493 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 17.82 seconds (JVM running for 20.619)
+2019-06-29 01:01:03,809 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH
+2019-06-29 01:01:04,044 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_SUCCESS
+2019-06-29 01:45:44,925 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG. Username: vule, IP ADDRESS: 127.0.0.1
+2019-06-29 01:45:48,265 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_SUCCESS
+2019-06-29 01:45:56,844 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH
+2019-06-29 01:45:56,945 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_SUCCESS
+2019-06-29 01:46:43,681 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-3] FETCH_RES_USER_SUCCESS
+2019-06-29 01:46:58,696 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH
+2019-06-29 01:46:58,743 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_SUCCESS
+2019-06-29 01:47:25,408 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-5] FETCH_RES_USER_SUCCESS
+2019-06-29 01:48:10,190 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-10] ULOG_OUT

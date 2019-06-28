@@ -62,6 +62,7 @@ insert into user_roles values ('laza',3);
 insert into user_roles values ('tjokarda',3);
 insert into user_roles values ('miladinovski',3);
 insert into user_roles values ('mare', 2);
+insert into user_roles values ('vule', 2);
 
 
 insert into accommodation_type (name) values ('Hotel'), ('Hostel'), ('Motel'), ('BnB'), ('Apartment'), ('Studio'), ('Entire house');
