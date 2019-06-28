@@ -144,6 +144,7 @@ public class AccommodationUnit {
     protected int capacity;
 	
 	@Column(name = "cancellationPeriod")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int cancellationPeriod;
 	

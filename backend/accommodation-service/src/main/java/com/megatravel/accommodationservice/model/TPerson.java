@@ -5,7 +5,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.*;
 import java.security.Timestamp;
 import java.util.ArrayList;
@@ -107,11 +109,13 @@ public class TPerson implements UserDetails {
 
     @Column(name="email")
     @NotNull
+    @Email
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String email;
 
     @Column(name="password")
     @NotNull
+    @Size(min=8)
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String password;
 
@@ -121,6 +125,7 @@ public class TPerson implements UserDetails {
     protected String role;
 
     @Id
+    @NotNull
     @Column(name = "username", nullable = false)
     private String username;
 

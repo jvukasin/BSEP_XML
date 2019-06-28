@@ -138,6 +138,7 @@ public class AccommodationUnit {
     protected int capacity;
 
     @Column(name = "cancellationPeriod")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected int cancellationPeriod;
 
@@ -152,10 +153,12 @@ public class AccommodationUnit {
     protected double defaultPrice;
 
     @Column(name = "type")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit", required = true)
     protected String type;
 
     @Column(name = "ratingAvg")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/accommodation_unit")
     protected double ratingAvg;
 
@@ -180,6 +183,7 @@ public class AccommodationUnit {
     protected Location location;
 
     @Column(name = "category")
+    @NotNull
     @XmlAttribute(name = "category")
     protected Integer category;
 
