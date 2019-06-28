@@ -83,7 +83,7 @@ import java.util.List;
     "email",
     "password",
     "role",
-    "username"
+    "reservation"
 })
 @XmlSeeAlso({
     User.class,
