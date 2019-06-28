@@ -77,3 +77,27 @@
 2019-06-28 20:17:19,795 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 25.42 seconds (JVM running for 28.678)
 2019-06-28 20:18:16,238 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH
 2019-06-28 20:18:16,425 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_SUCCESS
+2019-06-28 21:03:53,571 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on HPvj with PID 14388 (D:\git\BSEP_XML\backend\MegaTravelAgent\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-06-28 21:03:53,579 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-28 21:03:53,580 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 21:03:59,985 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 21:04:09,102 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 16.794 seconds (JVM running for 21.103)
+2019-06-28 21:04:35,850 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-8] ULOG. Username: tjokarda, IP ADDRESS: 127.0.0.1
+2019-06-28 21:04:36,340 ERROR com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-8] ULOG_BAD_CRED_WARN. Username: tjokarda
+2019-06-28 21:05:37,301 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-3] ULOG. Username: laza, IP ADDRESS: 127.0.0.1
+2019-06-28 21:05:37,514 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-3] ULOG_SUCCESS
+2019-06-28 22:06:32,535 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 22:06:43,787 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 16.036 seconds (JVM running for 19.132)
+2019-06-28 22:08:09,442 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 22:08:14,261 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 22:08:17,658 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 11.924 seconds (JVM running for 14.589)
+2019-06-28 22:08:45,205 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 22:09:01,575 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 22.254 seconds (JVM running for 25.705)
+2019-06-28 22:10:55,214 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 22:11:09,039 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 18.528 seconds (JVM running for 22.841)
+2019-06-28 22:11:37,528 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 22:11:51,189 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 20.506 seconds (JVM running for 23.859)
+2019-06-28 22:14:51,552 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-6] ULOG. Username: dovla, IP ADDRESS: 127.0.0.1
+2019-06-28 22:14:54,850 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-6] ULOG_SUCCESS
+2019-06-28 22:27:03,912 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_CATEGORY
+2019-06-28 22:27:04,038 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_CATEGORY_SUCCESS

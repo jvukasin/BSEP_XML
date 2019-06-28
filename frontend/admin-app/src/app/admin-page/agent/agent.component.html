@@ -54,7 +54,7 @@
 
 
     <div *ngIf="submitted && agentForm.controls.firstname.errors" class="error">
-      <div *ngIf="agentForm.controls.firstname.errors.required">Firstname is requiered.</div>  
+      <div *ngIf="agentForm.controls.firstname.errors.required">Firstname is requiered.</div> 
     </div>
 
     <div *ngIf="submitted && agentForm.controls.lastname.errors" class="error">
@@ -62,11 +62,11 @@
     </div>
 
     <div *ngIf="submitted && agentForm.controls.username.errors" class="error">
-      <div *ngIf="agentForm.controls.username.errors.required">Username is requiered.</div>  
+      <div *ngIf="agentForm.controls.username.errors.required">Username is requiered.</div>
     </div>
 
     <div *ngIf="submitted && agentForm.controls.password.errors" class="error">
-      <div *ngIf="agentForm.controls.password.errors.required">Password is requiered.</div>  
+      <div *ngIf="agentForm.controls.password.errors.required">Password is requiered.</div>
     </div>
 
     <div *ngIf="submitted && agentForm.controls.email.errors" class="error">
@@ -86,6 +86,12 @@
     </div>
 
   </form>
+
+  <div class="error" *ngIf="errFirst">Firstname can contain only letters without whitespace.</div> 
+  <div class="error" *ngIf="errLast">Lastname can contain only letters without whitespace.</div>
+  <div class="error" *ngIf="errUsr">Username cannot contain characters > < ; and whitespace</div>
+  <div class="error" *ngIf="errMail">Invalid email type</div>
+  <div class="error" *ngIf="errPass">Password must be at least 8 characters long and must contain at least one number,<br>one lower case and one uppercase letter, a special character (@#$%^&+=!) and no whitespace</div>
 
 
 </div>

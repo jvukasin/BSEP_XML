@@ -248,10 +248,11 @@ public class AccommodationUnitService
 	}
 	
 	
-	public void addType(AccommodationType dto) 
+	public void addType(AccommodationType dto)
 	{
 		try
 		{
+			dto.setType(dto.getType().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;").replace("\'", "&#x27;"));
 			typeRepo.save(dto);
 		}
 		catch(ConstraintViolationException e)

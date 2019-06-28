@@ -46,7 +46,7 @@ export class TypesComponent implements OnInit {
         return;
       }
       this.success = true;
-      var type = {type: this.typeForm.controls.name.value}
+      var type = {type: this.typeForm.controls.name.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;')};
       this.addToTable(type);
   }
 

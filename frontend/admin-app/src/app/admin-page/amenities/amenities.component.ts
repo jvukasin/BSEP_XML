@@ -45,7 +45,7 @@ export class AmenitiesComponent implements OnInit {
         return;
       }
       this.success = true;
-      var amenity = {name: this.amenityForm.controls.name.value, faIcon: this.amenityForm.controls.icon.value}
+      var amenity = {name: this.amenityForm.controls.name.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;'), faIcon: this.amenityForm.controls.icon.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;')}
       this.addToTable(amenity);
   }
 

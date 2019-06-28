@@ -31,7 +31,8 @@ public class AmenityService
 		{
 			throw new BusinessException("Icon attribute is missing.");
 		}
-		
+		dto.setName(dto.getName().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;").replace("\'", "&#x27;"));
+		dto.setFaIcon(dto.getFaIcon().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;").replace("\'", "&#x27;"));
 		Amenity amenity = new Amenity();
 		amenity.setName(dto.getName());
 		amenity.setFaIcon(dto.getFaIcon());

@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   errUsr: boolean = false;
   errMail: boolean = false;
   errPass: boolean = false;
+  errUsrTaken: boolean = false;
 
   constructor(private http: HttpClient, private userService: UserService,private router: Router) { }
 

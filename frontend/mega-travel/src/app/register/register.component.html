@@ -17,10 +17,11 @@
                                 <div class="form-group polje">
                                     <input formControlName="lastname" type="text" class="form-control inp" name="lastname" placeholder="Last name" id="lastname">
                                     <span class="error" *ngIf="errLast">This field can contain only letters without whitespace.</span>
-                                    </div>
+                                </div>
                                 <div class="form-group polje">
                                     <input formControlName="username" type="text" class="form-control inp" placeholder="Username" name="username">
                                     <span class="error" *ngIf="errUsr">This field cannot contain characters > < ; and whitespace</span>
+                                    <span class="error" *ngIf="errUsrTaken">This username is already taken</span>
                                 </div>
                                 <div class="form-group polje">
                                     <input formControlName="email" type="email" class="form-control inp" placeholder="E-mail" name="email">

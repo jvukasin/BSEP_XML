@@ -17,6 +17,12 @@ export class AgentComponent implements OnInit {
 
   usernameTaken: boolean = false;
 
+  errFirst: boolean = false;
+  errLast: boolean = false;
+  errUsr: boolean = false;
+  errMail: boolean = false;
+  errPass: boolean = false;
+
   constructor(private formBuilder : FormBuilder, private agentService : AgentService) 
   {
       this.agentForm = this.formBuilder.group({
@@ -54,7 +60,10 @@ export class AgentComponent implements OnInit {
         email: this.agentForm.controls.email.value,
         registrationNumber: this.agentForm.controls.registrationNumber.value        
       }
+
+      if(this.checkNames(agent.firstname, agent.lastname) && this.checkUsername(agent.username) && this.checkMail(agent.email) && this.checkPass(agent.password)) {
       this.send(agent);
+      }
   }
 
 
@@ -87,6 +96,50 @@ export class AgentComponent implements OnInit {
            this.usernameTaken = true;
          }
       });
+  }
+
+  checkNames(first, last) : boolean {
+    const patt = /^[a-zA-Z]+$/;
+    if(!patt.test(first)) {
+      this.errFirst = true;
+      return false;
+    }
+    this.errFirst = false;
+    if(!patt.test(last)) {
+      this.errLast = true;
+      return false;
+    }
+    this.errLast = false;
+    return true;
+  }
+
+  checkUsername(text) : boolean {
+    if(text.includes('<') || text.includes(' ') || text.includes('>') || text.includes(';')) {
+      this.errUsr = true;
+      return false;
+    }
+    this.errUsr = false;
+    return true;
+  }
+
+  checkPass(text) : boolean {
+    const mailPatter = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\S+$).{8,}$/;
+    if(!mailPatter.test(text)) {
+      this.errPass = true;
+      return false;
+    }
+    this.errPass = false;
+    return true;
+  }
+
+  checkMail(text) : boolean {
+    const mailPatter = /^[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,7}$/;
+    if(!mailPatter.test(text)) {
+      this.errMail = true;
+      return false;
+    }
+    this.errMail = false;
+    return true;
   }
 
 }

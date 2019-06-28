@@ -44,7 +44,7 @@ export class CategoriesComponent implements OnInit {
         return;
       }
       this.success = true;
-      var cat = {value: this.categoryForm.controls.value.value}
+      var cat = {value: this.categoryForm.controls.value.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;')}
       this.addToTable(cat);
   }
 
