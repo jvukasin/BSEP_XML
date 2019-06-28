@@ -62,7 +62,7 @@ public class UserController {
 
     @RequestMapping(value = "/block/{username}", method = RequestMethod.PUT)
     @PreAuthorize("hasAuthority('BLOCK_USER')")
-    public ResponseEntity<List<UserListDTO>> blockUser(@PathVariable("username") String username){
+    public ResponseEntity<List<UserListDTO>> blockUser(@PathVariable("username") String username, HttpServletRequest request){
         logger.logInfo("U_BLOCK");
         try{
             tPersonService.blokUser(username);
@@ -70,17 +70,21 @@ public class UserController {
             logger.logWarning("U_BLOCK_ERR");
         }
         List<UserListDTO> users = tPersonService.findAllUsers();
-        logger.logInfo("U_BLOCK_SUCCESS");
+        String token = tokenUtils.getToken(request);
+        String usr = tokenUtils.getUsernameFromToken(token);
+        logger.logInfo("U_BLOCK_SUCCESS; done by: " + usr + ", IP: " + request.getRemoteAddr());
         return new ResponseEntity(users,HttpStatus.OK);
     }
 
     @RequestMapping(value = "/activate/{username}", method = RequestMethod.PUT)
     @PreAuthorize("hasAuthority('ACTIVATE_USER')")
-    public ResponseEntity<List<UserListDTO>> activateUser(@PathVariable("username") String username){
+    public ResponseEntity<List<UserListDTO>> activateUser(@PathVariable("username") String username, HttpServletRequest request){
         logger.logInfo("U_ACTIVATE");
         try{
             tPersonService.activateUser(username);
-            logger.logInfo("U_ACTIVATE_SUCCESS");
+            String token = tokenUtils.getToken(request);
+            String usr = tokenUtils.getUsernameFromToken(token);
+            logger.logInfo("U_ACTIVATE_SUCCESS; done by: " + usr + ", IP: " + request.getRemoteAddr());
         }catch(Exception e){
             logger.logWarning("U_ACTIVATE_ERR");
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -91,11 +95,13 @@ public class UserController {
 
     @RequestMapping(value = "/remove/{username}", method = RequestMethod.DELETE)
     @PreAuthorize("hasAuthority('REMOVE_USER')")
-    public ResponseEntity<List<UserListDTO>> removeUser(@PathVariable("username") String username){
+    public ResponseEntity<List<UserListDTO>> removeUser(@PathVariable("username") String username, HttpServletRequest request){
         logger.logInfo("U_REMOVE");
         try{
             tPersonService.remove(username);
-            logger.logInfo("U_REMOVE_SUCCESS");
+            String token = tokenUtils.getToken(request);
+            String usr = tokenUtils.getUsernameFromToken(token);
+            logger.logInfo("U_REMOVE_SUCCESS; done by: " + usr + ", IP: " + request.getRemoteAddr());
         }catch(Exception e){
             logger.logWarning("U_REMOVE_ERR");
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);

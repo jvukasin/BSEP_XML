@@ -31,12 +31,14 @@ public class AgentController
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/text")
 	@PreAuthorize("hasAuthority('ADD_AGENT')")
-    public ResponseEntity<?> saveAgent(@RequestBody AgentDTO agentDTO) 
+    public ResponseEntity<?> saveAgent(@RequestBody AgentDTO agentDTO, HttpServletRequest request)
     {
 		logger.logInfo("AG_REG");
 		try
 		{
-			logger.logInfo("AG_REG_SUCCESS");
+			String token = tokenUtils.getToken(request);
+			String username = tokenUtils.getUsernameFromToken(token);
+			logger.logInfo("AG_REG_SUCCESS; done by: " + username + ", IP: " + request.getRemoteAddr());
 			return new ResponseEntity<String>(tPersonService.addAgent(agentDTO), HttpStatus.CREATED);
 		}
 		catch(BusinessException e)
@@ -54,7 +56,7 @@ public class AgentController
 
     @RequestMapping(value = "/approve",method = RequestMethod.POST)
 	@PreAuthorize("hasAuthority('APPROVE_AGENT')")
-	public ResponseEntity<String> approveAgent(@RequestBody String username){
+	public ResponseEntity<String> approveAgent(@RequestBody String username, HttpServletRequest request){
 		logger.logInfo("AGENT_APPROVE");
     	try{
 			Agent agent = tPersonService.approveAgent(username);
@@ -62,7 +64,10 @@ public class AgentController
 			logger.logWarning("AGENT_APPROVE_ERR");
 			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		logger.logInfo("AGENT_APPROVE_SUCCESS");
+
+		String token = tokenUtils.getToken(request);
+		String usr = tokenUtils.getUsernameFromToken(token);
+		logger.logInfo("AGENT_APPROVE_SUCCESS; done by: " + usr + ", IP: " + request.getRemoteAddr());
     	return new ResponseEntity(username,HttpStatus.CREATED);
 	}
 
