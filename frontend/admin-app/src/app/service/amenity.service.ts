@@ -11,17 +11,17 @@ import { HttpClient } from '@angular/common/http';
 
       getAllAmenities()
       {
-        return this.http.get('accommodation-service/amenities/');
+        return this.http.get('/api/accommodationservice/amenities/');
       }
 
       removeAmenity(amenityId)
       {
-        return this.http.delete('accommodation-service/amenities/' + amenityId);
+        return this.http.delete('/api/accommodationservice/amenities/' + amenityId);
       }
 
       addAmenity(amenityDTO)
       {
-        return this.http.post('accommodation-service/amenities/', amenityDTO);
+        return this.http.post('/api/accommodationservice/amenities/', amenityDTO);
       }
 
   }

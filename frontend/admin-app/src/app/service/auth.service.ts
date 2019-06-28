@@ -15,7 +15,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
       constructor(private http: HttpClient, private router: Router){}
 
       login(user){
-        return this.http.post('api/authservice/auth/login',user)
+        return this.http.post('/api/authservice/auth/login',user)
         .pipe(
             map(user => {
                 this.loggedUser = user;
@@ -28,7 +28,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     }
 
     logout(){
-        return this.http.post('api/authservice/auth/logout',null).subscribe(
+        return this.http.post('/api/authservice/auth/logout',null).subscribe(
             success => {
                 localStorage.removeItem('currentUser');
                 localStorage.removeItem('role');

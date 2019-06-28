@@ -1,29 +1,9 @@
 {
     "/api": {
-        "target": "http://localhost:8084",
+        "target": "https://localhost:8440",
         "secure": false,
         "pathRewrite": {
             "^/api": ""
-        }
-    },
-    
-    "/accommodation-service": 
-    {
-    "target": "http://localhost:8083",
-    "secure": false,
-    "pathRewrite": 
-        {
-        "^/accommodation-service": ""
-        }
-    },
-    
-    "/auth-service": 
-    {
-    "target": "http://localhost:8085",
-    "secure": false,
-    "pathRewrite": 
-        {
-        "^/auth-service": ""
         }
     }
 }

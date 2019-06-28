@@ -11,17 +11,17 @@ import { HttpClient } from '@angular/common/http';
 
       getAllTypes()
       {
-        return this.http.get('accommodation-service/accommodations/types/');
+        return this.http.get('/api/accommodationservice/accommodations/types/');
       }
 
       removeType(typess)
       {
-        return this.http.delete('accommodation-service/accommodations/types/' + typess);
+        return this.http.delete('/api/accommodationservice/accommodations/types/' + typess);
       }
 
       addType(typess)
       {
-        return this.http.post('accommodation-service/accommodations/types/', typess);
+        return this.http.post('/api/accommodationservice/accommodations/types/', typess);
       }
 
   }

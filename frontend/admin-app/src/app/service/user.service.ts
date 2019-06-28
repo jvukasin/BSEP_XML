@@ -25,11 +25,11 @@ import { HttpClient } from '@angular/common/http';
       }
 
       getUser(){
-        return this.http.get('api/authservice/users/getUser');
+        return this.http.get('/api/authservice/users/getUser');
       }
 
       getBlocked(){
-        return this.http.get('api/authservice/users/blocked');
+        return this.http.get('/api/authservice/users/blocked');
       }
 
       

@@ -11,17 +11,17 @@ import { HttpClient } from '@angular/common/http';
 
       getAllCategories()
       {
-        return this.http.get('accommodation-service/accommodations/categories/');
+        return this.http.get('/api/accommodationservice/accommodations/categories/');
       }
 
       removeCategory(catId)
       {
-        return this.http.delete('accommodation-service/accommodations/categories/' + catId);
+        return this.http.delete('/api/accommodationservice/accommodations/categories/' + catId);
       }
 
       addCategory(cat)
       {
-        return this.http.post('accommodation-service/accommodations/categories/', cat);
+        return this.http.post('/api/accommodationservice/accommodations/categories/', cat);
       }
 
   }

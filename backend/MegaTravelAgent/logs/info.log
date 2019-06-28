@@ -749,3 +749,11 @@
 2019-06-28 16:36:30,358 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-3] FETCH_RES_USER_SUCCESS
 2019-06-28 16:37:28,000 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-3] RES_ACTIVE
 2019-06-28 16:37:28,052 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-3] RES_ACTIVE_SUCCESS
+2019-06-28 16:37:29,120 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-10] RES_ACTIVE
+2019-06-28 16:37:29,160 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-10] RES_ACTIVE_SUCCESS
+2019-06-28 17:42:33,988 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG. Username: dovla, IP ADDRESS: 127.0.0.1
+2019-06-28 17:42:34,240 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG_SUCCESS
+2019-06-28 17:46:41,360 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG. Username: mare, IP ADDRESS: 127.0.0.1
+2019-06-28 17:46:41,615 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG_SUCCESS
+2019-06-28 17:47:22,866 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] AGENT_APPROVE
+2019-06-28 17:47:23,041 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] AGENT_APPROVE_SUCCESS

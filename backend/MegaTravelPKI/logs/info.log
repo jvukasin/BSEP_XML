@@ -494,3 +494,30 @@
 2019-06-28 13:43:53,222 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN_SUCCESS
 2019-06-28 13:43:53,726 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_GEN_SUCCESS
 2019-06-28 13:43:53,796 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] IS_GEN_SUCCESS
+2019-06-28 17:09:00,275 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 16868 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 17:09:00,277 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 17:09:00,278 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 17:09:01,208 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 17:09:01,209 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 17:09:01,210 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 17:09:01,373 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 17:09:02,806 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-28 17:09:02,806 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_EXISTING
+2019-06-28 17:09:02,884 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-28 17:09:03,437 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 3.461 seconds (JVM running for 3.992)
+2019-06-28 17:09:35,983 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] IS_GEN
+2019-06-28 17:09:36,069 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] ID_GET_KS
+2019-06-28 17:09:36,095 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] ID_GET_KS_SUCCESS
+2019-06-28 17:09:36,095 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_GEN
+2019-06-28 17:09:36,095 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN
+2019-06-28 17:09:36,095 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN_SUCCESS
+2019-06-28 17:09:36,945 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_GEN_SUCCESS
+2019-06-28 17:09:37,007 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] IS_GEN_SUCCESS
+2019-06-28 17:10:10,117 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] IS_GEN
+2019-06-28 17:10:10,126 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] ID_GET_KS
+2019-06-28 17:10:10,132 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] ID_GET_KS_SUCCESS
+2019-06-28 17:10:10,133 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_GEN
+2019-06-28 17:10:10,133 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN
+2019-06-28 17:10:10,134 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN_SUCCESS
+2019-06-28 17:10:10,328 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_GEN_SUCCESS
+2019-06-28 17:10:10,351 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] IS_GEN_SUCCESS
