@@ -63,8 +63,7 @@ public class UserController {
     @RequestMapping(value = "/block/{username}", method = RequestMethod.PUT)
     @PreAuthorize("hasAuthority('BLOCK_USER')")
     public ResponseEntity<List<UserListDTO>> blockUser(@PathVariable("username") String username, HttpServletRequest request){
-        String token = tokenUtils.getToken(request);
-        String admin = tokenUtils.getUsernameFromToken(token);
+        String admin = getUsernameFromRequest(request);
 
         logger.logInfo("U_BLOCK - Username: " + admin + "; IP: " + request.getRemoteAddr());
         try{
@@ -80,8 +79,7 @@ public class UserController {
     @RequestMapping(value = "/activate/{username}", method = RequestMethod.PUT)
     @PreAuthorize("hasAuthority('ACTIVATE_USER')")
     public ResponseEntity<List<UserListDTO>> activateUser(@PathVariable("username") String username, HttpServletRequest request){
-        String token = tokenUtils.getToken(request);
-        String admin = tokenUtils.getUsernameFromToken(token);
+        String admin = getUsernameFromRequest(request);
         logger.logInfo("U_ACTIVATE - Username: " + admin + "; IP: " + request.getRemoteAddr());
         try{
             tPersonService.activateUser(username);
@@ -97,8 +95,7 @@ public class UserController {
     @RequestMapping(value = "/remove/{username}", method = RequestMethod.DELETE)
     @PreAuthorize("hasAuthority('REMOVE_USER')")
     public ResponseEntity<List<UserListDTO>> removeUser(@PathVariable("username") String username, HttpServletRequest request){
-        String token = tokenUtils.getToken(request);
-        String admin = tokenUtils.getUsernameFromToken(token);
+        String admin = getUsernameFromRequest(request);
         logger.logInfo("U_REMOVE - Username: " + admin + "; IP: " + request.getRemoteAddr());
         try{
             tPersonService.remove(username);
@@ -113,8 +110,7 @@ public class UserController {
 
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     public ResponseEntity<?> getUser(HttpServletRequest request) {
-        String token = tokenUtils.getToken(request);
-        String username = tokenUtils.getUsernameFromToken(token);
+        String username = getUsernameFromRequest(request);
 
         if(username != "" && username != null) {
             TPerson u = (TPerson) tPersonService.findOneByUsername(username);
@@ -246,4 +242,17 @@ public class UserController {
 
         return matcher.matches();
     }
+
+    private String getUsernameFromRequest(HttpServletRequest request) {
+
+        String authToken = tokenUtils.getToken(request);
+        if (authToken == null) {
+            return null;
+        }
+
+        String username = tokenUtils.getUsernameFromToken(authToken);
+
+        return username;
+    }
+
 }
