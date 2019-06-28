@@ -14,7 +14,8 @@
 			<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 				<div class="form-group">
 					<input type="text" class="form-ctrl" placeholder="Your username goes here..."
-							formControlName="username">	
+							formControlName="username">
+					<span class="error" *ngIf="errorInpBool">Username cannot contain characters > < ; and whitespace</span>
 				</div>
 
 

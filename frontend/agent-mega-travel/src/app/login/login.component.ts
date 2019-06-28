@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+	errorInpBool: boolean = false;
+
 	loginForm = this.fb.group({
 		username: ['', Validators.required],
 		password: ['', Validators.required]
@@ -26,19 +28,26 @@ export class LoginComponent implements OnInit {
 
 	onSubmit() {
 
+		const usr = this.loginForm.get('username').value;
+
 		let dto = {
-			username: this.loginForm.get('username').value,
+			username: usr,
 			password: this.loginForm.get('password').value
 		}
 		
-		this.authService.login(dto).subscribe(
-			payload => {
-				console.log(payload),
-				this.router.navigate(['/accommodation']);
-
-			},
-			error => alert('Bad credentials.')
-		);
+		if(usr.includes('<') || usr.includes(' ') || usr.includes('>') || usr.includes(';')) {
+			this.errorInpBool = true;
+		  } else {
+			this.errorInpBool = false;
+			this.authService.login(dto).subscribe(
+				payload => {
+					console.log(payload),
+					this.router.navigate(['/accommodation']);
+	
+				},
+				error => alert('Bad credentials.')
+			);
+		  }
 
 	}
 
