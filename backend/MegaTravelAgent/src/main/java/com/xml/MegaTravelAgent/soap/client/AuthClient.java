@@ -6,7 +6,7 @@ import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 public class AuthClient extends WebServiceGatewaySupport implements IAuthClient {
 
-    private static final String ENDPOINT_URI = "http://localhost:8084/auth-service/ws";
+    private static final String ENDPOINT_URI = "https://localhost:8440/auth-service/ws";
 
     @Override
     public FetchAgentsResponse fetchAgents() {
