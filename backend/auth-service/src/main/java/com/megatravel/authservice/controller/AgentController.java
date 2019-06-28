@@ -8,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.megatravel.authservice.dto.AgentDTO;
 import com.megatravel.authservice.service.TPersonService;
@@ -59,17 +55,33 @@ public class AgentController
     @RequestMapping(value = "/approve",method = RequestMethod.POST)
 	@PreAuthorize("hasAuthority('APPROVE_AGENT')")
 	public ResponseEntity<String> approveAgent(@RequestBody String username){
-		Agent agent = tPersonService.approveAgent(username);
-		return new ResponseEntity(username,HttpStatus.CREATED);
+		logger.logInfo("AGENT_APPROVE");
+    	try{
+			Agent agent = tPersonService.approveAgent(username);
+		}catch(Exception e){
+			logger.logWarning("AGENT_APPROVE_ERR");
+			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		logger.logInfo("AGENT_APPROVE_SUCCESS");
+    	return new ResponseEntity(username,HttpStatus.CREATED);
 	}
 
 	@RequestMapping(value = "/upgrade", method = RequestMethod.PUT)
 	public ResponseEntity<?> upgrade(HttpServletRequest request){
 		String authToken = tokenUtils.getToken(request);
 		String username = tokenUtils.getUsernameFromToken(authToken);
-		User user = (User) tPersonService.findOneByUsername(username);
+    	User user = (User) tPersonService.findOneByUsername(username);
+
+		logger.logInfo("AGENT_UPGRADE - Username: " + user.getUsername() + "; IP: " + request.getRemoteAddr());
+
 		user.setStatus("blocked");
-		user = tPersonService.save(user);
+		try{
+			user = tPersonService.save(user);
+			logger.logInfo("AGENT_UPGRADE_SUCCESS - Username: " + user.getUsername() + "; IP: " + request.getRemoteAddr());
+		}catch(Exception e){
+			logger.logError("AGENT_UPGRADE_ERR - Username: "+ user.getUsername() + "; IP: " + request.getRemoteAddr() + "; Message: " + e.getMessage());
+			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
@@ -87,7 +99,5 @@ public class AgentController
 			logger.logWarning("AG_REG_USR_TAKEN");
 			return new ResponseEntity<>(HttpStatus.IM_USED);
     	}
- 
     }
-
 }
