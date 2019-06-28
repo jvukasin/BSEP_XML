@@ -59,3 +59,21 @@
 2019-06-28 18:04:30,565 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-2] FETCH_RES_USER_SUCCESS
 2019-06-28 18:04:57,999 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-8] FETCH_RES_USER_SUCCESS
 2019-06-28 18:26:45,912 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_OUT
+2019-06-28 20:06:12,594 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 20:06:20,769 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 13.13 seconds (JVM running for 16.133)
+2019-06-28 20:07:45,824 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 20:07:50,904 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 20:07:54,374 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 13.22 seconds (JVM running for 15.909)
+2019-06-28 20:08:12,144 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 20:08:25,874 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 18.17 seconds (JVM running for 21.362)
+2019-06-28 20:09:52,254 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH
+2019-06-28 20:09:52,464 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_SUCCESS
+2019-06-28 20:15:40,519 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 20:15:50,524 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 16.2 seconds (JVM running for 19.464)
+2019-06-28 20:16:30,580 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 20:16:36,214 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 20:16:40,714 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 14.769 seconds (JVM running for 17.39)
+2019-06-28 20:17:00,709 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 20:17:19,795 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 25.42 seconds (JVM running for 28.678)
+2019-06-28 20:18:16,238 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH
+2019-06-28 20:18:16,425 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_SUCCESS
