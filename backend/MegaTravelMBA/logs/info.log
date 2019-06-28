@@ -36,3 +36,26 @@
 2019-06-26 22:45:15,983 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 19.26 seconds (JVM running for 22.961)
 2019-06-26 22:45:56,432 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
 2019-06-26 22:46:07,146 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 14.809 seconds (JVM running for 17.251)
+2019-06-28 17:56:25,519 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 17:56:34,621 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 14.195 seconds (JVM running for 18.107)
+2019-06-28 17:56:55,272 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 17:57:02,221 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 17:59:34,283 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 17:59:40,043 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 17:59:43,553 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 14.505 seconds (JVM running for 17.143)
+2019-06-28 18:00:09,029 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 18:00:25,707 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 21.773 seconds (JVM running for 24.701)
+2019-06-28 18:00:57,245 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 18:01:11,927 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 19.363 seconds (JVM running for 23.086)
+2019-06-28 18:01:34,807 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 18:01:47,444 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 17.446 seconds (JVM running for 20.299)
+2019-06-28 18:02:32,882 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on HPvj with PID 11456 (D:\git\BSEP_XML\backend\MegaTravelAgent\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-06-28 18:02:32,893 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-28 18:02:32,898 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 18:02:38,920 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 18:02:49,684 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 17.932 seconds (JVM running for 20.365)
+2019-06-28 18:04:16,078 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG. Username: vule, IP ADDRESS: 127.0.0.1
+2019-06-28 18:04:19,829 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_SUCCESS
+2019-06-28 18:04:30,565 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-2] FETCH_RES_USER_SUCCESS
+2019-06-28 18:04:57,999 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-8] FETCH_RES_USER_SUCCESS
+2019-06-28 18:26:45,912 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_OUT
