@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { TypeService } from 'src/app/service/type.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-types',
@@ -55,7 +56,11 @@ export class TypesComponent implements OnInit {
       (response) =>
       {
           this.types.push(type);
-          alert("Added!");
+          Swal.fire(
+            "Added!",
+            "Accommodation unit type has been successfuly added.",
+            "success"
+          )
       });
   }
 
@@ -68,9 +73,13 @@ export class TypesComponent implements OnInit {
           if(t.type === type)
           {
             this.types.splice(i,1);
-            alert("Type: " + type + " removed.");
           }
         });
+        Swal.fire(
+          "Removed!",
+          "Accommodation unit type has been successfuly removed.",
+          "success"
+        )
       });
   }
   

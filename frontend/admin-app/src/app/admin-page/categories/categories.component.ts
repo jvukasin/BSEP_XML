@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { CategoryService } from 'src/app/service/categories.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-categories',
@@ -55,7 +55,11 @@ export class CategoriesComponent implements OnInit {
       (response) =>
       {
           this.categories.push(category);
-          alert("Added!");
+          Swal.fire(
+            "Added!",
+            "Accommodation unit category has been successfuly added.",
+            "success"
+          )
       });
   }
 
@@ -68,9 +72,13 @@ export class CategoriesComponent implements OnInit {
           if(t.value == category)
           {
             this.categories.splice(i,1);
-            alert("Type: " + category + " removed.");
           }
         });
+        Swal.fire(
+          "Removed!",
+          "Accommodation unit category has been successfuly removed.",
+          "success"
+        )
       });
   }
 

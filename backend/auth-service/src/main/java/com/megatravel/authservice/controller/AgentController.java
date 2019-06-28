@@ -68,7 +68,7 @@ public class AgentController
 		String authToken = tokenUtils.getToken(request);
 		String username = tokenUtils.getUsernameFromToken(authToken);
 		User user = (User) tPersonService.findOneByUsername(username);
-		user.setStatus("Blocked");
+		user.setStatus("blocked");
 		user = tPersonService.save(user);
 		return new ResponseEntity(HttpStatus.OK);
 	}

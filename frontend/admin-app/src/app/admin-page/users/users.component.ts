@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-users',
@@ -24,20 +25,40 @@ export class UsersComponent implements OnInit {
   onBlock(username){
     this.userService.block(username).subscribe(
       (response) => {
-        alert("User blocked!")
+        Swal.fire(
+          "Blocked!",
+          "User is successfuly blocked.",
+          "success"
+        )
         this.users = response;
       },
-      (error) => { alert(error) }
+      (error) => { 
+        Swal.fire(
+          "Something went wrong!",
+          "User can not be blocked.",
+          "error"
+        )
+      }
     )
   }
 
   onActivate(username){
     this.userService.activate(username).subscribe(
       (response) => {
-        alert("User activated!")
+        Swal.fire(
+          "Activated!",
+          "User is successfuly activated.",
+          "success"
+        )
         this.users = response;
       },
-      (error) => { alert(error) }
+      (error) => { 
+        Swal.fire(
+          "Something went wrong!",
+          "User can not be activated.",
+          "error"
+        )
+      }
     )
   }
 
@@ -47,14 +68,24 @@ export class UsersComponent implements OnInit {
           let i = this.users.findIndex(user => user.username === username);
           // obrisi jednog clana na poziciji i
           this.users.splice(i, 1);
-          alert("User removed!")
+          Swal.fire(
+            "Removed!",
+            "User is successfuly removed.",
+            "success"
+          )   
       },
-      (error) => { alert(error) }
+      (error) => { 
+        Swal.fire(
+          "Something went wrong!",
+          "User can not be removed.",
+          "error"
+        )
+      }
     )
   }
 
   isBlocked(status){
-    if(status === 'Blocked'){
+    if(status === 'blocked'){
       return true;
     }else{
       return false;
@@ -62,7 +93,7 @@ export class UsersComponent implements OnInit {
   }
 
   isActive(status){
-    if(status === 'Active'){
+    if(status === 'active'){
       return true;
     }else{
       return false;
