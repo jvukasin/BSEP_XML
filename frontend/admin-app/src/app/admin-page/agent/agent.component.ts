@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AgentService } from 'src/app/service/agent.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agent',
@@ -66,8 +66,6 @@ export class AgentComponent implements OnInit {
     this.agentService.checkIfUsernameIsValid(agent.username).subscribe(
       (resp) =>
       {
-
-
          if(resp.status == 200)
          {
           this.agentService.addAgent(agent).subscribe(
@@ -75,7 +73,11 @@ export class AgentComponent implements OnInit {
             {
               if(response.status == 201)
               {
-                alert("Agent: " + response.body + " created.");
+                Swal.fire(
+                  "Added!",
+                  "Agent has been successfully added.",
+                  "success"
+                )
                 this.agentForm.reset();
               }
             });
@@ -84,8 +86,6 @@ export class AgentComponent implements OnInit {
          {
            this.usernameTaken = true;
          }
-         
-         
       });
   }
 
