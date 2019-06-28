@@ -1,6 +1,7 @@
 package com.megatravel.accommodationservice.controller;
 import java.util.Collection;
 
+import com.megatravel.accommodationservice.security.TokenUtils;
 import com.megatravel.accommodationservice.service.Logging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,8 @@ import com.megatravel.accommodationservice.service.AccommodationUnitService;
 
 import exceptions.BusinessException;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/accommodations")
 public class AccommodationUnitController
@@ -33,6 +36,9 @@ public class AccommodationUnitController
 
 	@Autowired
 	AccommodationUnitService accommodationService;
+
+	@Autowired
+	public TokenUtils tokenUtils;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Collection<AccommodationUnitDTO>> getAccommodationUnits()
@@ -117,23 +123,24 @@ public class AccommodationUnitController
 	
 	@RequestMapping(value = "/types/{type}", method = RequestMethod.DELETE)
 	@PreAuthorize("hasAuthority('REMOVE_AU_TYPE')")
-	public ResponseEntity<?> removeType(@PathVariable String type)
+	public ResponseEntity<?> removeType(@PathVariable String type, HttpServletRequest request)
 	{
-		logger.logInfo("DELETE_AU_TYPE");
+		String username = getUsernameFromRequest(request);
+		logger.logInfo("DELETE_AU_TYPE - Username: " + username + "; IP: " + request.getRemoteAddr());
 		try
 		{				
 			accommodationService.deleteType(type);
-			logger.logInfo("DELETE_AU_TYPE_SUCCESS");
+			logger.logInfo("DELETE_AU_TYPE_SUCCESS - Username: " + username + "; IP: " + request.getRemoteAddr());
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		catch(BusinessException e)
 		{
-			logger.logError("DELETE_AU_TYPE_ERR: " + e.getMessage());
+			logger.logError("DELETE_AU_TYPE_ERR - Username: " + username + "; IP: " + request.getRemoteAddr() + "Message: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_MODIFIED);
 		}
 		catch(Exception e)
 		{
-			logger.logError("DELETE_AU_TYPE_ERR: " + e.getMessage());
+			logger.logError("DELETE_AU_TYPE_ERR - Username: " + username + "; IP: " + request.getRemoteAddr() + "Message: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -141,23 +148,24 @@ public class AccommodationUnitController
 	
 	@RequestMapping(value = "/types", method = RequestMethod.POST)
 	@PreAuthorize("hasAuthority('ADD_AU_TYPE')")
-	public ResponseEntity<?> addType(@RequestBody AccommodationType dto)
+	public ResponseEntity<?> addType(@RequestBody AccommodationType dto, HttpServletRequest request)
 	{
-		logger.logError("AU_TYPE");
+		String username = getUsernameFromRequest(request);
+		logger.logError("AU_TYPE - Username: " + username + "; IP: " + request.getRemoteAddr());
 		try
 		{
 			accommodationService.addType(dto);
-			logger.logInfo("AU_TYPE_SUCCESS");
+			logger.logInfo("AU_TYPE_SUCCESS - Username: " + username + "; IP: " + request.getRemoteAddr());
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		}
 		catch(BusinessException e)
 		{
-			logger.logError("AU_TYPE_ERR: " + e.getMessage());
+			logger.logError("AU_TYPE_ERR - Username:" + username + "; IP: " + request.getRemoteAddr() + "; Message:" + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
 		}
 		catch(Exception e)
 		{
-			logger.logError("AU_TYPE_ERR: " + e.getMessage());
+			logger.logError("AU_TYPE_ERR - Username:" + username + "; IP: " + request.getRemoteAddr() + "; Message:" + e.getMessage());
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -174,23 +182,24 @@ public class AccommodationUnitController
 
 	@RequestMapping(value = "/categories/{value}", method = RequestMethod.DELETE)
 	@PreAuthorize("hasAuthority('REMOVE_AU_CATEGORY')")
-	public ResponseEntity<?> removeCategory(@PathVariable int value)
+	public ResponseEntity<?> removeCategory(@PathVariable int value, HttpServletRequest request)
 	{
-		logger.logInfo("DELETE_AU_CATEGORY");
+		String username = getUsernameFromRequest(request);
+		logger.logInfo("DELETE_AU_CATEGORY - Username: " + username + "; IP: " + request.getRemoteAddr());
 		try
 		{				
 			accommodationService.deleteCategory(value);
-			logger.logInfo("DELETE_AU_CATEGORY_SUCCESS");
+			logger.logInfo("DELETE_AU_CATEGORY_SUCCESS - Username: " + username + "; IP: " + request.getRemoteAddr());
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		catch(BusinessException e)
 		{
-			logger.logError("DELETE_AU_CATEGORY_ERR: " + e.getMessage());
+			logger.logError("DELETE_AU_CATEGORY_ERR - Username: " + username + "; IP: " + request.getRemoteAddr() + "; Message: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_MODIFIED);
 		}
 		catch(Exception e)
 		{
-			logger.logError("DELETE_AU_CATEGORY_ERR: " + e.getMessage());
+			logger.logError("DELETE_AU_CATEGORY_ERR - Username: " + username + "; IP: " + request.getRemoteAddr() + "; Message: " + e.getMessage());
 			e.printStackTrace();
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -199,26 +208,39 @@ public class AccommodationUnitController
 	
 	@RequestMapping(value = "/categories", method = RequestMethod.POST)
 	@PreAuthorize("hasAuthority('ADD_AU_CATEGORY')")
-	public ResponseEntity<?> addCategory(@RequestBody AccommodationCategory dto)
+	public ResponseEntity<?> addCategory(@RequestBody AccommodationCategory dto, HttpServletRequest request)
 	{
+		String username = getUsernameFromRequest(request);
 		logger.logInfo("AU_CATEGORY");
 		try
 		{
 			accommodationService.addCategory(dto);
-			logger.logInfo("AU_CATEGORY_SUCCESS");
+			logger.logInfo("AU_CATEGORY_SUCCESS - Username: " + username + "; IP: " + request.getRemoteAddr());
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		}
 		catch(BusinessException e)
 		{
-			logger.logError("AU_CATEGORY_ERR: " + e.getMessage());
+			logger.logError("AU_CATEGORY_ERR - Username: " + username + "; IP: " + request.getRemoteAddr() + "; Message: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
-			logger.logError("AU_CATEGORY_ERR: " + e.getMessage());
+			logger.logError("AU_CATEGORY_ERR - Username: " + username + "; IP: " + request.getRemoteAddr() + "; Message: " + e.getMessage());
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	private String getUsernameFromRequest(HttpServletRequest request) {
+
+		String authToken = tokenUtils.getToken(request);
+		if (authToken == null) {
+			return null;
+		}
+
+		String username = tokenUtils.getUsernameFromToken(authToken);
+
+		return username;
 	}
 	
 }

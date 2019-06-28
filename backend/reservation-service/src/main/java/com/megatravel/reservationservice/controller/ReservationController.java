@@ -41,8 +41,7 @@ public class ReservationController
 	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllReservations(HttpServletRequest request) {
-		String authToken = tokenUtils.getToken(request);
-		String username = tokenUtils.getUsernameFromToken(authToken);
+		String username = getUsernameFromRequest(request);
 		if(username != "" && username != null) {
 			try{
 				List<UserReservationDTO> reservations = reservationService.getUserReservations(username);
@@ -129,17 +128,18 @@ public class ReservationController
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	@PreAuthorize("hasAuthority('CREATE_RESERVATION')")
-	public ResponseEntity<?> createReservation(@RequestBody ReservationDTO dto)
+	public ResponseEntity<?> createReservation(@RequestBody ReservationDTO dto, HttpServletRequest request)
 	{
-		logger.logInfo("RES_CREATE");
+		String username = getUsernameFromRequest(request);
+		logger.logInfo("RES_CREATE - Username: " + username + "; IP: " + request.getRemoteAddr());
 		try
 		{
-			logger.logInfo("RES_CREATE_SUCCESS");
+			logger.logInfo("RES_CREATE_SUCCESS - Username: " + username + "; IP: " + request.getRemoteAddr());
 			return new ResponseEntity<Long>(reservationService.create(dto), HttpStatus.OK);
 		}
 		catch(BusinessException e)
 		{
-			logger.logError("RES_CREATE_ERR: " + e.getMessage());
+			logger.logError("RES_CREATE_ERR - Username: " + username + "; IP: " + request.getRemoteAddr() + "; Message: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		catch (OptimisticLockingFailureException e)
@@ -148,7 +148,7 @@ public class ReservationController
 		}
 		catch(Exception e)
 		{
-			logger.logError("RES_CREATE_ERR: " + e.getMessage());
+			logger.logError("RES_CREATE_ERR - Username: " + username + "; IP: " + request.getRemoteAddr() + "; Message: " + e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -209,5 +209,5 @@ public class ReservationController
 
 		return username;
 	}
-	
+
 }

@@ -14,6 +14,7 @@ import com.xml.MegaTravelAgent.soap.reqres.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 
@@ -85,6 +86,7 @@ public class ReservationController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
+    @PreAuthorize("hasAuthority('CREATE_RESERVATION')")
     public ResponseEntity<?> createReservation(@RequestBody ReservationDTO reservationDTO,
                                                                         HttpServletRequest request) {
 
@@ -116,6 +118,7 @@ public class ReservationController {
     }
 
     @RequestMapping(value = "/{id}/success", method = RequestMethod.PUT)
+    @PreAuthorize("hasAuthority('SUCCESS_RESERVATION')")
     public ResponseEntity<String> successReservation(@PathVariable Long id,
                                                                          HttpServletRequest request)
     {
@@ -140,6 +143,7 @@ public class ReservationController {
     }
 
     @RequestMapping(value = "/{id}/messages", method = RequestMethod.GET)
+    @PreAuthorize("hasAuthority('GET_MESSAGES')")
     public ResponseEntity<?> getReservationMessages(@PathVariable Long id, HttpServletRequest request)
     {
 
@@ -161,6 +165,7 @@ public class ReservationController {
 
 
     @RequestMapping(value = "/{id}/messages", method = RequestMethod.POST)
+    @PreAuthorize("hasAuthority('POST_MESSAGE')")
     public ResponseEntity<?> postMessage(@PathVariable Long id, @RequestBody MessageDTO messageDTO,
                                                      HttpServletRequest request)
     {

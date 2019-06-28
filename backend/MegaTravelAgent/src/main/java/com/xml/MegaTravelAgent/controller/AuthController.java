@@ -22,6 +22,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -97,10 +98,13 @@ public class AuthController {
         return ResponseEntity.ok(new UserTokenState(jwt,expiresIn));
     }
 
-    // proveriti jos da li je ovako dobro - istrazi
     @RequestMapping(value="/logout", method = RequestMethod.GET)
-    public ResponseEntity<?> logOut(){
-        SecurityContextHolder.clearContext();
+    public ResponseEntity<?> logOut(HttpServletRequest request, HttpServletResponse response){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null)
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
