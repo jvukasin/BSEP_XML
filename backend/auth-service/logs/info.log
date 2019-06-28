@@ -46,3 +46,7 @@
 2019-06-27 23:31:37,453 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplicationTests in 27.71 seconds (JVM running for 29.53)
 2019-06-28 00:41:56,076 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
 2019-06-28 00:42:08,791 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplicationTests in 14.903 seconds (JVM running for 16.574)
+2019-06-28 19:23:25,136 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 19:23:42,985 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplicationTests in 21.494 seconds (JVM running for 23.587)
+2019-06-28 19:26:38,253 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 19:26:58,685 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplicationTests in 24.855 seconds (JVM running for 27.424)

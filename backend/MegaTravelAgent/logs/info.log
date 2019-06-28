@@ -757,3 +757,15 @@
 2019-06-28 17:46:41,615 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG_SUCCESS
 2019-06-28 17:47:22,866 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] AGENT_APPROVE
 2019-06-28 17:47:23,041 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] AGENT_APPROVE_SUCCESS
+2019-06-28 19:30:23,466 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplicationTests on HPvj with PID 8588 (started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelAgent)
+2019-06-28 19:30:23,470 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-28 19:30:23,472 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 19:30:48,453 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplicationTests in 26.051 seconds (JVM running for 29.895)
+2019-06-28 19:32:48,785 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplicationTests on HPvj with PID 6368 (started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelAgent)
+2019-06-28 19:32:48,785 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-28 19:32:48,793 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 19:33:05,263 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplicationTests in 17.275 seconds (JVM running for 19.37)
+2019-06-28 19:34:27,166 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplicationTests on HPvj with PID 10052 (started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelAgent)
+2019-06-28 19:34:27,169 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-06-28 19:34:27,169 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 19:34:53,206 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplicationTests in 26.734 seconds (JVM running for 29.235)
