@@ -1,1 +1,323 @@
 2019-06-28 21:04:36,340 ERROR com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-8] ULOG_BAD_CRED_WARN. Username: tjokarda
+2019-06-29 01:59:10,135 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_UNAME_ERR. Username: <!--#EXEC cmd="ls /"-->
+2019-06-29 01:59:10,215 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: "><!--#EXEC cmd="ls /"--><
+2019-06-29 01:59:10,285 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: <!--#EXEC cmd="dir \"-->
+2019-06-29 01:59:10,345 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-6] ULOG_UNAME_ERR. Username: "><!--#EXEC cmd="dir \"--><
+2019-06-29 01:59:11,735 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_UNAME_ERR. Username: '"<script>alert(1);</script>
+2019-06-29 01:59:14,335 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: ;
+2019-06-29 01:59:14,405 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: vule;
+2019-06-29 01:59:16,005 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-10] ULOG_UNAME_ERR. Username: vule AND 1=1 -- 
+2019-06-29 01:59:16,065 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-1] ULOG_UNAME_ERR. Username: vule' AND '1'='1' -- 
+2019-06-29 01:59:16,125 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-2] ULOG_UNAME_ERR. Username: vule" AND "1"="1" -- 
+2019-06-29 01:59:16,185 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_UNAME_ERR. Username: vule AND 1=1
+2019-06-29 01:59:16,265 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: vule' AND '1'='1
+2019-06-29 01:59:16,335 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: vule" AND "1"="1
+2019-06-29 01:59:16,395 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-6] ULOG_UNAME_ERR. Username: vule UNION ALL select NULL -- 
+2019-06-29 01:59:16,455 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG_UNAME_ERR. Username: vule' UNION ALL select NULL -- 
+2019-06-29 01:59:16,515 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-8] ULOG_UNAME_ERR. Username: vule" UNION ALL select NULL -- 
+2019-06-29 01:59:16,575 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-9] ULOG_UNAME_ERR. Username: vule) UNION ALL select NULL -- 
+2019-06-29 01:59:16,645 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: vule') UNION ALL select NULL -- 
+2019-06-29 01:59:23,185 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-8] ULOG_UNAME_ERR. Username: ";print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var="
+2019-06-29 01:59:23,245 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-9] ULOG_UNAME_ERR. Username: ';print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var='
+2019-06-29 01:59:23,735 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-2] ULOG_UNAME_ERR. Username: ;print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));
+2019-06-29 01:59:26,375 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: vule&cat /etc/passwd&
+2019-06-29 01:59:26,435 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: vule;cat /etc/passwd;
+2019-06-29 01:59:26,495 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-6] ULOG_UNAME_ERR. Username: vule"&cat /etc/passwd&"
+2019-06-29 01:59:26,555 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG_UNAME_ERR. Username: vule";cat /etc/passwd;"
+2019-06-29 01:59:26,615 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-8] ULOG_UNAME_ERR. Username: vule'&cat /etc/passwd&'
+2019-06-29 01:59:26,675 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-9] ULOG_UNAME_ERR. Username: vule';cat /etc/passwd;'
+2019-06-29 01:59:26,735 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-10] ULOG_UNAME_ERR. Username: vule&sleep 15&
+2019-06-29 01:59:26,795 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-1] ULOG_UNAME_ERR. Username: vule;sleep 15;
+2019-06-29 01:59:26,855 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-2] ULOG_UNAME_ERR. Username: vule"&sleep 15&"
+2019-06-29 01:59:26,925 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_UNAME_ERR. Username: vule";sleep 15;"
+2019-06-29 01:59:26,975 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: vule'&sleep 15&'
+2019-06-29 01:59:27,025 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: vule';sleep 15;'
+2019-06-29 01:59:27,085 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-6] ULOG_UNAME_ERR. Username: vule&type %SYSTEMROOT%\win.ini
+2019-06-29 01:59:27,145 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG_UNAME_ERR. Username: vule|type %SYSTEMROOT%\win.ini
+2019-06-29 01:59:27,215 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-8] ULOG_UNAME_ERR. Username: vule"&type %SYSTEMROOT%\win.ini&"
+2019-06-29 01:59:27,275 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-9] ULOG_UNAME_ERR. Username: vule"|type %SYSTEMROOT%\win.ini
+2019-06-29 01:59:27,335 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-10] ULOG_UNAME_ERR. Username: vule'&type %SYSTEMROOT%\win.ini&'
+2019-06-29 01:59:27,395 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-1] ULOG_UNAME_ERR. Username: vule'|type %SYSTEMROOT%\win.ini
+2019-06-29 01:59:27,465 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-2] ULOG_UNAME_ERR. Username: vule&timeout /T 15
+2019-06-29 01:59:27,575 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_UNAME_ERR. Username: vule|timeout /T 15
+2019-06-29 01:59:27,635 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: vule"&timeout /T 15&"
+2019-06-29 01:59:27,695 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: vule"|timeout /T 15
+2019-06-29 01:59:27,765 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-6] ULOG_UNAME_ERR. Username: vule'&timeout /T 15&'
+2019-06-29 01:59:27,825 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-7] ULOG_UNAME_ERR. Username: vule'|timeout /T 15
+2019-06-29 01:59:27,885 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-8] ULOG_UNAME_ERR. Username: vule;get-help
+2019-06-29 01:59:27,955 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-9] ULOG_UNAME_ERR. Username: vule";get-help
+2019-06-29 01:59:28,015 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-10] ULOG_UNAME_ERR. Username: vule';get-help
+2019-06-29 01:59:28,095 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-1] ULOG_UNAME_ERR. Username: vule;get-help #
+2019-06-29 01:59:28,175 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-2] ULOG_UNAME_ERR. Username: vule;start-sleep -s 15
+2019-06-29 01:59:28,245 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_UNAME_ERR. Username: vule";start-sleep -s 15
+2019-06-29 01:59:28,305 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: vule';start-sleep -s 15
+2019-06-29 01:59:28,365 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: vule;start-sleep -s 15 #
+2019-06-29 01:59:40,755 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: ZAP%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s
+
+2019-06-29 01:59:40,815 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: ZAP %1!s%2!s%3!s%4!s%5!s%6!s%7!s%8!s%9!s%10!s%11!s%12!s%13!s%14!s%15!s%16!s%17!s%18!s%19!s%20!s%21!n%22!n%23!n%24!n%25!n%26!n%27!n%28!n%29!n%30!n%31!n%32!n%33!n%34!n%35!n%36!n%37!n%38!n%39!n%40!n
+
+2019-06-29 01:59:41,620 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-9] ULOG_UNAME_ERR. Username: Set-cookie: Tamper=c7ff962e-5c24-4960-a30f-091b2c8b907d
+2019-06-29 01:59:41,709 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-10] ULOG_UNAME_ERR. Username: any
+Set-cookie: Tamper=c7ff962e-5c24-4960-a30f-091b2c8b907d
+2019-06-29 01:59:41,800 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-1] ULOG_UNAME_ERR. Username: any?
+Set-cookie: Tamper=c7ff962e-5c24-4960-a30f-091b2c8b907d
+2019-06-29 01:59:41,871 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-2] ULOG_UNAME_ERR. Username: any
+Set-cookie: Tamper=c7ff962e-5c24-4960-a30f-091b2c8b907d
+2019-06-29 01:59:41,955 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_UNAME_ERR. Username: any?
+Set-cookie: Tamper=c7ff962e-5c24-4960-a30f-091b2c8b907d
+2019-06-29 01:59:42,026 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-5] ULOG_UNAME_ERR. Username: any
+Set-cookie: Tamper=c7ff962e-5c24-4960-a30f-091b2c8b907d
+
+2019-06-29 01:59:42,087 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: any?
+Set-cookie: Tamper=c7ff962e-5c24-4960-a30f-091b2c8b907d
+
+2019-06-29 01:59:44,480 ERROR com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-4] ULOG_UNAME_ERR. Username: 
+2019-06-29 02:01:44,765 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "c:/Windows/system.ini"
+2019-06-29 02:01:44,885 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../Windows/system.ini"
+2019-06-29 02:01:45,030 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "c:\Windows\system.ini"
+2019-06-29 02:01:45,150 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\Windows\system.ini"
+2019-06-29 02:01:45,225 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "c:/Windows/system.ini"
+2019-06-29 02:01:45,272 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "/etc/passwd"
+2019-06-29 02:01:45,381 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../Windows/system.ini"
+2019-06-29 02:01:45,405 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../etc/passwd"
+2019-06-29 02:01:45,493 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "c:\Windows\system.ini"
+2019-06-29 02:01:45,525 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "c:/"
+2019-06-29 02:01:45,665 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\Windows\system.ini"
+2019-06-29 02:01:45,720 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "/"
+2019-06-29 02:01:45,820 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "/etc/passwd"
+2019-06-29 02:01:45,850 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "c:\"
+2019-06-29 02:01:45,945 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../etc/passwd"
+2019-06-29 02:01:45,982 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../"
+2019-06-29 02:01:45,982 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "c:/Windows/system.ini"
+2019-06-29 02:01:46,070 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "c:/"
+2019-06-29 02:01:46,100 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "WEB-INF/web.xml"
+2019-06-29 02:01:46,102 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../Windows/system.ini"
+2019-06-29 02:01:46,195 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "/"
+2019-06-29 02:01:46,225 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "WEB-INF\web.xml"
+2019-06-29 02:01:46,236 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "c:\Windows\system.ini"
+2019-06-29 02:01:46,327 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "c:\"
+2019-06-29 02:01:46,370 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "/WEB-INF/web.xml"
+2019-06-29 02:01:46,370 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\Windows\system.ini"
+2019-06-29 02:01:46,477 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../"
+2019-06-29 02:01:46,489 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "\WEB-INF\web.xml"
+2019-06-29 02:01:46,499 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "/etc/passwd"
+2019-06-29 02:01:46,601 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "WEB-INF/web.xml"
+2019-06-29 02:01:46,621 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../etc/passwd"
+2019-06-29 02:01:46,621 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "thishouldnotexistandhopefullyitwillnot"
+2019-06-29 02:01:46,726 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "WEB-INF\web.xml"
+2019-06-29 02:01:46,743 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "c:/"
+2019-06-29 02:01:46,786 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "search"
+2019-06-29 02:01:46,880 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "/WEB-INF/web.xml"
+2019-06-29 02:01:46,900 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "/"
+2019-06-29 02:01:46,920 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "/search"
+2019-06-29 02:01:47,004 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "\WEB-INF\web.xml"
+2019-06-29 02:01:47,020 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "c:\"
+2019-06-29 02:01:47,035 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "\search"
+2019-06-29 02:01:47,138 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "thishouldnotexistandhopefullyitwillnot"
+2019-06-29 02:01:47,187 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../"
+2019-06-29 02:01:47,260 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "search"
+2019-06-29 02:01:47,311 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "WEB-INF/web.xml"
+2019-06-29 02:01:47,390 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "/search"
+2019-06-29 02:01:47,430 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "WEB-INF\web.xml"
+2019-06-29 02:01:47,502 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "\search"
+2019-06-29 02:01:47,546 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "/WEB-INF/web.xml"
+2019-06-29 02:01:47,700 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "\WEB-INF\web.xml"
+2019-06-29 02:01:47,810 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "thishouldnotexistandhopefullyitwillnot"
+2019-06-29 02:01:47,897 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "search"
+2019-06-29 02:01:48,005 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "/search"
+2019-06-29 02:01:48,120 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "\search"
+2019-06-29 02:01:56,110 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "http://www.google.com/"
+2019-06-29 02:01:56,225 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "http://www.google.com:80/"
+2019-06-29 02:01:56,329 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "http://www.google.com"
+2019-06-29 02:01:56,479 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "http://www.google.com/search?q=OWASP%20ZAP"
+2019-06-29 02:01:56,611 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "http://www.google.com:80/search?q=OWASP%20ZAP"
+2019-06-29 02:01:56,750 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "www.google.com/"
+2019-06-29 02:01:56,856 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "www.google.com:80/"
+2019-06-29 02:01:56,970 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "www.google.com"
+2019-06-29 02:01:57,108 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "www.google.com/search?q=OWASP%20ZAP"
+2019-06-29 02:01:57,225 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "www.google.com:80/search?q=OWASP%20ZAP"
+2019-06-29 02:02:00,568 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "<!--#EXEC cmd="ls /"-->"
+2019-06-29 02:02:00,705 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: ""><!--#EXEC cmd="ls /"--><"
+2019-06-29 02:02:00,850 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "<!--#EXEC cmd="dir \"-->"
+2019-06-29 02:02:00,965 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: ""><!--#EXEC cmd="dir \"--><"
+2019-06-29 02:02:04,274 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "0W45pz4p"
+2019-06-29 02:02:04,437 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "0W45pz4p"
+2019-06-29 02:02:04,559 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "'"<script>alert(1);</script>"
+2019-06-29 02:02:05,625 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "zApPX10sS"
+2019-06-29 02:03:30,906 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "'"
+2019-06-29 02:03:31,054 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "'"
+2019-06-29 02:03:31,555 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: """
+2019-06-29 02:03:32,338 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: """
+2019-06-29 02:03:32,853 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: ";"
+2019-06-29 02:03:32,993 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: ";"
+2019-06-29 02:03:33,208 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: ")"
+2019-06-29 02:03:33,335 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: ")"
+2019-06-29 02:03:33,778 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: " AND 1=1 -- "
+2019-06-29 02:03:33,895 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "' AND '1'='1' -- "
+2019-06-29 02:03:34,036 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "" AND "1"="1" -- "
+2019-06-29 02:03:34,163 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: " AND 1=1"
+2019-06-29 02:03:34,294 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "' AND '1'='1"
+2019-06-29 02:03:34,485 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "" AND "1"="1"
+2019-06-29 02:03:34,613 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: " UNION ALL select NULL -- "
+2019-06-29 02:03:34,725 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "' UNION ALL select NULL -- "
+2019-06-29 02:03:34,840 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "" UNION ALL select NULL -- "
+2019-06-29 02:03:34,951 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: ") UNION ALL select NULL -- "
+2019-06-29 02:03:35,059 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "') UNION ALL select NULL -- "
+2019-06-29 02:03:38,025 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "http://www.google.com/"
+2019-06-29 02:03:38,065 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "http://www.google.com/"
+2019-06-29 02:03:38,144 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "http://www.google.com:80/"
+2019-06-29 02:03:38,191 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "http://www.google.com:80/"
+2019-06-29 02:03:38,276 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "http://www.google.com"
+2019-06-29 02:03:38,324 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "http://www.google.com"
+2019-06-29 02:03:38,433 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "http://www.google.com/search?q=OWASP%20ZAP"
+2019-06-29 02:03:38,462 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "http://www.google.com/search?q=OWASP%20ZAP"
+2019-06-29 02:03:38,562 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "http://www.google.com:80/search?q=OWASP%20ZAP"
+2019-06-29 02:03:38,606 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "http://www.google.com:80/search?q=OWASP%20ZAP"
+2019-06-29 02:03:38,675 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "www.google.com/"
+2019-06-29 02:03:38,715 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "www.google.com/"
+2019-06-29 02:03:38,795 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "www.google.com:80/"
+2019-06-29 02:03:38,832 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "www.google.com:80/"
+2019-06-29 02:03:38,915 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "www.google.com"
+2019-06-29 02:03:38,951 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "www.google.com"
+2019-06-29 02:03:39,052 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "www.google.com/search?q=OWASP%20ZAP"
+2019-06-29 02:03:39,080 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "www.google.com/search?q=OWASP%20ZAP"
+2019-06-29 02:03:39,185 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "www.google.com:80/search?q=OWASP%20ZAP"
+2019-06-29 02:03:39,206 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "www.google.com:80/search?q=OWASP%20ZAP"
+2019-06-29 02:03:42,043 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "";print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var=""
+2019-06-29 02:03:42,178 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "';print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var='"
+2019-06-29 02:03:42,334 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "${@print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110))}"
+2019-06-29 02:03:42,453 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "${@print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110))}\"
+2019-06-29 02:03:42,567 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: ";print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));"
+2019-06-29 02:03:42,870 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: ""+response.write([100,000*100,000)+""
+2019-06-29 02:03:43,126 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "+response.write({0}*{1})+"
+2019-06-29 02:03:43,247 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "response.write(100,000*100,000)"
+2019-06-29 02:26:36,355 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "c:/Windows/system.ini"
+2019-06-29 02:26:36,456 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../Windows/system.ini"
+2019-06-29 02:26:36,546 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "c:\Windows\system.ini"
+2019-06-29 02:26:36,636 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\Windows\system.ini"
+2019-06-29 02:26:36,756 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "/etc/passwd"
+2019-06-29 02:26:36,855 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../etc/passwd"
+2019-06-29 02:26:36,951 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "c:/"
+2019-06-29 02:26:37,036 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "/"
+2019-06-29 02:26:37,116 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "c:\"
+2019-06-29 02:26:37,206 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "../../../../../../../../../../../../../../../../"
+2019-06-29 02:26:37,286 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "WEB-INF/web.xml"
+2019-06-29 02:26:37,366 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "WEB-INF\web.xml"
+2019-06-29 02:26:37,446 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "/WEB-INF/web.xml"
+2019-06-29 02:26:37,536 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "\WEB-INF\web.xml"
+2019-06-29 02:26:37,616 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "thishouldnotexistandhopefullyitwillnot"
+2019-06-29 02:26:37,716 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "search"
+2019-06-29 02:26:38,062 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "/search"
+2019-06-29 02:26:38,186 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "\search"
+2019-06-29 02:26:44,086 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "http://www.google.com/"
+2019-06-29 02:26:44,176 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "http://www.google.com:80/"
+2019-06-29 02:26:44,296 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "http://www.google.com"
+2019-06-29 02:26:44,371 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "http://www.google.com/search?q=OWASP%20ZAP"
+2019-06-29 02:26:44,455 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "http://www.google.com:80/search?q=OWASP%20ZAP"
+2019-06-29 02:26:44,536 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "www.google.com/"
+2019-06-29 02:26:44,616 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "www.google.com:80/"
+2019-06-29 02:26:44,696 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "www.google.com"
+2019-06-29 02:26:44,775 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "www.google.com/search?q=OWASP%20ZAP"
+2019-06-29 02:26:44,866 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "www.google.com:80/search?q=OWASP%20ZAP"
+2019-06-29 02:26:47,096 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "<!--#EXEC cmd="ls /"-->"
+2019-06-29 02:26:47,186 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: ""><!--#EXEC cmd="ls /"--><"
+2019-06-29 02:26:47,266 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "<!--#EXEC cmd="dir \"-->"
+2019-06-29 02:26:47,356 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: ""><!--#EXEC cmd="dir \"--><"
+2019-06-29 02:26:48,896 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "0W45pz4p"
+2019-06-29 02:26:48,986 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "0W45pz4p"
+2019-06-29 02:26:49,086 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "'"<script>alert(1);</script>"
+2019-06-29 02:26:49,856 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "zApPX8sS"
+2019-06-29 02:27:02,076 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "'"
+2019-06-29 02:27:02,150 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "'"
+2019-06-29 02:27:02,216 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: """
+2019-06-29 02:27:02,296 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: """
+2019-06-29 02:27:02,366 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: ";"
+2019-06-29 02:27:02,436 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: ";"
+2019-06-29 02:27:02,521 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: ")"
+2019-06-29 02:27:02,616 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: ")"
+2019-06-29 02:27:02,836 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: " AND 1=1 -- "
+2019-06-29 02:27:02,906 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "' AND '1'='1' -- "
+2019-06-29 02:27:03,008 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "" AND "1"="1" -- "
+2019-06-29 02:27:03,111 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: " AND 1=1"
+2019-06-29 02:27:03,195 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "' AND '1'='1"
+2019-06-29 02:27:03,296 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "" AND "1"="1"
+2019-06-29 02:27:03,393 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: " UNION ALL select NULL -- "
+2019-06-29 02:27:03,476 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "' UNION ALL select NULL -- "
+2019-06-29 02:27:03,546 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "" UNION ALL select NULL -- "
+2019-06-29 02:27:03,625 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: ") UNION ALL select NULL -- "
+2019-06-29 02:27:03,706 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "') UNION ALL select NULL -- "
+2019-06-29 02:27:07,736 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "";print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var=""
+2019-06-29 02:27:07,806 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "';print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var='"
+2019-06-29 02:27:07,886 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "${@print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110))}"
+2019-06-29 02:27:07,996 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "${@print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110))}\"
+2019-06-29 02:27:08,076 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: ";print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));"
+2019-06-29 02:27:08,156 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: ""+response.write([100,000*100,000)+""
+2019-06-29 02:27:08,236 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "+response.write({0}*{1})+"
+2019-06-29 02:27:08,296 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "response.write(100,000*100,000)"
+2019-06-29 02:27:24,956 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "&cat /etc/passwd&"
+2019-06-29 02:27:25,076 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: ";cat /etc/passwd;"
+2019-06-29 02:27:25,166 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: ""&cat /etc/passwd&""
+2019-06-29 02:27:25,246 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "";cat /etc/passwd;""
+2019-06-29 02:27:25,326 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "'&cat /etc/passwd&'"
+2019-06-29 02:27:25,396 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "';cat /etc/passwd;'"
+2019-06-29 02:27:25,470 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "&sleep 15&"
+2019-06-29 02:27:25,546 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: ";sleep 15;"
+2019-06-29 02:27:25,616 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: ""&sleep 15&""
+2019-06-29 02:27:25,696 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "";sleep 15;""
+2019-06-29 02:27:25,776 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "'&sleep 15&'"
+2019-06-29 02:27:25,846 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "';sleep 15;'"
+2019-06-29 02:27:25,926 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: "&type %SYSTEMROOT%\win.ini"
+2019-06-29 02:27:26,006 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "|type %SYSTEMROOT%\win.ini"
+2019-06-29 02:27:26,076 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: For input string: ""&type %SYSTEMROOT%\win.ini&""
+2019-06-29 02:27:26,146 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: ""|type %SYSTEMROOT%\win.ini"
+2019-06-29 02:27:26,226 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "'&type %SYSTEMROOT%\win.ini&'"
+2019-06-29 02:27:26,296 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "'|type %SYSTEMROOT%\win.ini"
+2019-06-29 02:27:26,376 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "&timeout /T 15"
+2019-06-29 02:27:26,456 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "|timeout /T 15"
+2019-06-29 02:27:26,526 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: ""&timeout /T 15&""
+2019-06-29 02:27:26,606 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: ""|timeout /T 15"
+2019-06-29 02:27:26,691 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "'&timeout /T 15&'"
+2019-06-29 02:27:26,766 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "'|timeout /T 15"
+2019-06-29 02:27:26,836 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: ";get-help"
+2019-06-29 02:27:26,916 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "";get-help"
+2019-06-29 02:27:26,986 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "';get-help"
+2019-06-29 02:27:27,076 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: ";get-help #"
+2019-06-29 02:27:27,166 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: ";start-sleep -s 15"
+2019-06-29 02:27:27,236 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: "";start-sleep -s 15"
+2019-06-29 02:27:27,306 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "';start-sleep -s 15"
+2019-06-29 02:27:27,386 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: For input string: ";start-sleep -s 15 #"
+2019-06-29 02:27:31,965 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "2658661358130541940.owasp.org"
+2019-06-29 02:27:32,046 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "http://2658661358130541940.owasp.org"
+2019-06-29 02:27:32,117 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "https://2658661358130541940.owasp.org"
+2019-06-29 02:27:32,196 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "http:\\2658661358130541940.owasp.org"
+2019-06-29 02:27:32,266 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "https:\\2658661358130541940.owasp.org"
+2019-06-29 02:27:32,351 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "//2658661358130541940.owasp.org"
+2019-06-29 02:27:32,436 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "\\2658661358130541940.owasp.org"
+2019-06-29 02:27:32,506 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "HtTp://2658661358130541940.owasp.org"
+2019-06-29 02:27:32,586 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "HtTpS://2658661358130541940.owasp.org"
+2019-06-29 02:27:33,146 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_ERR: For input string: "YBYYUQNEjpRIngsqoJFOoZZFRRRlegJxwuMVNmTfhuBiCUvkmrQZYBZOQtQjujxLjlRBNOxLfrcSJgiWHSPOnfAHNWOhHxauxqtdvLnNqZaFoQbFoUhrOFtDBaAxjVXPNwqWZKkoygEMQlYNiKTdHqdwVURYurNIIQbcucDeFdfhAksGJPsryyddofIrpjGwYiDoYLdfaVLFgLZdOjUJcOrqtvlXnpZjTiWmuqTJrKkoKSKZejLTLbYrxwjsWpCgxtAWdMmuPXxHcMGiXrKughQXQyHJZrPuRexdBbXosWgeRuKkPpAeQKSNQiUinRcdkUwMcLanhUmEbPtOaWdMQLNiksrKKtJpaNxDXcUwjQZEibCFWiIBGpySnQteCKUYhpijQjBHQNEGCZnumXnaZppBlpHwlhasQIjKecVUUSXSPYfGRfaGTlxSdMvZVAKiLCUhuprWmAIYYPmJDeQhMcLssYnRBGbNekjkLjqyblEbQRNHHTXMeYxfATkcVNhXUDfVfwaBOiorvwioOXQpuNoRSgvnWyyuhYRcfGZjXHFYeLTEiQdjLXCMkOAdjHJrtLdYxlHMxbgemEgMPFnutKSFfmjMCpVwpYngScLXMrpKZTfHRiJqFVQHmWndcssgFskRWJsRHeVFqPWAAyhIoYgUOFevVyYsDeGepTTefWrOVrAqAVsNDhtDVByqaiFwHrAvMQgIObxhGFvEAMWQMeYbbOHSIIWdDaowMCYOJXpZkHtKSFAKgjWqlYQqSrisfcyGPAOjkmwMLDJLdFjxDDqoplNKAUdgASHIiQMGEFppcFmuprsTGEkUOKKpYKGNlfaiQgIUnwmxLWJmlQFQKAoRSxlTVNLqJCASPLtigpOwOlIAgGFULaEsNHCMQAQVxGwkYmNRSPWjBIXOorDXvLtLjwRxDMKwQSAhFXgpRoScQJTFgXooELstZSCfLpMNyiROXAdXQVbliDOiLtiMLiQqIWiJLnILhluLMknnZaSlBwlZGvDplbftVyPImOEXQAIrbJOOBPIgncDVPOlhWtReCgtvNPFOIdMkpwABFILFQisfwkuVfBOVDNnboPmdSJVVLruTWuQvCSXyGRUCPetJmDpDlEUptaUeDVAnsnULXUGPXYoEsfiRnxMefERkaKMQLsqNgwPnxmbcGKkUeYAMhkShlCWpqAmAAsyPVgDYxbIqXNygNxnZmXBUdgEDxKgZGYZLcHWDMguGdIBoKWvwFmAOtdQfSfNQWAsyYMdttiehySpJMObSpRNnWdIrGrbuvdshekxuwxCTsmZDRXIhqAulgdNITasRCEaZxNiUEEqPwaMyJGjunerOGsmUawZwdvCacuvNTrQAkbtlyQxOQOljoCXDFHvknjKQKMTyrstGtswefxZZboktMTKSsSMviInEgbIdJrXKBbveTODihIKVBVCyCIJjxuTtTTEymtaOKQbVJLQGJslcUjKPVUkRyRIGWJBCTRrSVfJUJocboVurRLgUdYYeqLQGMjjnhrgUecxbpCfQYUNXQGmLmSdsTkwtMmCfAfCmIhqGLKOJxaVFWexiaEptvFNKNivcnlOLyGjSJWoYPGOHJHVpRCxFuQQjQCRIAnPgGEMGbfUEAWatXqyLRDKlmZPikDPZgAOHcKYpdSaaAFbmabhyFUJNHdGxMFSkTTcqYuTTuHjvbJrSdbNWHFevNURjTkydoVYeSXrlgoOPoPbwwIIXnaskXhmSXqiDBnJyXorZlFYrAypjHaTjsVftiKDOvBYDnFeGPwtPemfyKbieCNvueVWTNvZqaEFOitKAFJntgaJDSnvtpZORwXNOedagDQBlMKSYiWaxFtKsKIKfHOoTAZMgNLxPkhBFYESEAYqpsMEemYsWMvLaDmArNXWxJDJPpfZblvNsIKdiSNjdcZlZYouAbEZYDaSgNMHguwIfKOjsEtjTQfcttAayRoTHQZYemtAVmbcZLRnSRRFAunThwtDCejRUIthOimWtVjJQUUQUawcTDEdbRtDiZEalmZAjrLFUGxusuQXNPjRSxwpVLHlSWjNDDdcVWrRgLpxgMRlNvmkahACgCyUlZHuQKkjivuSWIEGH"
+2019-06-29 02:27:34,656 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "ZAP"
+2019-06-29 02:27:38,576 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86"
+2019-06-29 02:27:38,676 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "any
+Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86"
+2019-06-29 02:27:38,786 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: For input string: "any?
+Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86"
+2019-06-29 02:27:38,886 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_ERR: For input string: "any
+Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86"
+2019-06-29 02:27:38,996 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "any?
+Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86"
+2019-06-29 02:27:39,076 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: For input string: "any
+Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86
+"
+2019-06-29 02:27:39,156 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-4] AU_SEARCH_ERR: For input string: "any?
+Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86
+"
+2019-06-29 02:27:39,406 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-6] AU_SEARCH_ERR: Invalid search query.
+2019-06-29 02:27:40,596 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_ERR: Invalid search query.
+2019-06-29 02:27:40,646 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_ERR: Invalid search query.
+2019-06-29 02:27:40,816 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_ERR: Invalid search query.
+2019-06-29 02:27:42,746 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: For input string: "null"
+2019-06-29 02:27:42,886 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: "@"
+2019-06-29 02:27:42,955 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "+"
+2019-06-29 02:27:43,036 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_ERR: For input string: " "
+2019-06-29 02:27:43,116 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_ERR: For input string: "|"
