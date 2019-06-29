@@ -1,19 +1,11 @@
 
 package com.megatravel.authservice.model;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -26,7 +18,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;extension base="{http://www.ftn.uns.ac.rs/MegaTravel/global}TPerson">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/reservation}Reservation" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="status">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -36,7 +27,6 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
- *         &lt;element ref="{http://www.ftn.uns.ac.rs/MegaTravel/global}Rating" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>
@@ -47,55 +37,19 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "status",
-    "rating"
+    "status"
 })
 @XmlRootElement(name = "User", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users")
-
 @Entity
 @DiscriminatorValue("USER")
 public class User
     extends TPerson
 {
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
-    @Column(name="status")
+    @Column(name = "status")
     @NotNull
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     protected String status;
-
-
-    @XmlElement(name = "Rating", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global")
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    protected List<Rating> rating;
-
-    /**
-     * Gets the value of the reservation property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the reservation property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getReservation().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Reservation }
-     * 
-     * 
-     */
-    public List<Reservation> getReservation() {
-        if (reservation == null) {
-            reservation = new ArrayList<Reservation>();
-        }
-        return this.reservation;
-    }
 
     /**
      * Gets the value of the status property.
@@ -121,32 +75,4 @@ public class User
         this.status = value;
     }
 
-    /**
-     * Gets the value of the rating property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the rating property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getRating().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Rating }
-     * 
-     * 
-     */
-    public List<Rating> getRating() {
-        if (rating == null) {
-            rating = new ArrayList<Rating>();
-        }
-        return this.rating;
-    }
 }

@@ -108,25 +108,20 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
-                <xs:element ref="gl:Comment"/>
-            </xs:sequence>
-            <xs:attribute name="id" type="xs:long"/>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="Comment">
-        <xs:complexType>
-            <xs:sequence>
                 <xs:element default="false" name="approved" type="xs:boolean"/>
                 <xs:element name="postingDate" type="xs:dateTime"/>
-                <xs:element name="text">
+                <xs:element name="comment">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
                             <xs:minLength value="0"/>
-                            <xs:maxLength value="500"/>
+                            <xs:maxLength value="300"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
+                <xs:element name="reservator" type="xs:string"/>
+                <xs:element name="accommodation_id" type="xs:long"/>
             </xs:sequence>
+            <xs:attribute name="id" type="xs:long"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>
