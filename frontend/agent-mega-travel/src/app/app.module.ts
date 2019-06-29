@@ -21,6 +21,7 @@ import { ReservationService } from './services/reservation.service';
 import { ReservationListComponent } from './reservation/reservation-list/reservation-list.component';
 import { ReservationCardComponent } from './reservation/reservation-card/reservation-card.component';
 import { MessagesComponent } from './reservation/messages/messages.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MessagesComponent } from './reservation/messages/messages.component';
   LoadingDirective,
   ReservationListComponent,
   ReservationCardComponent,
-  MessagesComponent
+  MessagesComponent,
+  ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

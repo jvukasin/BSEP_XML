@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    --main: rgb(0, 156, 177);
+}
+
+
    /* MODAL WINDOW */
    .form-modal {
     
@@ -17,7 +22,7 @@
 
 .modal-content {
     /* background-color: black; */
-    width: 600px !important; 
+    width: 800px !important; 
     margin: 0 auto;
     overflow-y: scroll;
     -webkit-animation-name: animatetop;

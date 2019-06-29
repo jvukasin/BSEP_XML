@@ -1,0 +1,41 @@
+<div class="container">
+    <h4>Trusted software:</h4>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Certificate Alias</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ts of trustedSoftware">
+            <th scope="row">{{ ts.id }}</th>
+            <td>{{ ts.name }}</td>
+            <td>{{ ts.certificate.alias }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form [formGroup]="tsForm" (ngSubmit)="onSubmitTS()">
+          
+              <h5 class="mb-4">Select software </h5>
+              <hr />
+    
+              <div class="form-group">
+                <label for=""></label>
+                <select class="form-control" formControlName="trustedSoftwareId">
+                  <option *ngFor="let ts of notTrustedSoftware" value="{{ts.id}}">{{ts.name}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-info" [disabled]="!tsForm.valid">
+                  Add software to trust store
+                </button>
+              </div>
+            
+        </form>
+
+
+
+</div>

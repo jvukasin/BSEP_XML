@@ -21,7 +21,7 @@ export class RevokeCertificateFormComponent implements OnInit {
 
   onSubmitCert(form: NgForm){
     let revocationDTO = {
-      subjectId: this.softId,
+      issuerId: this.softId,
       reasonForRevocation: this.reasonForRevocation,
     }
 

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PKIComponent } from './pki/pki.component';
+import { SelfSignedComponent } from './self-signed/self-signed.component';
 
 
 const appRoutes: Routes = [
-	{ path: '', redirectTo: '/certificates', pathMatch: 'full'},
-	{ path: 'certificates', component: PKIComponent }
+	{ path: '', redirectTo: '/ss', pathMatch: 'full'},
+	{ path: 'pki', component: PKIComponent },
+	{ path: 'ss', component: SelfSignedComponent }
+	
 ]
 
 @NgModule({

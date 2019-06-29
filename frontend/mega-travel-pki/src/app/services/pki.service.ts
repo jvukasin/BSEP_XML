@@ -9,8 +9,21 @@ export class PkiService {
         return this.http.get("/api/software/all");
     }
 
+    
+    getTrustedSoftwares(id: number) {
+        return this.http.get("/api/software/" + id + "/trusted");
+    }
+
+    openCommunication(dto) {
+        return this.http.post("/api/software/openCommunication", dto);
+    }
+
     getCertificates() {
-        return this.http.get("/api/certificate/all");
+        return this.http.get("/api/certificate/getAllCertificates");
+    }
+
+    getCACertificates() {
+        return this.http.get("/api/certificate/getAllCAs");
     }
 
     getSelfSignedCert() {
@@ -18,11 +31,11 @@ export class PkiService {
     }
 
     generateSelfSigned(cert) {
-        return this.http.post("/api/certificate/generateSelfSigned/", cert);
+        return this.http.post("/api/certificate/selfSigned/", cert);
     }
 
-    generateCertificate(id, cert) {
-        return this.http.post("/api/certificate/generateCertificate/" + id, cert);
+    generateIssuedCertificate(id, cert) {
+        return this.http.post("/api/certificate/generateIssuedCertificate/" + id, cert);
     }
 
     revokeCertificate(revocationDTO) {

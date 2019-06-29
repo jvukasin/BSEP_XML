@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PkiService } from '../services/pki.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pki',
@@ -8,22 +9,32 @@ import { PkiService } from '../services/pki.service';
 })
 export class PKIComponent implements OnInit {
 
+
+  
   sertifikati: any;
   softveri: any;
-  selfSigned: any;
+  selfSigned: any = null;
   //boolean za modalni dijalog, kad ga nema(selfSigned sertifikata) odmah se otvori, kad ima nista
   shoFormDialog: boolean = false;
   addCertifDialog: boolean = false;
   revokeCertifDialog: boolean = false;
+  trustedSWDialog: boolean = false;
   
   softId: any;
   softsert: any = [];
+  software: any = null;
 
-  constructor(private pkiService: PkiService) { }
+  constructor(private pkiService: PkiService, private router: Router) { }
 
   ngOnInit() {
-    
-    
+
+   this.fetchSelfSigned();
+   this.fetchSofwares();
+   this.fetchCertificates();
+
+  }
+
+  fetchSofwares() {
 
     this.pkiService.getSoftwares().subscribe(
       (data) => {
@@ -37,33 +48,43 @@ export class PKIComponent implements OnInit {
         }
       }, error => alert("Error: " + error)
     );
-
   }
 
+  fetchCertificates() {
+    
+    this.pkiService.getCertificates().subscribe(
+      (data) => {
+        this.sertifikati = data;
+      }, error => alert("Error: " + error)
+    );
+  }
   
+
+  fetchSelfSigned() {
+    this.pkiService.getSelfSignedCert().subscribe(
+			response => {
+        this.selfSigned = response;
+        if (this.selfSigned == null) {
+          this.router.navigate(['/']);
+        }
+			},
+			error => console.log(error)
+		)
+  }
 
   certificateAdded(s) {
     alert("SUCCESS! Certificate added.");
-    s.certificate.startDate = s.certificate.startDate.split('T')[0];
-    s.certificate.endDate = s.certificate.endDate.split('T')[0];
-    let i = this.softveri.findIndex(soft => soft.id === s.id);
-    this.softveri.splice(i, 1, s);
-    this.softsert.push(s);
+    this.fetchSofwares();
+    this.fetchCertificates();
     this.addCertifDialog = false;
   }
 
   certificateRevoked(s) {
     alert("SUCCESS! Certificate revoked.")  
-    this.softsert = this.softsert.map(softver => {
-
-      if (softver.id === s.id) {
-        softver.certificate.revoked = true;
-        softver.certificate.reasonForRevocation = s.certificate.reasonForRevocation;
-      }
-
-      return softver;
-
-    });
+    this.sertifikati = s;
+    
+    this.fetchSofwares();
+    this.fetchSelfSigned();
 
     this.revokeCertifDialog = false;
   }
@@ -87,15 +108,30 @@ export class PKIComponent implements OnInit {
     this.softId = id;
   }
 
+  onOpenTrustedSWDialog(sw) {
+    console.log(sw);
+    this.software = sw;
+    console.log(this.software);
+    this.trustedSWDialog = true;
+  }
+
+  onCloseTrustedSWDialog() {
+    this.trustedSWDialog = false;
+  }
+
+  onAddTrustedSW($event) {
+    console.log($event);
+  }
+
   verifyCertificate(id){
     this.pkiService.verifyCertificate(id).subscribe(
-      (verified) => {
-        if(verified){
-          alert("Certificate is valid!");
-        }else{
-          alert("Certificate is not valid!");
+      response => {
+      }, error => {
+          if (error.status === 200) {
+            alert(error.error.text);
+          }
         }
-      }
+      
     )
   }
 

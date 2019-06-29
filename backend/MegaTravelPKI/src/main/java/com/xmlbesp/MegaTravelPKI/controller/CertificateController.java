@@ -1,15 +1,7 @@
 package com.xmlbesp.MegaTravelPKI.controller;
 
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.PublicKey;
-import java.security.SignatureException;
-import java.security.cert.CertificateException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.xmlbesp.MegaTravelPKI.dto.CertificateDTO;
 import com.xmlbesp.MegaTravelPKI.dto.CertificateInfoDTO;
 import com.xmlbesp.MegaTravelPKI.dto.RevocationDTO;
-import com.xmlbesp.MegaTravelPKI.dto.SoftwareDTO;
-import com.xmlbesp.MegaTravelPKI.dto.SubjectDataDTO;
-import com.xmlbesp.MegaTravelPKI.keystores.KeyStoreReader;
 import com.xmlbesp.MegaTravelPKI.model.Certificate;
 import com.xmlbesp.MegaTravelPKI.model.Software;
 import com.xmlbesp.MegaTravelPKI.service.AdminPKIService;
@@ -48,6 +37,7 @@ public class CertificateController {
 	
 	@Autowired
 	SoftwareService softwareService;
+
 	
 	private Logging logger = new Logging(this);
 	
@@ -61,48 +51,67 @@ public class CertificateController {
 		Certificate c = certificateService.getSelfSigned();
 		
 		if (c == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+
+		if (c.isRevoked()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
 		}
 		
 		return new ResponseEntity<CertificateDTO>(new CertificateDTO(c), HttpStatus.OK);
 	}  
 	
 	@RequestMapping(value = "/selfSigned", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CertificateDTO> generateSelfSignedCertificate (@RequestBody CertificateInfoDTO certInfoDTO){ 
-		
-		Certificate c = certificateService.generateSelfSignedCertificate(certInfoDTO.getStartDate(), certInfoDTO.getEndDate());
+	public ResponseEntity<?> generateSelfSignedCertificate (@RequestBody CertificateInfoDTO certInfoDTO){
+
+		if (certificateService.selfSignedExists()) {
+
+			return new ResponseEntity<>("Self signed certificate already exists.", HttpStatus.BAD_REQUEST);
+		}
+
+		Certificate c = certificateService.generateSelfSignedCertificate(certInfoDTO);
 		
 
 		return new ResponseEntity<CertificateDTO>(new CertificateDTO(c), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/generateIssuedCertificate", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<CertificateDTO> generateIssuedCertificate(@RequestBody CertificateInfoDTO certInfoDTO) throws ParseException
+	@RequestMapping(value = "/generateIssuedCertificate/{id}", method = RequestMethod.POST, consumes = "application" +
+			"/json")
+	public ResponseEntity<?> generateIssuedCertificate(@PathVariable Long id,
+																	@RequestBody CertificateInfoDTO certInfoDTO) throws ParseException
 	{
 		System.out.println(certInfoDTO.getSubjectDataDTO().getUid());
+
+		Software s = softwareService.findOneById(id);
+		if (s == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+
+
+
 		Certificate c = certificateService.generateIssuedCertificate(certInfoDTO);
-		
+
+		if (c == null) {
+
+			return new ResponseEntity<>("Certificate can not be generated.", HttpStatus.BAD_REQUEST);
+		}
+
+		s.setCertified(true);
+		s.setCertificate(c);
+		softwareService.save(s);
+
 		return new ResponseEntity<>(new CertificateDTO(c), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/revokeCertificate", method = RequestMethod.PUT, consumes = "application/json")
-	public ResponseEntity<SoftwareDTO> revokeCertificate(@RequestBody RevocationDTO revocationDTO) throws ParseException
+	public ResponseEntity<?> revokeCertificate(@RequestBody RevocationDTO revocationDTO) throws ParseException
 	{
-		logger.logInfo("Revoking certificate - START");
-		Software software = softwareService.findOneById(revocationDTO.getSubjectId());
-		
-		if (software.isCertified() && software.getCertificate() != null) {
-			software.getCertificate().setRevoked(true);
-			software.getCertificate().setReasonForRevocation(revocationDTO.getReasonForRevocation());
-		} else {
-			logger.logError("Revoking certificate " + software.getCertificate().getAlias() + " FAILED");
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		
-		software = softwareService.save(software);
-		
+
+		List<CertificateDTO> retVal = certificateService.revoke(revocationDTO);
+		softwareService.updateSoftwares();
 		logger.logInfo("Revoking certificate - END");
-		return new ResponseEntity<>(new SoftwareDTO(software), HttpStatus.OK);
+		return new ResponseEntity<>(retVal, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/getAllCertificates", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -126,7 +135,7 @@ public class CertificateController {
 		List<CertificateDTO> cDTO = new ArrayList<>();
 		
 		for (Certificate c : certificates) {
-			if(c.isCa()) {
+			if(c.isCa() && !c.isRevoked()) {
 				CertificateDTO cdto = new CertificateDTO(c);
 				cDTO.add(cdto);
 			}

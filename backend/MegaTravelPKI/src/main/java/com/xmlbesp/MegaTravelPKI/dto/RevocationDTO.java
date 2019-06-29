@@ -2,33 +2,32 @@ package com.xmlbesp.MegaTravelPKI.dto;
 
 public class RevocationDTO {
 	
-	private Long subjectId;
+	private Long issuerId;
 	private String reasonForRevocation;
 	
 	
 	public RevocationDTO() {
 		
 	}
-	
-	public RevocationDTO(Long subjectId, String reasonForRevocation) {
-		super();
-		this.subjectId = subjectId;
+
+	public RevocationDTO(Long issuerId, String reasonForRevocation) {
+		this.issuerId = issuerId;
 		this.reasonForRevocation = reasonForRevocation;
 	}
-	
-	public Long getSubjectId() {
-		return subjectId;
+
+	public Long getIssuerId() {
+		return issuerId;
 	}
-	public void setSubjectId(Long subjectId) {
-		this.subjectId = subjectId;
+
+	public void setIssuerId(Long issuerId) {
+		this.issuerId = issuerId;
 	}
+
 	public String getReasonForRevocation() {
 		return reasonForRevocation;
 	}
+
 	public void setReasonForRevocation(String reasonForRevocation) {
 		this.reasonForRevocation = reasonForRevocation;
 	}
-	
-	
-
 }

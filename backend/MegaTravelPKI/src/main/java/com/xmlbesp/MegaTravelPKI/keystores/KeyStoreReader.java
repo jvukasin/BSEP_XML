@@ -82,7 +82,7 @@ public class KeyStoreReader {
     public Certificate readCertificate(String keyStoreFile, String keyStorePass, String alias) {
 		try {
 			//kreiramo instancu KeyStore
-			KeyStore ks = KeyStore.getInstance("PKCS12");
+			KeyStore ks = KeyStore.getInstance("JKS", "SUN");
 			//ucitavamo podatke
 			BufferedInputStream in = new BufferedInputStream(new FileInputStream(keyStoreFile));
 			ks.load(in, keyStorePass.toCharArray());
@@ -100,6 +100,8 @@ public class KeyStoreReader {
 		} catch (CertificateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (NoSuchProviderException e) {
 			e.printStackTrace();
 		}
 		return null;

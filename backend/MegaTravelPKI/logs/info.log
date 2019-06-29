@@ -521,3 +521,1255 @@
 2019-06-28 17:10:10,134 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN_SUCCESS
 2019-06-28 17:10:10,328 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_GEN_SUCCESS
 2019-06-28 17:10:10,351 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] IS_GEN_SUCCESS
+2019-06-28 21:37:12,757 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 640 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 21:37:12,757 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 21:37:12,757 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 21:37:14,686 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 21:37:14,686 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 21:37:14,686 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 21:37:15,029 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 21:38:17,244 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 14204 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 21:38:17,244 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 21:38:17,244 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 21:38:18,838 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 21:38:18,838 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 21:38:18,838 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 21:38:19,134 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 21:45:34,436 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 7428 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 21:45:34,436 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 21:45:34,436 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 21:45:36,078 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 21:45:36,078 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 21:45:36,078 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 21:45:36,374 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 21:45:38,686 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-28 21:45:38,686 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_EXISTING
+2019-06-28 21:45:38,844 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-28 21:45:39,793 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.951 seconds (JVM running for 6.95)
+2019-06-28 23:05:25,427 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 14516 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 23:05:25,431 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 23:05:25,432 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 23:05:27,053 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:05:27,055 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:05:27,055 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 23:05:27,343 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 23:05:29,594 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-28 23:05:29,597 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_EXISTING
+2019-06-28 23:05:29,713 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-28 23:05:30,557 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.746 seconds (JVM running for 6.816)
+2019-06-28 23:10:48,914 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 15456 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 23:10:48,919 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 23:10:48,920 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 23:10:50,588 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:10:50,589 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:10:50,590 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 23:10:50,881 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 23:10:53,142 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-28 23:10:53,145 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_EXISTING
+2019-06-28 23:10:53,259 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-28 23:10:54,115 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.802 seconds (JVM running for 6.759)
+2019-06-28 23:12:06,245 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 15268 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 23:12:06,249 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 23:12:06,250 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 23:12:07,873 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:12:07,874 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:12:07,875 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 23:12:08,164 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 23:12:10,503 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-28 23:12:10,506 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_NEW
+2019-06-28 23:12:10,507 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] SS_CERT_CREATE
+2019-06-28 23:12:10,618 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KP_GEN
+2019-06-28 23:12:10,627 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KP_GEN_SUCCESS
+2019-06-28 23:12:10,933 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] SD_ROOT_GEN
+2019-06-28 23:12:10,933 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KP_GEN
+2019-06-28 23:12:10,934 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KP_GEN_SUCCESS
+2019-06-28 23:12:11,851 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] SD_ROOT_GEN_SUCCESS
+2019-06-28 23:12:11,870 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] ID_ROOT_GEN
+2019-06-28 23:12:11,871 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] ID_ROOT_GEN_SUCCESS
+2019-06-28 23:12:12,087 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] SS_CERT_CREATE_SUCCESS
+2019-06-28 23:12:12,089 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-28 23:12:12,889 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 7.262 seconds (JVM running for 8.248)
+2019-06-28 23:15:30,192 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] IS_GEN
+2019-06-28 23:15:30,342 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] IS_GEN_FAIL
+2019-06-28 23:17:07,445 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN
+2019-06-28 23:17:07,470 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS
+2019-06-28 23:17:07,473 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS_SUCCESS
+2019-06-28 23:17:07,474 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN
+2019-06-28 23:17:07,475 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-28 23:17:07,475 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-28 23:17:07,901 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN_SUCCESS
+2019-06-28 23:17:07,929 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN_SUCCESS
+2019-06-28 23:18:54,224 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 5824 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 23:18:54,228 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 23:18:54,229 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 23:18:55,891 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:18:55,892 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:18:55,893 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 23:18:56,181 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 23:18:58,474 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-28 23:18:58,477 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-28 23:18:59,332 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.708 seconds (JVM running for 6.698)
+2019-06-28 23:22:34,133 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_NOT_EXISTS
+2019-06-28 23:25:14,301 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-28 23:25:14,314 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_FAIL
+2019-06-28 23:27:59,623 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 10912 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-28 23:27:59,627 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-28 23:27:59,628 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-28 23:28:01,275 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:28:01,276 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-28 23:28:01,277 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-28 23:28:01,565 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-28 23:28:03,847 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-28 23:28:03,850 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-28 23:28:04,671 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.689 seconds (JVM running for 6.756)
+2019-06-28 23:28:41,119 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-28 23:28:41,290 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_FAIL
+2019-06-28 23:29:17,865 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:29:17,869 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:29:31,330 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:29:31,334 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:30:20,253 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-28 23:30:20,258 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_FAIL
+2019-06-28 23:30:51,870 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-28 23:30:51,874 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_FAIL
+2019-06-28 23:31:06,518 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-28 23:31:06,531 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_FAIL
+2019-06-28 23:31:40,882 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-28 23:31:40,886 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_FAIL
+2019-06-28 23:32:10,412 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-28 23:32:10,417 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_FAIL
+2019-06-28 23:32:32,447 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:32:32,451 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:32:53,314 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:32:53,317 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:33:04,506 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:33:04,510 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:33:36,362 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:33:36,365 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:33:48,748 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:33:48,752 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:34:30,671 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:34:30,675 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:34:42,091 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:34:42,095 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:34:51,016 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:34:51,021 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:34:59,143 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:34:59,147 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:35:21,245 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:35:21,248 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:35:42,617 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:35:42,621 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:35:47,189 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:35:47,192 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:35:52,508 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:35:52,512 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:35:57,580 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:35:57,585 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:36:02,800 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:36:02,803 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:36:08,063 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:36:08,066 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:36:17,932 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:36:17,936 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:36:37,841 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:36:37,844 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:36:57,664 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:36:57,668 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:37:02,565 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:37:02,569 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:37:12,933 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:37:12,936 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:37:16,801 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:37:16,805 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:37:25,409 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:37:25,412 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:37:49,551 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:37:49,556 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:37:57,279 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:37:57,281 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:38:24,060 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:38:24,064 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:38:29,396 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:38:29,400 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:38:36,329 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:38:36,332 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:38:45,260 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:38:45,264 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:38:51,258 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:38:51,262 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:39:09,927 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:39:09,932 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:39:13,192 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:39:13,196 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:39:18,507 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:39:18,510 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:39:24,091 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:39:24,095 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:39:30,652 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:39:30,656 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:39:38,282 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:39:38,286 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:39:51,161 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:39:51,165 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:39:55,795 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:39:55,799 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:40:13,534 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:40:13,538 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:41:43,058 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:41:43,062 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:42:15,188 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:42:15,192 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:49:30,650 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:49:30,653 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:50:12,419 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:50:12,423 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:50:24,286 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:50:24,289 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:50:35,181 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:50:35,184 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:50:40,631 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:50:40,635 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:51:21,965 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:51:21,969 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:51:41,173 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:51:41,176 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:51:42,821 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:51:42,825 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:51:48,772 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:51:48,775 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:51:55,863 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:51:55,867 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:52:05,343 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:52:05,348 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:52:12,531 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:52:12,534 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:55:53,686 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:55:53,689 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:56:29,027 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:56:29,031 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:57:17,661 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:57:17,665 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:58:04,566 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:58:04,570 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:58:25,501 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:58:25,505 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:58:36,760 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:58:36,763 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:58:53,038 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:58:53,042 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:59:05,701 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:59:05,705 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:59:40,551 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:59:40,555 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:59:45,042 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:59:45,046 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-28 23:59:52,393 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-28 23:59:52,397 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-28 23:59:57,946 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-28 23:59:57,951 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:01:49,662 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:01:49,665 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:04:23,240 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:04:23,244 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:05:37,877 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:05:37,881 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:06:07,610 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:06:07,613 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:06:10,452 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:06:10,457 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:06:25,589 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:06:25,593 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:06:32,464 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:06:32,467 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:06:40,977 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:06:40,981 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:06:54,785 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:06:54,788 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:07:47,171 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:07:47,175 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:08:03,816 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:08:03,821 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:08:15,673 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:08:15,678 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:08:21,826 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:08:21,829 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:08:43,133 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:08:43,136 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:08:49,393 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:08:49,397 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:09:04,448 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:09:04,451 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:09:22,376 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:09:22,381 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:09:28,613 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:09:28,616 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:09:33,457 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:09:33,461 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:09:36,727 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:09:36,731 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:09:43,105 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:09:43,109 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:10:24,242 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:10:24,246 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:10:50,196 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:10:50,200 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:11:03,058 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:11:03,061 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:11:19,164 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:11:19,168 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:12:53,013 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:12:53,016 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:13:26,048 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:13:26,051 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:16:51,833 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:16:51,835 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:16:59,425 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:16:59,429 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 00:18:10,328 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:18:10,331 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:20:23,242 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:20:23,245 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:22:48,870 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:22:48,873 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:24:48,760 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 00:24:48,830 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 00:24:48,831 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 00:24:49,720 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 00:24:49,721 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 00:24:49,722 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 00:24:50,967 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 00:25:39,990 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:25:40,006 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 00:26:05,092 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 00:26:05,100 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 00:26:05,101 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 00:26:05,833 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 00:26:05,833 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 00:26:05,834 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 00:26:07,012 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 00:26:07,012 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN
+2019-06-29 00:26:07,012 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN_SUCCESS
+2019-06-29 00:26:07,169 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE_SUCCESS
+2019-06-29 00:30:21,843 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 2856 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 00:30:21,843 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 00:30:21,843 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:30:23,479 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:30:23,479 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:30:23,479 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 00:30:23,774 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 00:30:26,059 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 00:30:26,075 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 00:30:26,885 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.672 seconds (JVM running for 6.696)
+2019-06-29 00:30:31,302 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:30:31,757 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:30:59,719 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_CREATE
+2019-06-29 00:30:59,778 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN
+2019-06-29 00:30:59,780 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN_SUCCESS
+2019-06-29 00:31:00,481 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_ROOT_GEN
+2019-06-29 00:31:00,481 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN
+2019-06-29 00:31:00,481 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN_SUCCESS
+2019-06-29 00:31:03,342 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_ROOT_GEN_SUCCESS
+2019-06-29 00:31:03,356 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] ID_ROOT_GEN
+2019-06-29 00:31:03,358 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] ID_ROOT_GEN_SUCCESS
+2019-06-29 00:31:03,506 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_CREATE_SUCCESS
+2019-06-29 00:33:03,708 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 14016 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 00:33:03,713 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 00:33:03,714 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:33:05,385 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:33:05,385 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:33:05,385 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 00:33:05,750 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 00:33:08,106 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 00:33:08,109 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 00:33:08,967 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.89 seconds (JVM running for 6.86)
+2019-06-29 00:33:15,143 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 00:33:15,537 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_FAIL
+2019-06-29 00:33:41,522 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_CREATE
+2019-06-29 00:33:41,590 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN
+2019-06-29 00:33:41,592 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN_SUCCESS
+2019-06-29 00:33:42,266 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN
+2019-06-29 00:33:42,267 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN
+2019-06-29 00:33:42,268 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN_SUCCESS
+2019-06-29 00:33:43,293 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN_SUCCESS
+2019-06-29 00:33:43,308 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_ROOT_GEN
+2019-06-29 00:33:43,308 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_ROOT_GEN_SUCCESS
+2019-06-29 00:33:43,449 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_CREATE_SUCCESS
+2019-06-29 00:35:09,510 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:35:09,523 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 00:35:51,660 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_EXISTS
+2019-06-29 00:36:08,916 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] CERT_VAL
+2019-06-29 00:36:54,783 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 5068 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 00:36:54,788 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 00:36:54,789 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:36:56,464 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:36:56,480 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:36:56,480 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 00:36:56,785 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 00:36:59,121 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 00:36:59,124 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 00:36:59,997 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.835 seconds (JVM running for 6.837)
+2019-06-29 00:37:08,261 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_CREATE
+2019-06-29 00:37:08,594 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN
+2019-06-29 00:37:08,595 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN_SUCCESS
+2019-06-29 00:37:09,261 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN
+2019-06-29 00:37:09,261 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN
+2019-06-29 00:37:09,261 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN_SUCCESS
+2019-06-29 00:37:09,863 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN_SUCCESS
+2019-06-29 00:37:09,875 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_ROOT_GEN
+2019-06-29 00:37:09,876 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_ROOT_GEN_SUCCESS
+2019-06-29 00:37:10,007 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_CREATE_SUCCESS
+2019-06-29 00:37:16,932 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] CERT_VAL
+2019-06-29 00:39:38,824 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 6576 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 00:39:38,840 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 00:39:38,840 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:39:40,513 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:39:40,513 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:39:40,513 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 00:39:40,808 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 00:39:43,081 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 00:39:43,081 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 00:39:43,944 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.73 seconds (JVM running for 6.719)
+2019-06-29 00:39:48,564 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_CREATE
+2019-06-29 00:39:48,665 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN
+2019-06-29 00:39:48,911 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN_SUCCESS
+2019-06-29 00:39:52,146 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_ROOT_GEN
+2019-06-29 00:39:52,146 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN
+2019-06-29 00:39:52,147 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN_SUCCESS
+2019-06-29 00:39:52,728 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_ROOT_GEN_SUCCESS
+2019-06-29 00:39:52,741 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] ID_ROOT_GEN
+2019-06-29 00:39:52,741 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] ID_ROOT_GEN_SUCCESS
+2019-06-29 00:39:52,884 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_CREATE_SUCCESS
+2019-06-29 00:39:55,443 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] CERT_VAL
+2019-06-29 00:39:55,451 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] CERT_VAL_SUCCESS
+2019-06-29 00:40:49,057 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 9044 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 00:40:49,062 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 00:40:49,063 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:40:50,726 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:40:50,727 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:40:50,728 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 00:40:51,014 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 00:40:53,439 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 00:40:53,439 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 00:40:54,508 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 6.122 seconds (JVM running for 7.103)
+2019-06-29 00:40:57,915 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 00:40:58,308 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 00:41:35,403 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 00:41:35,465 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 00:41:35,481 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 00:41:36,395 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 00:41:36,398 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 00:41:36,399 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 00:41:37,646 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 00:41:37,660 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN
+2019-06-29 00:41:37,661 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN_SUCCESS
+2019-06-29 00:41:37,808 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE_SUCCESS
+2019-06-29 00:41:43,286 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] CERT_VAL
+2019-06-29 00:41:43,295 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] CERT_VAL_SUCCESS
+2019-06-29 00:44:20,043 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 11004 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 00:44:20,043 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 00:44:20,043 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 00:44:21,701 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:44:21,702 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 00:44:21,703 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 00:44:21,985 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 00:44:24,273 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 00:44:24,273 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 00:44:25,121 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.672 seconds (JVM running for 6.631)
+2019-06-29 00:44:33,368 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 00:44:33,783 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_FAIL
+2019-06-29 00:45:13,525 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_NOT_EXISTS
+2019-06-29 00:45:13,526 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 00:45:13,586 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 00:45:13,586 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 00:45:16,777 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 00:45:16,777 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 00:45:16,777 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 00:45:17,663 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 00:45:17,676 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN
+2019-06-29 00:45:17,677 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN_SUCCESS
+2019-06-29 00:45:17,813 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE_SUCCESS
+2019-06-29 00:45:22,745 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_EXISTS
+2019-06-29 00:45:50,240 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:45:50,246 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 00:46:03,128 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_EXISTS
+2019-06-29 00:46:18,479 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 00:46:18,485 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 00:46:29,025 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_EXISTS
+2019-06-29 00:46:54,301 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 00:46:54,308 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 00:46:57,632 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 00:46:57,638 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 00:47:05,542 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_EXISTS
+2019-06-29 00:47:26,003 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 00:47:26,010 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 00:48:28,021 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 00:48:28,025 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 00:48:34,982 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 00:48:34,988 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 00:48:42,682 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 00:48:42,688 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 00:49:00,933 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 00:49:00,938 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 00:49:23,144 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 00:49:23,150 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 01:00:54,536 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 01:00:54,542 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 01:02:26,348 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 01:02:26,354 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 01:05:46,913 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 01:05:46,921 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 01:05:48,894 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] CERT_VAL
+2019-06-29 01:05:48,896 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] CERT_VAL_SUCCESS
+2019-06-29 01:06:27,674 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-29 01:06:27,681 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_SUCCESS
+2019-06-29 01:07:18,995 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 01:07:19,001 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 01:08:23,576 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 01:08:23,583 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 01:08:39,636 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 01:08:39,641 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 01:09:28,766 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 01:09:28,772 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 01:10:36,041 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 01:10:36,047 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 01:11:30,073 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 01:11:30,078 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_SUCCESS
+2019-06-29 01:11:31,233 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] CERT_VAL
+2019-06-29 01:11:31,234 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] CERT_VAL_SUCCESS
+2019-06-29 01:14:16,838 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 01:14:16,844 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 01:14:17,721 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] CERT_VAL
+2019-06-29 01:14:17,723 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] CERT_VAL_SUCCESS
+2019-06-29 01:14:21,092 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] CERT_VAL
+2019-06-29 01:14:21,093 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] CERT_VAL_SUCCESS
+2019-06-29 01:14:56,125 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 01:14:56,132 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 01:24:57,160 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 01:24:57,166 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 01:25:29,353 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 01:25:29,360 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 01:27:29,815 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 01:27:29,819 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 01:28:03,357 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 01:28:03,361 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 01:28:27,606 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 01:28:27,611 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 01:28:58,149 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 01:28:58,155 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 01:29:02,421 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 01:29:02,427 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 01:29:49,154 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 01:29:49,159 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 01:30:08,461 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 01:30:08,466 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 01:30:39,732 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 01:30:39,736 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_SUCCESS
+2019-06-29 01:30:45,590 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 01:30:45,594 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_SUCCESS
+2019-06-29 01:30:46,484 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] CERT_VAL
+2019-06-29 01:30:46,486 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] CERT_VAL_SUCCESS
+2019-06-29 01:31:04,596 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 01:31:04,601 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 01:34:04,544 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 01:34:04,548 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 01:35:18,304 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 01:35:18,311 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 01:35:58,216 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 01:35:58,222 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 01:36:18,084 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 01:36:18,088 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 01:38:20,207 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-29 01:38:20,212 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_SUCCESS
+2019-06-29 01:38:41,757 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 01:38:41,762 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 01:40:24,630 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 01:40:24,635 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 01:40:42,268 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 01:40:42,273 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 01:41:12,644 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 01:41:12,648 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 01:49:09,139 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 01:49:09,144 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 01:49:24,213 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 01:49:24,218 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 01:52:21,995 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 16752 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 01:52:22,000 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 01:52:22,001 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 01:52:23,686 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 01:52:23,687 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 01:52:23,688 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 01:52:23,979 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 01:52:26,245 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 01:52:26,248 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 01:52:27,120 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.779 seconds (JVM running for 6.787)
+2019-06-29 01:52:31,800 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 01:52:31,965 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 01:53:05,333 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_NOT_EXISTS
+2019-06-29 01:53:05,335 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 01:53:05,396 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 01:53:05,398 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 01:53:06,537 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 01:53:06,538 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 01:53:06,538 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 01:53:08,259 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 01:53:08,272 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN
+2019-06-29 01:53:08,272 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN_SUCCESS
+2019-06-29 01:53:08,422 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE_SUCCESS
+2019-06-29 01:53:16,600 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 01:53:16,615 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_SUCCESS
+2019-06-29 01:53:18,787 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] CERT_VAL
+2019-06-29 01:53:18,796 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] CERT_VAL_SUCCESS
+2019-06-29 01:53:43,519 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN
+2019-06-29 01:53:43,530 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS
+2019-06-29 01:53:43,533 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS_SUCCESS
+2019-06-29 01:53:43,534 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN
+2019-06-29 01:53:43,534 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-29 01:53:43,535 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-29 01:53:46,988 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN_SUCCESS
+2019-06-29 01:53:47,023 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN_SUCCESS
+2019-06-29 01:55:18,859 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 01:55:18,868 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 02:04:05,199 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN
+2019-06-29 02:04:05,209 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS
+2019-06-29 02:04:05,211 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS_SUCCESS
+2019-06-29 02:04:05,212 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN
+2019-06-29 02:04:05,212 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-29 02:04:05,212 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-29 02:04:06,663 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN_SUCCESS
+2019-06-29 02:04:06,697 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN_SUCCESS
+2019-06-29 02:08:36,001 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 02:08:36,010 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 02:09:22,157 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 02:09:22,165 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 02:09:55,850 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 02:09:55,862 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 02:11:07,919 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 02:11:07,927 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 02:11:07,971 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 02:11:07,978 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 02:11:15,751 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 02:11:15,761 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 02:11:15,813 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 02:11:15,820 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 02:12:02,800 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 02:12:02,808 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 02:12:02,852 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 02:12:02,858 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 02:12:14,386 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-29 02:12:14,388 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 02:12:14,396 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_SUCCESS
+2019-06-29 02:12:14,396 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 02:12:39,235 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 02:12:39,243 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 02:16:33,075 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 02:16:33,082 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 02:16:55,220 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 02:16:55,228 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 02:17:38,358 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 02:17:38,367 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 02:17:47,109 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 02:17:47,117 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 02:17:58,526 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 02:17:58,534 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 02:18:30,211 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 02:18:30,219 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 02:18:41,596 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 02:18:41,604 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 02:19:00,226 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 02:19:00,235 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 02:23:00,222 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 02:23:00,234 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 02:23:04,856 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] CERT_VAL
+2019-06-29 02:23:04,856 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] CERT_VAL_SUCCESS
+2019-06-29 02:23:07,003 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] CERT_VAL
+2019-06-29 02:23:07,003 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] CERT_VAL_SUCCESS
+2019-06-29 02:24:49,414 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 02:24:49,422 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 02:25:19,610 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 02:25:19,612 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_SUCCESS
+2019-06-29 02:28:26,522 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] CERT_VAL
+2019-06-29 02:28:26,522 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] CERT_VAL_SUCCESS
+2019-06-29 02:29:29,853 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-29 02:29:29,860 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_SUCCESS
+2019-06-29 02:29:55,559 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 02:29:55,566 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 02:31:39,232 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 02:31:39,239 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 02:32:02,349 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 02:32:02,355 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_SUCCESS
+2019-06-29 02:47:50,927 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 02:47:50,934 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 02:48:06,171 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 11056 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 02:48:06,171 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 02:48:06,171 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 02:48:07,813 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 02:48:07,829 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 02:48:07,829 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 02:48:08,110 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 02:48:10,409 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 02:48:10,413 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 02:48:11,219 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.702 seconds (JVM running for 6.773)
+2019-06-29 02:48:17,643 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 02:48:18,031 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 02:48:42,868 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_NOT_EXISTS
+2019-06-29 02:48:42,868 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 02:48:42,930 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 02:48:42,930 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 02:48:44,144 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 02:48:44,145 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 02:48:44,146 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 02:48:46,005 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 02:48:46,020 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN
+2019-06-29 02:48:46,020 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN_SUCCESS
+2019-06-29 02:48:46,170 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE_SUCCESS
+2019-06-29 02:48:50,961 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 02:48:50,971 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 02:48:51,073 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 02:48:51,089 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 02:48:53,853 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] CERT_VAL
+2019-06-29 02:48:53,884 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] CERT_VAL_SUCCESS
+2019-06-29 02:49:30,184 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN
+2019-06-29 02:49:30,200 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS
+2019-06-29 02:49:30,200 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS_SUCCESS
+2019-06-29 02:49:30,200 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN
+2019-06-29 02:49:30,200 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-29 02:49:30,200 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-29 02:49:31,854 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN_SUCCESS
+2019-06-29 02:49:31,893 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN_SUCCESS
+2019-06-29 02:49:38,770 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 02:49:38,779 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 02:49:40,748 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] CERT_VAL
+2019-06-29 02:49:40,748 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] CERT_VAL_SUCCESS
+2019-06-29 02:50:11,746 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] IS_GEN
+2019-06-29 02:50:11,762 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] ID_GET_KS
+2019-06-29 02:50:11,777 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] ID_GET_KS_SUCCESS
+2019-06-29 02:50:11,777 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SD_ROOT_GEN
+2019-06-29 02:50:11,777 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] KP_GEN
+2019-06-29 02:50:11,777 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] KP_GEN_SUCCESS
+2019-06-29 02:50:13,390 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SD_ROOT_GEN_SUCCESS
+2019-06-29 02:50:13,429 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] IS_GEN_SUCCESS
+2019-06-29 02:50:17,113 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 02:50:17,123 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 02:52:00,121 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 02:52:00,131 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 02:54:44,571 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 12460 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 02:54:44,587 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 02:54:44,587 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 02:54:46,244 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 02:54:46,244 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 02:54:46,244 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 02:54:46,618 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 02:54:49,065 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 02:54:49,068 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 02:54:49,992 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 6.092 seconds (JVM running for 7.139)
+2019-06-29 02:55:30,649 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 02:55:31,097 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_FAIL
+2019-06-29 02:55:37,361 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 02:55:37,365 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_FAIL
+2019-06-29 02:56:13,054 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_NOT_EXISTS
+2019-06-29 02:56:13,054 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_CREATE
+2019-06-29 02:56:13,117 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-29 02:56:13,118 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-29 02:56:17,050 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN
+2019-06-29 02:56:17,050 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-29 02:56:17,050 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-29 02:56:17,876 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN_SUCCESS
+2019-06-29 02:56:17,890 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_ROOT_GEN
+2019-06-29 02:56:17,890 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_ROOT_GEN_SUCCESS
+2019-06-29 02:56:18,036 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_CREATE_SUCCESS
+2019-06-29 02:56:18,162 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 02:56:18,168 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 02:56:47,331 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN
+2019-06-29 02:56:47,347 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS
+2019-06-29 02:56:47,347 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS_SUCCESS
+2019-06-29 02:56:47,347 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN
+2019-06-29 02:56:47,347 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN
+2019-06-29 02:56:47,347 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN_SUCCESS
+2019-06-29 02:56:48,859 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN_SUCCESS
+2019-06-29 02:56:48,890 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN_SUCCESS
+2019-06-29 02:57:17,915 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 02:57:17,926 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 02:57:42,819 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] IS_GEN
+2019-06-29 02:57:42,831 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] ID_GET_KS
+2019-06-29 02:57:42,839 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] ID_GET_KS_SUCCESS
+2019-06-29 02:57:42,840 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_ROOT_GEN
+2019-06-29 02:57:42,840 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN
+2019-06-29 02:57:42,840 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN_SUCCESS
+2019-06-29 02:57:43,234 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_ROOT_GEN_SUCCESS
+2019-06-29 02:57:43,279 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] IS_GEN_SUCCESS
+2019-06-29 02:57:46,979 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 02:57:47,004 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 02:57:56,307 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] Revoking certificate - END
+2019-06-29 02:57:58,281 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 02:57:58,288 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 02:58:10,972 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] Revoking certificate - END
+2019-06-29 02:58:12,144 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 02:58:12,153 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 02:58:15,781 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] CERT_VAL
+2019-06-29 02:58:15,782 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] CERT_VAL_REVOKED
+2019-06-29 02:58:55,892 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN
+2019-06-29 02:58:55,903 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS
+2019-06-29 02:58:55,904 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_GET_KS_SUCCESS
+2019-06-29 02:58:55,905 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN
+2019-06-29 02:58:55,905 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-29 02:58:55,906 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-29 02:58:56,896 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN_SUCCESS
+2019-06-29 02:58:56,927 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] IS_GEN_SUCCESS
+2019-06-29 02:59:01,565 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 02:59:01,578 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_SUCCESS
+2019-06-29 02:59:12,793 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] CERT_VAL
+2019-06-29 02:59:12,794 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] CERT_VAL_REVOKED
+2019-06-29 02:59:17,054 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] CERT_VAL
+2019-06-29 02:59:17,055 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] CERT_VAL_REVOKED
+2019-06-29 02:59:21,787 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] CERT_VAL
+2019-06-29 02:59:21,789 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] CERT_VAL_REVOKED
+2019-06-29 03:02:36,951 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 1068 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 03:02:36,955 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 03:02:36,956 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 03:02:39,199 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 03:02:39,201 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 03:02:39,204 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 03:02:39,757 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 03:02:42,478 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 03:02:42,481 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 03:02:43,337 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 6.999 seconds (JVM running for 8.219)
+2019-06-29 03:03:35,148 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 03:03:35,557 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_FAIL
+2019-06-29 03:03:41,876 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 03:03:41,879 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_FAIL
+2019-06-29 03:04:08,860 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_NOT_EXISTS
+2019-06-29 03:04:08,860 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_CREATE
+2019-06-29 03:04:08,923 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] KP_GEN
+2019-06-29 03:04:08,923 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] KP_GEN_SUCCESS
+2019-06-29 03:04:10,526 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SD_ROOT_GEN
+2019-06-29 03:04:10,527 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] KP_GEN
+2019-06-29 03:04:10,528 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] KP_GEN_SUCCESS
+2019-06-29 03:04:11,743 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SD_ROOT_GEN_SUCCESS
+2019-06-29 03:04:11,756 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] ID_ROOT_GEN
+2019-06-29 03:04:11,756 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] ID_ROOT_GEN_SUCCESS
+2019-06-29 03:04:11,897 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_CREATE_SUCCESS
+2019-06-29 03:04:11,985 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 03:04:11,992 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 03:04:14,014 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] CERT_VAL
+2019-06-29 03:04:14,023 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] CERT_VAL_SUCCESS
+2019-06-29 03:04:42,932 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN
+2019-06-29 03:04:42,948 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS
+2019-06-29 03:04:42,948 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS_SUCCESS
+2019-06-29 03:04:42,948 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN
+2019-06-29 03:04:42,948 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN
+2019-06-29 03:04:42,948 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN_SUCCESS
+2019-06-29 03:04:44,168 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN_SUCCESS
+2019-06-29 03:04:44,215 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN_SUCCESS
+2019-06-29 03:04:55,832 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] Revoking certificate - END
+2019-06-29 03:04:57,328 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 03:04:57,333 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 03:05:06,957 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] Revoking certificate - END
+2019-06-29 03:05:07,814 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 03:05:07,820 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 03:05:09,371 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] CERT_VAL
+2019-06-29 03:05:09,372 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] CERT_VAL_REVOKED
+2019-06-29 03:05:17,370 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 03:05:17,376 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 03:05:17,460 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 03:05:17,460 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 03:06:36,392 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 2756 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 03:06:36,396 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 03:06:36,397 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 03:06:38,113 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 03:06:38,115 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 03:06:38,115 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 03:06:38,407 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 03:06:40,683 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 03:06:40,699 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 03:06:41,560 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.82 seconds (JVM running for 6.95)
+2019-06-29 03:07:13,485 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 03:07:14,023 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_FAIL
+2019-06-29 03:07:14,224 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 03:07:14,227 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 03:07:29,868 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_NOT_EXISTS
+2019-06-29 03:07:29,868 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_CREATE
+2019-06-29 03:07:29,915 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN
+2019-06-29 03:07:29,931 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN_SUCCESS
+2019-06-29 03:07:30,446 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SD_ROOT_GEN
+2019-06-29 03:07:30,446 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN
+2019-06-29 03:07:30,446 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN_SUCCESS
+2019-06-29 03:07:31,099 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SD_ROOT_GEN_SUCCESS
+2019-06-29 03:07:31,112 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] ID_ROOT_GEN
+2019-06-29 03:07:31,112 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] ID_ROOT_GEN_SUCCESS
+2019-06-29 03:07:31,260 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_CREATE_SUCCESS
+2019-06-29 03:07:31,333 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 03:07:31,344 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 03:07:35,375 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] Revoking certificate - END
+2019-06-29 03:07:36,365 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-29 03:07:36,370 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_SUCCESS
+2019-06-29 03:07:36,426 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 03:07:36,432 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 03:09:35,386 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_EXISTS
+2019-06-29 03:09:43,777 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_EXISTS
+2019-06-29 03:10:31,936 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 15768 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 03:10:31,939 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 03:10:31,940 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 03:10:33,660 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 03:10:33,661 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 03:10:33,662 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 03:10:33,954 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 03:10:36,226 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 03:10:36,229 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 03:10:37,069 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.751 seconds (JVM running for 6.731)
+2019-06-29 03:15:24,518 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_NOT_EXISTS
+2019-06-29 03:15:24,518 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_CREATE
+2019-06-29 03:15:24,565 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN
+2019-06-29 03:15:24,565 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN_SUCCESS
+2019-06-29 03:15:25,322 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN
+2019-06-29 03:15:25,322 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN
+2019-06-29 03:15:25,322 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN_SUCCESS
+2019-06-29 03:15:26,122 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN_SUCCESS
+2019-06-29 03:15:26,133 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_ROOT_GEN
+2019-06-29 03:15:26,134 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_ROOT_GEN_SUCCESS
+2019-06-29 03:15:26,278 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_CREATE_SUCCESS
+2019-06-29 03:15:26,455 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 03:15:26,490 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 04:06:09,309 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 7304 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 04:06:09,314 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 04:06:09,315 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 04:06:11,001 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:06:11,001 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:06:11,001 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 04:06:11,298 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 04:06:13,701 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 04:06:13,704 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 04:06:14,536 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.853 seconds (JVM running for 6.838)
+2019-06-29 04:09:54,930 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-29 04:09:55,343 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_FAIL
+2019-06-29 04:09:55,502 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 04:09:55,506 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_FAIL
+2019-06-29 04:10:21,599 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_NOT_EXISTS
+2019-06-29 04:10:21,600 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_CREATE
+2019-06-29 04:10:21,662 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-29 04:10:21,663 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-29 04:10:23,203 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN
+2019-06-29 04:10:23,204 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN
+2019-06-29 04:10:23,205 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] KP_GEN_SUCCESS
+2019-06-29 04:10:24,450 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:10:24,466 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_ROOT_GEN
+2019-06-29 04:10:24,466 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] ID_ROOT_GEN_SUCCESS
+2019-06-29 04:10:24,607 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_CREATE_SUCCESS
+2019-06-29 04:10:24,745 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 04:10:24,765 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 04:11:01,563 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN
+2019-06-29 04:11:01,580 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS
+2019-06-29 04:11:01,588 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS_SUCCESS
+2019-06-29 04:11:01,588 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN
+2019-06-29 04:11:01,589 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN
+2019-06-29 04:11:01,590 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN_SUCCESS
+2019-06-29 04:11:02,673 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:11:02,709 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN_SUCCESS
+2019-06-29 04:11:46,410 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] IS_GEN
+2019-06-29 04:11:46,410 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] ID_GET_KS
+2019-06-29 04:11:46,410 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] ID_GET_KS_SUCCESS
+2019-06-29 04:11:46,410 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SD_ROOT_GEN
+2019-06-29 04:11:46,410 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN
+2019-06-29 04:11:46,425 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN_SUCCESS
+2019-06-29 04:11:46,901 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:11:46,938 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] IS_GEN_SUCCESS
+2019-06-29 04:14:22,544 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 16168 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 04:14:22,560 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 04:14:22,560 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 04:14:24,240 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:14:24,240 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:14:24,240 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 04:14:24,528 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 04:14:26,960 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 04:14:26,964 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 04:14:27,797 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.872 seconds (JVM running for 6.824)
+2019-06-29 04:15:02,133 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 04:15:02,528 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_FAIL
+2019-06-29 04:15:41,630 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_NOT_EXISTS
+2019-06-29 04:15:41,631 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 04:15:41,696 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 04:15:41,697 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 04:15:42,194 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 04:15:42,195 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 04:15:42,195 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 04:15:44,673 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:15:44,687 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN
+2019-06-29 04:15:44,687 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN_SUCCESS
+2019-06-29 04:15:44,835 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE_SUCCESS
+2019-06-29 04:15:44,943 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 04:15:44,966 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 04:16:08,562 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] IS_GEN
+2019-06-29 04:16:08,577 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_GET_KS
+2019-06-29 04:16:08,603 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_GET_KS_SUCCESS
+2019-06-29 04:16:08,604 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN
+2019-06-29 04:16:08,604 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN
+2019-06-29 04:16:08,604 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN_SUCCESS
+2019-06-29 04:16:09,424 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:16:09,458 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] IS_GEN_SUCCESS
+2019-06-29 04:16:35,596 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] IS_GEN
+2019-06-29 04:16:35,612 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] ID_GET_KS
+2019-06-29 04:16:35,614 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] ID_GET_KS_SUCCESS
+2019-06-29 04:16:35,615 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_ROOT_GEN
+2019-06-29 04:16:35,615 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN
+2019-06-29 04:16:35,616 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN_SUCCESS
+2019-06-29 04:16:38,976 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:16:39,010 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] IS_GEN_SUCCESS
+2019-06-29 04:21:24,093 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 3956 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 04:21:24,093 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 04:21:24,093 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 04:21:25,724 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:21:25,726 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:21:25,727 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 04:21:26,015 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 04:21:28,383 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 04:21:28,383 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 04:21:29,410 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.997 seconds (JVM running for 7.014)
+2019-06-29 04:21:37,332 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 04:21:37,741 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 04:22:01,225 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_NOT_EXISTS
+2019-06-29 04:22:01,225 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 04:22:01,288 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 04:22:01,288 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 04:22:02,608 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 04:22:02,609 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 04:22:02,610 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 04:22:04,592 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:22:04,606 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN
+2019-06-29 04:22:04,606 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN_SUCCESS
+2019-06-29 04:22:04,750 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE_SUCCESS
+2019-06-29 04:22:04,853 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 04:22:04,867 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 04:22:27,217 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] IS_GEN
+2019-06-29 04:22:27,235 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] ID_GET_KS
+2019-06-29 04:22:27,243 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] ID_GET_KS_SUCCESS
+2019-06-29 04:22:27,244 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SD_ROOT_GEN
+2019-06-29 04:22:27,244 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN
+2019-06-29 04:22:27,244 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN_SUCCESS
+2019-06-29 04:22:27,511 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:22:27,546 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] IS_GEN_SUCCESS
+2019-06-29 04:22:58,267 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN
+2019-06-29 04:22:58,269 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS
+2019-06-29 04:22:58,269 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS_SUCCESS
+2019-06-29 04:22:58,269 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN
+2019-06-29 04:22:58,269 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN
+2019-06-29 04:22:58,269 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN_SUCCESS
+2019-06-29 04:22:59,607 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN_SUCCESS
+2019-06-29 04:22:59,661 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN_SUCCESS
+2019-06-29 04:23:02,324 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] CERT_VAL
+2019-06-29 04:23:02,340 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] CERT_VAL_SUCCESS
+2019-06-29 04:23:03,960 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] CERT_VAL
+2019-06-29 04:23:03,960 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] CERT_VAL_SUCCESS
+2019-06-29 04:28:58,043 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 17880 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 04:28:58,048 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 04:28:58,050 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 04:28:59,736 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:28:59,737 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:28:59,738 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 04:29:00,057 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 04:29:02,423 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 04:29:02,427 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 04:29:03,272 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.856 seconds (JVM running for 6.86)
+2019-06-29 04:30:38,788 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 3780 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 04:30:38,792 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 04:30:38,793 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 04:30:40,443 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:30:40,443 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:30:40,443 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 04:30:40,745 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 04:30:43,134 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 04:30:43,137 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 04:30:43,984 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.805 seconds (JVM running for 6.894)
+2019-06-29 04:32:33,257 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 13120 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 04:32:33,257 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 04:32:33,257 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 04:32:34,994 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:32:34,994 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 04:32:34,994 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 04:32:35,288 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 04:32:37,714 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 04:32:37,718 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 04:32:38,580 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.965 seconds (JVM running for 6.933)
+2019-06-29 04:35:22,250 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 04:35:22,272 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_FAIL
+2019-06-29 04:35:22,379 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 04:35:22,382 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_FAIL
+2019-06-29 04:44:01,165 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 04:44:01,170 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_FAIL
+2019-06-29 04:46:40,117 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 04:46:40,121 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_FAIL
+2019-06-29 04:46:58,891 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 04:46:58,895 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_FAIL
+2019-06-29 04:47:03,896 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET
+2019-06-29 04:47:03,900 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_GET_FAIL
+2019-06-29 05:07:02,336 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 05:07:02,342 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_FAIL
+2019-06-29 05:07:19,375 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_NOT_EXISTS
+2019-06-29 05:07:19,377 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_CREATE
+2019-06-29 05:07:19,403 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN
+2019-06-29 05:07:19,404 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN_SUCCESS
+2019-06-29 05:07:19,764 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_ROOT_GEN
+2019-06-29 05:07:19,765 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN
+2019-06-29 05:07:19,765 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] KP_GEN_SUCCESS
+2019-06-29 05:07:20,882 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SD_ROOT_GEN_SUCCESS
+2019-06-29 05:07:20,898 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] ID_ROOT_GEN
+2019-06-29 05:07:20,898 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] ID_ROOT_GEN_SUCCESS
+2019-06-29 05:07:21,054 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-5] SS_CERT_CREATE_SUCCESS
+2019-06-29 05:07:21,147 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 05:07:21,160 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 05:07:53,628 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] IS_GEN
+2019-06-29 05:07:53,644 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_GET_KS
+2019-06-29 05:07:53,654 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_GET_KS_SUCCESS
+2019-06-29 05:07:53,655 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN
+2019-06-29 05:07:53,655 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN
+2019-06-29 05:07:53,656 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN_SUCCESS
+2019-06-29 05:07:55,089 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN_SUCCESS
+2019-06-29 05:07:55,125 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] IS_GEN_SUCCESS
+2019-06-29 05:10:24,924 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 05:10:24,949 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 05:10:38,828 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 05:10:38,836 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 05:10:47,382 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 05:10:47,391 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 05:11:03,767 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 05:11:03,776 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 05:13:26,818 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 05:13:26,826 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 05:14:00,514 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET
+2019-06-29 05:14:00,524 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] SS_CERT_GET_SUCCESS
+2019-06-29 05:17:06,853 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 05:17:06,860 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 05:18:00,323 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 05:18:00,330 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 05:18:51,495 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 3932 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 05:18:51,499 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 05:18:51,500 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 05:18:53,260 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 05:18:53,260 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 05:18:53,260 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 05:18:53,549 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 05:18:56,142 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 05:18:56,146 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 05:18:57,029 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 6.15 seconds (JVM running for 7.201)
+2019-06-29 05:19:01,448 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 05:19:01,830 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 05:19:09,620 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_NOT_EXISTS
+2019-06-29 05:19:09,621 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_CREATE
+2019-06-29 05:19:09,694 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN
+2019-06-29 05:19:09,696 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN_SUCCESS
+2019-06-29 05:19:12,049 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_ROOT_GEN
+2019-06-29 05:19:12,049 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN
+2019-06-29 05:19:12,049 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] KP_GEN_SUCCESS
+2019-06-29 05:19:12,931 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SD_ROOT_GEN_SUCCESS
+2019-06-29 05:19:12,947 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] ID_ROOT_GEN
+2019-06-29 05:19:12,947 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] ID_ROOT_GEN_SUCCESS
+2019-06-29 05:19:13,095 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_CREATE_SUCCESS
+2019-06-29 05:19:13,229 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 05:19:13,244 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 05:19:31,504 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN
+2019-06-29 05:19:31,525 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS
+2019-06-29 05:19:31,533 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS_SUCCESS
+2019-06-29 05:19:31,533 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN
+2019-06-29 05:19:31,533 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN
+2019-06-29 05:19:31,533 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN_SUCCESS
+2019-06-29 05:19:32,915 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN_SUCCESS
+2019-06-29 05:19:32,946 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN_SUCCESS
+2019-06-29 05:20:42,223 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 05:20:42,230 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 05:21:10,998 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 05:21:11,007 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 05:23:27,663 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 05:23:27,673 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 05:24:02,973 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] IS_GEN
+2019-06-29 05:24:02,974 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_GET_KS
+2019-06-29 05:24:02,974 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] ID_GET_KS_SUCCESS
+2019-06-29 05:24:02,974 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN
+2019-06-29 05:24:02,974 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN
+2019-06-29 05:24:02,974 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] KP_GEN_SUCCESS
+2019-06-29 05:24:04,225 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SD_ROOT_GEN_SUCCESS
+2019-06-29 05:24:04,262 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] IS_GEN_SUCCESS
+2019-06-29 05:25:46,848 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 05:25:46,857 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 05:26:40,817 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-29 05:26:40,826 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_SUCCESS
+2019-06-29 05:26:45,906 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 05:26:45,916 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 05:28:24,540 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 05:28:24,549 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 05:30:43,475 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 05:30:43,483 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 05:31:06,724 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] CERT_VAL
+2019-06-29 05:31:06,728 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] CERT_VAL_SUCCESS
+2019-06-29 05:31:09,422 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] CERT_VAL
+2019-06-29 05:31:09,424 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] CERT_VAL_SUCCESS
+2019-06-29 05:31:19,432 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] Revoking certificate - END
+2019-06-29 05:31:20,616 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET
+2019-06-29 05:31:20,624 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_SUCCESS
+2019-06-29 05:31:46,527 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] Revoking certificate - END
+2019-06-29 05:31:47,785 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 05:31:47,791 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_SUCCESS
+2019-06-29 05:32:13,675 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] Revoking certificate - END
+2019-06-29 05:32:14,782 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET
+2019-06-29 05:32:14,788 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-3] SS_CERT_GET_SUCCESS
+2019-06-29 05:32:14,906 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET
+2019-06-29 05:32:14,910 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_GET_SUCCESS
+2019-06-29 05:34:01,229 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 8416 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 05:34:01,231 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 05:34:01,231 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 05:34:02,894 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 05:34:02,894 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 05:34:02,894 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 05:34:03,201 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 05:34:26,066 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelPkiApplication on Milan with PID 16308 (C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI\target\classes started by Milan in C:\Users\lazic\Documents\GitHub\BSEP_XML\backend\MegaTravelPKI)
+2019-06-29 05:34:26,066 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-06-29 05:34:26,066 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 05:34:27,725 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 05:34:27,727 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] Code archive: C:\Users\lazic\.m2\repository\org\springframework\boot\spring-boot\2.1.3.RELEASE\spring-boot-2.1.3.RELEASE.jar
+2019-06-29 05:34:27,727 DEBUG org.springframework.boot.web.servlet.server.DocumentRoot [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2019-06-29 05:34:28,020 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 05:34:30,447 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT
+2019-06-29 05:34:30,447 INFO com.xmlbesp.MegaTravelPKI.service.Logging [main] KS_INIT_SUCCESS.
+2019-06-29 05:34:31,292 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelPkiApplication in 5.845 seconds (JVM running for 6.872)
+2019-06-29 05:35:03,129 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET
+2019-06-29 05:35:03,527 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
+2019-06-29 05:35:27,313 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_NOT_EXISTS
+2019-06-29 05:35:27,313 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE
+2019-06-29 05:35:27,375 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 05:35:27,391 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 05:35:29,314 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN
+2019-06-29 05:35:29,316 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN
+2019-06-29 05:35:29,316 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] KP_GEN_SUCCESS
+2019-06-29 05:35:30,213 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SD_ROOT_GEN_SUCCESS
+2019-06-29 05:35:30,227 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN
+2019-06-29 05:35:30,227 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] ID_ROOT_GEN_SUCCESS
+2019-06-29 05:35:30,376 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_CREATE_SUCCESS
+2019-06-29 05:35:30,486 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET
+2019-06-29 05:35:30,518 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_GET_SUCCESS
+2019-06-29 05:35:32,192 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] CERT_VAL
+2019-06-29 05:35:32,200 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] CERT_VAL_SUCCESS
+2019-06-29 05:36:41,851 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] IS_GEN
+2019-06-29 05:36:41,867 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] ID_GET_KS
+2019-06-29 05:36:41,867 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] ID_GET_KS_SUCCESS
+2019-06-29 05:36:41,867 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SD_ROOT_GEN
+2019-06-29 05:36:41,867 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN
+2019-06-29 05:36:41,867 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] KP_GEN_SUCCESS
+2019-06-29 05:36:44,100 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SD_ROOT_GEN_SUCCESS
+2019-06-29 05:36:44,134 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] IS_GEN_SUCCESS
+2019-06-29 05:37:35,738 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN
+2019-06-29 05:37:35,749 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS
+2019-06-29 05:37:35,757 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] ID_GET_KS_SUCCESS
+2019-06-29 05:37:35,758 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN
+2019-06-29 05:37:35,759 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN
+2019-06-29 05:37:35,760 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] KP_GEN_SUCCESS
+2019-06-29 05:37:36,792 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SD_ROOT_GEN_SUCCESS
+2019-06-29 05:37:36,823 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] IS_GEN_SUCCESS
+2019-06-29 05:38:41,319 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET
+2019-06-29 05:38:41,327 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_GET_SUCCESS
+2019-06-29 05:38:48,901 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 05:38:48,909 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 05:39:15,590 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET
+2019-06-29 05:39:15,597 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] SS_CERT_GET_SUCCESS
+2019-06-29 05:39:58,139 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-1] Revoking certificate - END
+2019-06-29 05:39:59,608 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET
+2019-06-29 05:39:59,615 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-10] SS_CERT_GET_SUCCESS
+2019-06-29 05:40:11,890 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] CERT_VAL
+2019-06-29 05:40:11,890 INFO com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-7] CERT_VAL_SUCCESS

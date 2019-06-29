@@ -1,7 +1,24 @@
+<div *ngIf="!ssCertificate">
 
-  <h3>Issue a certificate</h3>
-  <hr>
-  <form [formGroup]="icForm" (ngSubmit)="onSubmitIC()">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <h3>
+          Self signed certificate does not exist.
+        </h3>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <h4>
+          Please specify certificate information and generate self signed
+          certificate.
+        </h4>
+      </div>
+    </div>
+
+    <form [formGroup]="ssForm" (ngSubmit)="onSubmitSS()">
       <div class="row mt-5 justify-content-center">
         <div class="col-5 mr-4">
           <h5 class="mb-4">Subject information</h5>
@@ -32,27 +49,12 @@
           </div>
         </div>
         <div class="col-4">
-
-          <h5 class="mb-4">Select Issuer</h5>
-          <hr />
-
-          <div class="form-group">
-            <label for=""></label>
-            <select class="form-control" formControlName="issuerId">
-              <option *ngFor="let ca of caCerts" value="{{ca.id}}">{{ca.alias}}</option>
-            </select>
-          </div>
-
-
-
           <h5 class="mb-4">Certificate information</h5>
           <hr />
           <div class="form-group">
             <label for="alias">Certificate alias:</label>
             <input type="text" class="form-control" formControlName="alias" />
           </div>
-
-         
 
           <div class="form-group">
             <label for="startDate">Valid from</label>
@@ -68,18 +70,13 @@
             <input type="date" class="form-control" formControlName="endDate" />
           </div>
 
-          <div class="form-check mt-3 mb-3">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" formControlName="ca">
-              Certificate Authority
-            </label>
-          </div> 
-
           <div class="form-group">
-            <button type="submit" class="btn btn-info" [disabled]="!icForm.valid">
-              Generate Issued Signed Certificate
+            <button type="submit" class="btn btn-info" [disabled]="!ssForm.valid">
+              Generate Self Signed Certificate
             </button>
           </div>
         </div>
       </div>
     </form>
+  </div>
+</div>

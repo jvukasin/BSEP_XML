@@ -2,28 +2,25 @@ package com.xmlbesp.MegaTravelPKI.service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.security.InvalidKeyException;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SecureRandom;
-import java.security.SignatureException;
+import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import com.xmlbesp.MegaTravelPKI.dto.CertificateDTO;
+import com.xmlbesp.MegaTravelPKI.dto.RevocationDTO;
+import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.asn1.x500.X500NameBuilder;
 import org.bouncycastle.asn1.x500.style.BCStyle;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.xmlbesp.MegaTravelPKI.certificates.CertificateGenerator;
@@ -31,7 +28,6 @@ import com.xmlbesp.MegaTravelPKI.dto.CertificateInfoDTO;
 import com.xmlbesp.MegaTravelPKI.dto.SubjectDataDTO;
 import com.xmlbesp.MegaTravelPKI.keystores.KeyStoreReader;
 import com.xmlbesp.MegaTravelPKI.keystores.KeyStoreWriter;
-import com.xmlbesp.MegaTravelPKI.model.AdminPKI;
 import com.xmlbesp.MegaTravelPKI.model.Certificate;
 import com.xmlbesp.MegaTravelPKI.model.IssuerData;
 import com.xmlbesp.MegaTravelPKI.model.SubjectData;
@@ -42,85 +38,58 @@ public class CertificateService {
 	
 	@Autowired
 	CertificateRepository certRepo;
+
 	
 	private Logging logger = new Logging(this);
 	
 	// da li se loaduje postojeci key store ili se pravi novi
-	private boolean loadExistingRootKeyStore = true;
+	private boolean loadExistingRootKeyStore = false;
 	
 	private KeyStoreReader keyStoreReader;
 	private KeyStoreWriter keyStoreWriter;
 	private KeyPair keyPairIssuer;
-	private String validationApi = "https://localhost:8443/certificate/validateCertificate/";
-	
-	private String keyStorePassword = "mnogodobrasifra";
-	private String rootCertificateAlias = "megatravel_root";
+
+	@Value("${server.ssl.key-store-password}")
+	private String keyStorePassword ;
+
+	@Value("${server.ssl.key-alias}")
+	private String rootCertificateAlias;
+
+	@Value("${server.ssl.key-store}")
+	private String rootKeyStorePath;
+
+	@Value("${server.port}")
+	private String port;
+
+	private String validationApi;
+
+
 	
 	@PostConstruct
 	public void init() throws ParseException {
 		
 		logger.logInfo("KS_INIT");
+		validationApi = "https://localhost:" + port + "/certificate/validateCertificate/";
 		
 		keyStoreWriter = new KeyStoreWriter();
 		keyStoreReader = new KeyStoreReader();
-		
-		if (loadExistingRootKeyStore) {
-			logger.logInfo("KS_INIT_EXISTING");
-			
-			keyStoreWriter.loadKeyStore("megatravel_root.jks", keyStorePassword.toCharArray());
-
-			Certificate certificate = new Certificate();
-
-			String pattern = "yyyy-MM-dd";
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-			Date startDate = simpleDateFormat.parse("2019-06-27");
-			Date endDate = simpleDateFormat.parse("2019-09-25");
-
-			certificate.setAlias(this.rootCertificateAlias);
-			certificate.setCa(true);
-			certificate.setStartDate(startDate);
-			certificate.setEndDate(endDate);
-			certificate.setRevoked(false);
-			certificate.setReasonForRevocation("");
-
-			// cuvamo kako bi dobili ID
-			certificate = certRepo.save(certificate);
-
-			certificate.setIdIssuer(certificate.getId());
-			certificate.setValidationApi(validationApi + certificate.getId());
-			certificate = certRepo.save(certificate);
-
-			
-		} else {
-
-			logger.logInfo("KS_INIT_NEW");
-			
-			keyStoreWriter.loadKeyStore(null, keyStorePassword.toCharArray());
-			String pattern = "yyyy-MM-dd";
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-			Date startDate = simpleDateFormat.parse("2019-04-11");
-			Date endDate = simpleDateFormat.parse("2019-09-11");
-			  
-			generateSelfSignedCertificate(startDate, endDate);
-			  
-			keyStoreWriter.saveKeyStore(formFileName(rootCertificateAlias), keyStorePassword.toCharArray());
-		}
 		
 		logger.logInfo("KS_INIT_SUCCESS.");
 		
 	}
 
 
-	public Certificate generateSelfSignedCertificate(Date startDate, Date endDate) {
+
+	public Certificate generateSelfSignedCertificate(CertificateInfoDTO cDTO) {
 
 		logger.logInfo("SS_CERT_CREATE");
 		// pravimo Certificate objekat sa informacijama koje za sada imamo, kada se upisemo, dobijamo njegov id koji ce biti
 		// u ovom slucaju i issuerId jer je selfSigned, za sve ostalo issuerId ce biti onaj parent cert u lancu koji ga potpisuje
 		Certificate cert = new Certificate();
-		cert.setAlias(this.rootCertificateAlias);
+		cert.setAlias(cDTO.getAlias());
 		cert.setCa(true);
-		cert.setStartDate(startDate);
-		cert.setEndDate(endDate);
+		cert.setStartDate(cDTO.getStartDate());
+		cert.setEndDate(cDTO.getEndDate());
 		cert.setRevoked(false);
 		cert.setReasonForRevocation("");
 
@@ -133,8 +102,8 @@ public class CertificateService {
 
 		this.keyPairIssuer = generateKeyPair();
 
-		SubjectData subject = generateRootSubjectData(cert.getId(), startDate, endDate);
-		IssuerData issuer = generateRootIssuerData(keyPairIssuer.getPrivate());
+		SubjectData subject = generateSubjectData(cert.getId(), cDTO);
+		IssuerData issuer = generateIssuerData(keyPairIssuer.getPrivate(), cert.getId(), cDTO.getSubjectDataDTO());
 
 		subject.setPublicKey(keyPairIssuer.getPublic());
 		subject.setPrivateKey(keyPairIssuer.getPrivate());
@@ -143,7 +112,13 @@ public class CertificateService {
 
 		try {
 			X509Certificate certificate = cg.generateCertificate(subject, issuer);
-			keyStoreWriter.write(this.rootCertificateAlias, keyPairIssuer.getPrivate(), this.keyStorePassword.toCharArray(), certificate);
+
+			keyStoreWriter.loadKeyStore(null, this.keyStorePassword.toCharArray());
+
+			keyStoreWriter.write(cDTO.getAlias(), keyPairIssuer.getPrivate(), this.keyStorePassword.toCharArray(),
+					certificate);
+
+			keyStoreWriter.saveKeyStore(formFileNameJKS(cDTO.getAlias()), keyStorePassword.toCharArray());
 
 			logger.logInfo("SS_CERT_CREATE_SUCCESS");
 			return cert;
@@ -157,46 +132,43 @@ public class CertificateService {
 		return null;
 	}
 	
-	private SubjectData generateRootSubjectData(Long certId, Date startDate, Date endDate) {
+	private SubjectData generateSubjectData(Long certId, CertificateInfoDTO cDTO) {
 
 		logger.logInfo("SD_ROOT_GEN");
 		
 		KeyPair keyPairSubject = generateKeyPair();
 		String serial = certId.toString();
-		
-		X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
-		
-		builder.addRDN(BCStyle.CN, "BBF Root CA");
-	    builder.addRDN(BCStyle.O, "BBF");
-	    builder.addRDN(BCStyle.OU, "BBF Ltd");
-	    builder.addRDN(BCStyle.C, "RS");
-	    builder.addRDN(BCStyle.E, "bbf_for_ever@gmail.com");
-	    //UID (USER ID) je ID korisnika
-	    builder.addRDN(BCStyle.UID, "123456");
-
 		logger.logInfo("SD_ROOT_GEN_SUCCESS");
-	    return new SubjectData(keyPairSubject.getPublic(), keyPairSubject.getPrivate(), builder.build(), serial, startDate, endDate);
+	    return new SubjectData(keyPairSubject.getPublic(), keyPairSubject.getPrivate(),
+				buildX500Data(certId, cDTO.getSubjectDataDTO()),
+				serial, cDTO.getStartDate(), cDTO.getEndDate());
 		
 	}
 	
-	private IssuerData generateRootIssuerData(PrivateKey privateKey) {
+	private IssuerData generateIssuerData(PrivateKey privateKey, Long certId, SubjectDataDTO sDTO) {
 
 		logger.logInfo("ID_ROOT_GEN");
-		
-		X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
-    
-		builder.addRDN(BCStyle.CN, "BBF Root CA");
-	    builder.addRDN(BCStyle.O, "BBF");
-	    builder.addRDN(BCStyle.OU, "BBF Ltd");
-	    builder.addRDN(BCStyle.C, "RS");
-	    builder.addRDN(BCStyle.E, "bbf_for_ever@gmail.com");
-	    //UID (USER ID) je ID korisnika
-	    builder.addRDN(BCStyle.UID, "123456");
-    
 
 		logger.logInfo("ID_ROOT_GEN_SUCCESS");
-	    return new IssuerData(privateKey, builder.build());
+	    return new IssuerData(privateKey, buildX500Data(certId, sDTO));
 		
+	}
+
+	private X500Name buildX500Data(Long certId, SubjectDataDTO sDTO) {
+
+
+		X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
+
+		builder.addRDN(BCStyle.CN, sDTO.getCommonName());
+		builder.addRDN(BCStyle.O, sDTO.getOrganisation());
+		builder.addRDN(BCStyle.OU, sDTO.getOrganisationUnit());
+		builder.addRDN(BCStyle.C, sDTO.getCountryCode());
+		builder.addRDN(BCStyle.E, sDTO.getEmail());
+		//UID certificate ID + timestamp
+		builder.addRDN(BCStyle.UID, certId.toString() + "-" + System.currentTimeMillis());
+
+		return builder.build();
+
 	}
 	
 	public Certificate getSelfSigned() {
@@ -222,7 +194,7 @@ public class CertificateService {
 		List<Certificate> certifs = certRepo.findAll();
 		
 		for(Certificate c : certifs) {
-			if (c.getId().equals(c.getIdIssuer())) {
+			if (c.getId().equals(c.getIdIssuer()) && !c.isRevoked()) {
 
 				logger.logInfo("SS_CERT_EXISTS");
 				return true;
@@ -240,7 +212,7 @@ public class CertificateService {
 		// ovde treba proveriti i validnost issuera
 		Certificate parentCertificate = certRepo.findOneById(certInfoDTO.getIssuerId());
 		
-		if (parentCertificate == null || !parentCertificate.isCa()) {
+		if (parentCertificate == null || !parentCertificate.isCa() || parentCertificate.isRevoked()) {
 			logger.logError("IS_GEN_FAIL");
 			return null;
 		}
@@ -264,8 +236,7 @@ public class CertificateService {
 		
 		// dobavi objekat IssuerData iz keystorea u kom se nalazi taj issuer
 		IssuerData issuerData = getIssuerDataFromKeyStore(parentCertificate);
-		SubjectData subjectData = generateSubjectData(cert.getId(), certInfoDTO.getSubjectDataDTO(),
-												certInfoDTO.getStartDate(), certInfoDTO.getEndDate());
+		SubjectData subjectData = generateSubjectData(cert.getId(), certInfoDTO);
 		
 		// generisi sertifikat
 		CertificateGenerator cg = new CertificateGenerator();
@@ -276,14 +247,7 @@ public class CertificateService {
 		keyStoreWriter.write(certInfoDTO.getAlias(), subjectData.getPrivateKey(), keyStorePassword.toCharArray(), certificate);
 
         keyStoreWriter.saveKeyStore(formFileNameJKS(certInfoDTO.getAlias()), keyStorePassword.toCharArray());
-		
-		
-//		
-//		Software soft = softwareService.findOneById(idSubject);
-//		
-//		soft.setCertified(true);
-//		soft.setCertificate(cert);
-//		soft = softwareService.save(soft);
+
 
 		logger.logInfo("IS_GEN_SUCCESS");
 		return cert;
@@ -311,11 +275,15 @@ public class CertificateService {
 		}else {
 			// provera digitalnog potpisa
 			// uzmi sertifikat za koji proveravas digitalni potpis
-			java.security.cert.Certificate certificate = keyStoreReader.readCertificate(formFileName(cert.getAlias()), this.keyStorePassword, cert.getAlias());
+			java.security.cert.Certificate certificate =
+					keyStoreReader.readCertificate(formFileNameJKS(cert.getAlias()), this.keyStorePassword,
+							cert.getAlias());
 			
 			// nadji sertifikat issuer-a
-			java.security.cert.Certificate issuerCertificate = keyStoreReader.readCertificate(formFileName(parentCertificate.getAlias()), this.keyStorePassword, parentCertificate.getAlias());
-			
+			java.security.cert.Certificate issuerCertificate =
+					keyStoreReader.readCertificate(formFileNameJKS(parentCertificate.getAlias()),
+							this.keyStorePassword, parentCertificate.getAlias());
+
 			try {
 				certificate.verify(issuerCertificate.getPublicKey());
 			} catch (InvalidKeyException e) {
@@ -382,50 +350,7 @@ public class CertificateService {
 		
 	}
 	
-	
-	// PRIVATE METHODS 
-	
-	private SubjectData generateSubjectData(Long certId, SubjectDataDTO subjectDataDTO, Date startDate, Date endDate) {
 
-		logger.logInfo("SD_GEN");
-		
-		KeyPair keyPairSubject = generateKeyPair();
-		String serial = certId.toString();
-		
-		X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
-
-		builder.addRDN(BCStyle.CN, subjectDataDTO.getCommonName());
-	    builder.addRDN(BCStyle.O, subjectDataDTO.getOrganisation());
-	    builder.addRDN(BCStyle.OU, subjectDataDTO.getOrganisationUnit());
-	    builder.addRDN(BCStyle.C, subjectDataDTO.getCountryCode());
-	    builder.addRDN(BCStyle.E, subjectDataDTO.getEmail());
-	    //UID (USER ID) je ID korisnika
-	    builder.addRDN(BCStyle.UID, subjectDataDTO.getUid());
-		
-		/*
-		 * if(subject instanceof AdminPKI) { AdminPKI admin = (AdminPKI) subject;
-		 * 
-		 * builder.addRDN(BCStyle.SURNAME, admin.getLastName());
-		 * builder.addRDN(BCStyle.GIVENNAME, admin.getName()); builder.addRDN(BCStyle.E,
-		 * admin.getEmail()); //UID (USER ID) je ID korisnika
-		 * builder.addRDN(BCStyle.UID, admin.getId().toString());
-		 * 
-		 * }else if(subject instanceof User) {
-		 * 
-		 * }else { Software soft = (Software) subject; builder.addRDN(BCStyle.GIVENNAME,
-		 * soft.getName()); builder.addRDN(BCStyle.UID, soft.getId().toString()); }
-		 */
-		
-		//Kreiraju se podaci za sertifikat, sto ukljucuje:
-	    // - javni kljuc koji se vezuje za sertifikat
-	    // - podatke o vlasniku
-	    // - serijski broj sertifikata
-	    // - od kada do kada vazi sertifikat
-
-		logger.logInfo("SD_GEN_SUCCESS");
-	    return new SubjectData(keyPairSubject.getPublic(), keyPairSubject.getPrivate(), builder.build(), serial, 
-	    															startDate, endDate);
-	}
 	
 	
 	
@@ -489,7 +414,7 @@ public class CertificateService {
 		return certRepo.findAll();
 	}
 	
-	
+
 	private String formFileName(String alias) {
 		return "ks_" + alias.replace(" ", "") + ".p12";
 	}
@@ -497,5 +422,78 @@ public class CertificateService {
 
 	private String formFileNameJKS(String alias) {
 		return alias.replace(" ", "") + ".jks";
+	}
+
+	private CertificateInfoDTO formSSGeneric() throws ParseException {
+
+		CertificateInfoDTO cDTO = new CertificateInfoDTO();
+
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		Date startDate = simpleDateFormat.parse("2019-04-11");
+		Date endDate = simpleDateFormat.parse("2019-09-11");
+
+		cDTO.setAlias(this.rootCertificateAlias);
+		cDTO.setCa(true);
+		cDTO.setStartDate(startDate);
+		cDTO.setEndDate(endDate);
+
+		SubjectDataDTO sDTO = new SubjectDataDTO();
+		sDTO.setCommonName("localhost");
+		sDTO.setOrganisation("MT");
+		sDTO.setOrganisationUnit("MegaTravel");
+		sDTO.setCountryCode("RS");
+		sDTO.setEmail("megatravel@gmail.com");
+
+		cDTO.setSubjectDataDTO(sDTO);
+
+		return cDTO;
+	}
+
+	public List<CertificateDTO> revoke(RevocationDTO revocationDTO) {
+
+		Certificate c = certRepo.findOneById(revocationDTO.getIssuerId());
+		c.setRevoked(true);
+		c.setReasonForRevocation(revocationDTO.getReasonForRevocation());
+
+		List<CertificateDTO> retVal = new ArrayList<>();
+
+		for (Certificate cert: certRepo.findAll()) {
+			if (cert.getIdIssuer().equals(c.getId())) {
+				cert.setRevoked(true);
+				cert.setReasonForRevocation("Cascade revocation: " + revocationDTO.getReasonForRevocation());
+				cert = certRepo.save(cert);
+			}
+
+			retVal.add(new CertificateDTO(cert));
+
+
+		}
+		return retVal;
+
+
+	}
+
+	public void formTrustStores(Certificate certificateA, Certificate certificateB) throws KeyStoreException {
+
+
+		keyStoreWriter.loadKeyStore(formFileNameJKS(certificateA.getAlias()), this.keyStorePassword.toCharArray());
+		java.security.cert.Certificate certB = keyStoreReader.readCertificate(formFileNameJKS(certificateA.getAlias()),
+				this.keyStorePassword,
+				certificateA.getAlias());
+		keyStoreWriter.trustedEntry(certificateB.getAlias(), certB);
+		keyStoreWriter.saveKeyStore(formFileNameJKS(certificateA.getAlias()), this.keyStorePassword.toCharArray());
+
+
+
+		keyStoreWriter.loadKeyStore(formFileNameJKS(certificateB.getAlias()), this.keyStorePassword.toCharArray());
+		java.security.cert.Certificate certA = keyStoreReader.readCertificate(formFileNameJKS(certificateA.getAlias()),
+				this.keyStorePassword,
+				certificateA.getAlias());
+		keyStoreWriter.trustedEntry(certificateA.getAlias(), certA);
+		keyStoreWriter.saveKeyStore(formFileNameJKS(certificateB.getAlias()), this.keyStorePassword.toCharArray());
+
+
+
 	}
 }

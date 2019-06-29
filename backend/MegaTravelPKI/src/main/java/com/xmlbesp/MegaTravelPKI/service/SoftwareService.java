@@ -13,6 +13,8 @@ public class SoftwareService {
 	
 	@Autowired
 	SoftwareRepository softRepo;
+
+
 	
 	public Software findOneById(Long id) {
 		return softRepo.findOneById(id);
@@ -25,5 +27,23 @@ public class SoftwareService {
 	public Software save(Software soft) {
 		return softRepo.save(soft);
 	}
+
+    public void updateSoftwares() {
+
+		List<Software> softwares = softRepo.findAll();
+
+		for (Software s: softwares) {
+			if (s.isCertified()) {
+				if (s.getCertificate().isRevoked()) {
+					s.setCertified(false);
+					s.setCertificate(null);
+					softRepo.save(s);
+				}
+
+			}
+		}
+    }
+
+
 
 }

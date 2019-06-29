@@ -70,4 +70,8 @@ public class KeyStoreWriter {
 			e.printStackTrace();
 		}
 	}
+
+	public void trustedEntry(String alias, Certificate cert) throws KeyStoreException {
+		keyStore.setCertificateEntry(alias, cert);
+	}
 }
