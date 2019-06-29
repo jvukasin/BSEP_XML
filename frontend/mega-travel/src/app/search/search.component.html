@@ -1,4 +1,4 @@
-<section class="ftco-section ftco-no-pb ftco-no-pt">
+<section class="section">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -22,7 +22,7 @@
                     <label for="#">Check-in date</label>
                     <div class="form-field">
                       <div class="icon"><span class="ion-ios-calendar"></span></div>
-                      <input type="date" formControlName="startDate" class="form-control checkin_date" required placeholder="Check In Date" min="{{todDate|date:'yyyy-MM-dd'}}">
+                      <input type="date" formControlName="startDate" class="form-control checkin_date" required placeholder="Check In Date" (change)="onChangeStartDate($event.target.value)" min="{{todDate|date:'yyyy-MM-dd'}}">
                     </div>
                   </div>
                 </div>

@@ -177,6 +177,12 @@ export class SearchComponent implements OnInit {
 
   }
 
+  onChangeStartDate(start) {
+    var todsel = new Date(start);
+    this.tomDate = new Date(+todsel + 86400000)
+    this.endDate.setValue(moment(this.tomDate).format('YYYY-MM-DD'));
+  }
+
   onClickLess() {
     this.showAdvancedSearch = false;
     this.showMoreBox = false;

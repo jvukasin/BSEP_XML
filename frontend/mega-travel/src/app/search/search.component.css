@@ -2,6 +2,10 @@ option {
     color: black;
 }
 
+section {
+  margin-top: -250px;
+}
+
 input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
