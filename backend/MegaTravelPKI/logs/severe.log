@@ -156,3 +156,5 @@
 2019-06-29 05:19:09,620 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-6] SS_CERT_NOT_EXISTS
 2019-06-29 05:35:03,527 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-4] SS_CERT_GET_FAIL
 2019-06-29 05:35:27,313 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-8] SS_CERT_NOT_EXISTS
+2019-06-29 12:00:59,858 ERROR com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-2] SS_CERT_GET_FAIL
+2019-06-29 12:01:25,412 WARN com.xmlbesp.MegaTravelPKI.service.Logging [https-jsse-nio-8446-exec-9] SS_CERT_NOT_EXISTS

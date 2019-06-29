@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -14,7 +16,7 @@ export class ResetPasswordComponent implements OnInit {
 		email: ['', Validators.required]
 	  });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private router: Router,private fb: FormBuilder, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -24,8 +26,8 @@ export class ResetPasswordComponent implements OnInit {
 		let dto = {
 			email: this.resetForm.get('email').value
 			
-		}
-		
+    }
+
     console.log(dto);
     
     this.successMsg = true;

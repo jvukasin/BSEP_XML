@@ -5,3 +5,5 @@ backend/auth-service/logs
 backend/discovery-service/logs
 backend/api-gateway/logs
 backend/rating-service/logs
+backend/rating-service/node_modules
+

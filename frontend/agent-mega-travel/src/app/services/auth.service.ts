@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { JwtInterceptor, JwtHelperService } from '@auth0/angular-jwt';
+import { ThrowStmt } from '@angular/compiler';
 
 
 
@@ -56,6 +57,5 @@ export class AuthService {
     getUser(){
         return this.http.get('api/auth/user');
     }
-
  
 }
