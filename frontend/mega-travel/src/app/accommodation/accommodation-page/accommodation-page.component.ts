@@ -30,7 +30,7 @@ export class AccommodationPageComponent implements OnInit {
   ratingText: String;
   ratingColor: {};
 
-  ratingNo: any;
+  ratingNo: any = [];
   allRatings: any = [];
 
   constructor(private accService: AccommodationService, private srcService: SearchResultsService, private userService: UserService, private resService: ReservationService, private route: ActivatedRoute, private router: Router) {

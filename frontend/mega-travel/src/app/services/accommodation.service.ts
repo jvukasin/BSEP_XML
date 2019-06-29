@@ -34,7 +34,7 @@ export class AccommodationService {
     }
 
     getAURatingsCount(id) {
-        return this.http.get("/api/accommodationservice/ratings/count/" + id);
+        return this.http.get("/api/accommodationservice/ratings/average/" + id);
     }
 
     postRating(rating){
