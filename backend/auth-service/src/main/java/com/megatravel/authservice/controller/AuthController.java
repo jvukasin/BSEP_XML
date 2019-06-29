@@ -66,13 +66,13 @@ public class AuthController {
         HttpEntity<JwtAuthenticationRequest> HReq=new HttpEntity<JwtAuthenticationRequest>(authenticationRequest);
         //posalji zahtev servisu da stavi u kontekst
         try {
-            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/setAuthentication", HReq, ResponseEntity.class);
+            ResponseEntity<?> responseReservation = restTemplate.postForEntity("https://reservation-service/resSecurity/setAuthentication", HReq, ResponseEntity.class);
         } catch (Exception e) {
             logger.logWarning("RES_SER_DOWN");
         }
 
         try {
-            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/setAuthentication", HReq, ResponseEntity.class);
+            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("https://accommodation-service/accSecurity/setAuthentication", HReq, ResponseEntity.class);
         } catch (Exception e) {
             logger.logWarning("ACC_SER_DOWN");
         }
@@ -104,13 +104,13 @@ public class AuthController {
         logger.logInfo("ULOG_OUT");
         //poslati svima zahtev da izbrisu kontekst
         try {
-            ResponseEntity<?> responseReservation = restTemplate.postForEntity("http://reservation-service/resSecurity/logout", null, null);
+            ResponseEntity<?> responseReservation = restTemplate.postForEntity("https://reservation-service/resSecurity/logout", null, null);
         } catch (Exception e) {
             e.printStackTrace();
             logger.logWarning("RES_SER_DOWN");
         }
         try {
-            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("http://accommodation-service/accSecurity/logout", null, null);
+            ResponseEntity<?> responseAccommodation = restTemplate.postForEntity("https://accommodation-service/accSecurity/logout", null, null);
         } catch (Exception e) {
             e.printStackTrace();
             logger.logWarning("ACC_SER_DOWN");
