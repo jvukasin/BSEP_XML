@@ -77,7 +77,8 @@ export class AccommodationPageComponent implements OnInit {
   }
 
   getRatings() {
-    this.accService.getAURatings(this.id).subscribe(
+    console.log("USAO");
+    this.accService.getAUApprovedRatings(this.id).subscribe(
       (data) => {
         this.allRatings = data;
         this.ratingNo = this.allRatings.length;
@@ -90,6 +91,13 @@ export class AccommodationPageComponent implements OnInit {
         });
       }
     );
+    this.accService.getAURatingsCount(this.id).subscribe(
+      (data) => {
+        this.ratingNo = data;
+      }, (error) => {
+        alert("error count");
+      }
+    )
   }
 
   parseRatingTextAndColor(rating) {

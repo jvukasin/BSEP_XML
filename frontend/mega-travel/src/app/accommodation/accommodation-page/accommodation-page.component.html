@@ -42,7 +42,7 @@
         <h4 style="margin-bottom: 30px;">{{acu.name}}</h4>
         <div class="priceDate">
           <p class="guests"><i class="fa fa-user"></i> {{guests}} guests</p>
-          <p class="sel-date"><i class="fa fa-calendar-o"></i> {{sDate}} to {{eDate}}</p>
+          <p class="sel-date"><i class="fa fa-calendar-o"></i> {{sDate|date:'dd-MM-yyyy'}} to {{eDate|date:'dd-MM-yyyy'}}</p>
         </div>
         <div class="totalprice">
           <h5>Total price: ${{totalPrice}}</h5>
@@ -90,7 +90,8 @@
             <div class="container">
               <div class="left-card">
                 <h6><b>{{r.reservator}}</b></h6>
-                <p class="com-date">{{r.posting_date}}</p>
+                <span class="com-rate">rated: {{r.value}}</span><br>
+                <span class="com-date">posted: {{r.posting_date|date:'dd-MM-yyyy'}}</span>
               </div>
               <div class="right-card">
                 <p>{{r.comment}}</p>
@@ -98,7 +99,6 @@
             </div>
           </div>
       </div>
-      
       </div>
     </div>
   </section>

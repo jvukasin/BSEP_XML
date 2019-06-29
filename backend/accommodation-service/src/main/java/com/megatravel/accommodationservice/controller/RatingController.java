@@ -28,12 +28,11 @@ public class RatingController {
     @Autowired
     public TokenUtils tokenUtils;
 
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getAURatings(@PathVariable Long id)
+    @RequestMapping(value = "/approved/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getAUApprovedRatings(@PathVariable Long id)
     {
         ResponseEntity<List<RatingDTO>> response = template.exchange(
-                "http://localhost:8331/getAURatings?id="+id,
+                "http://localhost:8333/getAUApprovedRatings?id="+id,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<RatingDTO>>(){});
@@ -49,7 +48,20 @@ public class RatingController {
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<RatingAverageDTO>(){});
-        return response;
+        RatingAverageDTO d = response.getBody();
+        return new ResponseEntity<>(d, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getAURatings(@PathVariable Long id)
+    {
+        ResponseEntity<List<RatingDTO>> response = template.exchange(
+                "http://localhost:8331/getAURatings?id="+id,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<RatingDTO>>(){});
+        List<RatingDTO> retVal = response.getBody();
+        return new ResponseEntity<>(retVal, HttpStatus.OK);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)

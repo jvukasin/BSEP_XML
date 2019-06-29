@@ -6,7 +6,7 @@ public class RatingDTO {
 
     private Long id;
     private int value;
-    private boolean approved;
+    private int approved;
     private Date posting_date;
     private String comment;
     private Long accommodation_id;
@@ -15,7 +15,7 @@ public class RatingDTO {
     public RatingDTO() {
     }
 
-    public RatingDTO(Long id, int value, boolean approved, Date posting_date, String comment, Long accommodation_id, String reservator) {
+    public RatingDTO(Long id, int value, int approved, Date posting_date, String comment, Long accommodation_id, String reservator) {
         this.id = id;
         this.value = value;
         this.approved = approved;
@@ -41,11 +41,11 @@ public class RatingDTO {
         this.value = value;
     }
 
-    public boolean isApproved() {
+    public int getApproved() {
         return approved;
     }
 
-    public void setApproved(boolean approved) {
+    public void setApproved(int approved) {
         this.approved = approved;
     }
 
