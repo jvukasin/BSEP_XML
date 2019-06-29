@@ -28,4 +28,8 @@ export class AccommodationService {
     getAccCategories() {
         return this.http.get("/api/accommodationservice/accommodations/categories");
     }
+
+    getAURatings(id) {
+        return this.http.get("/api/accommodationservice/ratings/" + id);
+    }
 }

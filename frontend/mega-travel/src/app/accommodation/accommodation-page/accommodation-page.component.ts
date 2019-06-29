@@ -30,6 +30,9 @@ export class AccommodationPageComponent implements OnInit {
   ratingText: String;
   ratingColor: {};
 
+  ratingNo: any;
+  allRatings: any = [];
+
   constructor(private accService: AccommodationService, private srcService: SearchResultsService, private userService: UserService, private resService: ReservationService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(
       (params: Params) => {
@@ -69,6 +72,24 @@ export class AccommodationPageComponent implements OnInit {
     if(this.sDate == undefined || this.eDate == undefined) {
       this.router.navigate(['home']);
     }
+
+    this.getRatings();
+  }
+
+  getRatings() {
+    this.accService.getAURatings(this.id).subscribe(
+      (data) => {
+        this.allRatings = data;
+        this.ratingNo = this.allRatings.length;
+      }, (error) => {
+        Swal.fire({
+          type: 'error',
+          title: 'Could not find fetch ratings',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    );
   }
 
   parseRatingTextAndColor(rating) {

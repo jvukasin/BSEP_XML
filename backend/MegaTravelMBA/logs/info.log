@@ -2641,3 +2641,29 @@ Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86
 2019-06-29 18:43:17,912 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 21.06 seconds (JVM running for 28.588)
 2019-06-29 18:44:03,888 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
 2019-06-29 18:44:31,984 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 35.903 seconds (JVM running for 43.248)
+2019-06-29 20:54:16,407 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 20:54:30,139 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 19.539 seconds (JVM running for 23.04)
+2019-06-29 20:54:50,873 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 20:54:58,134 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 20:55:02,767 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 17.476 seconds (JVM running for 23.477)
+2019-06-29 20:56:10,807 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 20:58:14,308 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 20:58:28,674 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 19.048 seconds (JVM running for 21.564)
+2019-06-29 20:59:22,891 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH
+2019-06-29 20:59:23,133 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_SUCCESS
+2019-06-29 21:03:41,530 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH
+2019-06-29 21:03:41,672 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_SUCCESS
+2019-06-29 21:05:42,394 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 21:05:57,002 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 19.51 seconds (JVM running for 22.247)
+2019-06-29 21:08:37,736 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH
+2019-06-29 21:08:37,971 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_SUCCESS
+2019-06-29 21:11:52,488 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 21:12:11,056 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 24.491 seconds (JVM running for 27.974)
+2019-06-29 21:12:38,284 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 21:12:51,817 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 18.007 seconds (JVM running for 20.464)
+2019-06-29 21:14:07,505 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH
+2019-06-29 21:14:07,795 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_SUCCESS
+2019-06-29 21:15:04,652 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH
+2019-06-29 21:15:04,721 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_SUCCESS
+2019-06-29 21:17:29,845 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH
+2019-06-29 21:17:29,895 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_SUCCESS

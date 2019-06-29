@@ -10,15 +10,10 @@ import java.util.NoSuchElementException;
 import javax.persistence.EntityManager;
 import javax.validation.ConstraintViolationException;
 
+import com.megatravel.accommodationservice.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.megatravel.accommodationservice.dto.AccTypeDTO;
-import com.megatravel.accommodationservice.dto.AccommodationCategoryDTO;
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.AmenityDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
 import com.megatravel.accommodationservice.model.AccommodationCategory;
 import com.megatravel.accommodationservice.model.AccommodationType;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
@@ -213,8 +208,6 @@ public class AccommodationUnitService
 
 		return retVal;
 	}
-	
-	
 	
 	
 	//* * * TYPES * * *
@@ -421,6 +414,8 @@ public class AccommodationUnitService
 
 		return retVal;
 	}
+
+
 
 
 }

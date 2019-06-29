@@ -66,7 +66,7 @@
         </div>
         <div class="rating">
           <div class="NO-reviews">
-            <p class="no-of-revs">X Reviews</p>
+            <p class="no-of-revs">{{ratingNo}} reviews</p>
           </div>
           <h4>Rating:</h4>
           <div class="rating-content">
@@ -86,38 +86,14 @@
         <div class="comments">
           <h4>Comments:</h4>
     
-          <div class="card">
+          <div class="card" *ngFor="let r of allRatings">
             <div class="container">
               <div class="left-card">
-                <h6><b>Vladimir Cvetanovic</b></h6>
-                <p class="com-date">05.06.2019.</p>
+                <h6><b>{{r.reservator}}</b></h6>
+                <p class="com-date">{{r.posting_date}}</p>
               </div>
               <div class="right-card">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
-              </div>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="container">
-              <div class="left-card">
-                <h6><b>John Doe</b></h6>
-                <p class="com-date">10.06.2019.</p>
-              </div>
-              <div class="right-card">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card">
-            <div class="container">
-              <div class="left-card">
-                <h6><b>Miroslav Zaric</b></h6>
-                <p class="com-date">14.06.2019.</p>
-              </div>
-              <div class="right-card">
-                <p>Great!</p>
+                <p>{{r.comment}}</p>
               </div>
             </div>
           </div>
