@@ -28,4 +28,12 @@ export class AccommodationService {
     getAccCategories() {
         return this.http.get("/api/accommodationservice/accommodations/categories");
     }
+
+    getAUApprovedRatings(id) {
+        return this.http.get("/api/accommodationservice/ratings/approved/" + id);
+    }
+
+    getAURatingsCount(id) {
+        return this.http.get("/api/accommodationservice/ratings/count/" + id);
+    }
 }

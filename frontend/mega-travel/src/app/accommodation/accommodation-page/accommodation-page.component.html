@@ -42,7 +42,7 @@
         <h4 style="margin-bottom: 30px;">{{acu.name}}</h4>
         <div class="priceDate">
           <p class="guests"><i class="fa fa-user"></i> {{guests}} guests</p>
-          <p class="sel-date"><i class="fa fa-calendar-o"></i> {{sDate}} to {{eDate}}</p>
+          <p class="sel-date"><i class="fa fa-calendar-o"></i> {{sDate|date:'dd-MM-yyyy'}} to {{eDate|date:'dd-MM-yyyy'}}</p>
         </div>
         <div class="totalprice">
           <h5>Total price: ${{totalPrice}}</h5>
@@ -66,7 +66,7 @@
         </div>
         <div class="rating">
           <div class="NO-reviews">
-            <p class="no-of-revs">X Reviews</p>
+            <p class="no-of-revs">{{ratingNo}} reviews</p>
           </div>
           <h4>Rating:</h4>
           <div class="rating-content">
@@ -86,43 +86,19 @@
         <div class="comments">
           <h4>Comments:</h4>
     
-          <div class="card">
+          <div class="card" *ngFor="let r of allRatings">
             <div class="container">
               <div class="left-card">
-                <h6><b>Vladimir Cvetanovic</b></h6>
-                <p class="com-date">05.06.2019.</p>
+                <h6><b>{{r.reservator}}</b></h6>
+                <span class="com-rate">rated: {{r.value}}</span><br>
+                <span class="com-date">posted: {{r.posting_date|date:'dd-MM-yyyy'}}</span>
               </div>
               <div class="right-card">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
-              </div>
-            </div>
-          </div>
-    
-          <div class="card">
-            <div class="container">
-              <div class="left-card">
-                <h6><b>John Doe</b></h6>
-                <p class="com-date">10.06.2019.</p>
-              </div>
-              <div class="right-card">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro voluptas distinctio, nesciunt iusto cupiditate dolore alias repudiandae odit quo, libero odio, non at? Dolorem, itaque unde sint voluptatum nam quidem!</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card">
-            <div class="container">
-              <div class="left-card">
-                <h6><b>Miroslav Zaric</b></h6>
-                <p class="com-date">14.06.2019.</p>
-              </div>
-              <div class="right-card">
-                <p>Great!</p>
+                <p>{{r.comment}}</p>
               </div>
             </div>
           </div>
       </div>
-      
       </div>
     </div>
   </section>

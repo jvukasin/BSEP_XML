@@ -8,6 +8,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 
@@ -17,6 +18,12 @@ public class AccommodationServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AccommodationServiceApplication.class, args);
+	}
+
+	@Bean
+	public RestTemplate template() throws Exception{
+		RestTemplate template = new RestTemplate();
+		return template;
 	}
 
 	@Bean

@@ -1,0 +1,1 @@
+npx @googlecloud/functions-framework --target=getRatingAverage --port 8330

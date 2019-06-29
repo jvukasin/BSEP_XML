@@ -1,0 +1,1 @@
+npx @googlecloud/functions-framework --target=getAURatings --port 8331
