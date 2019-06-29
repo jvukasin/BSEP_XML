@@ -1,0 +1,29 @@
+<div class="container">
+<form [formGroup]="ratingForm" (ngSubmit)="onSubmit()">
+      <div class="col form-group">
+        <label>Rating: </label>
+        <select class="form-control" formControlName="rating">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </div>
+
+      <div class="col form-group">
+        <label>Comment:</label>
+        <textarea  rows="4" formControlName="comment" class="textarea"></textarea>
+      </div>
+
+        <div class="col form-group">
+          <button type="submit" class="btn btn-success" style="text-align: end">Save</button>
+        </div>
+
+  </form>
+</div>  

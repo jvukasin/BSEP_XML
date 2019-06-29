@@ -2,6 +2,7 @@ package com.megatravel.reservationservice.dto;
 
 public class AccommodationInfoDTO {
 
+    private Long id;
     private String name;
     private String imageUrl;
     private LocationDTO location;
@@ -12,7 +13,8 @@ public class AccommodationInfoDTO {
     public AccommodationInfoDTO() {
     }
 
-    public AccommodationInfoDTO(String name, String imageUrl, LocationDTO location, double rating, int cancelPeriod, int category) {
+    public AccommodationInfoDTO(Long id , String name, String imageUrl, LocationDTO location, double rating, int cancelPeriod, int category) {
+        this.id = id;
         this.name = name;
         this.imageUrl = imageUrl;
         this.location = location;
@@ -67,5 +69,13 @@ public class AccommodationInfoDTO {
 
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

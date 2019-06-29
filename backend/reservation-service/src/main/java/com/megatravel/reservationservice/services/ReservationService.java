@@ -209,7 +209,7 @@ public class ReservationService
 			}*/
 
 			retVal.add(new UserReservationDTO(reservation.getId(), reservation.getStartDate(), reservation.getEndDate(), reservation.getPrice(),
-					new AccommodationInfoDTO(reservation.getAccommodationUnit().getName(), image.getImageUrl(),
+					new AccommodationInfoDTO(reservation.getAccommodationUnit().getId(),reservation.getAccommodationUnit().getName(), image.getImageUrl(),
 							new LocationDTO(reservation.getAccommodationUnit().getLocation()), reservation.getAccommodationUnit().getRatingAvg(),
 							reservation.getAccommodationUnit().getCancellationPeriod(), reservation.getAccommodationUnit().getCategory()), messages));
 		}
