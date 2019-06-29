@@ -1,31 +1,19 @@
 package com.megatravel.accommodationservice.controller;
-import java.util.Collection;
-
+import com.megatravel.accommodationservice.dto.*;
+import com.megatravel.accommodationservice.model.AccommodationCategory;
+import com.megatravel.accommodationservice.model.AccommodationType;
 import com.megatravel.accommodationservice.security.TokenUtils;
+import com.megatravel.accommodationservice.service.AccommodationUnitService;
 import com.megatravel.accommodationservice.service.Logging;
+import exceptions.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.megatravel.accommodationservice.dto.AccTypeDTO;
-import com.megatravel.accommodationservice.dto.AccommodationCategoryDTO;
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.AmenityDTO;
-import com.megatravel.accommodationservice.dto.ExtendedSearchDTO;
-import com.megatravel.accommodationservice.dto.TotalPriceAccommodationDTO;
-import com.megatravel.accommodationservice.model.AccommodationCategory;
-import com.megatravel.accommodationservice.model.AccommodationType;
-import com.megatravel.accommodationservice.service.AccommodationUnitService;
-
-import exceptions.BusinessException;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/accommodations")
@@ -176,7 +164,8 @@ public class AccommodationUnitController
 	@RequestMapping(value = "/categories", method = RequestMethod.GET)
 	public ResponseEntity<Collection<AccommodationCategoryDTO>> getCategories()
 	{
-		return new ResponseEntity<Collection<AccommodationCategoryDTO>>(accommodationService.findAllCategories(),HttpStatus.OK);
+		return new ResponseEntity<Collection<AccommodationCategoryDTO>>(accommodationService.findAllCategoriesDTO(),
+				HttpStatus.OK);
 	}
 	
 

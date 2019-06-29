@@ -5,6 +5,12 @@
     <div class="ac-info">
       <div class="ac-title-bar">
         <h2>{{ accommodationUnit.name }}</h2>
+        <div class="category">
+          <span class="uncategorized"  *ngIf="accommodationUnit.category <= 0" >uncategorized</span>
+          <div *ngIf="accommodationUnit.category > 0">
+            <i *ngFor="let c of category" class="fa fa-star"></i>
+          </div>
+        </div>
       </div>
   
       <div class="ac-other">

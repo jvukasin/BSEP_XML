@@ -1,29 +1,16 @@
 package com.xml.MegaTravelAgent.service;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.NoSuchElementException;
-
-import javax.transaction.Transactional;
-
 import com.xml.MegaTravelAgent.dto.*;
+import com.xml.MegaTravelAgent.exceptions.BusinessException;
+import com.xml.MegaTravelAgent.model.*;
 import com.xml.MegaTravelAgent.repository.*;
+import com.xml.MegaTravelAgent.soap.client.AccommodationUnitClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.xml.MegaTravelAgent.exceptions.BusinessException;
-import com.xml.MegaTravelAgent.model.AccommodationUnit;
-import com.xml.MegaTravelAgent.model.Amenity;
-import com.xml.MegaTravelAgent.model.City;
-import com.xml.MegaTravelAgent.model.Image;
-import com.xml.MegaTravelAgent.model.Location;
-import com.xml.MegaTravelAgent.model.SpecificPrice;
-import com.xml.MegaTravelAgent.model.Agent;
-import com.xml.MegaTravelAgent.soap.client.AccommodationUnitClient;
+import javax.transaction.Transactional;
+import java.util.*;
 
 @Service
 public class AccommodationUnitService 
@@ -139,7 +126,7 @@ public class AccommodationUnitService
 		au.setCancellationPeriod(dto.getCancellationPeriod());
 		au.setDefaultPrice(dto.getDefaultPrice());
 		au.setRatingAvg(0);
-		au.setCategory(-1);
+		au.setCategory(dto.getCategory());
 
 		au.setAmenity(new HashSet<Amenity>());
 

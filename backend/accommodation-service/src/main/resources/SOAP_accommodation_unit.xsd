@@ -71,6 +71,8 @@
             <xs:sequence>
                 <xs:element maxOccurs="unbounded" minOccurs="0"  ref="au:Amenity"/>
                 <xs:element maxOccurs="unbounded" minOccurs="0"  ref="sp:AccommodationType"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0"  ref="sp:AccommodationCategory"/>
+
             </xs:sequence>
         </xs:complexType>
     </xs:element>

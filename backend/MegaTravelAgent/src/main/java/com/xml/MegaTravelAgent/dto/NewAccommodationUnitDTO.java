@@ -1,7 +1,5 @@
 package com.xml.MegaTravelAgent.dto;
 
-import com.xml.MegaTravelAgent.model.SpecificPrice;
-
 import java.util.List;
 
 public class NewAccommodationUnitDTO {
@@ -10,6 +8,7 @@ public class NewAccommodationUnitDTO {
     private String description;
     private String type;
     private int capacity;
+    private int category;
     private int cancellationPeriod;
     private double defaultPrice;
     private LocationDTO location;
@@ -20,11 +19,12 @@ public class NewAccommodationUnitDTO {
     public NewAccommodationUnitDTO() {
     }
 
-    public NewAccommodationUnitDTO(String name, String description, String type, int capacity, int cancellationPeriod, double defaultPrice, LocationDTO location, List<AmenityDTO> amenities, List<SpecificPriceDTO> specificPrices, List<ImageDTO> images) {
+    public NewAccommodationUnitDTO(String name, String description, String type, int capacity, int category, int cancellationPeriod, double defaultPrice, LocationDTO location, List<AmenityDTO> amenities, List<SpecificPriceDTO> specificPrices, List<ImageDTO> images) {
         this.name = name;
         this.description = description;
         this.type = type;
         this.capacity = capacity;
+        this.category = category;
         this.cancellationPeriod = cancellationPeriod;
         this.defaultPrice = defaultPrice;
         this.location = location;
@@ -111,5 +111,13 @@ public class NewAccommodationUnitDTO {
 
     public void setImages(List<ImageDTO> images) {
         this.images = images;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
     }
 }

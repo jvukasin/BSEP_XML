@@ -20,9 +20,17 @@
                 <option *ngFor="let t of accommodationTypes" value="{{t}}">{{t}}</option>
               </select>
             </div>
+
+            <!-- CATEGORY -->
+            <div class="col-3">
+              <select class="form-ctrl" required formControlName="category">
+                <option value="">Category</option>
+                <option *ngFor="let c of accommodationCategories" value={{c.value}} >{{c.value}}</option>
+              </select>
+            </div>
             
             <!-- CAPACITY -->
-            <div class="col-6">
+            <div class="col-3">
               <select class="form-ctrl" required formControlName="capacity">
                 <option value="">Capacity</option>
                 <option value="1">1</option>
