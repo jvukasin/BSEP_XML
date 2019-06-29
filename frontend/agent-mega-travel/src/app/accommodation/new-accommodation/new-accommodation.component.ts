@@ -14,6 +14,7 @@ export class NewAccommodationComponent implements OnInit {
 
 	amenities: any = null;
 	accommodationTypes: any = [];
+	accommodationCategories: any = [];
 
 	countries: any = [];
 	cities: any = [];
@@ -23,6 +24,7 @@ export class NewAccommodationComponent implements OnInit {
 		name: ['', Validators.required],
 		description: ['', Validators.required],
 		type: ['', Validators.required],
+		category: ['', Validators.required],
 		capacity: ['', Validators.required],
 		cancellationPeriod: ['', Validators.required],
 		defaultPrice: ['', Validators.required],
@@ -54,6 +56,7 @@ export class NewAccommodationComponent implements OnInit {
 			(data:any) => {
 				this.amenities = data.amenities;
 				this.accommodationTypes = data.accommodationTypes;
+				this.accommodationCategories = data.accommodationCategories;
 
 				this.renderAmenities();
 				
@@ -169,6 +172,7 @@ export class NewAccommodationComponent implements OnInit {
 			name: this.newAccommodationForm.get('name').value,
 			description: this.newAccommodationForm.get('description').value,
 			type: this.newAccommodationForm.get('type').value,
+			category: this.newAccommodationForm.get('category').value,
 			capacity: this.newAccommodationForm.get('capacity').value,
 			cancellationPeriod: this.newAccommodationForm.get('cancellationPeriod').value,
 			defaultPrice: this.newAccommodationForm.get('defaultPrice').value,

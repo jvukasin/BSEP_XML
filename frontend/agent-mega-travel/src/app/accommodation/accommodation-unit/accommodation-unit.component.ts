@@ -50,7 +50,6 @@ export class AccommodationUnitComponent implements OnInit {
 			payload => {
 				this.accommodationUnit = payload;
 				if (this.accommodationUnit.category > 0) {
-					console.log('ping');
 					this.category = Array(this.accommodationUnit.category).map(i => i); 
 				} 
 			},

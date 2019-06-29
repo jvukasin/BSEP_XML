@@ -1,0 +1,1 @@
+2019-06-29 22:23:04,779 ERROR com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-4] AU_CREATE_ERR: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement

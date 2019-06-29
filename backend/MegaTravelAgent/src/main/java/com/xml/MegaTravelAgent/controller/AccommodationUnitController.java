@@ -2,6 +2,7 @@ package com.xml.MegaTravelAgent.controller;
 
 import com.xml.MegaTravelAgent.dto.*;
 import com.xml.MegaTravelAgent.exceptions.BusinessException;
+import com.xml.MegaTravelAgent.model.AccommodationCategory;
 import com.xml.MegaTravelAgent.model.AccommodationUnit;
 import com.xml.MegaTravelAgent.model.Amenity;
 import com.xml.MegaTravelAgent.security.TokenUtils;
@@ -166,10 +167,27 @@ public class AccommodationUnitController {
 			settingsDTO.getAccommodationTypes().add(t.getType());
 		}
 
+		for (AccommodationCategory c: soapResponse.getAccommodationCategory()) {
+			settingsDTO.getAccommodationCategories().add(c);
+		}
 
 
 		return new ResponseEntity<AccommodationSettingsDTO>(settingsDTO, HttpStatus.OK);
 	}
+
+	@RequestMapping(value = "/ratings", method = RequestMethod.GET)
+	public ResponseEntity<?> fetchRatings(HttpServletRequest request) {
+
+		String username = getUsernameFromRequest(request);
+
+		if (username == null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+
+		return  new ResponseEntity<>(HttpStatus.OK);
+
+	}
+
 
 	private String getUsernameFromRequest(HttpServletRequest request) {
 

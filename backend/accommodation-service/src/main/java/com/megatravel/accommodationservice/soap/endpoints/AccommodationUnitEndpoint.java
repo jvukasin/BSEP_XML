@@ -113,6 +113,7 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
 
         List<Amenity> amenities = acService.findAllAmenities();
         Collection<AccommodationType> types = acService.findAllTypes();
+        Collection<AccommodationCategory> categories = acService.findAllCategories();
 
         for (Amenity a: amenities) {
             response.getAmenity().add(a);
@@ -121,6 +122,11 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
         for (AccommodationType t: types) {
             response.getAccommodationType().add(t);
         }
+
+        for (AccommodationCategory c: categories) {
+            response.getAccommodationCategory().add(c);
+        }
+
 
         return response;
     }

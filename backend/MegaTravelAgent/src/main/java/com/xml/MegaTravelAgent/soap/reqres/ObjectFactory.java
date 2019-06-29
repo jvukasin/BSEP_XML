@@ -208,13 +208,7 @@ public class ObjectFactory {
     }
 
 
-    /**
-     * Create an instance of {@link Comment }
-     * 
-     */
-    public Comment createComment() {
-        return new Comment();
-    }
+
 
     /**
      * Create an instance of {@link Rating }

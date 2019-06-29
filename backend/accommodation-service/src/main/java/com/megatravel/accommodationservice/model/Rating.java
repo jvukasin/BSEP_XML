@@ -3,6 +3,7 @@ package com.megatravel.accommodationservice.model;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 
 
 /**
@@ -61,7 +62,7 @@ public class Rating {
     protected boolean approved;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar postingDate;
+    protected Date postingDate;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
     protected String comment;
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/global", required = true)
@@ -111,7 +112,7 @@ public class Rating {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getPostingDate() {
+    public Date getPostingDate() {
         return postingDate;
     }
 
@@ -123,7 +124,7 @@ public class Rating {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setPostingDate(XMLGregorianCalendar value) {
+    public void setPostingDate(Date value) {
         this.postingDate = value;
     }
 
