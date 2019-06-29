@@ -32,4 +32,9 @@ export class AccommodationService {
     getAURatings(id) {
         return this.http.get("/api/accommodationservice/ratings/" + id);
     }
+
+    postRating(rating){
+        return this.http.post('api/accommodationservice/ratings', rating);
+    }
+
 }

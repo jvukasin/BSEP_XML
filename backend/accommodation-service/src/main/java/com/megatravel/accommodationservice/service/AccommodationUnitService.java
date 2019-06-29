@@ -190,6 +190,12 @@ public class AccommodationUnitService
 
 		return ret;
 	}
+
+	public void calculateAvg(Long accommodationId){
+		AccommodationUnit au = accommodationRepo.findOneById(accommodationId);
+		
+
+	}
 	
 
 

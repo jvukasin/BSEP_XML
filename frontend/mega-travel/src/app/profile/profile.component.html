@@ -1,13 +1,4 @@
-  <div class="form-modal" *ngIf="showFormDialog">
-      <div class="modal-content">
-        <div class="modal-body">
-            <button type="button" class="close" (click)="onCloseForm()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-          <app-rating-form (ratingSubmit)="ratingSubmitted($event)"></app-rating-form>
-        </div>
-      </div>
-    </div>  
+  
 
 <div id="main">
   <div class="sidebyside-container">
@@ -59,6 +50,18 @@
       <div class="resList">
 
           <div class="row res-card" *ngFor="let reservation of reservationList">
+
+              <div class="form-modal" *ngIf="showFormDialog">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" (click)="onCloseForm()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                      <app-rating-form (ratingSubmit)="ratingSubmitted($event)" [accommodationId]="reservation.accommodation.id"></app-rating-form>
+                    </div>
+                  </div>
+                </div>  
+
               <div class="tile">
                 <div class="card-inside">
                     <div class="left-part-card">
@@ -92,7 +95,7 @@
                           <button type="button" class="btn btn-primary sendMessage" (click)="showMessages(reservation)"> Send message </button>
                         </div>
                         <div class="details-btn-card"  *ngIf="isComment(reservation.endDate)">
-                          <button type="button" class="btn btn-primary sendMessage" [accommodationId]="reservation.accommodation.id" (click)="leaveRating(reservation.accommodation.id)"> Leave rating </button>
+                          <button type="button" class="btn btn-primary sendMessage" (click)="leaveRating(reservation.accommodation.id)"> Leave rating </button>
                         </div>
                       </div>
                       <div style="position:absolute; top:0.45px; right: 0.31px" *ngIf="canCanel(reservation)"><button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel reservation" (click)="cancelReservation(reservation.accommodation.name, reservation.id)">

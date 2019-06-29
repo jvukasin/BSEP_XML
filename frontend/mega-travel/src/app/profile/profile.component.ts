@@ -143,8 +143,10 @@ export class ProfileComponent implements OnInit {
     this.showFormDialog = false;
   }
 
-  ratingSubmitted($event){
-
+  ratingSubmitted(response){
+      alert(response);
   }
+
+  
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AccommodationService } from 'src/app/services/accommodation.service';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-rating-form',
   templateUrl: './rating-form.component.html',
@@ -25,10 +25,17 @@ export class RatingFormComponent implements OnInit {
   onSubmit(){
     let rating = {
       value: this.ratingForm.value.rating,
+      approved: false,
+      posting_date: null,
       comment: this.ratingForm.value.comment,
-      accId: this.accommodationId,
+      accommodation_id: this.accommodationId,
     }
 
+    this.accommodationService.postRating(rating).subscribe(
+      (response) => {
+        this.ratingSubmit.emit(response);
+      }
+    )
   }
 
 
