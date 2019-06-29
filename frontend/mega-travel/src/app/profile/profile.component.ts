@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
   isMessages: boolean = false;
   reservationForMessages = null;
 
+  showFormDialog: boolean = false;
+
   constructor(private reservationService: ReservationService, private userService: UserService, private agentService: AgentService, private authService: AuthService) { }
 
   ngOnInit() {
@@ -120,6 +122,29 @@ export class ProfileComponent implements OnInit {
       },
       (error) => { alert(error) }
     )
+  }
+
+  isComment(endDate){
+    var today = moment();
+    var end = moment(endDate);
+    var diff = today.diff(end, 'days');
+    console.log(diff);
+    if(diff >= 1){
+      return true;
+    }
+    return false;
+  }
+
+  leaveRating(){
+    this.showFormDialog = true;
+  }
+
+  onCloseForm(){
+    this.showFormDialog = false;
+  }
+
+  ratingSubmitted($event){
+
   }
 
 }
