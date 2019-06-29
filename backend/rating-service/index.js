@@ -7,6 +7,7 @@ exports.addRating = function addRating(req, res) {
 	let comment = req.body.comment;
 	let accommodation_id = req.body.accommodation_id;
 	let reservator = req.body.reservator;
+    console.log(posting_date);
 	connection.query("insert into rating (value, approved, posting_date, comment, accommodation_id, reservator) values (?,?,?,?,?,?)",[value, approved, posting_date, comment, accommodation_id, reservator], (err, result) => {
 		if (err) res.status(400).send(err);
 		else {

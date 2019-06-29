@@ -25,7 +25,7 @@ export class RatingFormComponent implements OnInit {
   onSubmit(){
     let rating = {
       value: this.ratingForm.value.rating,
-      approved: false,
+      approved: 0,
       posting_date: null,
       comment: this.ratingForm.value.comment,
       accommodation_id: this.accommodationId,

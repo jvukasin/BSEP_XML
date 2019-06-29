@@ -69,8 +69,18 @@ public class RatingController {
         String token = tokenUtils.getToken(request);
         String username = tokenUtils.getUsernameFromToken(token);
         ratingDTO.setReservator(username);
-        //racunaj avg
-        accService.calculateAvg(ratingDTO.getAccommodation_id());
+
+        // racunanje avg za unit prilikom upisa rejtinga
+        ResponseEntity<List<RatingAverageDTO>> responseAvg = template.exchange(
+                "http://localhost:8330/getRatingAverage?id="+ratingDTO.getAccommodation_id(),
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<RatingAverageDTO>>(){});
+
+        List<RatingAverageDTO> ratingAverageDTO = (List<RatingAverageDTO>) responseAvg.getBody();
+        RatingAverageDTO avgDTO = ratingAverageDTO.iterator().next();
+        accService.calculateAvg(ratingDTO, avgDTO);
+
 
         HttpEntity<RatingDTO> entity = new HttpEntity<RatingDTO>(ratingDTO);
         String response = template.postForObject("http://localhost:8332/addRating", entity, String.class);
