@@ -2624,3 +2624,13 @@ Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86
 2019-06-29 16:22:06,673 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_SUCCESS
 2019-06-29 16:22:23,419 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH
 2019-06-29 16:22:23,427 ERROR com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_ERR: Invalid search dates.
+2019-06-29 16:23:35,979 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH
+2019-06-29 16:23:36,019 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_SUCCESS
+2019-06-29 16:23:47,500 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-3] RES_CREATE - Username: vule; IP: 127.0.0.1
+2019-06-29 16:23:47,501 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-3] RES_CREATE_SUCCESS - Username: vule; IP: 127.0.0.1
+2019-06-29 16:23:48,139 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-4] FETCH_RES_USER_SUCCESS
+2019-06-29 16:24:12,093 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-9] RES_CANCEL
+2019-06-29 16:24:12,146 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-9] RES_CANCEL_SUCCESS
+2019-06-29 16:25:17,644 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-9] ULOG_OUT
+2019-06-29 16:37:04,762 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 16:37:22,498 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 26.466 seconds (JVM running for 29.313)
