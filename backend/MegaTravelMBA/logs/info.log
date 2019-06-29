@@ -2667,3 +2667,46 @@ Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86
 2019-06-29 21:15:04,721 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-3] AU_SEARCH_SUCCESS
 2019-06-29 21:17:29,845 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH
 2019-06-29 21:17:29,895 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_SUCCESS
+2019-06-29 21:26:13,862 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 21:26:22,121 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 13.224 seconds (JVM running for 16.116)
+2019-06-29 21:26:46,197 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 21:26:52,407 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-06-29 21:26:56,612 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 17.348 seconds (JVM running for 20.662)
+2019-06-29 21:27:18,954 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 21:27:35,072 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 21.055 seconds (JVM running for 24.279)
+2019-06-29 21:38:13,073 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 21:38:27,362 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 20.004 seconds (JVM running for 23.754)
+2019-06-29 21:40:55,722 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 21:41:07,253 INFO org.springframework.boot.StartupInfoLogger [main] Started AuthServiceApplication in 16.141 seconds (JVM running for 18.65)
+2019-06-29 21:44:33,127 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH
+2019-06-29 21:44:33,383 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-7] AU_SEARCH_SUCCESS
+2019-06-29 21:45:40,801 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-10] ULOG. Username: vule, IP ADDRESS: 127.0.0.1
+2019-06-29 21:45:43,517 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-10] ULOG_SUCCESS
+2019-06-29 21:45:50,249 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH
+2019-06-29 21:45:50,324 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-2] AU_SEARCH_SUCCESS
+2019-06-29 21:45:56,539 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-1] RES_CREATE - Username: vule; IP: 127.0.0.1
+2019-06-29 21:45:56,541 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-1] RES_CREATE_SUCCESS - Username: vule; IP: 127.0.0.1
+2019-06-29 21:45:57,434 INFO com.megatravel.reservationservice.services.Logging [https-jsse-nio-8443-exec-2] FETCH_RES_USER_SUCCESS
+2019-06-29 21:46:38,141 INFO com.megatravel.authservice.service.Logging [https-jsse-nio-8441-exec-3] ULOG_OUT
+2019-06-29 21:47:14,034 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH
+2019-06-29 21:47:14,206 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-8] AU_SEARCH_SUCCESS
+2019-06-29 22:12:57,608 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 22:13:16,886 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 24.956 seconds (JVM running for 33.103)
+2019-06-29 22:13:43,894 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH
+2019-06-29 22:13:44,202 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_SUCCESS
+2019-06-29 22:27:24,204 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 22:27:41,941 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 23.988 seconds (JVM running for 27.414)
+2019-06-29 22:33:41,970 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH
+2019-06-29 22:33:42,182 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-9] AU_SEARCH_SUCCESS
+2019-06-29 22:34:51,886 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH
+2019-06-29 22:34:51,971 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_SUCCESS
+2019-06-29 22:37:12,551 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 22:37:33,475 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 27.364 seconds (JVM running for 30.904)
+2019-06-29 22:39:26,044 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH
+2019-06-29 22:39:26,301 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_SUCCESS
+2019-06-29 23:28:50,128 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 23:29:09,786 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 26.036 seconds (JVM running for 29.763)
+2019-06-29 23:30:49,478 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH
+2019-06-29 23:30:49,859 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-10] AU_SEARCH_SUCCESS
+2019-06-29 23:34:00,918 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-29 23:34:19,817 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 25.308 seconds (JVM running for 28.985)

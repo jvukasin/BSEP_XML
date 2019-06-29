@@ -29,7 +29,11 @@ export class AccommodationService {
         return this.http.get("/api/accommodationservice/accommodations/categories");
     }
 
-    getAURatings(id) {
-        return this.http.get("/api/accommodationservice/ratings/" + id);
+    getAUApprovedRatings(id) {
+        return this.http.get("/api/accommodationservice/ratings/approved/" + id);
+    }
+
+    getAURatingsCount(id) {
+        return this.http.get("/api/accommodationservice/ratings/count/" + id);
     }
 }

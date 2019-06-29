@@ -152,8 +152,12 @@ section {
     padding-left: 8px;
 }
 
-.com-date {
+.com-rate {
     margin-top: 5px;
+    font-size: 12px;
+}
+
+.com-date {
     font-size: 12px;
 }
 

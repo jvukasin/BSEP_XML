@@ -1,0 +1,1 @@
+npx @googlecloud/functions-framework --target=addRating --port 8332
