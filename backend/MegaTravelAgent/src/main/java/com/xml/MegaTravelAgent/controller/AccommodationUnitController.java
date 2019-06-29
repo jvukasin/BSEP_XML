@@ -14,6 +14,7 @@ import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,6 +76,7 @@ public class AccommodationUnitController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
+	@PreAuthorize("hasAuthority('CREATE_AU_UNIT')")
 	public ResponseEntity<?> create(@RequestBody NewAccommodationUnitDTO auDTO, HttpServletRequest request)
 	{
 		logger.logInfo("AU_CREATE");

@@ -45,3 +45,7 @@ p {
 .form-group {
     width: 570px;
 }
+
+.error {
+    color: red;
+}

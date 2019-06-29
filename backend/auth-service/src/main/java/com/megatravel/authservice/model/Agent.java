@@ -2,6 +2,7 @@
 package com.megatravel.authservice.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class Agent
 {
 
     @Column(name="registrationNumber")
+    @NotNull
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/users", required = true)
     protected String registrationNumber;
 

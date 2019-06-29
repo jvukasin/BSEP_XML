@@ -65,7 +65,7 @@
             </div>
             <div class="col-5">
               <input formControlName="distanceFromCity" min="0" required
-              type="number" class="form-ctrl distance" placeholder="Distance from city">
+              type="number" class="form-ctrl distance" (keydown)="onKeydown($event)" placeholder="Distance from city">
               
               <span class="after-input">km</span>
             </div>
@@ -129,7 +129,7 @@
         <!-- DEFAULT PRICE -->
         <div class="form-group">
             <input formControlName="defaultPrice" required min="0"
-              type="number" class="form-ctrl price" placeholder="Price">
+              type="number" class="form-ctrl price" (keydown)="onKeydown($event)" placeholder="Price">
               
             <span class="after-input">€ / night</span>
         </div>
@@ -143,7 +143,7 @@
         <!-- CANCELlATION PERIOD -->
         <div class="form-group">
             <input formControlName="cancellationPeriod" required min="0"
-              type="number" class="form-ctrl price" placeholder="Cancellation period">
+              type="number" class="form-ctrl price" (keydown)="onKeydown($event)" placeholder="Cancellation period">
               
             <span class="after-input">days</span>
         </div>

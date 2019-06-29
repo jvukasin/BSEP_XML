@@ -132,15 +132,24 @@ insert into role values (2, 'ROLE_USER');
 insert into role values (3, 'ROLE_AGENT');
 
 
-insert into privilege values (1 , 'TEST');
+insert into privilege values (1, 'CREATE_AU_UNIT');
+insert into privilege values (2, 'CREATE_RESERVATION');
+insert into privilege values (3, 'SUCCESS_RESERVATION');
+insert into privilege values (4, 'POST_MESSAGE');
+insert into privilege values (5, 'GET_MESSAGES');
 
+insert into roles_privileges values (3, 1);
+insert into roles_privileges values (3, 2);
+insert into roles_privileges values (3, 3);
+insert into roles_privileges values (3, 4);
+insert into roles_privileges values (3, 5);
 
 insert into user_roles values ('dovla',1);
 insert into user_roles values ('laza',3);
 insert into user_roles values ('tjokarda',3);
 insert into user_roles values ('miladinovski',3);
 
-insert into roles_privileges values (1,1);
+
 
 
 

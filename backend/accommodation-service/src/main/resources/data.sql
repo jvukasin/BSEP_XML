@@ -28,6 +28,9 @@ insert into privilege values (11, 'REMOVE_AMENITY');
 
 
 insert into privilege values (12, 'CREATE_RESERVATION');
+insert into privilege values (13, 'CANCEL_RESERVATION');
+insert into privilege values (14, 'POST_MESSAGE');
+insert into privilege values (15, 'GET_MESSAGES');
 
 
 # ************ PRIVILEGIJE  ************
@@ -46,6 +49,9 @@ insert into roles_privileges values (1,10);
 insert into roles_privileges values (1,11);
 
 insert into roles_privileges values (2, 12);
+insert into roles_privileges values (2, 13);
+insert into roles_privileges values (2, 14);
+insert into roles_privileges values (2, 15);
 
 insert into roles_privileges values (3, 12);
 
@@ -56,6 +62,7 @@ insert into user_roles values ('laza',3);
 insert into user_roles values ('tjokarda',3);
 insert into user_roles values ('miladinovski',3);
 insert into user_roles values ('mare', 2);
+insert into user_roles values ('vule', 2);
 
 
 insert into accommodation_type (name) values ('Hotel'), ('Hostel'), ('Motel'), ('BnB'), ('Apartment'), ('Studio'), ('Entire house');

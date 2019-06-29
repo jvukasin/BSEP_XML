@@ -9,6 +9,8 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
+  errorInpBool: boolean = false;
 
   loginForm = new FormGroup ({
      username: new FormControl(),
@@ -21,19 +23,24 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit(){
+    const usr = this.loginForm.value.username;
+
     let user = {
-      username: this.loginForm.value.username,
+      username: usr,
       password: this.loginForm.value.password
     }
-    
-    this.authService.login(user).subscribe(
-      (response) => {
-        this.router.navigate(['/']);
-      },
-      (error) => { alert("User not logged in.") }
-    )
 
-    this.loginForm.reset();
+    if(usr.includes('<') || usr.includes(' ') || usr.includes('>') || usr.includes(';')) {
+      this.errorInpBool = true;
+    } else {
+      this.errorInpBool = false;
+      this.authService.login(user).subscribe(
+        (response) => {
+          this.router.navigate(['/']);
+        },
+        (error) => { alert("User not logged in.") }
+      )
+    }
   }
 
 }

@@ -4,6 +4,7 @@ package com.megatravel.authservice.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.*;
 
 
@@ -36,6 +37,7 @@ public class AccommodationType {
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/MegaTravel/soap_accommodation_unit", required = true)
     @Id
+    @NotNull
     @Column(name = "name", nullable = false)
     protected String type;
 
