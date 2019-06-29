@@ -166,10 +166,23 @@ public class AccommodationUnitService
 		return ret;
 	}
 
-	public void calculateAvg(Long accommodationId){
-		AccommodationUnit au = accommodationRepo.findOneById(accommodationId);
-		
+	public void calculateAvg(RatingDTO ratingDTO, RatingAverageDTO ratingAverageDTO){
+		AccommodationUnit au = accommodationRepo.findOneById(ratingDTO.getAccommodation_id());
 
+		System.out.println("REJTING: " + ratingDTO.getValue());
+		System.out.println("STARI AVG: " + ratingAverageDTO.getRatingAvg());
+		System.out.println("BROJ REJTINGA: " + ratingAverageDTO.getNo_ratings());
+
+		int sum = (int) (ratingAverageDTO.getNo_ratings() * ratingAverageDTO.getRatingAvg());
+
+		System.out.println("SUMA REJTINGA: " + sum);
+
+		double newAvg = ( sum + ratingDTO.getValue() ) / (ratingAverageDTO.getNo_ratings() + 1);
+
+		System.out.println("NEW AVG: " + String.valueOf(newAvg));
+
+		au.setRatingAvg(newAvg);
+		au = accommodationRepo.save(au);
 	}
 	
 
