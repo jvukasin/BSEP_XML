@@ -29,6 +29,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReservationService } from './services/reservation.service';
 import { MessagesComponent } from './profile/messages/messages.component';
 import { AgentService } from './services/agent.service';
+import { RatingFormComponent } from './profile/rating-form/rating-form.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AgentService } from './services/agent.service';
     AccommodationListComponent,
     AccommodationComponent,
     ProfileComponent,
-    MessagesComponent
+    MessagesComponent,
+    RatingFormComponent
   ],
   imports: [
     BrowserModule,
