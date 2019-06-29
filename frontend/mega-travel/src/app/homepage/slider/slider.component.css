@@ -1,13 +1,13 @@
 .hero-wrap {
     background-image: url('../../../assets/images/bg_1.jpg');
-    height: 580px;
+    height: 100vh;
     margin-top: -10px;
 }
 
 
 
 .hero-wrap .slider-text {
-    padding-top: 130px;
+    padding-top: 80px;
     text-align: center;
 }
 
