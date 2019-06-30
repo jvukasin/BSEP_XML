@@ -2792,3 +2792,7 @@ Set-cookie: Tamper=cc61a1e7-efe4-498d-bb1a-02693b0c4a86
 2019-06-30 02:14:23,211 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-1] AU_SEARCH_SUCCESS
 2019-06-30 02:15:21,763 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH
 2019-06-30 02:15:21,824 INFO com.megatravel.accommodationservice.service.Logging [https-jsse-nio-8442-exec-5] AU_SEARCH_SUCCESS
+2019-06-30 11:30:13,019 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-30 11:30:29,432 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 29.221 seconds (JVM running for 35.248)
+2019-06-30 11:33:06,525 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-06-30 11:33:30,539 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 33.471 seconds (JVM running for 37.696)

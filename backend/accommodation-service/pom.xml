@@ -12,6 +12,7 @@
 	<artifactId>accommodation-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>accommodation-service</name>
+	<packaging>jar</packaging>
 	<description>Accommodation service</description>
 
 	<properties>
