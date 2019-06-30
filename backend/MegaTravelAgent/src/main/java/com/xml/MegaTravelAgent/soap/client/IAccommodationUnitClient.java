@@ -14,4 +14,6 @@ public interface IAccommodationUnitClient {
     DeleteAccommodationUnitResponse deleteAccommodationUnit(Long accommodationUnitId, String agentUsername);
 
     GetAccommodationSettingsResponse getAccommodationSettings();
+
+    GetAURatingsResponse getAURatings(Long accommodationUnitId);
 }

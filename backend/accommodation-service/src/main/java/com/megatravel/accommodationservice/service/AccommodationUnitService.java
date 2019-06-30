@@ -302,7 +302,25 @@ public class AccommodationUnitService
 	}
 	
 	
-	
+	public Rating formRatingFromDTO (RatingDTO rDTO) {
+
+		Rating r = new Rating();
+		r.setId(rDTO.getId());
+		r.setAccommodationId(rDTO.getAccommodation_id());
+		r.setPostingDate(rDTO.getPosting_date());
+		r.setReservator(rDTO.getReservator());
+		r.setValue(rDTO.getValue());
+		r.setComment(rDTO.getComment());
+
+		if (rDTO.getApproved() == 1) {
+			r.setApproved(true);
+		} else {
+			r.setApproved(false);
+		}
+
+		return r;
+
+	}
 	
 	
 	

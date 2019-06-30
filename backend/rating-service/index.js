@@ -63,7 +63,7 @@ exports.getRatingAverage = function getRatingAverage(req, res) {
 
 exports.approveComment = function approveComment(req, res) {
     let id = req.body.id;
-    connection.query("UPDATE `rating` SET `approve` = "1" where id = "+id,
+    connection.query("UPDATE `rating` SET `approve` = 1 where id = "+id,
 	(err, result)=> {
 	    if (err) res.status(400).send(err);
 	    else {

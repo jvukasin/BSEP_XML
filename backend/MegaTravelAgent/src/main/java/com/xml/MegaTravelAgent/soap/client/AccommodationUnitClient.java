@@ -97,5 +97,20 @@ public class AccommodationUnitClient extends WebServiceGatewaySupport implements
 		return response;
 	}
 
+	@Override
+	public GetAURatingsResponse getAURatings(Long accommodationUnitId) {
+
+
+		System.out.println("getAURatings client");
+
+		GetAURatingsRequest request = new GetAURatingsRequest();
+		request.setAccommodationUnitId(accommodationUnitId);
+
+		GetAURatingsResponse response = (GetAURatingsResponse) getWebServiceTemplate()
+				.marshalSendAndReceive(ENDPOINT_URI, request);
+
+		return response;
+	}
+
 
 }

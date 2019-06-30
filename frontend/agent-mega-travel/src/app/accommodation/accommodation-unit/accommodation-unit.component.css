@@ -36,6 +36,16 @@ h3 {
     
 }
 
+.au-content {
+    transition: all 0.3s;
+}
+
+.au-content:hover {
+    
+    box-shadow: 0px 3px 9px 5px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s;
+}
+
 
 .au-heading-info {
     flex: 1 1 60%;
@@ -251,4 +261,68 @@ td.sp-price {
 
 .btn.reserve {
     width: 100%;
+}
+
+
+.feedback h4 {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 2;
+}
+
+.au-one-rating {
+    margin-top: 20px;
+}
+
+.rating-heading {
+    padding: 8px 18px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    color: var(--rosa);
+    border-bottom: 3px solid var(--rosa);
+    align-items: center;
+}
+
+.rating-heading .username {
+    font-weight: 700;
+    font-size: 23px;
+}
+
+.rating-heading .date {
+    font-weight: 500;
+    font-size: 21px;
+    color: gray;
+}
+
+.rating-content {
+    background: white;
+    padding: 35px;
+    transition: all 0.3s;
+}
+
+.rating-content:hover {
+    
+    box-shadow: 0px 3px 9px 5px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s;
+}
+
+.rating-comment {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.rating-value {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+
+}
+
+.value {
+    color: var(--rosa);
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 0;
 }

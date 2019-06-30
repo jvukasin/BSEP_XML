@@ -15,6 +15,8 @@ public interface IAccommodationUnitEndpoint {
 
     GetAccommodationSettingsResponse getAccommodationSettingsResponse(GetAccommodationSettingsRequest request);
 
+    GetAURatingsResponse getAURatings(GetAURatingsRequest request);
+
 
 
 }
