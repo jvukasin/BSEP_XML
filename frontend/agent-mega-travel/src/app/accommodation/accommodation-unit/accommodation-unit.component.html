@@ -133,7 +133,11 @@
 		<div class="au-content mt-5">
 			<div class="feedback">
 				<h2>Feedback</h2>
-				<h4><strong>{{ ratings.length }}</strong>  guests have rated their experience with an average rating of <strong>{{ ratingAvg.toFixed(1) }}</strong> </h4>
+				<div *ngIf="ratings">
+
+					<h4 *ngIf="ratings.length == 0">No feedback recorded.</h4>
+					<h4 *ngIf="ratings.length > 0"><strong>{{ ratings.length }}</strong>  guests have rated their experience with an average rating of <strong>{{ ratingAvg.toFixed(1) }}</strong> </h4>
+				</div>
 			</div>
 
 		</div>

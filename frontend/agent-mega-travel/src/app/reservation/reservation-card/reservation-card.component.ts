@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ReservationCardComponent implements OnInit {
 	
+	showSuccessfulMark: boolean = false;
 	isMsgHovered: boolean = false;
 	@Input() reservation;
 
@@ -20,6 +21,11 @@ export class ReservationCardComponent implements OnInit {
 		this.reservation.startDate = moment(this.reservation.startDate).format('LL');
 		this.reservation.endDate = moment(this.reservation.endDate).format('LL');
 		
+		if (moment(this.reservation.startDate).isSameOrBefore(moment().format(), 'day')) {
+			console.log('showwww');
+			this.showSuccessfulMark = true;
+		}
+
 	}
 
 	onMarkSuccessful() {
