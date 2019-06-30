@@ -23,7 +23,7 @@
 
 					<div class="rating-location">
 						<div class="rating" *ngIf="ratigAvg !== -1">
-							{{ ratingAvg }}
+							{{ ratingAvg.toFixed(1) }}
 						</div>
 						<div class="location">
 							<i class="fa fa-map-marker"></i>
@@ -130,8 +130,42 @@
 			</div>
 		</div>
 
+		<div class="au-content mt-5">
+			<div class="feedback">
+				<h2>Feedback</h2>
+				<div *ngIf="ratings">
+
+					<h4 *ngIf="ratings.length == 0">No feedback recorded.</h4>
+					<h4 *ngIf="ratings.length > 0"><strong>{{ ratings.length }}</strong>  guests have rated their experience with an average rating of <strong>{{ ratingAvg.toFixed(1) }}</strong> </h4>
+				</div>
+			</div>
+
+		</div>
+
+		<div *ngFor="let r of ratings" class="au-one-rating">
+			<div class="rating-heading">
+				<span class="username">{{ r.reservator }}</span>
+				<span class="date">{{ r.postingDate | date:'medium'}}</span>
+			</div>
+			<div class="rating-content">
+				<div class="rating-comment">
+					<span *ngIf="!r.comment">Guest has not left any comment.</span>
+					<span *ngIf="r.comment">{{r.comment}}</span>
+				</div>
+
+				<div class="rating-value">
+					<div class="value">
+						{{r.value}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+
 		
 	</div>
+
 
 </div>
 

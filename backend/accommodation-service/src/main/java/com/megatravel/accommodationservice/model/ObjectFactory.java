@@ -201,4 +201,21 @@ public class ObjectFactory {
         return new Message();
     }
 
+    /**
+     * Create an instance of {@link GetAURatingsRequest }
+     *
+     */
+    public GetAURatingsRequest createGetAURatingsRequest() {
+        return new GetAURatingsRequest();
+    }
+
+
+    /**
+     * Create an instance of {@link GetAURatingsResponse }
+     *
+     */
+    public GetAURatingsResponse createGetAURatingsResponse() {
+        return new GetAURatingsResponse();
+    }
+
 }

@@ -14,4 +14,8 @@ import { HttpClient } from '@angular/common/http';
           return this.http.get('api/accommodationservice/ratings/unapproved');
       }
 
+      approveComment(ratingId){
+        return this.http.put('api/accommodationservice/ratings/approve', ratingId);
+      }
+
   }

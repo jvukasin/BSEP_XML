@@ -2,15 +2,13 @@ package com.xml.MegaTravelAgent.controller;
 
 import com.xml.MegaTravelAgent.dto.*;
 import com.xml.MegaTravelAgent.exceptions.BusinessException;
-import com.xml.MegaTravelAgent.model.AccommodationCategory;
-import com.xml.MegaTravelAgent.model.AccommodationUnit;
-import com.xml.MegaTravelAgent.model.Amenity;
+import com.xml.MegaTravelAgent.model.*;
 import com.xml.MegaTravelAgent.security.TokenUtils;
 import com.xml.MegaTravelAgent.service.AccommodationUnitService;
 import com.xml.MegaTravelAgent.service.AmenityService;
 import com.xml.MegaTravelAgent.service.Logging;
 import com.xml.MegaTravelAgent.soap.client.IAccommodationUnitClient;
-import com.xml.MegaTravelAgent.model.AccommodationType;
+import com.xml.MegaTravelAgent.soap.reqres.GetAURatingsResponse;
 import com.xml.MegaTravelAgent.soap.reqres.GetAccommodationSettingsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -175,16 +173,20 @@ public class AccommodationUnitController {
 		return new ResponseEntity<AccommodationSettingsDTO>(settingsDTO, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/ratings", method = RequestMethod.GET)
-	public ResponseEntity<?> fetchRatings(HttpServletRequest request) {
+	@RequestMapping(value = "/{id}/ratings", method = RequestMethod.GET)
+	public ResponseEntity<?> fetchRatings(@PathVariable Long id) {
 
-		String username = getUsernameFromRequest(request);
+		GetAURatingsResponse response = auClient.getAURatings(id);
 
-		if (username == null) {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		FeedbackDTO feedbackDTO = new FeedbackDTO();
+
+		for (Rating r: response.getRating()) {
+			feedbackDTO.getRatings().add(new RatingDTO(r));
 		}
 
-		return  new ResponseEntity<>(HttpStatus.OK);
+		feedbackDTO.setRatingAvg(response.getRatingAvg());
+
+		return  new ResponseEntity<>(feedbackDTO, HttpStatus.OK);
 
 	}
 
