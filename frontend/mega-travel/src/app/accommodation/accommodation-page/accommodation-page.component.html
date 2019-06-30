@@ -71,7 +71,7 @@
           <h4>Rating:</h4>
           <div class="rating-content">
             <div class="rate-div">
-              <span [ngStyle]="ratingColor" class="rate-circle">{{acu.ratingAvg}}</span>
+              <span [ngStyle]="ratingColor" class="rate-circle">{{acu.ratingAvg.toFixed(1)}}</span>
             </div>
             <div class="rate-div">
               <p class="rate-text">

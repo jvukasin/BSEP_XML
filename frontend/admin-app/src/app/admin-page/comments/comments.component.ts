@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RatingService } from 'src/app/service/rating.service';
 
 @Component({
   selector: 'app-comments',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsComponent implements OnInit {
 
-  constructor() { }
+  ratings: any;
+
+  constructor(private ratingService: RatingService) { }
 
   ngOnInit() {
+    this.ratingService.getAllUnapproved().subscribe(
+      (data) => {
+        this.ratings = data;
+      }
+    )
   }
+
+
+  approveComment(ratingId){
+    
+  }
+
+
 
 }

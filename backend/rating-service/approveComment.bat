@@ -1,0 +1,1 @@
+npx @googlecloud/functions-framework --target=approveComment --port 8335
