@@ -21,6 +21,7 @@ import { AgentService } from './service/agent.service';
 import { TypeService } from './service/type.service';
 import { CategoryService } from './service/categories.service';
 import { ApproveAgentComponent } from './admin-page/approve-agent/approve-agent.component';
+import { RatingService } from './service/rating.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ApproveAgentComponent } from './admin-page/approve-agent/approve-agent.
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ AuthService, UserService, AmenityService, AgentService, TypeService, CategoryService,
+  providers: [ AuthService, UserService, AmenityService, AgentService, TypeService, CategoryService, RatingService,
               {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true} ],
   bootstrap: [AppComponent]
 })
