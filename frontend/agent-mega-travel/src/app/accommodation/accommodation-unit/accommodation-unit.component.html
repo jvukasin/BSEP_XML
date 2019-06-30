@@ -22,8 +22,8 @@
 					</div>
 
 					<div class="rating-location">
-						<div class="rating">
-							{{ accommodationUnit.ratingAvg }}
+						<div class="rating" *ngIf="ratigAvg !== -1">
+							{{ ratingAvg }}
 						</div>
 						<div class="location">
 							<i class="fa fa-map-marker"></i>

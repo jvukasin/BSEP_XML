@@ -16,6 +16,8 @@ export class AccommodationUnitComponent implements OnInit {
 	accommodationUnit: any = null;
 	category: any = [];
 	pricePlan: any = null;
+	ratings: any = null;
+	ratingAvg: number = -1;
 	showReservationForm: boolean = false;
 	today = moment().format("YYYY-MM-DD");
 	tommorrow = moment().add(1, 'days').format("YYYY-MM-DD");
@@ -54,7 +56,16 @@ export class AccommodationUnitComponent implements OnInit {
 				} 
 			},
 			error => alert("Can't get accommodation unit.")
-		)
+		);
+		
+
+		this.acService.getAURatings(this.id).subscribe(
+			(payload: any) => {
+				this.ratings = payload.ratings;
+				this.ratingAvg = payload.ratingAvg;
+			}, error => alert(error)
+		);
+
 
 
 		
