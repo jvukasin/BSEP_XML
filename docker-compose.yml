@@ -17,7 +17,7 @@ services:
       context: ./backend/api-gateway
       dockerfile: Dockerfile
     ports:
-      - "8440"
+      - "8090:8090"
     depends_on:
       - eureka
     links:

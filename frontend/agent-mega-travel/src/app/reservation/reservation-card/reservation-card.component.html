@@ -2,7 +2,7 @@
 	<div class="rc-heading">
 		<h2>Reservation #{{reservation.id}}</h2>
 
-		<button class="btn btn-primary" *ngIf="!reservation.successful" (click)="onMarkSuccessful()">MARK SUCCESSFUL</button>
+		<button class="btn btn-primary" *ngIf="!reservation.successful && showSuccessfulMark" (click)="onMarkSuccessful()">MARK SUCCESSFUL</button>
 		
 		<button class="btn btn-primary successful" *ngIf="reservation.successful" >succesfull <i class="fa fa-check"></i></button>
 	</div>
