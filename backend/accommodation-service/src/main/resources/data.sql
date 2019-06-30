@@ -261,3 +261,6 @@ VALUES (101,'2019-06-27 00:00:00',false,559,'2019-06-24 00:00:00',14,'vule');
 
 INSERT INTO reservation (id, end_date, is_successful , price , start_date , accommodation_unit_id , reservator_username )
 VALUES (102,'2019-06-27 00:00:00',false,559,'2019-06-24 00:00:00',14,'mare');
+
+INSERT INTO reservation (id, end_date, is_successful , price , start_date , accommodation_unit_id , reservator_username )
+VALUES (103,'2019-08-24 00:00:00',false,559,'2019-07-27 00:00:00',4,'mare');

@@ -1,9 +1,10 @@
 const connection = require('./database')
+var moment = require('moment');
 
 exports.addRating = function addRating(req, res) {
 	let value = req.body.value;
 	let approved = req.body.approved;
-	let posting_date = req.body.posting_date;
+	let posting_date = moment().format("YYYY-MM-DD HH:mm:ss");
 	let comment = req.body.comment;
 	let accommodation_id = req.body.accommodation_id;
 	let reservator = req.body.reservator;
@@ -63,9 +64,10 @@ exports.getRatingAverage = function getRatingAverage(req, res) {
 
 exports.approveComment = function approveComment(req, res) {
     let id = req.body.id;
-    connection.query("UPDATE `rating` SET `approve` = 1 where id = "+id,
+    console.log(id);
+    connection.query("UPDATE rating SET approved = 1 where id = " + id,
 	(err, result)=> {
-	    if (err) res.status(400).send(err);
+	    if (err) { console.log(err); res.status(400).send(err); }
 	    else {
 		res.status(200).send("Updated");
 	    }

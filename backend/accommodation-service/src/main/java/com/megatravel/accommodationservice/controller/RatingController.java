@@ -3,6 +3,7 @@ package com.megatravel.accommodationservice.controller;
 import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
 import com.megatravel.accommodationservice.dto.RatingAverageDTO;
 import com.megatravel.accommodationservice.dto.RatingDTO;
+import com.megatravel.accommodationservice.dto.RatingIdDTO;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.security.TokenUtils;
 import com.megatravel.accommodationservice.service.AccommodationUnitService;
@@ -103,6 +104,19 @@ public class RatingController {
         List<RatingDTO> ratings = response.getBody();
 
         return new ResponseEntity(ratings, HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value = "/approve", method = RequestMethod.PUT)
+    public ResponseEntity<?> approveComment(@RequestBody RatingIdDTO id){
+
+        try{
+            template.put("http://localhost:8335/approveComment", id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(HttpStatus.OK);
 
     }
 

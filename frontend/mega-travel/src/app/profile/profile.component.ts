@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 import { AgentService } from '../services/agent.service';
 import { AuthService } from '../services/auth.service';
-
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-profile',
@@ -37,6 +37,7 @@ export class ProfileComponent implements OnInit {
     this.reservationService.getUserReservations().subscribe(
       (data) => {
         this.reservationList = data;
+        this.reservationList = _.orderBy(this.reservationList, ['endDate'], ['desc']);
         if(this.reservationList.length === 0){
           //korisnik nema napravljene rezervacije - swal ili u html ?
         }
