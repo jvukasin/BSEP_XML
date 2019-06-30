@@ -6,6 +6,7 @@ import com.megatravel.accommodationservice.dto.RatingDTO;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.security.TokenUtils;
 import com.megatravel.accommodationservice.service.AccommodationUnitService;
+import com.netflix.ribbon.proxy.annotation.Http;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
@@ -86,6 +87,21 @@ public class RatingController {
         String response = template.postForObject("http://localhost:8332/addRating", entity, String.class);
 
         return new ResponseEntity(response, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/unapproved", method = RequestMethod.GET)
+    public ResponseEntity<List<RatingDTO>> getAllUnapprovedRatings(){
+
+        ResponseEntity<List<RatingDTO>> response = template.exchange(
+                "http://localhost:8334/getAllUnapprovedRatings",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<RatingDTO>>(){});
+
+        List<RatingDTO> ratings = response.getBody();
+
+        return new ResponseEntity(ratings, HttpStatus.OK);
+
     }
 
 }

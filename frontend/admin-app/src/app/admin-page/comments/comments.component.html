@@ -1,34 +1,16 @@
 <div class="container" style="padding-top:50px">
-  <div class="card border-dark mb-3 fadeIn" style="max-width: 50rem;">
-    <div class="card-header" style="font-size: 25px; font-weight: 600">Milan Lazic </div>
-      <div class="card-body text-dark">
-        <h5 class="card-title"> Rating: 7.5 </h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <div class="card-footer border-dark">
-          <button type="button" class="btn btn-success" style="float:right"> Approve </button>
-      </div>
-  </div>
-   <div class="card border-dark mb-3 fadeIn" style="max-width: 50rem;">
-    <div class="card-header" style="font-size: 25px; font-weight: 600"> Aleksa Krsmanovic </div>
-      <div class="card-body text-dark">
-        <h5 class="card-title"> Rating: 7.5 </h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <div class="card-footer border-dark">
-          <button type="button" class="btn btn-success" style="float:right"> Approve </button>
-      </div>
-  </div>
-  <div class="card border-dark mb-3 fadeIn" style="max-width: 50rem;">
-    <div class="card-header" style="font-size: 25px; font-weight: 600"> Vukasin Jovic </div>
-      <div class="card-body text-dark">
-        <h5 class="card-title"> Rating: 7.5 </h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <div class="card-footer border-dark">
-          <button type="button" class="btn btn-success" style="float:right"> Approve </button>
-      </div>
-  </div>
 
-
+<div *ngFor="let rating of ratings">
+  <div class="card border-dark mb-3 fadeIn" style="max-width: 50rem;">
+    <div class="card-header" style="font-size: 25px; font-weight: 600"> {{rating.reservator}} </div>
+      <div class="card-body text-dark">
+        <h5 class="card-title"> Rating: {{ rating.value }} </h5>
+        <p class="card-text"> {{ rating.comment }}</p>
+        <i> {{ rating.posting_date | date : 'yyyy-MM-dd' }} </i>
+      </div>
+      <div class="card-footer border-dark">
+          <button type="button" class="btn btn-success" style="float:right" (click)="approveComment(rating.id)"> Approve </button>
+      </div>
+  </div>
+</div>
 </div>
