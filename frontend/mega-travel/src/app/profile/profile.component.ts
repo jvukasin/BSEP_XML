@@ -145,6 +145,7 @@ export class ProfileComponent implements OnInit {
 
   ratingSubmitted(response){
       alert(response);
+      this.showFormDialog = false;
   }
 
   
