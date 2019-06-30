@@ -81,7 +81,6 @@ export class AccommodationPageComponent implements OnInit {
     this.accService.getAUApprovedRatings(this.id).subscribe(
       (data) => {
         this.allRatings = data;
-        this.ratingNo = this.allRatings.length;
       }, (error) => {
         Swal.fire({
           type: 'error',

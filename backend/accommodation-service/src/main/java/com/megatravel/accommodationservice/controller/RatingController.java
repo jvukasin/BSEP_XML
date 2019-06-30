@@ -43,13 +43,15 @@ public class RatingController {
     @RequestMapping(value = "/average/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getAverageRating(@PathVariable Long id)
     {
-        ResponseEntity<RatingAverageDTO> response = template.exchange(
+        ResponseEntity<List<RatingAverageDTO>> responseAvg = template.exchange(
                 "http://localhost:8330/getRatingAverage?id="+id,
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<RatingAverageDTO>(){});
-        RatingAverageDTO d = response.getBody();
-        return new ResponseEntity<>(d, HttpStatus.OK);
+                new ParameterizedTypeReference<List<RatingAverageDTO>>(){});
+
+        List<RatingAverageDTO> ratingAverageDTO = (List<RatingAverageDTO>) responseAvg.getBody();
+        RatingAverageDTO retVal = ratingAverageDTO.iterator().next();
+        return new ResponseEntity<>(retVal, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

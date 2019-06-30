@@ -203,11 +203,11 @@ INSERT INTO location (id, coordinates, distance_from_city, city_id) values
 
 INSERT INTO accommodation_unit (id, cancellation_period, capacity, category, default_price, description, name, price, rating_avg, type, agent_username, location_id) values
 
-(1, 15, 4, 5, 220, 'Lovely apartment near the city center hosted by BBF Enterprise company. Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Apartment BBF', 220, 9.6, 'apartment', 'tjokarda', 1),
+(1, 15, 4, 5, 220, 'Lovely apartment near the city center hosted by BBF Enterprise company. Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Apartment BBF', 220, 9.33, 'apartment', 'tjokarda', 1),
 (2, 20, 2, 3, 118, 'Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Hostel room', 118, 8.4, 'hostel', 'tjokarda', 4),
 (3,10,5,-1,60,'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who wants to spend great time in Madrid!','Chilare classico',0,0,'studio','laza',5),
 (14,7,5,-1,135,'Casa apartamento muy acogedor en la calle Ribera de Bilbao, a 50 metros del Teatro Arriaga. Se trata de un último piso con ascensor, con vistas a los tejados del Casco Viejo, silencioso y tranquilo pero a la vuelta de la esquina de la zona peatonal.','Tranquilidad en el Casco Viejo',0,0,'entire house','laza',13),
-(4, 18, 4, 3, 176, 'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who want to spend great time in Novi Sad!', 'Hotel Gajic', 176, 9.0, 'Hotel', 'tjokarda', 6);
+(4, 18, 4, 3, 176, 'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who want to spend great time in Novi Sad!', 'Hotel Gajic', 176, 0, 'Hotel', 'tjokarda', 6);
 
 
 INSERT INTO image (id, image_url, accommodation_unit_id) values
@@ -248,7 +248,9 @@ INSERT INTO accommodationunit_amenity (accommodation_unit_id, amenity_id) VALUES
 (14,5),
 (14,10),
 (14,11),
-(14,12);
+(14,12),
+(4, 3),
+(4, 5);
 
 insert into accommodationunit_amenity (amenity_id, accommodation_unit_id) values
 (1, 1), (2, 1), (3, 1), (5, 1), (4, 1), (12, 1), (4, 2), (6, 2), (10, 2);
