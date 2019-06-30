@@ -4,16 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import com.megatravel.authservice.model.*;
+import com.megatravel.authservice.repository.ReservationRepo;
+import com.megatravel.authservice.repository.ReservationRepository;
+import com.megatravel.authservice.repository.RoleRepository;
 import com.megatravel.authservice.soap.reqres.AgentSOAP;
+import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.megatravel.authservice.dto.AgentDTO;
 import com.megatravel.authservice.dto.UserListDTO;
-import com.megatravel.authservice.model.Agent;
-import com.megatravel.authservice.model.TPerson;
-import com.megatravel.authservice.model.User;
 import com.megatravel.authservice.repository.TPersonRepository;
 
 import exceptions.BusinessException;
@@ -23,6 +25,13 @@ public class TPersonService {
 
     @Autowired
     private TPersonRepository tPersonRepo;
+
+    @Autowired
+	private RoleRepository roleRepo;
+
+    @Autowired
+	private ReservationRepository resRepo;
+
 
     public TPerson findOneByUsername(String username) {
         return tPersonRepo.findOneByUsername(username);
@@ -52,7 +61,7 @@ public class TPersonService {
 		for (TPerson person : users) {
 			if (person instanceof User) {
 				User user = (User) person;
-				if(user.getStatus().equals("Blocked")){
+				if(user.getStatus().equals("blocked")){
 					retVal.add(new UserListDTO(user.getUsername(),user.getEmail(),user.getName(), user.getLastname(), user.getStatus()));
 				}
 
@@ -88,13 +97,13 @@ public class TPersonService {
 
     public void blokUser(String username) {
         User user = (User) tPersonRepo.findOneByUsername(username);
-        user.setStatus("Blocked");
+        user.setStatus("blocked");
         tPersonRepo.save(user);
     }
 
     public void activateUser(String username) {
         User user = (User) tPersonRepo.findOneByUsername(username);
-        user.setStatus("Active");
+        user.setStatus("active");
         tPersonRepo.save(user);
 
     }
@@ -107,16 +116,30 @@ public class TPersonService {
 
     public Agent approveAgent(String username){
     	User user = (User) tPersonRepo.findOneByUsername(username);
+		List<Reservation> reservations = resRepo.getUserReservations(user.getUsername());
+		for(Reservation r : reservations) {
+			r.setReservator(null);
+			r = resRepo.save(r);
+		}
+
+    	System.out.print("USERNAME : " + user.getUsername());
     	tPersonRepo.deleteById(username);
-		Agent agent = new Agent();
+		System.out.print("USERNAME : " + user.getUsername());
+    	Agent agent = new Agent();
 		agent.setUsername(user.getUsername());
 		agent.setName(user.getName());
 		agent.setEmail(user.getEmail());
 		agent.setPassword(user.getPassword());
 		agent.setLastname(user.getLastname());
 		agent.setRole("agent");
+
 		//postaviti jos odgovarajuce role i privilegije
+		Role role = roleRepo.findOneById((long) 3);
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(role);
+		agent.setRoles(roles);
 		agent = tPersonRepo.save(agent);
+
 		return agent;
 	}
 

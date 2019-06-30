@@ -4,7 +4,7 @@ insert into tperson values ('ADMIN','dovla', 'dovla@gmail.com', null, 'Cvetanovi
 insert into tperson values ('AGENT','tjokarda', '123@gmail.com', null, 'Tjokic', 'Tjoki', '$2a$10$wYRK9iRSzBaJ.MzYhIVkxOdA5xhfRN6O7/ufSyftqFvpPnRJHxOOq', 'agent','rega01','active');
 INSERT INTO tperson VALUES ('AGENT','miladinovski','lazicy@gmail.com',NULL,'Lazic','Miladin','$2a$10$lQk76nAIG0IauNSBwtiePOpJOI0DM28HBPMs7.PCbcghPHdre39cu','agent','rega02','active');
 insert into tperson values ('USER','vule', 'vule@gmail.com', null, 'Jovic', 'Vukasin', '$2a$10$iOZf9I4olwlzBruCnSNxUuV5T5MilF7WYsppxAwFXKFRp/VLdfGVO', 'user','','active');
-insert into tperson values ('USER','mare', 'mare@gmail.com', null, 'Stevanov', 'Marko', '$2a$10$Fg1COHYp62aIB13w95QWZuyFc2FdwUOj37TfDOGQ7F1VHyJi1vsUq', 'user','','Blocked');
+insert into tperson values ('USER','mare', 'mare@gmail.com', null, 'Stevanov', 'Marko', '$2a$10$Fg1COHYp62aIB13w95QWZuyFc2FdwUOj37TfDOGQ7F1VHyJi1vsUq', 'user','','blocked');
 
 
 insert into role values (1, 'ROLE_ADMIN');
@@ -32,6 +32,12 @@ insert into privilege values (13, 'CANCEL_RESERVATION');
 insert into privilege values (14, 'POST_MESSAGE');
 insert into privilege values (15, 'GET_MESSAGES');
 
+insert into privilege values (16, 'CREATE_AU_UNIT');
+insert into privilege values (17, 'SUCCESS_RESERVATION');
+insert into privilege values (18, 'POST_MESSAGE');
+insert into privilege values (19, 'GET_MESSAGES');
+
+
 
 # ************ PRIVILEGIJE  ************
 
@@ -48,12 +54,17 @@ insert into roles_privileges values (1,9);
 insert into roles_privileges values (1,10);
 insert into roles_privileges values (1,11);
 
+
 insert into roles_privileges values (2, 12);
 insert into roles_privileges values (2, 13);
 insert into roles_privileges values (2, 14);
 insert into roles_privileges values (2, 15);
 
 insert into roles_privileges values (3, 12);
+insert into roles_privileges values (3, 16);
+insert into roles_privileges values (3, 17);
+insert into roles_privileges values (3, 18);
+insert into roles_privileges values (3, 19);
 
 
 

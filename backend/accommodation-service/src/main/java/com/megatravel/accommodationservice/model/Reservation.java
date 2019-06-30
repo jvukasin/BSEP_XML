@@ -96,7 +96,7 @@ public class Reservation {
     @XmlAttribute(name = "id")
     protected Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
 	private TPerson reservator;
     
 	@OneToMany(mappedBy="reservation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

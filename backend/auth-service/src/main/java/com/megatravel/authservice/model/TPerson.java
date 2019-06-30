@@ -144,7 +144,7 @@ public class TPerson implements UserDetails {
     private Timestamp lastPasswordResetDate;
 
     @XmlElement(name = "Reservation", namespace = "http://www.ftn.uns.ac.rs/MegaTravel/reservation")
-    @OneToMany(mappedBy = "reservator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "reservator", cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
     protected List<Reservation> reservation;
 
     /**
