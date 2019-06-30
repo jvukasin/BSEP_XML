@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+  eureka:
+    image: discovery-server
+    container_name: discovery-server
+    build:
+      context: ./backend/discovery-service
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+
+  gateway:
+    image: api-gateway
+    container_name: api-gateway
+    build:
+      context: ./backend/api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8440"
+    depends_on:
+      - eureka
+    links:
+      - eureka:eureka
+
+  agent:
+    image: agent-service
+    container_name: agent-service
+    build:
+      context: ./backend/MegaTravelAgent
+      dockerfile: Dockerfile
+    ports:
+      - "8091"
+    depends_on:
+      - eureka
+    links:
+      - eureka:eureka
