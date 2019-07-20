@@ -17,7 +17,7 @@ services:
       context: ./backend/api-gateway
       dockerfile: Dockerfile
     ports:
-      - "8090:8090"
+      - "8440:8440"
     depends_on:
       - eureka
     links:
@@ -30,7 +30,46 @@ services:
       context: ./backend/MegaTravelAgent
       dockerfile: Dockerfile
     ports:
-      - "8091"
+      - "8445"
+    depends_on:
+      - eureka
+    links:
+      - eureka:eureka
+      
+  accommodation:
+    image: accommodation-service
+    container_name: accommodation-service
+    build:
+      context: ./backend/accommodation-service
+      dockerfile: Dockerfile
+    ports:
+      - "8442"
+    depends_on:
+      - eureka
+    links:
+      - eureka:eureka
+   
+  reservation:
+    image: reservation-service
+    container_name: reservation-service
+    build:
+      context: ./backend/reservation-service
+      dockerfile: Dockerfile
+    ports:
+      - "8443"
+    depends_on:
+      - eureka
+    links:
+      - eureka:eureka
+      
+  auth:
+    image: auth-service
+    container_name: auth-service
+    build:
+      context: ./backend/auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "8441"
     depends_on:
       - eureka
     links:
