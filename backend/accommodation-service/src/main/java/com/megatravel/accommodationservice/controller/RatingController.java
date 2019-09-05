@@ -1,9 +1,6 @@
 package com.megatravel.accommodationservice.controller;
 
-import com.megatravel.accommodationservice.dto.AccommodationUnitDTO;
-import com.megatravel.accommodationservice.dto.RatingAverageDTO;
-import com.megatravel.accommodationservice.dto.RatingDTO;
-import com.megatravel.accommodationservice.dto.RatingIdDTO;
+import com.megatravel.accommodationservice.dto.*;
 import com.megatravel.accommodationservice.model.AccommodationUnit;
 import com.megatravel.accommodationservice.security.TokenUtils;
 import com.megatravel.accommodationservice.service.AccommodationUnitService;
@@ -74,6 +71,10 @@ public class RatingController {
         String username = tokenUtils.getUsernameFromToken(token);
         ratingDTO.setReservator(username);
 
+        HttpEntity<RatingDTO> entity = new HttpEntity<RatingDTO>(ratingDTO);
+        String response = template.postForObject("http://localhost:8332/addRating", entity, String.class);
+
+        if (response.equals("added")) {
         // racunanje avg za unit prilikom upisa rejtinga
         ResponseEntity<List<RatingAverageDTO>> responseAvg = template.exchange(
                 "http://localhost:8330/getRatingAverage?id="+ratingDTO.getAccommodation_id(),
@@ -83,13 +84,13 @@ public class RatingController {
 
         List<RatingAverageDTO> ratingAverageDTO = (List<RatingAverageDTO>) responseAvg.getBody();
         RatingAverageDTO avgDTO = ratingAverageDTO.iterator().next();
-        accService.calculateAvg(ratingDTO, avgDTO);
 
+        AccommodationInfDTO adto = accService.setAUAvg(ratingDTO.getAccommodation_id(), avgDTO.getRatingAvg());
+        return new ResponseEntity(adto, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
-        HttpEntity<RatingDTO> entity = new HttpEntity<RatingDTO>(ratingDTO);
-        String response = template.postForObject("http://localhost:8332/addRating", entity, String.class);
-
-        return new ResponseEntity(response, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/unapproved", method = RequestMethod.GET)

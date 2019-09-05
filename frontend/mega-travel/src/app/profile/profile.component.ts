@@ -7,6 +7,7 @@ import * as $ from 'jquery';
 import { AgentService } from '../services/agent.service';
 import { AuthService } from '../services/auth.service';
 import * as _ from 'lodash';
+import { AccommodationService } from '../services/accommodation.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,10 +20,10 @@ export class ProfileComponent implements OnInit {
   user: any = null;
   isMessages: boolean = false;
   reservationForMessages = null;
-
   showFormDialog: boolean = false;
+  accToEdit: any;
 
-  constructor(private reservationService: ReservationService, private userService: UserService, private agentService: AgentService, private authService: AuthService) { }
+  constructor(private reservationService: ReservationService, private userService: UserService, private agentService: AgentService, private accService: AccommodationService ,private authService: AuthService) { }
 
   ngOnInit() {
 
@@ -130,13 +131,14 @@ export class ProfileComponent implements OnInit {
     var end = moment(endDate);
     var diff = today.diff(end, 'days');
     console.log(diff);
-    if(diff >= 1){
+    if(diff >= 1) {
       return true;
     }
     return false;
   }
 
-  leaveRating(){
+  leaveRating(ajdi){
+    this.accToEdit = ajdi;
     this.showFormDialog = true;
   }
 
@@ -145,7 +147,17 @@ export class ProfileComponent implements OnInit {
   }
 
   ratingSubmitted(response){
-      alert(response);
+      let acu = response;
+      console.log("rejting: " + acu.rating);
+      let k=0;
+      for(let i=0; i<this.reservationList.length; i++) {
+        if(this.reservationList[i].accommodation.id === acu.id) {
+          k=i;
+          break;
+        }
+      }
+      acu.imageUrl = this.reservationList[k].accommodation.imageUrl;
+      this.reservationList[k].accommodation = acu;
       this.showFormDialog = false;
   }
 

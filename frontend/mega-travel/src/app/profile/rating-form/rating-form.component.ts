@@ -34,7 +34,7 @@ export class RatingFormComponent implements OnInit {
     this.accommodationService.postRating(rating).subscribe(
       (response) => {
         this.ratingSubmit.emit(response);
-      }
+      }, (error) => { alert(error) }
     )
   }
 

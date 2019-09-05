@@ -15,10 +15,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @Endpoint
@@ -150,13 +147,14 @@ public class AccommodationUnitEndpoint implements IAccommodationUnitEndpoint {
         System.out.println("Hit GetAURatings endpoint");
 
         GetAURatingsResponse response = factory.createGetAURatingsResponse();
+        List<RatingDTO> dtos = new ArrayList<RatingDTO>();
 
         ResponseEntity<List<RatingDTO>> responseCloudRatings = template.exchange(
                 "http://localhost:8331/getAURatings?id="+request.getAccommodationUnitId(),
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<RatingDTO>>(){});
-        List<RatingDTO> dtos = responseCloudRatings.getBody();
+        dtos = responseCloudRatings.getBody();
 
         for (RatingDTO dto: dtos) {
             Rating r = acService.formRatingFromDTO(dto);

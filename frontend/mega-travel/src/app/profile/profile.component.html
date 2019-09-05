@@ -57,7 +57,7 @@
                         <button type="button" class="close" (click)="onCloseForm()">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                      <app-rating-form (ratingSubmit)="ratingSubmitted($event)" [accommodationId]="reservation.accommodation.id"></app-rating-form>
+                      <app-rating-form (ratingSubmit)="ratingSubmitted($event)" [accommodationId]=accToEdit></app-rating-form>
                     </div>
                   </div>
                 </div>  
@@ -79,7 +79,7 @@
                         </h4> 
                         <h6 class="hotel-address"><i class="fa fa-map-marker"></i> {{ reservation.accommodation.location.coordinates }}, {{ reservation.accommodation.location.city.name }}, {{ reservation.accommodation.location.city.country.name }} </h6>
                         <div class="rating">
-                          <span class="rating-round">{{ reservation.accommodation.rating }}</span> <span class="no-revs">Based on X reviews</span>
+                          <span class="rating-round">{{ reservation.accommodation.rating.toFixed(1) }}</span>
                         </div>
       
                         <div class="price">

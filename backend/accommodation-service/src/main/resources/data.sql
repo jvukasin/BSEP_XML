@@ -77,7 +77,7 @@ insert into user_roles values ('vule', 2);
 
 
 insert into accommodation_type (name) values ('Hotel'), ('Hostel'), ('Motel'), ('BnB'), ('Apartment'), ('Studio'), ('Entire house');
-insert into accommodation_category values (1), (3), (5);
+insert into accommodation_category values (1), (3), (4), (5);
 
 
 INSERT INTO country (id, name) values
@@ -214,7 +214,7 @@ INSERT INTO location (id, coordinates, distance_from_city, city_id) values
 
 INSERT INTO accommodation_unit (id, cancellation_period, capacity, category, default_price, description, name, price, rating_avg, type, agent_username, location_id) values
 
-(1, 15, 4, 5, 220, 'Lovely apartment near the city center hosted by BBF Enterprise company. Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Apartment BBF', 220, 9.33, 'apartment', 'tjokarda', 1),
+(1, 15, 4, 5, 220, 'Lovely apartment near the city center hosted by BBF Enterprise company. Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Apartment BBF', 220, 0, 'apartment', 'tjokarda', 1),
 (2, 20, 2, 3, 118, 'Has a gym and a shopping center near by to add to your everyday outdoor routine.', 'Hostel room', 118, 8.4, 'hostel', 'tjokarda', 4),
 (3,10,5,-1,60,'Very nice apartment near city center very close to train station and main tourist attractions. Ideal option for young people who wants to spend great time in Madrid!','Chilare classico',0,0,'studio','laza',5),
 (14,7,5,-1,135,'Casa apartamento muy acogedor en la calle Ribera de Bilbao, a 50 metros del Teatro Arriaga. Se trata de un último piso con ascensor, con vistas a los tejados del Casco Viejo, silencioso y tranquilo pero a la vuelta de la esquina de la zona peatonal.','Tranquilidad en el Casco Viejo',0,0,'entire house','laza',13),

@@ -1,0 +1,7 @@
+2019-07-01 07:16:31,808 INFO org.springframework.boot.StartupInfoLogger [main] Starting MegaTravelAgentApplication on HPvj with PID 15212 (D:\git\BSEP_XML\backend\MegaTravelAgent\target\classes started by Vukasin in D:\git\BSEP_XML\backend\MegaTravelMBA)
+2019-07-01 07:16:31,942 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-07-01 07:16:31,944 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-07-01 07:16:43,327 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-07-01 07:17:06,523 INFO org.springframework.boot.StartupInfoLogger [main] Started MegaTravelAgentApplication in 36.605 seconds (JVM running for 47.344)
+2019-07-01 07:18:23,483 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-8] ULOG. Username: laza, IP ADDRESS: 127.0.0.1
+2019-07-01 07:18:24,215 INFO com.xml.MegaTravelAgent.service.Logging [https-jsse-nio-8445-exec-8] ULOG_SUCCESS

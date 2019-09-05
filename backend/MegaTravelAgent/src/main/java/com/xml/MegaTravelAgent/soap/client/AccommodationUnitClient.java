@@ -7,7 +7,7 @@ import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 public class AccommodationUnitClient extends WebServiceGatewaySupport implements IAccommodationUnitClient {
 
-	private static final String ENDPOINT_URI = "https://192.168.43.135:8440/accommodation-service/ws";
+	private static final String ENDPOINT_URI = "https://localhost:8440/accommodation-service/ws";
 
 
 	@Override

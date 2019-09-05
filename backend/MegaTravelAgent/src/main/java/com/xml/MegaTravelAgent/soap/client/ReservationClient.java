@@ -7,7 +7,7 @@ import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 public class ReservationClient extends WebServiceGatewaySupport implements IReservationClient {
 
-    private static final String ENDPOINT_URI = "https://192.168.43.135:8440/reservation-service/ws";
+    private static final String ENDPOINT_URI = "https://localhost:8440/reservation-service/ws";
 
 
     @Override

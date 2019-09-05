@@ -1,0 +1,11 @@
+2019-08-30 14:33:53,754 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-08-30 14:34:14,500 INFO org.springframework.boot.StartupInfoLogger [main] Started DiscoveryServiceApplication in 30.019 seconds (JVM running for 35.084)
+2019-08-30 14:34:25,477 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-08-30 14:34:36,228 DEBUG org.springframework.web.filter.GenericFilterBean [main] Filter 'CORS Filter' configured for use
+2019-08-30 14:34:44,241 INFO org.springframework.boot.StartupInfoLogger [main] Started ApiGatewayApplication in 29.035 seconds (JVM running for 34.55)
+2019-08-30 14:35:05,370 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-08-30 14:36:48,364 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-08-30 14:38:11,419 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-08-30 14:38:33,019 INFO org.springframework.boot.StartupInfoLogger [main] Started ReservationServiceApplication in 30.258 seconds (JVM running for 34.195)
+2019-08-30 14:41:39,171 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-08-30 14:41:59,460 INFO org.springframework.boot.StartupInfoLogger [main] Started AccommodationServiceApplication in 28.84 seconds (JVM running for 32.922)

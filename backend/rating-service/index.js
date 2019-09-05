@@ -10,7 +10,9 @@ exports.addRating = function addRating(req, res) {
 	let reservator = req.body.reservator;
     console.log(posting_date);
 	connection.query("insert into rating (value, approved, posting_date, comment, accommodation_id, reservator) values (?,?,?,?,?,?)",[value, approved, posting_date, comment, accommodation_id, reservator], (err, result) => {
-		if (err) res.status(400).send(err);
+		if (err) {
+		res.status(400).send(err);
+		console.log(err);}
 		else {
 			res.status(200).send('added');
 		}
@@ -36,9 +38,14 @@ exports.getAllUnapprovedRatings = function getAllUnapprovedRatings(req, res) {
 };
 
 exports.getAURatings = function getAURatings(req, res) {
+	console.log("usao u getAURatings");
     connection.query("select * from rating where accommodation_id="+req.query.id, (err, result) => {
-	if (err) res.status(400).send(err);
+	if (err) {
+		res.status(400).send(err);
+		console.log("error " + err);
+	}
 	else {
+		console.log("uradio getAURatings");
 		res.status(200).send(result);
 	}
   });
@@ -54,9 +61,11 @@ exports.getAUApprovedRatings = function getAUApprovedRatings(req, res) {
 };
 
 exports.getRatingAverage = function getRatingAverage(req, res) {
+	console.log("usao u getAURatings");
 	connection.query("select avg(value) as ratingAvg, count(value) as no_ratings from rating where accommodation_id="+req.query.id, (err, result) => {
 		if (err) res.status(400).send(err);
 		else {
+			console.log("uradio getAURatings");
 			res.status(200).send(result);
 		}
 	});
